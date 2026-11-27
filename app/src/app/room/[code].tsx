@@ -3,9 +3,10 @@
 import { useKeepAwake } from 'expo-keep-awake';
 import { router, Stack, useFocusEffect, useLocalSearchParams } from 'expo-router';
 import { useCallback, useEffect, useState } from 'react';
-import { ActivityIndicator, Alert, Pressable, Text, View } from 'react-native';
+import { ActivityIndicator, Pressable, Text, View } from 'react-native';
 import { setTvRoomUrl } from '../../../modules/groupcade-tv';
 import { TriviaHost } from '../../games/trivia/Host';
+import { dialog } from '../../ui/Dialog';
 import { api, links } from '../../lib/api';
 import { store, type SavedRoom } from '../../lib/store';
 import { useRoom } from '../../lib/useRoom';
@@ -49,13 +50,13 @@ export default function Room() {
   const { st, error, offline, act, now, refresh } = useRoom(code, saved ? saved.host : null, myTok);
 
   const leave = () =>
-    Alert.alert('Leave this room?', 'The room stays open for 2 hours, and you can come back to it from the home screen.', [
+    dialog.alert('Leave this room?', 'The room stays open for 2 hours, and you can come back to it from the home screen.', [
       { text: 'Stay', style: 'cancel' },
       { text: 'Leave', onPress: () => router.replace('/') },
     ]);
 
   const newRoom = () =>
-    Alert.alert('Close this room and make a new one?', 'Players will need the new code.', [
+    dialog.alert('Close this room and make a new one?', 'Players will need the new code.', [
       { text: 'Cancel', style: 'cancel' },
       {
         text: 'New room',
@@ -70,7 +71,7 @@ export default function Room() {
   const playToo = async () => {
     if (myName) return; // Already playing: answers go right on this screen.
     const last = (await store.name()) || '';
-    Alert.prompt(
+    dialog.prompt(
       'Play too',
       'Your name on the scoreboard. You answer right here on the host screen, like everyone else.',
       async (name) => {
@@ -83,7 +84,7 @@ export default function Room() {
           setMyName(r.name);
           setMyTok(r.token);
         } catch (e) {
-          Alert.alert('Could not join', (e as Error).message);
+          dialog.alert('Could not join', (e as Error).message);
         }
       },
       'plain-text',
