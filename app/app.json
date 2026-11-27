@@ -11,7 +11,7 @@
     ],
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "dark",
+    "userInterfaceStyle": "light",
     "ios": {
       "bundleIdentifier": "com.groupcade.app",
       "supportsTablet": false,
@@ -32,7 +32,7 @@
         {
           "image": "./assets/splash-icon.png",
           "imageWidth": 240,
-          "backgroundColor": "#15122B"
+          "backgroundColor": "#FFFDF7"
         }
       ],
       "./modules/groupcade-tv/app.plugin.js"

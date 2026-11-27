@@ -5,7 +5,7 @@
 // own screen, so they always show up on the phone.
 import { useEffect, useState } from 'react';
 import { KeyboardAvoidingView, Modal, Platform, Pressable, TextInput, View } from 'react-native';
-import { Button, C, Card, H2, P } from './kit';
+import { Button, C, Card, F, H2, P, shadow } from './kit';
 
 type DialogButton = { text: string; style?: 'cancel' | 'destructive' | 'default'; onPress?: () => void };
 type Req =
@@ -56,10 +56,10 @@ export function DialogHost() {
   return (
     <Modal visible={!!req} transparent animationType="fade" onRequestClose={cancel}>
       <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : undefined} style={{ flex: 1 }}>
-        <Pressable onPress={cancel} style={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.6)', justifyContent: 'center', padding: 20 }}>
+        <Pressable onPress={cancel} style={{ flex: 1, backgroundColor: 'rgba(27,31,59,0.55)', justifyContent: 'center', padding: 20 }}>
           <Pressable onPress={() => {}}>
             {req ? (
-              <Card>
+              <Card lifted style={[{ borderRadius: 26, padding: 18, gap: 12 }, shadow(6)]}>
                 <H2>{req.title}</H2>
                 {req.message ? <P muted small>{req.message}</P> : null}
                 {req.kind === 'prompt' ? (
@@ -67,12 +67,12 @@ export function DialogHost() {
                     value={text}
                     onChangeText={(t) => setText(t.slice(0, 16))}
                     placeholder="Your name"
-                    placeholderTextColor={C.mist}
+                    placeholderTextColor={C.faint}
                     autoFocus
                     maxLength={16}
                     returnKeyType="go"
                     onSubmitEditing={submit}
-                    style={{ height: 52, borderRadius: 12, borderWidth: 1, borderColor: C.line, backgroundColor: C.ink, color: C.white, fontSize: 18, fontWeight: '700', paddingHorizontal: 14 }}
+                    style={{ height: 54, borderRadius: 16, borderWidth: 3, borderColor: C.ink, backgroundColor: C.white, color: C.ink, fontSize: 20, fontFamily: F.heavy, paddingHorizontal: 14 }}
                   />
                 ) : null}
                 <View style={{ flexDirection: 'row', gap: 10 }}>

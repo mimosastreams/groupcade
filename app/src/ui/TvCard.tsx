@@ -4,7 +4,8 @@ import { tvDiagnostics, type TvDiagnostics } from '../../modules/groupcade-tv';
 import { links } from '../lib/api';
 import { useCast } from '../lib/cast';
 import { useTv } from '../lib/useTv';
-import { Button, C, Card, P } from './kit';
+import { Button, C, Card, F, P } from './kit';
+import { Logo } from './Logo';
 
 const ios = Platform.OS === 'ios';
 
@@ -25,18 +26,27 @@ export function TvCard({ code, compact }: { code: string; compact?: boolean }) {
 
   if ((screen.supported && screen.connected) || castOn) {
     return (
-      <Card style={{ borderColor: 'rgba(91,227,139,0.5)' }}>
-        <Text style={{ color: C.right, fontWeight: '800', fontSize: 16 }}>● {castOn ? 'Casting to the TV' : 'TV connected'}</Text>
-        {!compact && <P muted small>The TV shows the game. This phone is your controller, so nobody sees your screen.</P>}
-        {castOn ? <Button small kind="ghost" title="Stop casting" onPress={cast.toggle} /> : null}
-      </Card>
+      <View style={{ backgroundColor: C.ink, borderWidth: 3, borderColor: C.ink, borderRadius: 24, paddingVertical: 12, paddingHorizontal: 14, flexDirection: 'row', alignItems: 'center', gap: 12, transform: [{ rotate: '-1deg' }] }}>
+        <Logo size={compact ? 40 : 58} />
+        <View style={{ flex: 1, gap: 2 }}>
+          <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
+            <View style={{ width: 10, height: 10, borderRadius: 5, backgroundColor: C.mint }} />
+            <Text style={{ fontFamily: F.display, fontSize: 19, lineHeight: 24, color: C.white }}>{castOn ? 'Casting to the TV' : 'TV connected'}</Text>
+          </View>
+          {!compact ? <Text style={{ fontFamily: F.body, fontSize: 13, lineHeight: 18, color: C.onDark }}>The TV shows the game. This phone is your controller.</Text> : null}
+        </View>
+        {castOn ? <Button small kind="plain" title="Stop" onPress={cast.toggle} /> : null}
+      </View>
     );
   }
 
   const castFound = cast.supported && cast.status !== 'none';
   return (
-    <Card>
-      <Text style={{ color: C.white, fontWeight: '800', fontSize: 16 }}>Put it on the TV</Text>
+    <Card tint={C.sky} style={{ borderRadius: 24 }}>
+      <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
+        <Logo size={compact ? 32 : 44} />
+        <Text style={{ fontFamily: F.display, fontSize: 19, lineHeight: 24, color: C.ink, flex: 1 }}>Put it on the TV</Text>
+      </View>
       {castFound ? (
         <Button
           kind="go"
@@ -58,8 +68,8 @@ export function TvCard({ code, compact }: { code: string; compact?: boolean }) {
         <View>
           <P muted small>
             {screen.supported || castFound ? 'Or, on' : 'On'} any TV or laptop browser, go to{' '}
-            <Text style={{ color: C.white, fontWeight: '800' }}>{links.tvShort()}</Text> and type{' '}
-            <Text style={{ color: C.white, fontWeight: '800', letterSpacing: 2 }}>{code}</Text>.
+            <Text style={{ fontFamily: F.heavy, color: C.ink }}>{links.tvShort()}</Text> and type{' '}
+            <Text style={{ fontFamily: F.heavy, color: C.ink, letterSpacing: 2 }}>{code}</Text>.
           </P>
         </View>
       ) : null}
@@ -73,7 +83,7 @@ function DiagLine({ d }: { d: TvDiagnostics }) {
   const ok = (b?: boolean) => (b ? '✓' : '✗');
   const tvScenes = (d.scenes || []).filter((r) => r.includes('External')).length;
   return (
-    <Text style={{ color: C.mist, fontSize: 11, opacity: 0.8 }}>
+    <Text style={{ color: C.mist, fontSize: 11, fontFamily: F.body }}>
       TV check: scenes {ok(d.multipleScenes)} · TV role {ok(d.tvRole)} · TV code {ok(d.delegateLinked)} · screens {d.screens ?? 0} · TV
       scenes {tvScenes} · iOS {d.ios ?? '?'} · accessory {d.accessory ?? '?'}
       {d.accessoryAvailable === undefined ? '' : ` (${d.accessoryAvailable ? 'TV available' : 'no TV yet'})`}

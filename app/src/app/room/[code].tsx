@@ -1,9 +1,9 @@
 // Host screen for a room. Points the TV at the room's /tv/CODE page and shows the native
 // controller for the room's game.
 import { useKeepAwake } from 'expo-keep-awake';
-import { router, Stack, useFocusEffect, useLocalSearchParams } from 'expo-router';
+import { router, useFocusEffect, useLocalSearchParams } from 'expo-router';
 import { useCallback, useEffect, useState } from 'react';
-import { ActivityIndicator, Pressable, Text, View } from 'react-native';
+import { ActivityIndicator, View } from 'react-native';
 import { setTvRoomUrl } from '../../../modules/groupcade-tv';
 import { setCastRoom } from '../../lib/cast';
 import { TriviaHost } from '../../games/trivia/Host';
@@ -11,7 +11,8 @@ import { dialog } from '../../ui/Dialog';
 import { api, links } from '../../lib/api';
 import { store, type SavedRoom } from '../../lib/store';
 import { useRoom } from '../../lib/useRoom';
-import { Button, C, Card, H2, P, Screen } from '../../ui/kit';
+import { closeRoom } from '../../lib/closeRoom';
+import { Button, C, Card, H2, P, Screen, TopBar } from '../../ui/kit';
 import { NamePrompt } from '../../ui/NamePrompt';
 
 export default function Room() {
@@ -59,19 +60,20 @@ export default function Room() {
       { text: 'Leave', onPress: () => router.replace('/') },
     ]);
 
-  const newRoom = () =>
-    dialog.alert('Close this room and make a new one?', 'Players will need the new code.', [
-      { text: 'Cancel', style: 'cancel' },
+  const close = (then: () => void, title: string, ok: string) =>
+    dialog.alert(title, 'Anyone still in it will need a new code to play again.', [
+      { text: 'Keep it', style: 'cancel' },
       {
-        text: 'New room',
+        text: ok,
+        style: 'destructive',
         onPress: async () => {
-          await store.clearRoom();
-          setTvRoomUrl(null);
-          setCastRoom(null);
-          router.replace('/');
+          if (saved) await closeRoom(saved);
+          then();
         },
       },
     ]);
+  const closeAndHome = () => close(() => router.replace('/'), `Close room ${code}?`, 'Close room');
+  const newRoom = () => close(() => router.replace(saved?.game === 'trivia' || !saved ? '/trivia/new' : '/'), 'Close this room and make a new one?', 'New room');
 
   const playToo = async () => {
     if (myName) return; // Already playing: answers go right on this screen.
@@ -91,25 +93,11 @@ export default function Room() {
     }
   };
 
-  const header = (
-    <Stack.Screen
-      options={{
-        title: `Room ${code}`,
-        // One screen for hosting and playing; a stray swipe shouldn't leave the game.
-        gestureEnabled: false,
-        headerLeft: () => (
-          <Pressable onPress={leave} hitSlop={12} accessibilityRole="button">
-            <Text style={{ color: C.white, fontWeight: '700', fontSize: 16 }}>Home</Text>
-          </Pressable>
-        ),
-      }}
-    />
-  );
+  const header = <TopBar onBack={leave} backLabel="Back to home" title={`Room ${code}`} />;
 
   if (saved === null || (error && error.status === 404)) {
     return (
-      <Screen>
-        {header}
+      <Screen top={header}>
         <Card>
           <H2>{saved === null ? 'This isn’t your room on this phone' : 'This room has ended'}</H2>
           <P muted>{saved === null ? 'Only the phone that made a room can host it.' : 'Rooms close 2 hours after the last activity.'}</P>
@@ -128,17 +116,17 @@ export default function Room() {
 
   if (!st) {
     return (
-      <View style={{ flex: 1, backgroundColor: C.bg, alignItems: 'center', justifyContent: 'center' }}>
-        {header}
-        <ActivityIndicator color={C.accent} />
+      <View style={{ flex: 1, backgroundColor: C.bg }}>
+        <Screen top={header}>
+          <ActivityIndicator color={C.accent} style={{ marginTop: 60 }} />
+        </Screen>
       </View>
     );
   }
 
   return (
     <>
-      {header}
-      <TriviaHost st={st} act={act} now={now} offline={offline} myName={myName} myToken={myTok} onAnswered={refresh} onPlayToo={playToo} onNewRoom={newRoom} />
+      <TriviaHost st={st} act={act} now={now} offline={offline} myName={myName} myToken={myTok} onAnswered={refresh} onPlayToo={playToo} onLeave={leave} onClose={closeAndHome} onNewRoom={newRoom} />
       <NamePrompt
         open={askName !== null}
         title="Play too"

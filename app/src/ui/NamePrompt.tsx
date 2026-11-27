@@ -1,7 +1,7 @@
 // "Your name" box that works on Android and iPhone (Alert.prompt is iPhone only).
 import { useEffect, useState } from 'react';
 import { KeyboardAvoidingView, Modal, Platform, Pressable, TextInput, View } from 'react-native';
-import { Button, C, Card, H2, P } from './kit';
+import { Button, C, Card, F, H2, P, shadow } from './kit';
 
 export function NamePrompt({
   open,
@@ -29,21 +29,21 @@ export function NamePrompt({
   return (
     <Modal visible={open} transparent animationType="fade" onRequestClose={onCancel}>
       <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : undefined} style={{ flex: 1 }}>
-        <Pressable onPress={onCancel} style={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.6)', justifyContent: 'center', padding: 20 }}>
+        <Pressable onPress={onCancel} style={{ flex: 1, backgroundColor: 'rgba(27,31,59,0.55)', justifyContent: 'center', padding: 20 }}>
           <Pressable onPress={() => {}}>
-            <Card>
+            <Card lifted style={[{ borderRadius: 26, padding: 18, gap: 12 }, shadow(6)]}>
               <H2>{title}</H2>
               <P muted small>{message}</P>
               <TextInput
                 value={name}
                 onChangeText={(t) => setName(t.slice(0, 16))}
                 placeholder="Your name"
-                placeholderTextColor={C.mist}
+                placeholderTextColor={C.faint}
                 autoFocus
                 maxLength={16}
                 returnKeyType="go"
                 onSubmitEditing={go}
-                style={{ height: 52, borderRadius: 12, borderWidth: 1, borderColor: C.line, backgroundColor: C.ink, color: C.white, fontSize: 18, fontWeight: '700', paddingHorizontal: 14 }}
+                style={{ height: 54, borderRadius: 16, borderWidth: 3, borderColor: C.ink, backgroundColor: C.white, color: C.ink, fontSize: 20, fontFamily: F.heavy, paddingHorizontal: 14 }}
               />
               <View style={{ flexDirection: 'row', gap: 10 }}>
                 <View style={{ flex: 1 }}>
