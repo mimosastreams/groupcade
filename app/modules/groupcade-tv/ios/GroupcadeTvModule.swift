@@ -34,21 +34,44 @@ public final class GroupcadeTvModule: Module {
     /// What iOS sees, for the "TV check" line in the app: whether this build can get a TV scene,
     /// and which scenes and screens are attached right now.
     Function("diagnostics") { () -> [String: Any] in
-      let manifest = Bundle.main.object(forInfoDictionaryKey: "UIApplicationSceneManifest") as? [String: Any]
-      let configs = manifest?["UISceneConfigurations"] as? [String: Any] ?? [:]
-      return [
-        "multipleScenes": manifest?["UIApplicationSupportsMultipleScenes"] as? Bool ?? false,
-        "tvRole": configs["UIWindowSceneSessionRoleExternalDisplayNonInteractive"] != nil,
-        "delegateLinked": NSClassFromString("GCExternalDisplaySceneDelegate") != nil,
-        "scenes": UIApplication.shared.connectedScenes.map { $0.session.role.rawValue },
-        "screens": UIScreen.screens.count,
-        "connected": GCTvState.shared.connected,
-      ]
-    }.runOnQueue(.main)
+      GroupcadeTvModule.readDiagnostics()
+    }
 
     /// The page the TV shows: the room's TV URL, or null for the idle screen.
     Function("setRoomUrl") { (url: String?) in
       GCTvState.shared.setURL(url)
     }
+  }
+
+  /// Reads UIKit state on the main thread (sync functions run on the JS thread).
+  static func readDiagnostics() -> [String: Any] {
+    if Thread.isMainThread {
+      return diagnosticsOnMain()
+    }
+    var out: [String: Any] = [:]
+    DispatchQueue.main.sync {
+      out = diagnosticsOnMain()
+    }
+    return out
+  }
+
+  private static func diagnosticsOnMain() -> [String: Any] {
+    let manifest = Bundle.main.object(forInfoDictionaryKey: "UIApplicationSceneManifest") as? [String: Any]
+    let configs = manifest?["UISceneConfigurations"] as? [String: Any] ?? [:]
+    let multiple: Bool = (manifest?["UIApplicationSupportsMultipleScenes"] as? Bool) ?? false
+    let tvRole: Bool = configs["UIWindowSceneSessionRoleExternalDisplayNonInteractive"] != nil
+    let linked: Bool = NSClassFromString("GCExternalDisplaySceneDelegate") != nil
+    var roles: [String] = []
+    for scene in UIApplication.shared.connectedScenes {
+      roles.append(scene.session.role.rawValue)
+    }
+    var out: [String: Any] = [:]
+    out["multipleScenes"] = multiple
+    out["tvRole"] = tvRole
+    out["delegateLinked"] = linked
+    out["scenes"] = roles
+    out["screens"] = UIScreen.screens.count
+    out["connected"] = GCTvState.shared.connected
+    return out
   }
 }
