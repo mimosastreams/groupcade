@@ -32,7 +32,10 @@
     "ios": "expo run:ios",
     "prebuild": "expo prebuild --platform ios --clean",
     "typecheck": "tsc --noEmit",
-    "lint": "expo lint"
+    "lint": "expo lint",
+    "build:ios": "npx eas-cli@latest build --platform ios --profile production",
+    "submit:ios": "npx eas-cli@latest submit --platform ios --latest",
+    "update": "npx eas-cli@latest update --channel production --environment production --platform ios --message"
   },
   "private": true
 }
