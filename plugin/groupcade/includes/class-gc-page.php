@@ -86,6 +86,12 @@ class GC_Page {
 		return (string) file_get_contents( GC_DIR . 'assets/groupcade-logo.svg' ); // phpcs:ignore
 	}
 
+	/** Brand art for the TV screen: light wordmark for navy, and the TV mascot on its own. */
+	private static function art( $file ) {
+		$path = GC_DIR . 'assets/brand/' . $file;
+		return file_exists( $path ) ? (string) file_get_contents( $path ) : ''; // phpcs:ignore
+	}
+
 	public static function html( GC_Game $game, $code = '', $tv = false, $cast = false ) {
 		$tpl = (string) file_get_contents( $game->client_file() ); // phpcs:ignore
 		$qr  = (string) file_get_contents( GC_DIR . 'assets/qrcode.js' ); // phpcs:ignore
@@ -110,6 +116,8 @@ class GC_Page {
 			$tpl,
 			array(
 				'{{LOGO}}'   => self::logo(),
+				'{{LOGOTV}}' => self::art( 'groupcade-horizontal-dark.svg' ),
+				'{{MASCOT}}' => self::art( 'groupcade-tv.svg' ),
 				'{{QRLIB}}'  => $qr,
 				'{{CONFIG}}' => wp_json_encode( $cfg ),
 			)
