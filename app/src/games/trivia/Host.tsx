@@ -80,7 +80,7 @@ export function TriviaHost(p: Props) {
         footer={
           <>
             <Button kind="go" title={n ? `Start game · ${n} player${n === 1 ? '' : 's'}` : 'Waiting for players'} disabled={!n} busy={busy === 'start'} onPress={() => run('start')} />
-            {!p.myName ? <Button kind="ghost" small title="Play on this phone too" onPress={p.onPlayToo} /> : null}
+            {!p.myName ? <Button kind="ghost" small title="Play too (answer on this phone)" onPress={p.onPlayToo} /> : null}
           </>
         }
       >
@@ -136,7 +136,6 @@ export function TriviaHost(p: Props) {
           {st.phase === 'rev' ? <Button kind="go" title={finalReveal ? 'See the winner →' : 'Next round →'} busy={busy === 'next'} onPress={() => run('next')} /> : null}
           <Row style={{ justifyContent: 'space-between' }}>
             <Button kind="danger" small title="End game" onPress={confirmEnd} />
-            {p.myName ? <Button kind="ghost" small title="Player view →" onPress={p.onPlayToo} /> : null}
           </Row>
         </>
       }
@@ -156,6 +155,7 @@ export function TriviaHost(p: Props) {
         </Text>
       </Row>
 
+      {me ? <MyStatus st={st} me={me} myAns={myAns} /> : null}
       <Card>
         <Text style={{ color: C.accent, fontWeight: '900', fontSize: 15, textTransform: 'uppercase', letterSpacing: 1 }}>{st.cat}</Text>
         {st.phase === 'cat' ? <P muted>Category card is on the TV…</P> : <Text style={{ color: C.white, fontSize: 22, fontWeight: '800', lineHeight: 29 }}>{st.q}</Text>}
@@ -164,7 +164,6 @@ export function TriviaHost(p: Props) {
 
       {st.phase !== 'cat' ? (
         <View style={{ gap: 8 }}>
-          {canAnswer ? <P muted small center>You're playing too: tap your answer. First tap locks it in.</P> : null}
           {(st.choices || []).map((c, i) => {
             const right = last && last.right === i;
             const mine = myAns === i + 1;
@@ -317,6 +316,36 @@ function Clock({ st, now }: { st: RoomState; now: () => number }) {
         <View style={{ width: `${(left / total) * 100}%`, height: '100%', backgroundColor: left < 5000 ? C.out : C.accent }} />
       </View>
       <Text style={{ color: C.white, fontWeight: '900', width: 36, textAlign: 'right' }}>{Math.ceil(left / 1000)}s</Text>
+    </Row>
+  );
+}
+
+/** The host's own line as a player: in or out, their score, and how their answer went. */
+function MyStatus({ st, me, myAns }: { st: RoomState; me: NonNullable<RoomState['me']>; myAns: number }) {
+  const last = st.phase === 'rev' && st.last && st.last.round === st.round ? st.last : null;
+  const pts = st.mode === 'points';
+  let line: string;
+  let color: string = C.mist;
+  if (!pts && !me.alive && !(last && myAns)) {
+    line = "You're out. Keep hosting, and you're back in next game.";
+    color = C.out;
+  } else if (last) {
+    const right = myAns === last.right + 1;
+    if (!myAns) line = pts ? 'No answer this round.' : "You didn't answer.";
+    else line = right ? (pts ? `Right! +${me.gain}` : 'Right! You\'re still in.') : pts ? 'Wrong this time.' : "Wrong, you're out.";
+    color = right ? C.right : C.out;
+  } else if (st.phase === 'q') {
+    line = myAns ? 'Locked in. Waiting for the others…' : 'Your turn: tap an answer below.';
+    color = myAns ? C.mist : C.accent;
+  } else {
+    line = pts ? 'Get ready…' : "You're in. Get ready…";
+  }
+  return (
+    <Row style={{ justifyContent: 'space-between' }}>
+      <Text style={{ color, fontWeight: '800', flex: 1 }}>
+        {me.name}: {line}
+      </Text>
+      {pts ? <Text style={{ color: C.white, fontWeight: '900' }}>{me.score}</Text> : null}
     </Row>
   );
 }
