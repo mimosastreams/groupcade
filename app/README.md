@@ -47,11 +47,34 @@ To point a dev build at a local WordPress: `EXPO_PUBLIC_API_BASE=http://192.168.
 In the iOS Simulator: I/O > External Displays > 1920×1080. The second window shows what the TV
 would get. On a real iPhone, AirPlay to an Apple TV or an AirPlay 2 TV, or use an HDMI adapter.
 
-## Store builds
+## Build for iPhone (TestFlight)
 
-`eas.json` has development, simulator, preview and production profiles. The first time, run
-`npx eas-cli@latest init` to make the Expo project (it adds the project ID to `app.json`). After that,
-the usual `eas build --platform ios --profile production` and `eas submit --platform ios`.
+Same setup as Seen Sort and Mimosa: EAS builds in the cloud, under the `seensorts-team` Expo account.
+No Xcode needed. Bundle ID `com.groupcade.app` (fixed after the first upload, so change it in
+`app.json` before then if you want a different one).
+
+```sh
+cd app
+npm install
+npx eas-cli@latest build --platform ios --profile production
+npx eas-cli@latest submit --platform ios --latest
+```
+
+The first build asks two things: to create the Expo project `@seensorts-team/groupcade` (say yes; it
+writes the project ID into `app.json`, so commit that), and to sign in to Apple and set up signing.
+The first submit offers to create the app in App Store Connect. After that, add its App ID to
+`eas.json` under `submit.production.ios.ascAppId`, as the other two apps do.
+
+## Quick fixes without a new build (EAS Update)
+
+Builds include `expo-updates` (channel `production`, runtime = app version). Screen and text fixes go
+straight to installed apps:
+
+```sh
+npx eas-cli@latest update --channel production --message "What changed"
+```
+
+Anything native (app.json plugins, the TV module, new native packages, the version) still needs a new build.
 
 Review notes worth giving Apple: the app hosts party games natively (room setup, lobby with QR,
 live game controls, results), players join from any browser, and the TV gets a separate game screen
