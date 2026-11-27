@@ -1,0 +1,81 @@
+# Installs a plugin on groupcade.com through the Groupcade Deploy plugin.
+# Auth is GitHub's own signed OIDC token (audience "groupcade-deploy"); the site checks it
+# against GitHub's public keys and only accepts this repository. No secrets needed.
+#
+# Ways to run it:
+#   - Actions > Deploy plugin > Run workflow, on any branch, and pick the plugin.
+#   - Push a commit whose message contains [deploy] (deploys plugin/groupcade) or
+#     [deploy groupcade-deploy] or [deploy acf-pro].
+# acf-pro downloads ACF Pro with the ACF_PRO_KEY repository secret (your license key).
+name: Deploy plugin
+
+on:
+  workflow_dispatch:
+    inputs:
+      plugin:
+        description: Plugin to install
+        type: choice
+        options: [groupcade, groupcade-deploy, acf-pro]
+        default: groupcade
+  push:
+    paths: ['plugin/**', '.github/workflows/deploy-plugin.yml']
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: deploy-groupcade-com
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[deploy')
+    runs-on: ubuntu-latest
+    env:
+      SITE: https://groupcade.com
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Pick plugin
+        id: pick
+        env:
+          INPUT: ${{ inputs.plugin }}
+          MSG: ${{ github.event.head_commit.message }}
+        run: |
+          p="$INPUT"
+          if [ -z "$p" ]; then
+            if printf '%s' "$MSG" | grep -q '\[deploy groupcade-deploy\]'; then p=groupcade-deploy
+            elif printf '%s' "$MSG" | grep -q '\[deploy acf-pro\]'; then p=acf-pro
+            else p=groupcade; fi
+          fi
+          echo "plugin=$p" >> "$GITHUB_OUTPUT"
+
+      - name: Build zip
+        env:
+          PLUGIN: ${{ steps.pick.outputs.plugin }}
+          ACF_PRO_KEY: ${{ secrets.ACF_PRO_KEY }}
+        run: |
+          mkdir -p dist
+          if [ "$PLUGIN" = acf-pro ]; then
+            if [ -z "$ACF_PRO_KEY" ]; then echo "::error::Add your ACF Pro license key as the ACF_PRO_KEY repository secret."; exit 1; fi
+            curl -fsSL -o dist/plugin.zip "https://connect.advancedcustomfields.com/v2/plugins/download?p=pro&k=${ACF_PRO_KEY}"
+          else
+            (cd plugin && zip -qr ../dist/plugin.zip "$PLUGIN" -x '*.DS_Store')
+          fi
+          unzip -l dist/plugin.zip | tail -1
+
+      - name: Upload to groupcade.com
+        run: |
+          token=$(curl -fsS -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" "$ACTIONS_ID_TOKEN_REQUEST_URL&audience=groupcade-deploy" | jq -r .value)
+          code=$(curl -sS -o out.json -w '%{http_code}' -X POST \
+            -H "Authorization: Bearer $token" \
+            -F "zip=@dist/plugin.zip;type=application/zip" \
+            "$SITE/wp-json/groupcade-deploy/v1/plugin")
+          cat out.json; echo
+          [ "$code" = 200 ] || { echo "::error::Deploy failed (HTTP $code)"; exit 1; }
+
+      - name: Check the site
+        run: |
+          curl -fsS "$SITE/wp-json/groupcade/v1/games" | head -c 300; echo
+          curl -fsS -o /dev/null -w 'home page HTTP %{http_code}\n' "$SITE/"

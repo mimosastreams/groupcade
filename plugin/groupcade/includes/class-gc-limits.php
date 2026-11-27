@@ -12,7 +12,7 @@ class GC_Limits {
 	const ROOMS_PER_HOUR   = 10;  // New rooms per IP per hour.
 	const JOINS_PER_10MIN  = 80;  // Joins per IP per 10 min (a whole party can share one Wi-Fi IP).
 	const ACTIVE_ROOMS_MAX = 300; // Rooms alive at once, site wide.
-	const PLAYERS_MAX      = 30;  // Players per room.
+	const PLAYERS_MAX      = 50;  // Players per room.
 
 	public static function ip() {
 		$ip = isset( $_SERVER['REMOTE_ADDR'] ) ? (string) $_SERVER['REMOTE_ADDR'] : ''; // phpcs:ignore

@@ -207,7 +207,7 @@ function PlayersCard({ st, myName, onKick }: { st: RoomState; myName: string | n
       <Row style={{ justifyContent: 'space-between' }}>
         <H2>Players</H2>
         <Text style={{ color: C.mist, fontWeight: '800' }}>
-          <Text style={{ color: C.white }}>{st.players.length}</Text> / 30
+          <Text style={{ color: C.white }}>{st.players.length}</Text> / 50
         </Text>
       </Row>
       {st.players.length ? (

@@ -8,6 +8,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 require_once __DIR__ . '/class-gc-trivia-bank.php';
+require_once __DIR__ . '/class-gc-trivia-questions.php';
 require_once __DIR__ . '/class-gc-trivia.php';
 
 GC_Games::register( new GC_Trivia() );
+GC_Trivia_Questions::init();

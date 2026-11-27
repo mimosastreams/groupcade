@@ -10,9 +10,21 @@
    - https://groupcade.com/trivia/ shows the Trivia home page.
    - https://groupcade.com/tv/ shows the TV code screen.
    - https://groupcade.com/wp-json/groupcade/v1/games lists Trivia.
-5. Settings > Groupcade shows live rooms and stats. The Cast app ID stays empty until Chromecast is set up.
+5. Groupcade > Analytics shows live rooms and stats; Groupcade > Settings has the switches. The Cast app ID stays empty until Chromecast is set up.
 
 Updating: upload the new zip and pick "Replace current with uploaded". Tables update themselves.
+
+### Deploying from GitHub (no zip picking)
+
+`plugin/groupcade-deploy/` is a small plugin that lets the **Deploy plugin** workflow
+(`.github/workflows/deploy-plugin.yml`) install plugins on groupcade.com. The workflow sends
+GitHub's signed OIDC token (audience `groupcade-deploy`); the site checks the signature against
+GitHub's public keys and accepts only `mimosastreams/groupcade`, so there's no password to store.
+Deploys are listed at Tools > Groupcade deploy. Turn the plugin off to stop deploys.
+
+- Run it from Actions > Deploy plugin > Run workflow (any branch; pick groupcade,
+  groupcade-deploy or acf-pro), or push a commit with `[deploy]` in the message.
+- `acf-pro` needs the ACF Pro license key saved as the `ACF_PRO_KEY` repository secret.
 
 ### Pressable notes
 
@@ -25,7 +37,9 @@ Updating: upload the new zip and pick "Replace current with uploaded". Tables up
 ### Home page
 
 From 1.1.0 the plugin serves the groupcade.com home page itself (join box, game shelf, how to
-host, app links), in place of the theme's front page. Settings > Groupcade:
+host, app links), in place of the theme's front page. Its words and pictures are edited on
+Pages > Home (the page set as the front page) with Advanced Custom Fields; the field group is
+registered in code (`GC_Home_Fields`), so nothing needs importing in ACF. Groupcade > Settings:
 
 - **Use the Groupcade home page**: on by default. Turn it off to show the theme's front page again.
 - **App Store link** and **Google Play link**: while empty, the home page shows "iPhone app coming
@@ -34,6 +48,11 @@ host, app links), in place of the theme's front page. Settings > Groupcade:
 The game shelf lists every registered game (name, `blurb()`, `tags()`), then "coming soon" cards
 so it always shows three. The join box sends players to `/join/CODE/`. The page is
 `plugin/groupcade/assets/home.html`. `[groupcade_games]` still works on any other page.
+
+Upgrading to 1.3.0 moves the old Settings > Groupcade home values onto the Home page (making a
+Home page and setting it as the front page if there isn't one), keeps a copy in the
+`gc_home_content_backup` option, and copies the trivia questions into Groupcade > Questions a few
+hundred at a time. Games use the built-in question file until that copy finishes.
 
 ## Redirecting gametogethr.com and game2night.com
 

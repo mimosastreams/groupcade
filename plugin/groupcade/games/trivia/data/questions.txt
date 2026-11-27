@@ -1,6 +1,7 @@
-# Groupcade Trivia question bank.
+# Groupcade Trivia starting questions. From plugin 1.3.0 these are copied once into
+# Groupcade > Questions in the WordPress admin, and games read them from there. Add or edit
+# questions in the admin; changes to this file only reach sites that have not imported yet.
 # Format: Easy|Medium|Hard | Category | Question | Right | Wrong | Wrong | Wrong
-# Append new questions at the end so question ids (line numbers) stay stable for live rooms.
 Hard | Movies | Which 1994 film won the Oscar for Best Picture? | Forrest Gump | Pulp Fiction | The Shawshank Redemption | Four Weddings and a Funeral
 Hard | Movies | What is the name of the hotel in The Shining? | The Overlook Hotel | The Stanley Hotel | The Bates Motel | The Grand Budapest
 Hard | Movies | Who composed the music for Jaws and Star Wars? | John Williams | Hans Zimmer | Danny Elfman | Howard Shore

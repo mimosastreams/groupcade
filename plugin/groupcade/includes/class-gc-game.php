@@ -35,7 +35,7 @@ abstract class GC_Game {
 		return $this->tagline();
 	}
 
-	/** Two or three short tags for the home page card, such as "Up to 30 players". */
+	/** Two or three short tags for the home page card, such as "Up to 50 players". */
 	public function tags() {
 		return array( 'Up to ' . (int) $this->max_players() . ' players' );
 	}

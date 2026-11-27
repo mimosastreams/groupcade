@@ -1,6 +1,8 @@
 <?php
 /**
- * Settings > Groupcade: the Google Cast app id (turns on the Cast button) and a live room count.
+ * The Groupcade admin menu. It's the Questions post type's menu (GC_Trivia_Questions), with two
+ * more pages under it: Analytics (rooms, games, players) and Settings (home page switch, app
+ * links, Google Cast app id).
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -9,14 +11,38 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 class GC_Admin {
 
+	const PARENT = 'edit.php?post_type=gc_question';
+
 	public static function init() {
 		add_action( 'admin_menu', array( __CLASS__, 'menu' ) );
 		add_action( 'admin_init', array( __CLASS__, 'register' ) );
 	}
 
 	public static function menu() {
-		add_options_page( 'Groupcade', 'Groupcade', 'manage_options', 'groupcade', array( __CLASS__, 'page' ) );
-		add_dashboard_page( 'Groupcade stats', 'Groupcade stats', 'manage_options', 'groupcade-stats', array( __CLASS__, 'page' ) );
+		add_submenu_page( self::PARENT, 'Groupcade analytics', 'Analytics', 'manage_options', 'gc-analytics', array( __CLASS__, 'analytics' ) );
+		add_submenu_page( self::PARENT, 'Groupcade settings', 'Settings', 'manage_options', 'gc-settings', array( __CLASS__, 'settings' ) );
+
+		// Bookmarks to the old Settings > Groupcade, Settings > Groupcade home and Dashboard >
+		// Groupcade stats pages land on the new ones.
+		foreach ( array( 'groupcade', 'groupcade-home', 'groupcade-stats' ) as $old ) {
+			$hook = add_submenu_page( '', 'Groupcade', '', 'manage_options', $old, '__return_null' );
+			add_action( 'load-' . $hook, array( __CLASS__, 'old_link' ) );
+		}
+	}
+
+	public static function url( $page ) {
+		return admin_url( self::PARENT . '&page=' . $page );
+	}
+
+	public static function old_link() {
+		$page = isset( $_GET['page'] ) ? sanitize_key( wp_unslash( $_GET['page'] ) ) : ''; // phpcs:ignore WordPress.Security.NonceVerification
+		if ( 'groupcade-home' === $page ) {
+			$id = GC_Home_Fields::ensure_page();
+			wp_safe_redirect( $id ? get_edit_post_link( $id, 'url' ) : admin_url( 'edit.php?post_type=page' ) );
+		} else {
+			wp_safe_redirect( self::url( 'groupcade-stats' === $page ? 'gc-analytics' : 'gc-settings' ) );
+		}
+		exit;
 	}
 
 	public static function register() {
@@ -73,7 +99,7 @@ class GC_Admin {
 			'Last 30 days' => time() - 30 * DAY_IN_SECONDS,
 			'All time'     => 0,
 		);
-		echo '<h2>Stats</h2><table class="widefat striped" style="max-width:1100px"><thead><tr><th></th>';
+		echo '<table class="widefat striped" style="max-width:1100px"><thead><tr><th></th>';
 		foreach ( array_keys( $spans ) as $k ) {
 			echo '<th>' . esc_html( $k ) . '</th>';
 		}
@@ -128,13 +154,13 @@ class GC_Admin {
 		echo '</tbody></table>';
 	}
 
-	public static function page() {
+	public static function analytics() {
 		global $wpdb;
 		$t      = GC_DB::rooms();
 		$active = (int) $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM $t WHERE updated >= %d", time() - 1800 ) ); // phpcs:ignore
 		?>
 		<div class="wrap">
-			<h1>Groupcade</h1>
+			<h1>Groupcade analytics</h1>
 			<p>Games: <?php
 			$links = array();
 			foreach ( GC_Games::all() as $g ) {
@@ -143,7 +169,16 @@ class GC_Admin {
 			echo implode( ', ', $links ); // phpcs:ignore WordPress.Security.EscapeOutput
 			?>. TV view at <a href="<?php echo esc_url( home_url( '/tv/' ) ); ?>" target="_blank"><?php echo esc_html( home_url( '/tv/' ) ); ?></a>. Rooms active in the last 30 minutes: <strong><?php echo (int) $active; ?></strong>.</p>
 			<?php self::stats(); ?>
-			<h2>Settings</h2>
+		</div>
+		<?php
+	}
+
+	public static function settings() {
+		$home = GC_Home_Fields::page_id();
+		?>
+		<div class="wrap">
+			<h1>Groupcade settings</h1>
+			<?php settings_errors(); ?>
 			<form method="post" action="options.php">
 				<?php settings_fields( 'gc' ); ?>
 				<table class="form-table">
@@ -152,7 +187,7 @@ class GC_Admin {
 						<td>
 							<input type="hidden" name="gc_home" value="0">
 							<label><input type="checkbox" name="gc_home" value="1" <?php checked( GC_Home::enabled() ); ?>> Use the Groupcade home page at <a href="<?php echo esc_url( home_url( '/' ) ); ?>" target="_blank"><?php echo esc_html( home_url( '/' ) ); ?></a></label>
-							<p class="description">Turn this off to show your theme's front page instead. <a href="<?php echo esc_url( admin_url( 'options-general.php?page=groupcade-home' ) ); ?>">Edit the home page text and pictures</a>.</p>
+							<p class="description">Turn this off to show your theme's front page instead. <?php if ( $home ) : ?><a href="<?php echo esc_url( get_edit_post_link( $home, 'url' ) ); ?>">Edit the home page text and pictures</a> on Pages &gt; <?php echo esc_html( get_the_title( $home ) ); ?>.<?php endif; ?></p>
 						</td>
 					</tr>
 					<tr>
