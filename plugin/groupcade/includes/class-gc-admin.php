@@ -152,7 +152,7 @@ class GC_Admin {
 						<td>
 							<input type="hidden" name="gc_home" value="0">
 							<label><input type="checkbox" name="gc_home" value="1" <?php checked( GC_Home::enabled() ); ?>> Use the Groupcade home page at <a href="<?php echo esc_url( home_url( '/' ) ); ?>" target="_blank"><?php echo esc_html( home_url( '/' ) ); ?></a></label>
-							<p class="description">Turn this off to show your theme's front page instead.</p>
+							<p class="description">Turn this off to show your theme's front page instead. <a href="<?php echo esc_url( admin_url( 'options-general.php?page=groupcade-home' ) ); ?>">Edit the home page text and pictures</a>.</p>
 						</td>
 					</tr>
 					<tr>

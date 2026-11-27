@@ -3,230 +3,205 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Groupcade · Party games for the whole family</title>
-<meta name="description" content="Party games the whole family plays together. Put the game on your TV, and everyone plays from their own phone. No downloads for players.">
-<meta property="og:title" content="Groupcade · Party games for the whole family">
-<meta property="og:description" content="Game night, right from the couch. Put the game on your TV and everyone plays from their phone.">
+<title>{{META_TITLE}}</title>
+<meta name="description" content="{{META_DESC}}">
+<meta property="og:title" content="{{META_TITLE}}">
+<meta property="og:description" content="{{META_DESC}}">
 <meta property="og:url" content="{{SITE}}">
-<meta name="theme-color" content="#CFEBFF">
-<link rel="icon" href="{{ICON}}" type="image/svg+xml">
+<meta property="og:image" content="{{SHARE_IMG}}">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#FFFDF7">
+<link rel="icon" href="{{FAVICON}}" type="image/svg+xml">
+<link rel="alternate icon" href="{{FAVICON_PNG}}" type="image/png">
+<link rel="apple-touch-icon" href="{{TOUCH_ICON}}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@500;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Nunito:wght@500;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --sky:#CFEBFF; --sky-deep:#8FCBF5; --sky-soft:#E1F3FF;
-  --ink:#1B1F3B; --ink-soft:#34395E; --muted:#5A6380;
-  --indigo:#4A3AFF; --indigo-deep:#2A1EC2;
-  --sun:#FFC93C; --sun-deep:#E0A800;
-  --coral:#FF6B4A; --coral-soft:#FFE9E3;
-  --green:#3DD68C; --green-soft:#E0F8EC;
-  --lilac:#B9A8FF; --pink:#FF9ECF; --blue:#5BB8F5;
-  --card:#F1F4F9; --line:#B4BED0;
+  --paper:#FFFDF7; --ink:#1B1F3B; --soft:#3A4366;
+  --indigo:#4A3AFF; --indigo-deep:#2F22C9;
+  --sky:#CFEBFF; --sun:#FFC93C; --sun-soft:#FFF4CF;
+  --coral:#FF6B4A; --coral-soft:#FFE3DA;
+  --mint:#3DD68C; --mint-soft:#DDF8EA;
   --display:'Baloo 2', system-ui, sans-serif;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:#fff;color:var(--ink);font-family:'Nunito',system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased}
-a{color:var(--ink)}
-a:hover{color:var(--indigo)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:'Nunito',system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:var(--indigo)}
+a:hover{color:var(--indigo-deep)}
 :focus-visible{outline:3px solid var(--indigo);outline-offset:3px}
-h1,h2,h3{font-family:var(--display);font-weight:800;margin:0;line-height:1}
+h1,h2,h3{font-family:var(--display);font-weight:800;margin:0;line-height:1.02}
 p{margin:0}
-.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+img{max-width:100%;height:auto;display:block}
+.wrap{max-width:1240px;margin:0 auto;padding:0 max(5vw,16px)}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
-/* Top */
-.top{background:var(--sky);padding-bottom:72px;border-radius:0 0 56px 56px}
-.nav{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding-top:22px;padding-bottom:22px}
-.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
-.brand svg{width:46px;height:46px;display:block}
-.word{font-family:var(--display);font-weight:800;font-size:30px;color:var(--ink);line-height:1}
-.word b{color:var(--indigo);font-weight:800}
-.links{display:flex;flex-wrap:wrap;align-items:center;gap:8px 24px;font-weight:800}
-.links a{text-decoration:none}
-.pill{display:inline-block;background:var(--ink);color:#fff!important;text-decoration:none;padding:12px 22px;border-radius:999px;font-weight:800}
-.pill:hover{background:var(--indigo)}
+/* Top bar */
+.nav{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;padding-top:18px;padding-bottom:18px}
+.brand img{height:50px;width:auto}
+.links{display:flex;flex-wrap:wrap;align-items:center;gap:10px;font-weight:800;font-size:16px}
+.links a{color:var(--ink);text-decoration:none;padding:10px 16px;border-radius:999px}
+.links a.y{background:var(--sun-soft)}
+.links a.g{background:var(--mint-soft)}
+.links a.cta{background:var(--indigo);color:#fff;border:3px solid var(--ink);padding:8px 18px}
+.links a:hover{filter:brightness(.96)}
 
-.hero{max-width:1000px;margin:0 auto;padding:48px 20px 0;display:flex;flex-direction:column;align-items:center;gap:24px;text-align:center}
-.hero h1{font-size:clamp(46px,7.5vw,96px);line-height:.95;letter-spacing:-1px}
-.hero p{font-size:21px;max-width:640px;color:var(--ink-soft)}
-.join{margin-top:12px;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px;background:#fff;padding:12px;border-radius:999px;box-shadow:0 12px 0 var(--sky-deep);width:100%;max-width:560px}
-.join label{padding-left:16px;font-weight:800;font-size:17px}
-.join input{flex:1 1 140px;min-width:0;height:60px;border:3px solid var(--sky);border-radius:999px;font-family:var(--display);font-weight:800;font-size:30px;letter-spacing:10px;text-align:center;text-transform:uppercase;color:var(--ink);padding:0 10px}
-.join input::placeholder{color:#9AA6BD}
+/* Hero */
+.hero{display:flex;flex-wrap:wrap;align-items:center;gap:48px;padding-top:36px;padding-bottom:72px}
+.hero .copy{flex:1 1 440px;min-width:0}
+.hero h1{font-size:clamp(46px,6vw,80px);line-height:.98;letter-spacing:-.02em;margin-bottom:20px}
+.hero h1 mark{background:var(--sun);color:var(--ink);padding:0 12px;border-radius:14px;display:inline-block;transform:rotate(-2deg)}
+.hero .intro{font-size:20px;color:var(--soft);max-width:30em;margin-bottom:26px}
+.join{display:flex;flex-wrap:wrap;gap:10px;max-width:480px}
+.join input{flex:1 1 200px;min-width:0;height:62px;font-family:var(--display);font-weight:800;font-size:26px;letter-spacing:.08em;text-transform:uppercase;padding:0 18px;border-radius:18px;border:3px solid var(--ink);background:#fff;color:var(--ink)}
+.join input::placeholder{text-transform:none;letter-spacing:0;color:#8A93AE}
 .join input:focus{outline:none;border-color:var(--indigo)}
-.join button{height:60px;padding:0 28px;border:0;border-radius:999px;background:var(--coral);color:var(--ink);font-family:var(--display);font-weight:800;font-size:22px;cursor:pointer}
-.join button:hover{background:#FF8466}
-.hostlink{font-weight:800;color:var(--indigo-deep)}
-@media (max-width:520px){
-  .join{border-radius:28px}
-  .join label{padding-left:0;width:100%}
-  .join button{width:100%}
-}
-
-/* TV and players */
-.scene{max-width:1100px;margin:64px auto 0;padding:0 20px;display:flex;flex-direction:column;align-items:center}
-.tv{width:min(720px,100%);aspect-ratio:16/9;background:var(--ink);border-radius:28px;padding:14px}
-.screen{width:100%;height:100%;background:var(--indigo);border-radius:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;color:#fff;padding:24px;text-align:center}
-.screen .kick{font-weight:800;font-size:15px;letter-spacing:2px;opacity:.85}
-.screen .q{font-family:var(--display);font-weight:800;font-size:clamp(20px,3.4vw,40px);line-height:1.1}
-.screen .count{background:var(--sun);color:var(--ink);font-weight:800;padding:8px 18px;border-radius:999px}
-.stand{width:40%;max-width:260px;height:16px;background:var(--ink);border-radius:0 0 12px 12px}
-.crew{margin-top:36px;display:flex;flex-wrap:wrap;justify-content:center;gap:18px}
-.crew div{display:flex;flex-direction:column;align-items:center;gap:6px;font-weight:800;font-size:15px}
-.crew span{width:72px;height:72px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:800;font-size:32px}
-.crew .you{background:#fff;border:3px dashed var(--indigo);color:var(--indigo)}
+.join button{height:62px;padding:0 28px;background:var(--coral);color:var(--ink);border:3px solid var(--ink);border-radius:18px;font-family:var(--display);font-weight:800;font-size:24px;box-shadow:4px 4px 0 var(--ink);cursor:pointer}
+.join button:hover{transform:translate(1px,1px);box-shadow:3px 3px 0 var(--ink)}
+.prompt{margin-top:14px;font-size:16px;font-weight:700}
+.collage{flex:1 1 460px;min-width:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.sticker{border:3px solid var(--ink);border-radius:24px;box-shadow:5px 5px 0 var(--ink)}
+.sticker.big{grid-column:1/-1;background:var(--sky);border-radius:30px;padding:22px;transform:rotate(-1.5deg);box-shadow:6px 6px 0 var(--ink)}
+.sticker.big img{width:100%}
+.sticker.small{padding:18px}
+.sticker.small .st{font-family:var(--display);font-weight:800;font-size:26px;line-height:1.05;margin-bottom:6px}
+.sticker.small p{font-size:15px}
+.sticker.sun{background:var(--sun);transform:rotate(2deg)}
+.sticker.mint{background:var(--mint);transform:rotate(-2deg)}
 
 /* Games */
-.games{padding:96px 0 48px}
-.games h2,.how h2{font-size:clamp(38px,5vw,60px)}
-.shelf{margin-top:32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
-.game{text-decoration:none;color:var(--ink);background:var(--sun);border-radius:32px;padding:28px;display:flex;flex-direction:column;gap:14px;box-shadow:0 10px 0 var(--sun-deep);transition:transform .15s ease,box-shadow .15s ease}
-.game:hover{color:var(--ink);transform:translateY(-4px);box-shadow:0 14px 0 var(--sun-deep)}
-.game:nth-child(3n+2){background:var(--sky);box-shadow:0 10px 0 var(--sky-deep)}
-.game:nth-child(3n+3){background:#FFD2C7;box-shadow:0 10px 0 #F4A08A}
-.art{height:170px;background:#fff;border-radius:22px;display:flex;align-items:center;justify-content:center;gap:10px}
-.art span{width:70px;height:70px;border-radius:20px;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:800;font-size:46px;line-height:1}
-.art span:nth-child(1){background:var(--coral);transform:rotate(-10deg)}
-.art span:nth-child(2){background:var(--indigo);color:#fff;transform:rotate(6deg)}
-.art span:nth-child(3){background:var(--green);transform:rotate(-4deg)}
-.ghead{display:flex;justify-content:space-between;align-items:center;gap:12px}
-.ghead h3{font-size:38px}
-.badge{background:var(--ink);color:#fff;font-weight:800;font-size:13px;padding:6px 12px;border-radius:999px;white-space:nowrap}
-.game p{font-size:17px;font-weight:700}
-.tags{display:flex;flex-wrap:wrap;gap:8px;font-size:14px;font-weight:800}
-.tags span{background:rgba(27,31,59,.1);padding:5px 12px;border-radius:999px}
-.soon{background:var(--card);border-radius:32px;padding:28px;display:flex;flex-direction:column;gap:14px;color:var(--muted)}
-.soon .art{background:transparent;border:3px dashed var(--line);font-weight:800;font-size:17px}
-.soon h3{font-size:32px}
+.games{background:var(--indigo);color:#fff;padding:72px 0}
+.games h2,.how h2{font-size:clamp(38px,4.5vw,52px);margin-bottom:30px}
+.shelf{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr));gap:26px}
+.game{background:#fff;color:var(--ink);border:3px solid var(--ink);border-radius:28px;padding:26px;box-shadow:6px 6px 0 var(--ink);display:flex;flex-direction:column;gap:12px}
+.game:nth-child(3n+1){transform:rotate(-1deg)}
+.game:nth-child(3n+2){transform:rotate(1.2deg)}
+.game:nth-child(3n){transform:rotate(-.6deg)}
+.game.coral{background:var(--coral-soft)}
+.game.sun{background:var(--sun-soft)}
+.game.mint{background:var(--mint-soft)}
+.game h3{font-size:40px}
+.game h3 a{color:inherit;text-decoration:none}
+.game p{color:var(--soft)}
+.badge{align-self:flex-start;background:#fff;border-radius:999px;padding:4px 12px;font-weight:800;font-size:14px}
+.badge.green{background:var(--mint)}
+.btn{display:inline-block;align-self:flex-start;text-decoration:none;font-weight:800;font-size:18px;padding:13px 24px;border-radius:999px;border:3px solid var(--ink)}
+.btn.indigo{background:var(--indigo);color:#fff}
+.btn.indigo:hover{background:var(--indigo-deep);color:#fff}
+.btn.white{background:#fff;color:var(--ink)}
+.btn.white:hover{background:var(--sun-soft);color:var(--ink)}
+.btn.off{opacity:.75;cursor:default}
+.btn.off small{font-weight:700;font-size:14px}
 
-/* How */
-.how{padding:64px 0 96px}
-.how .wrap{display:flex;flex-wrap:wrap;gap:48px;align-items:flex-start}
-.how .intro{flex:1 1 340px;display:flex;flex-direction:column;gap:16px}
-.how .intro p{font-size:19px;color:var(--ink-soft)}
-.chips{display:flex;flex-wrap:wrap;gap:8px;font-weight:800;font-size:14px}
-.chips span{background:var(--sky-soft);padding:8px 14px;border-radius:999px}
-.steps{flex:1 1 520px;margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:16px}
-.steps li{display:flex;gap:20px;align-items:center;border-radius:24px;padding:22px 24px}
-.steps li>span{flex:0 0 56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:800;font-size:28px}
-.steps strong{display:block;font-size:20px;margin-bottom:4px}
-.steps small{display:block;font-size:16px;color:var(--ink-soft)}
-.steps li:nth-child(1){background:var(--coral-soft)} .steps li:nth-child(1)>span{background:var(--coral)}
-.steps li:nth-child(2){background:var(--sky-soft)} .steps li:nth-child(2)>span{background:var(--blue)}
-.steps li:nth-child(3){background:var(--green-soft)} .steps li:nth-child(3)>span{background:var(--green)}
+/* How it works */
+.how{padding:80px 0}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:24px}
+.step{border:3px solid var(--ink);border-radius:28px;padding:28px}
+.step.coral{background:var(--coral-soft)}
+.step.sun{background:var(--sun-soft)}
+.step.mint{background:var(--mint-soft)}
+.step .label{font-family:var(--display);font-weight:800;font-size:22px;margin-bottom:8px}
+.step.coral .label{color:#B83A1E}
+.step.sun .label{color:#8A6400}
+.step.mint .label{color:#12784A}
+.step h3{font-size:30px;margin-bottom:10px}
 
 /* Host */
-.host{padding:0 20px 80px}
-.hostbox{max-width:1200px;margin:0 auto;background:var(--indigo);color:#fff;border-radius:40px;padding:clamp(32px,5vw,64px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:28px}
-.hostbox .txt{flex:1 1 420px;display:flex;flex-direction:column;gap:12px}
-.hostbox h2{font-size:clamp(34px,4.5vw,54px)}
-.hostbox p{font-size:19px}
-.btns{flex:1 1 360px;max-width:420px;display:flex;flex-direction:column;gap:14px}
-.btnrow{display:flex;flex-wrap:wrap;gap:14px}
-.big{display:block;text-align:center;text-decoration:none;font-family:var(--display);font-weight:800;border-radius:999px;box-shadow:0 8px 0 var(--indigo-deep);padding:14px 28px;font-size:22px;background:var(--sun);color:var(--ink)}
-.big:hover{color:var(--ink);background:#FFD566}
-.store{flex:1 1 160px;background:#fff;font-size:19px;padding:12px 20px}
-.store:hover{background:var(--sky-soft)}
-.store.off{background:rgba(255,255,255,.16);color:#fff;box-shadow:none;cursor:default}
-.store.off small{display:block;font-family:'Nunito',sans-serif;font-size:13px;font-weight:700;opacity:.85}
-.tvnote{font-size:15px!important;opacity:.9}
-.tvnote a{color:#fff}
+.hostwrap{padding-bottom:80px}
+.host{background:var(--sky);border:3px solid var(--ink);border-radius:36px;box-shadow:8px 8px 0 var(--ink);padding:clamp(24px,4vw,44px);display:flex;flex-wrap:wrap;align-items:center;gap:36px}
+.host img{flex:0 1 320px;width:320px;max-width:100%}
+.host .copy{flex:1 1 400px;min-width:0}
+.host h2{font-size:clamp(38px,4.5vw,52px);margin-bottom:12px}
+.host .copy>p{font-size:19px;color:var(--soft);margin-bottom:24px}
+.buttons{display:flex;flex-wrap:wrap;gap:12px}
 
-footer{padding:0 0 40px}
-footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;font-weight:700;font-size:15px;color:var(--muted)}
-footer nav{display:flex;flex-wrap:wrap;gap:24px}
-footer a{color:var(--muted)}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.game{transition:none}}
+/* Footer */
+footer{background:var(--ink);color:#CBD3F0;padding:36px 0}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:18px;font-weight:700}
+footer img{height:44px;width:auto}
+footer .fl{display:flex;flex-wrap:wrap;gap:24px;align-items:center}
+footer a{color:#CBD3F0}
+footer a:hover{color:#fff}
+
+@media (max-width:600px){
+  .brand img{height:40px}
+  .links{font-size:15px;gap:6px}
+  .links a{padding:8px 12px}
+  .links a.y,.links a.g{display:none}
+  .hero{gap:32px;padding-top:16px}
+  .collage{gap:14px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
-<div class="top">
 <header class="wrap nav">
-<a class="brand" href="{{SITE}}" aria-label="Groupcade home">{{LOGO}}<span class="word" aria-hidden="true">group<b>cade</b></span></a>
+<a class="brand" href="{{SITE}}" aria-label="Groupcade home"><img src="{{LOGO_H}}" alt="Groupcade" width="243" height="66"></a>
 <nav class="links" aria-label="Main">
-<a href="#games">Games</a>
-<a href="#how">How it works</a>
-<a class="pill" href="#host">Host a game</a>
+<a class="y" href="#games">{{NAV_GAMES}}</a>
+<a class="g" href="#how">{{NAV_HOW}}</a>
+<a class="cta" href="#host">{{NAV_HOST}}</a>
 </nav>
 </header>
 
 <main>
-<section class="hero">
-<h1>Game night,<br>right from the couch.</h1>
-<p>Grab your phones. Groupcade turns your TV into a game show and every phone into a buzzer, for kids, parents, grandparents and everyone in between.</p>
+<section class="wrap hero">
+<div class="copy">
+<h1>{{HERO_TITLE}}</h1>
+<p class="intro">{{HERO_TEXT}}</p>
 <form class="join" action="{{JOIN_ACTION}}" method="get">
-<label for="gc-code">Join with code</label>
-<input id="gc-code" name="code" placeholder="ABCD" maxlength="4" minlength="4" pattern="[A-Za-z]{4}" autocomplete="off" autocapitalize="characters" spellcheck="false" required>
-<button type="submit">Go!</button>
+<label class="sr" for="gc-code">{{JOIN_HINT}}</label>
+<input id="gc-code" name="code" placeholder="{{JOIN_HINT}}" maxlength="4" minlength="4" pattern="[A-Za-z]{4}" autocomplete="off" autocapitalize="characters" spellcheck="false" required>
+<button type="submit">{{JOIN_BUTTON}}</button>
 </form>
-<a class="hostlink" href="#host">Want to host? Start a game in your browser or the app →</a>
+<p class="prompt">{{HOST_PROMPT}} <a href="#host">{{HOST_PROMPT_LINK}}</a></p>
+</div>
+<div class="collage">
+<div class="sticker big"><img src="{{HERO_IMG}}" alt="{{HERO_ALT}}"></div>
+{{HERO_CARDS}}
+</div>
 </section>
 
-<div class="scene" aria-hidden="true">
-<div class="tv"><div class="screen">
-<span class="kick">ROUND 3 · ANIMALS</span>
-<span class="q">How many hearts does an octopus have?</span>
-<span class="count">12 of 14 answered</span>
-</div></div>
-<div class="stand"></div>
-<div class="crew">
-<div><span style="background:#FF6B4A">M</span>Mom</div>
-<div><span style="background:#FFC93C">J</span>Jonah</div>
-<div><span style="background:#3DD68C">P</span>Papa</div>
-<div><span style="background:#B9A8FF">E</span>Ellie</div>
-<div><span style="background:#FF9ECF">D</span>Dad</div>
-<div><span class="you">+</span>You?</div>
-</div>
-</div>
-</main>
-</div>
-
-<section id="games" class="games">
+<section class="games" id="games">
 <div class="wrap">
-<h2>What do you want to play?</h2>
+<h2>{{GAMES_TITLE}}</h2>
 <div class="shelf">
 {{GAMES}}
 </div>
 </div>
 </section>
 
-<section id="how" class="how">
+<section class="how" id="how">
 <div class="wrap">
-<div class="intro">
-<h2>Host it however you like.</h2>
-<p>Start a game from any web browser, or from the Groupcade app on iPhone or Android. Players just open their phone's browser. No accounts, no sign-ups, no downloads.</p>
-<div class="chips"><span>Web browser</span><span>iPhone app</span><span>Android app</span></div>
+<h2>{{HOW_TITLE}}</h2>
+<div class="steps">
+{{STEPS}}
 </div>
-<ol class="steps">
-<li><span>1</span><div><strong>The host starts a game</strong><small>At {{SITE_SHORT}} on a laptop, tablet or phone, or in the Groupcade app. Pick a game, choose the settings, tap start.</small></div></li>
-<li><span>2</span><div><strong>Put it on the big screen, any way you like</strong><small>AirPlay, Chromecast, your TV's web browser at {{TV_SHORT}}, or a laptop plugged into the TV. The host's phone stays in hand as the remote.</small></div></li>
-<li><span>3</span><div><strong>Everyone joins with a 4-letter code</strong><small>Type it at {{SITE_SHORT}} or scan the QR code on the TV.</small></div></li>
-</ol>
 </div>
 </section>
 
-<section id="host" class="host">
-<div class="hostbox">
-<div class="txt">
-<h2>Ready to host?</h2>
-<p>Start right now in your browser, or get the app for iPhone or Android. Whatever screen you have, Groupcade can play on it.</p>
-<p class="tvnote">Putting it on a TV with a browser? Open <a href="{{TV_URL}}">{{TV_SHORT}}</a> on the TV and type the room code.</p>
-</div>
-<div class="btns">
-<a class="big" href="{{HOST_URL}}">Host in your browser</a>
-<div class="btnrow">
+<section class="wrap hostwrap" id="host">
+<div class="host">
+<img src="{{HOST_IMG}}" alt="">
+<div class="copy">
+<h2>{{HOST_TITLE}}</h2>
+<p>{{HOST_TEXT}}</p>
+<div class="buttons">
+<a class="btn indigo" href="{{HOST_URL}}">{{HOST_BUTTON}}</a>
 {{APPS}}
 </div>
 </div>
 </div>
 </section>
+</main>
 
 <footer>
 <div class="wrap">
-<span>© {{YEAR}} Groupcade</span>
-<nav aria-label="Footer"><a href="{{TV_URL}}">Open the TV screen</a>{{FOOTER_LINKS}}</nav>
+<img src="{{LOGO_H_DARK}}" alt="Groupcade" width="250" height="66">
+<div class="fl"><a href="{{TV_URL}}">{{FOOTER_TV}}</a>{{FOOTER_LINKS}}<span>{{FOOTER_NOTE}}</span></div>
 </div>
 </footer>
 <script>
