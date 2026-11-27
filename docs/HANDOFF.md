@@ -23,7 +23,7 @@
 - Two modes. Survival: a wrong answer puts you out, and if everyone misses, nobody goes out. Points: a 5-second read period first.
 - Question time is 15, 20 or 30 seconds, and the reveal shows for 7 seconds. Rounds are 10, 15 or 20, or "until one left". Questions get harder through the game (easy, then medium, then hard).
 - Also built: a host category picker, a specialty Christmas Movies category that's off by default, swipe-to-lock answers, trash talk chat, a still-in bar, and a stats page.
-- Limits: 30 players per room, rooms deleted 2 hours after the last activity.
+- Limits: 50 players per room, rooms deleted 2 hours after the last activity.
 - REST namespace mimosa-party/v1: rooms, join, answer, host actions, leave. Phones poll about once a second. Own tables, wp_mpt_rooms and wp_mpt_players.
 - It must stay separate from the Twitch stream's Survive Trivia scores and records. The MIMOSA category (questions about Dylan) is excluded.
 
