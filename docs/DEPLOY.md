@@ -14,6 +14,18 @@
 
 Updating: upload the new zip and pick "Replace current with uploaded". Tables update themselves.
 
+### Deploying from GitHub (no zip picking)
+
+`plugin/groupcade-deploy/` is a small plugin that lets the **Deploy plugin** workflow
+(`.github/workflows/deploy-plugin.yml`) install plugins on groupcade.com. The workflow sends
+GitHub's signed OIDC token (audience `groupcade-deploy`); the site checks the signature against
+GitHub's public keys and accepts only `mimosastreams/groupcade`, so there's no password to store.
+Deploys are listed at Tools > Groupcade deploy. Turn the plugin off to stop deploys.
+
+- Run it from Actions > Deploy plugin > Run workflow (any branch; pick groupcade,
+  groupcade-deploy or acf-pro), or push a commit with `[deploy]` in the message.
+- `acf-pro` needs the ACF Pro license key saved as the `ACF_PRO_KEY` repository secret.
+
 ### Pressable notes
 
 - The game pages and REST replies send `Cache-Control: no-store` and cancel Batcache, so the edge
