@@ -56,9 +56,12 @@ No Xcode needed. Bundle ID `com.groupcade.app` (fixed after the first upload, so
 ```sh
 cd app
 npm install
-npx eas-cli@latest build --platform ios --profile production
-npx eas-cli@latest submit --platform ios --latest
+npm run build:ios
+npm run submit:ios
 ```
+
+(Those are `npx eas-cli@latest build --platform ios --profile production` and
+`npx eas-cli@latest submit --platform ios --latest`.)
 
 The first build asks two things: to create the Expo project `@seensorts-team/groupcade` (say yes; it
 writes the project ID into `app.json`, so commit that), and to sign in to Apple and set up signing.
@@ -71,8 +74,11 @@ Builds include `expo-updates` (channel `production`, runtime = app version). Scr
 straight to installed apps:
 
 ```sh
-npx eas-cli@latest update --channel production --message "What changed"
+npm run update -- "What changed"
 ```
+
+That runs `eas update` for iOS on the `production` channel and EAS environment. The app has no web
+build, so `app.json` lists only `ios` and `android` as platforms.
 
 Anything native (app.json plugins, the TV module, new native packages, the version) still needs a new build.
 
