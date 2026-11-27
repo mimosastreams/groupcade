@@ -7,6 +7,7 @@ import { Pressable, Share, Text, View } from 'react-native';
 import { dialog } from '../../ui/Dialog';
 import { api, links, type Player, type RoomState } from '../../lib/api';
 import { Banner, Button, C, Card, Chip, H2, Label, P, Row, Screen, s } from '../../ui/kit';
+import { SwipeAnswer } from '../../ui/SwipeAnswer';
 import { TvCard } from '../../ui/TvCard';
 import { NO_CATS, noCats, TriviaSettingsForm, type TriviaSettings } from './Settings';
 
@@ -31,7 +32,11 @@ export function TriviaHost(p: Props) {
   const [err, setErr] = useState('');
   const [answering, setAnswering] = useState(false);
   const [sent, setSent] = useState(0); // Answer just tapped, shown until the next poll confirms it.
-  useEffect(() => setSent(0), [st.round]);
+  const [hint, setHint] = useState(false); // A tap lights up the "slide to lock in" hint.
+  useEffect(() => {
+    setSent(0);
+    setHint(false);
+  }, [st.round]);
 
   const answer = async (choice: number) => {
     if (!p.myToken || answering) return;
@@ -124,7 +129,7 @@ export function TriviaHost(p: Props) {
   }
 
   // cat, q, rev
-  // The host can play too: answers are tappable here when they're still in and haven't locked in.
+  // The host can play too: slide an answer to lock it in when they're still in and haven't locked in.
   const me = p.myToken && st.me ? st.me : null;
   const myAns = me && (st.phase === 'q' || st.phase === 'rev') ? sent || me.ans : 0;
   const canAnswer = !!me && me.alive && st.phase === 'q' && !myAns && !answering;
@@ -163,33 +168,35 @@ export function TriviaHost(p: Props) {
         {st.phase === 'q' ? <Clock st={st} now={p.now} /> : null}
       </Card>
 
+      {canAnswer && st.phase === 'q' ? (
+        <Text style={{ color: hint ? C.accent : C.mist, fontWeight: '700', textAlign: 'center' }}>Slide an answer right to lock it in →</Text>
+      ) : null}
       {st.phase !== 'cat' ? (
         <View style={{ gap: 8 }}>
           {(st.choices || []).map((c, i) => {
             const right = last && last.right === i;
             const mine = myAns === i + 1;
             return (
-              <Pressable
+              <SwipeAnswer
                 key={i}
-                disabled={!canAnswer}
-                accessibilityRole={canAnswer ? 'button' : undefined}
-                accessibilityLabel={canAnswer ? `Answer ${L[i]}: ${c}` : undefined}
-                onPress={() => answer(i + 1)}
-                style={({ pressed }) => [
+                enabled={canAnswer}
+                label={`Answer ${L[i]}: ${c}`}
+                onLock={() => answer(i + 1)}
+                onTap={() => setHint(true)}
+                style={[
                   s.card,
-                  { flexDirection: 'row', alignItems: 'center', padding: 12, gap: 12 },
+                  { padding: 12, gap: 12 },
                   mine && { borderColor: C.accent, backgroundColor: 'rgba(255,79,163,0.14)' },
                   right && { borderColor: C.right, backgroundColor: 'rgba(91,227,139,0.12)' },
                   last && !right && !mine && { opacity: 0.5 },
                   !!myAns && !mine && !last && { opacity: 0.5 },
-                  pressed && { opacity: 0.7 },
                 ]}
               >
                 <Text style={{ color: C.answers[i], fontWeight: '900', fontSize: 18, width: 22 }}>{L[i]}</Text>
                 <Text style={{ color: C.white, fontWeight: '700', fontSize: 17, flex: 1 }}>{c}</Text>
                 {mine ? <Text style={{ color: C.accent, fontWeight: '800' }}>{last ? 'You' : 'Locked in'}</Text> : null}
                 {last ? <Text style={{ color: C.mist, fontWeight: '800' }}>{last.counts[i]}</Text> : null}
-              </Pressable>
+              </SwipeAnswer>
             );
           })}
         </View>
