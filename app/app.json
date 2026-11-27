@@ -27,7 +27,7 @@
         "expo-splash-screen",
         {
           "image": "./assets/splash-icon.png",
-          "imageWidth": 160,
+          "imageWidth": 240,
           "backgroundColor": "#15122B"
         }
       ],
@@ -45,8 +45,8 @@
     "android": {
       "package": "com.groupcade.app",
       "adaptiveIcon": {
-        "foregroundImage": "./assets/icon.png",
-        "backgroundColor": "#15122B"
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#6FBEF7"
       },
       "predictiveBackGestureEnabled": false
     },

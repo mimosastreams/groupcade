@@ -46,5 +46,8 @@
   `UIWindowSceneSessionRoleExternalDisplayNonInteractive` scene in `app/modules/groupcade-tv/`.
   The page's app flag is `window.GROUPCADE_APP` and it posts `{groupcade:1, type:'room', game, code, role}`.
   Bundle ID `com.groupcade.app` until Dylan says otherwise.
+- **Brand (plugin 1.2.0):** the TV mascot and three phone friends, files in `brand/`. Home page is
+  design C "Sticker Book"; every word and picture is edited at Settings > Groupcade home
+  (`GC_Home::fields()` lists them; the admin form is built from that list).
 - **Still open:** free or a one-time unlock; an Apple TV or AirPlay TV to test on; which Apple
-  developer account; a real logo (the current mark is a placeholder).
+  developer account.
