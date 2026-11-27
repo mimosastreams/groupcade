@@ -1,0 +1,36 @@
+{
+  "expo": {
+    "name": "Groupcade",
+    "slug": "groupcade",
+    "scheme": "groupcade",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "ios": {
+      "bundleIdentifier": "com.groupcade.app",
+      "supportsTablet": false,
+      "config": {
+        "usesNonExemptEncryption": false
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/splash-icon.png",
+          "imageWidth": 160,
+          "backgroundColor": "#15122B"
+        }
+      ],
+      "./modules/groupcade-tv/app.plugin.js"
+    ],
+    "extra": {
+      "apiBase": "https://groupcade.com"
+    }
+  }
+}

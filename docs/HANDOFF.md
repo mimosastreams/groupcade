@@ -36,3 +36,15 @@
 **Keep mimosa.gg/party live** as it is.
 
 **Open questions for Dylan:** free or a one-time unlock, whether he has an Apple TV or AirPlay TV to test on, and which Apple developer account to use.
+
+## Status (2026-11-27)
+
+- **Plugin:** `plugin/groupcade/` is the Groupcade version of the party plugin, set up for more games
+  (core in `includes/`, Trivia in `games/trivia/`). Pages `/trivia/` and `/tv/`, REST `groupcade/v1`.
+  Install steps and the domain redirects are in `docs/DEPLOY.md`.
+- **iPhone app:** `app/` (Expo SDK 58). Native host screens, AirPlay second screen through the
+  `UIWindowSceneSessionRoleExternalDisplayNonInteractive` scene in `app/modules/groupcade-tv/`.
+  The page's app flag is `window.GROUPCADE_APP` and it posts `{groupcade:1, type:'room', game, code, role}`.
+  Bundle ID `com.groupcade.app` until Dylan says otherwise.
+- **Still open:** free or a one-time unlock; an Apple TV or AirPlay TV to test on; which Apple
+  developer account; a real logo (the current mark is a placeholder).

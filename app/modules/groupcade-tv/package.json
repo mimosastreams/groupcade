@@ -1,0 +1,8 @@
+{
+  "name": "groupcade-tv",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Shows the room's TV page on an AirPlay (or wired) second screen while the phone stays the controller.",
+  "main": "index.ts",
+  "license": "UNLICENSED"
+}
