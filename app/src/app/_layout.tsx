@@ -1,5 +1,6 @@
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
+import { DialogHost } from '../ui/Dialog';
 import { C } from '../ui/kit';
 
 export default function RootLayout() {
@@ -20,6 +21,7 @@ export default function RootLayout() {
         <Stack.Screen name="room/[code]" options={{ title: 'Host', headerBackVisible: false, gestureEnabled: false }} />
         <Stack.Screen name="play/[code]" options={{ title: 'Playing' }} />
       </Stack>
+      <DialogHost />
     </>
   );
 }

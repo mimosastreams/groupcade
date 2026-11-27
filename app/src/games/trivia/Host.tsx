@@ -3,7 +3,8 @@
 import QRCode from 'react-native-qrcode-svg';
 import { useEffect, useState } from 'react';
 import * as Haptics from 'expo-haptics';
-import { Alert, Pressable, Share, Text, View } from 'react-native';
+import { Pressable, Share, Text, View } from 'react-native';
+import { dialog } from '../../ui/Dialog';
 import { api, links, type Player, type RoomState } from '../../lib/api';
 import { Banner, Button, C, Card, Chip, H2, Label, P, Row, Screen, s } from '../../ui/kit';
 import { TvCard } from '../../ui/TvCard';
@@ -61,7 +62,7 @@ export function TriviaHost(p: Props) {
   };
 
   const confirmEnd = () =>
-    Alert.alert('End this game?', 'Everyone goes to the results screen.', [
+    dialog.alert('End this game?', 'Everyone goes to the results screen.', [
       { text: 'Keep playing', style: 'cancel' },
       { text: 'End game', style: 'destructive', onPress: () => run('end') },
     ]);
@@ -221,7 +222,7 @@ export function TriviaHost(p: Props) {
 }
 
 function kick(pl: Player, run: (a: string, x?: object) => Promise<void>) {
-  Alert.alert(`Remove ${pl.name}?`, 'They can join again with a new name.', [
+  dialog.alert(`Remove ${pl.name}?`, 'They can join again with a new name.', [
     { text: 'Cancel', style: 'cancel' },
     { text: 'Remove', style: 'destructive', onPress: () => run('kick', { player: pl.id }) },
   ]);
