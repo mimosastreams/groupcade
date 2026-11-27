@@ -6,7 +6,7 @@ import { Alert, Share, Text, View } from 'react-native';
 import { links, type Player, type RoomState } from '../../lib/api';
 import { Banner, Button, C, Card, Chip, H2, Label, P, Row, Screen, s } from '../../ui/kit';
 import { TvCard } from '../../ui/TvCard';
-import { TriviaSettingsForm, type TriviaSettings } from './Settings';
+import { NO_CATS, noCats, TriviaSettingsForm, type TriviaSettings } from './Settings';
 
 type Props = {
   st: RoomState;
@@ -228,7 +228,10 @@ function PlayersCard({ st, myName, onKick }: { st: RoomState; myName: string | n
 
 function LobbySettings({ st, onChange }: { st: RoomState; onChange: (x: object) => void }) {
   const all = st.allCats || [];
-  const value: TriviaSettings = { mode: st.mode, rounds: st.rounds, secs: st.secs, cats: st.only };
+  // The server always has at least one category on, so "cleared, nothing picked yet" lives here
+  // until the host taps one.
+  const [cleared, setCleared] = useState(false);
+  const value: TriviaSettings = { mode: st.mode, rounds: st.rounds, secs: st.secs, cats: cleared ? [NO_CATS] : st.only };
   return (
     <TriviaSettingsForm
       value={value}
@@ -236,7 +239,16 @@ function LobbySettings({ st, onChange }: { st: RoomState; onChange: (x: object) 
       specCats={st.specCats || []}
       onChange={(x) => {
         const out: Record<string, unknown> = { ...x };
-        if (x.cats) out.cats = x.cats.length ? x.cats : all; // The server wants the full list for "all".
+        if (x.cats) {
+          if (noCats({ cats: x.cats })) {
+            setCleared(true);
+            delete out.cats;
+            if (!Object.keys(out).length) return;
+          } else {
+            setCleared(false);
+            out.cats = x.cats.length ? x.cats : all; // The server wants the full list for "all".
+          }
+        }
         onChange(out);
       }}
     />
