@@ -1,4 +1,5 @@
 import ExpoModulesCore
+import UIKit
 
 /// JS side of the TV: tell the TV which page to show, and hear when a TV connects or leaves.
 public final class GroupcadeTvModule: Module {
@@ -29,6 +30,21 @@ public final class GroupcadeTvModule: Module {
     Function("isConnected") { () -> Bool in
       GCTvState.shared.connected
     }
+
+    /// What iOS sees, for the "TV check" line in the app: whether this build can get a TV scene,
+    /// and which scenes and screens are attached right now.
+    Function("diagnostics") { () -> [String: Any] in
+      let manifest = Bundle.main.object(forInfoDictionaryKey: "UIApplicationSceneManifest") as? [String: Any]
+      let configs = manifest?["UISceneConfigurations"] as? [String: Any] ?? [:]
+      return [
+        "multipleScenes": manifest?["UIApplicationSupportsMultipleScenes"] as? Bool ?? false,
+        "tvRole": configs["UIWindowSceneSessionRoleExternalDisplayNonInteractive"] != nil,
+        "delegateLinked": NSClassFromString("GCExternalDisplaySceneDelegate") != nil,
+        "scenes": UIApplication.shared.connectedScenes.map { $0.session.role.rawValue },
+        "screens": UIScreen.screens.count,
+        "connected": GCTvState.shared.connected,
+      ]
+    }.runOnQueue(.main)
 
     /// The page the TV shows: the room's TV URL, or null for the idle screen.
     Function("setRoomUrl") { (url: String?) in
