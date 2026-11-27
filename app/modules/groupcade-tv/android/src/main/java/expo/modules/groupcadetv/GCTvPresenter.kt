@@ -22,7 +22,11 @@ object GCTvPresenter {
   private var displays: DisplayManager? = null
   private var presentation: TvPresentation? = null
   private var url: String? = null
-  private var lastConnected = false
+  @Volatile private var lastConnected = false
+
+  /** Last state sent to JS; safe to read from any thread. */
+  val lastKnown: Boolean
+    get() = lastConnected
 
   var onChange: ((Boolean) -> Unit)? = null
 

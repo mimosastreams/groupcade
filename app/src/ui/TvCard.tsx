@@ -1,4 +1,6 @@
+import { useEffect, useState } from 'react';
 import { Platform, Text, View } from 'react-native';
+import { tvDiagnostics, type TvDiagnostics } from '../../modules/groupcade-tv';
 import { links } from '../lib/api';
 import { useCast } from '../lib/cast';
 import { useTv } from '../lib/useTv';
@@ -11,6 +13,14 @@ const ios = Platform.OS === 'ios';
 export function TvCard({ code, compact }: { code: string; compact?: boolean }) {
   const screen = useTv();
   const cast = useCast();
+  const [diag, setDiag] = useState<TvDiagnostics | null>(null);
+  useEffect(() => {
+    // Refresh the TV check every few seconds, so it shows a screen attaching or leaving.
+    const read = () => setDiag(tvDiagnostics());
+    read();
+    const t = setInterval(read, 3000);
+    return () => clearInterval(t);
+  }, []);
   const castOn = cast.status === 'on';
 
   if ((screen.supported && screen.connected) || castOn) {
@@ -53,6 +63,20 @@ export function TvCard({ code, compact }: { code: string; compact?: boolean }) {
           </P>
         </View>
       ) : null}
+      {screen.supported && ios && !compact && diag ? <DiagLine d={diag} /> : null}
     </Card>
+  );
+}
+
+/** One small line that says what iOS sees, so a "it still mirrors" report shows why. */
+function DiagLine({ d }: { d: TvDiagnostics }) {
+  const ok = (b?: boolean) => (b ? '✓' : '✗');
+  const tvScenes = (d.scenes || []).filter((r) => r.includes('External')).length;
+  return (
+    <Text style={{ color: C.mist, fontSize: 11, opacity: 0.8 }}>
+      TV check: scenes {ok(d.multipleScenes)} · TV role {ok(d.tvRole)} · TV code {ok(d.delegateLinked)} · screens {d.screens ?? 0} · TV
+      scenes {tvScenes} · iOS {d.ios ?? '?'} · accessory {d.accessory ?? '?'}
+      {d.accessoryAvailable === undefined ? '' : ` (${d.accessoryAvailable ? 'TV available' : 'no TV yet'})`}
+    </Text>
   );
 }

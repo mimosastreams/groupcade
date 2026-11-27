@@ -2,11 +2,14 @@
 // game as it runs (the TV shows the big version); then winners. All native, no web view.
 import QRCode from 'react-native-qrcode-svg';
 import { useEffect, useState } from 'react';
-import { Alert, Share, Text, View } from 'react-native';
-import { links, type Player, type RoomState } from '../../lib/api';
+import * as Haptics from 'expo-haptics';
+import { Pressable, Share, Text, View } from 'react-native';
+import { dialog } from '../../ui/Dialog';
+import { api, links, type Player, type RoomState } from '../../lib/api';
 import { Banner, Button, C, Card, Chip, H2, Label, P, Row, Screen, s } from '../../ui/kit';
+import { SwipeAnswer } from '../../ui/SwipeAnswer';
 import { TvCard } from '../../ui/TvCard';
-import { TriviaSettingsForm, type TriviaSettings } from './Settings';
+import { NO_CATS, noCats, TriviaSettingsForm, type TriviaSettings } from './Settings';
 
 type Props = {
   st: RoomState;
@@ -14,6 +17,8 @@ type Props = {
   now: () => number;
   offline: boolean;
   myName: string | null; // The host's own player name, if they joined to play.
+  myToken: string | null; // Their player token, so they can answer right here.
+  onAnswered: () => void;
   onPlayToo: () => void;
   onNewRoom: () => void;
 };
@@ -25,6 +30,29 @@ export function TriviaHost(p: Props) {
   const { st } = p;
   const [busy, setBusy] = useState('');
   const [err, setErr] = useState('');
+  const [answering, setAnswering] = useState(false);
+  const [sent, setSent] = useState(0); // Answer just tapped, shown until the next poll confirms it.
+  const [hint, setHint] = useState(false); // A tap lights up the "slide to lock in" hint.
+  useEffect(() => {
+    setSent(0);
+    setHint(false);
+  }, [st.round]);
+
+  const answer = async (choice: number) => {
+    if (!p.myToken || answering) return;
+    setAnswering(true);
+    setErr('');
+    try {
+      await api.answer(st.code, p.myToken, st.round, choice);
+      setSent(choice);
+      Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success).catch(() => {});
+      p.onAnswered();
+    } catch (e) {
+      setErr((e as Error).message);
+    } finally {
+      setAnswering(false);
+    }
+  };
 
   const run = async (action: string, extra?: object) => {
     setBusy(action);
@@ -39,7 +67,7 @@ export function TriviaHost(p: Props) {
   };
 
   const confirmEnd = () =>
-    Alert.alert('End this game?', 'Everyone goes to the results screen.', [
+    dialog.alert('End this game?', 'Everyone goes to the results screen.', [
       { text: 'Keep playing', style: 'cancel' },
       { text: 'End game', style: 'destructive', onPress: () => run('end') },
     ]);
@@ -58,7 +86,7 @@ export function TriviaHost(p: Props) {
         footer={
           <>
             <Button kind="go" title={n ? `Start game · ${n} player${n === 1 ? '' : 's'}` : 'Waiting for players'} disabled={!n} busy={busy === 'start'} onPress={() => run('start')} />
-            {!p.myName ? <Button kind="ghost" small title="Play on this phone too" onPress={p.onPlayToo} /> : null}
+            {!p.myName ? <Button kind="ghost" small title="Play too (answer on this phone)" onPress={p.onPlayToo} /> : null}
           </>
         }
       >
@@ -101,6 +129,10 @@ export function TriviaHost(p: Props) {
   }
 
   // cat, q, rev
+  // The host can play too: slide an answer to lock it in when they're still in and haven't locked in.
+  const me = p.myToken && st.me ? st.me : null;
+  const myAns = me && (st.phase === 'q' || st.phase === 'rev') ? sent || me.ans : 0;
+  const canAnswer = !!me && me.alive && st.phase === 'q' && !myAns && !answering;
   const last = st.phase === 'rev' && st.last && st.last.round === st.round ? st.last : null;
   const finalReveal = last && (st.mode === 'points' ? st.round >= st.rounds : st.alive <= 1 && st.players.length > 1);
   return (
@@ -110,7 +142,6 @@ export function TriviaHost(p: Props) {
           {st.phase === 'rev' ? <Button kind="go" title={finalReveal ? 'See the winner →' : 'Next round →'} busy={busy === 'next'} onPress={() => run('next')} /> : null}
           <Row style={{ justifyContent: 'space-between' }}>
             <Button kind="danger" small title="End game" onPress={confirmEnd} />
-            {p.myName ? <Button kind="ghost" small title="My answers →" onPress={p.onPlayToo} /> : null}
           </Row>
         </>
       }
@@ -130,22 +161,42 @@ export function TriviaHost(p: Props) {
         </Text>
       </Row>
 
+      {me ? <MyStatus st={st} me={me} myAns={myAns} /> : null}
       <Card>
         <Text style={{ color: C.accent, fontWeight: '900', fontSize: 15, textTransform: 'uppercase', letterSpacing: 1 }}>{st.cat}</Text>
         {st.phase === 'cat' ? <P muted>Category card is on the TV…</P> : <Text style={{ color: C.white, fontSize: 22, fontWeight: '800', lineHeight: 29 }}>{st.q}</Text>}
         {st.phase === 'q' ? <Clock st={st} now={p.now} /> : null}
       </Card>
 
+      {canAnswer && st.phase === 'q' ? (
+        <Text style={{ color: hint ? C.accent : C.mist, fontWeight: '700', textAlign: 'center' }}>Slide an answer right to lock it in →</Text>
+      ) : null}
       {st.phase !== 'cat' ? (
         <View style={{ gap: 8 }}>
           {(st.choices || []).map((c, i) => {
             const right = last && last.right === i;
+            const mine = myAns === i + 1;
             return (
-              <View key={i} style={[s.card, { flexDirection: 'row', alignItems: 'center', padding: 12, gap: 12 }, right && { borderColor: C.right, backgroundColor: 'rgba(91,227,139,0.12)' }, last && !right && { opacity: 0.5 }]}>
+              <SwipeAnswer
+                key={i}
+                enabled={canAnswer}
+                label={`Answer ${L[i]}: ${c}`}
+                onLock={() => answer(i + 1)}
+                onTap={() => setHint(true)}
+                style={[
+                  s.card,
+                  { padding: 12, gap: 12 },
+                  mine && { borderColor: C.accent, backgroundColor: 'rgba(255,79,163,0.14)' },
+                  right && { borderColor: C.right, backgroundColor: 'rgba(91,227,139,0.12)' },
+                  last && !right && !mine && { opacity: 0.5 },
+                  !!myAns && !mine && !last && { opacity: 0.5 },
+                ]}
+              >
                 <Text style={{ color: C.answers[i], fontWeight: '900', fontSize: 18, width: 22 }}>{L[i]}</Text>
                 <Text style={{ color: C.white, fontWeight: '700', fontSize: 17, flex: 1 }}>{c}</Text>
+                {mine ? <Text style={{ color: C.accent, fontWeight: '800' }}>{last ? 'You' : 'Locked in'}</Text> : null}
                 {last ? <Text style={{ color: C.mist, fontWeight: '800' }}>{last.counts[i]}</Text> : null}
-              </View>
+              </SwipeAnswer>
             );
           })}
         </View>
@@ -178,7 +229,7 @@ export function TriviaHost(p: Props) {
 }
 
 function kick(pl: Player, run: (a: string, x?: object) => Promise<void>) {
-  Alert.alert(`Remove ${pl.name}?`, 'They can join again with a new name.', [
+  dialog.alert(`Remove ${pl.name}?`, 'They can join again with a new name.', [
     { text: 'Cancel', style: 'cancel' },
     { text: 'Remove', style: 'destructive', onPress: () => run('kick', { player: pl.id }) },
   ]);
@@ -228,7 +279,10 @@ function PlayersCard({ st, myName, onKick }: { st: RoomState; myName: string | n
 
 function LobbySettings({ st, onChange }: { st: RoomState; onChange: (x: object) => void }) {
   const all = st.allCats || [];
-  const value: TriviaSettings = { mode: st.mode, rounds: st.rounds, secs: st.secs, cats: st.only };
+  // The server always has at least one category on, so "cleared, nothing picked yet" lives here
+  // until the host taps one.
+  const [cleared, setCleared] = useState(false);
+  const value: TriviaSettings = { mode: st.mode, rounds: st.rounds, secs: st.secs, cats: cleared ? [NO_CATS] : st.only };
   return (
     <TriviaSettingsForm
       value={value}
@@ -236,7 +290,16 @@ function LobbySettings({ st, onChange }: { st: RoomState; onChange: (x: object) 
       specCats={st.specCats || []}
       onChange={(x) => {
         const out: Record<string, unknown> = { ...x };
-        if (x.cats) out.cats = x.cats.length ? x.cats : all; // The server wants the full list for "all".
+        if (x.cats) {
+          if (noCats({ cats: x.cats })) {
+            setCleared(true);
+            delete out.cats;
+            if (!Object.keys(out).length) return;
+          } else {
+            setCleared(false);
+            out.cats = x.cats.length ? x.cats : all; // The server wants the full list for "all".
+          }
+        }
         onChange(out);
       }}
     />
@@ -261,6 +324,36 @@ function Clock({ st, now }: { st: RoomState; now: () => number }) {
         <View style={{ width: `${(left / total) * 100}%`, height: '100%', backgroundColor: left < 5000 ? C.out : C.accent }} />
       </View>
       <Text style={{ color: C.white, fontWeight: '900', width: 36, textAlign: 'right' }}>{Math.ceil(left / 1000)}s</Text>
+    </Row>
+  );
+}
+
+/** The host's own line as a player: in or out, their score, and how their answer went. */
+function MyStatus({ st, me, myAns }: { st: RoomState; me: NonNullable<RoomState['me']>; myAns: number }) {
+  const last = st.phase === 'rev' && st.last && st.last.round === st.round ? st.last : null;
+  const pts = st.mode === 'points';
+  let line: string;
+  let color: string = C.mist;
+  if (!pts && !me.alive && !(last && myAns)) {
+    line = "You're out. Keep hosting, and you're back in next game.";
+    color = C.out;
+  } else if (last) {
+    const right = myAns === last.right + 1;
+    if (!myAns) line = pts ? 'No answer this round.' : "You didn't answer.";
+    else line = right ? (pts ? `Right! +${me.gain}` : 'Right! You\'re still in.') : pts ? 'Wrong this time.' : "Wrong, you're out.";
+    color = right ? C.right : C.out;
+  } else if (st.phase === 'q') {
+    line = myAns ? 'Locked in. Waiting for the others…' : 'Your turn: tap an answer below.';
+    color = myAns ? C.mist : C.accent;
+  } else {
+    line = pts ? 'Get ready…' : "You're in. Get ready…";
+  }
+  return (
+    <Row style={{ justifyContent: 'space-between' }}>
+      <Text style={{ color, fontWeight: '800', flex: 1 }}>
+        {me.name}: {line}
+      </Text>
+      {pts ? <Text style={{ color: C.white, fontWeight: '900' }}>{me.score}</Text> : null}
     </Row>
   );
 }

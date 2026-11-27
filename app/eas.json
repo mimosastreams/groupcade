@@ -27,6 +27,9 @@
       "channel": "preview",
       "env": {
         "GROUPCADE_CAST_APP_ID": ""
+      },
+      "ios": {
+        "image": "latest"
       }
     },
     "production": {
@@ -34,6 +37,9 @@
       "channel": "production",
       "env": {
         "GROUPCADE_CAST_APP_ID": ""
+      },
+      "ios": {
+        "image": "latest"
       }
     }
   },

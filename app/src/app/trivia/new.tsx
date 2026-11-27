@@ -2,7 +2,7 @@
 import { router } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { ActivityIndicator } from 'react-native';
-import { DEFAULT_SETTINGS, TriviaSettingsForm, type TriviaSettings } from '../../games/trivia/Settings';
+import { DEFAULT_SETTINGS, noCats, TriviaSettingsForm, type TriviaSettings } from '../../games/trivia/Settings';
 import { api, type TriviaConfig } from '../../lib/api';
 import { store } from '../../lib/store';
 import { Banner, Button, C, Card, Screen } from '../../ui/kit';
@@ -31,6 +31,7 @@ export default function NewTrivia() {
   };
 
   const make = async () => {
+    if (noCats(settings)) return;
     setBusy(true);
     setErr('');
     try {
@@ -47,7 +48,7 @@ export default function NewTrivia() {
   };
 
   return (
-    <Screen footer={<Button kind="go" title="Make a room" onPress={make} busy={busy} disabled={!cfg} />}>
+    <Screen footer={<Button kind="go" title="Make a room" onPress={make} busy={busy} disabled={!cfg || noCats(settings)} />}>
       {err ? <Banner tone="bad">{err}</Banner> : null}
       <Card>
         {cfg ? (

@@ -7,7 +7,21 @@ type TvEvents = { onTvChange: (e: { connected: boolean }) => void };
 type TvModule = {
   isConnected(): boolean;
   setRoomUrl(url: string | null): void;
+  diagnostics?(): TvDiagnostics;
   addListener<K extends keyof TvEvents>(name: K, fn: TvEvents[K]): EventSubscription;
+};
+
+export type TvDiagnostics = {
+  multipleScenes?: boolean;
+  tvRole?: boolean;
+  delegateLinked?: boolean;
+  scenes?: string[];
+  screens?: number;
+  connected?: boolean;
+  /** iOS 27+ scene accessory: registered, waiting, not needed, or old SDK. */
+  accessory?: string;
+  accessoryAvailable?: boolean;
+  ios?: string;
 };
 
 const native = requireOptionalNativeModule<TvModule>('GroupcadeTv');
@@ -27,4 +41,13 @@ export function setTvRoomUrl(url: string | null): void {
 export function addTvListener(fn: (connected: boolean) => void): { remove(): void } {
   if (!native) return { remove() {} };
   return native.addListener('onTvChange', (e) => fn(!!e.connected));
+}
+
+/** What iOS reports about TV support in this build (null where there is no native module, or on Android). */
+export function tvDiagnostics(): TvDiagnostics | null {
+  try {
+    return native?.diagnostics ? native.diagnostics() : null;
+  } catch {
+    return null;
+  }
 }
