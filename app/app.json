@@ -34,7 +34,10 @@
       "./modules/groupcade-tv/app.plugin.js"
     ],
     "extra": {
-      "apiBase": "https://groupcade.com"
+      "apiBase": "https://groupcade.com",
+      "eas": {
+        "projectId": "154b6f6f-1f7a-4862-824e-7e8f81b6093c"
+      }
     },
     "runtimeVersion": {
       "policy": "appVersion"
@@ -46,6 +49,9 @@
         "backgroundColor": "#15122B"
       },
       "predictiveBackGestureEnabled": false
+    },
+    "updates": {
+      "url": "https://u.expo.dev/154b6f6f-1f7a-4862-824e-7e8f81b6093c"
     }
   }
 }
