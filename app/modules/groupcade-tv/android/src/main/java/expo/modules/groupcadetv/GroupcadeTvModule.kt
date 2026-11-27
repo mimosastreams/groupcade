@@ -1,6 +1,5 @@
 package expo.modules.groupcadetv
 
-import expo.modules.kotlin.functions.Queues
 import expo.modules.kotlin.modules.Module
 import expo.modules.kotlin.modules.ModuleDefinition
 
@@ -27,14 +26,19 @@ class GroupcadeTvModule : Module() {
       GCTvPresenter.detach()
     }
 
+    // Sync functions run on the JS thread: read the last known state here, and do the UI work
+    // (attaching to the activity, loading the page) on the main thread.
     Function("isConnected") {
-      appContext.currentActivity?.let { GCTvPresenter.attach(it) }
-      GCTvPresenter.connected
-    }.runOnQueue(Queues.MAIN)
+      appContext.currentActivity?.let { act -> act.runOnUiThread { GCTvPresenter.attach(act) } }
+      GCTvPresenter.lastKnown
+    }
 
     Function("setRoomUrl") { url: String? ->
-      appContext.currentActivity?.let { GCTvPresenter.attach(it) }
-      GCTvPresenter.setUrl(url)
-    }.runOnQueue(Queues.MAIN)
+      val act = appContext.currentActivity
+      android.os.Handler(android.os.Looper.getMainLooper()).post {
+        act?.let { GCTvPresenter.attach(it) }
+        GCTvPresenter.setUrl(url)
+      }
+    }
   }
 }
