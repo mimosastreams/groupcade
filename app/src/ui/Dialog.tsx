@@ -75,8 +75,8 @@ export function DialogHost() {
                     style={{ height: 54, borderRadius: 16, borderWidth: 3, borderColor: C.ink, backgroundColor: C.white, color: C.ink, fontSize: 20, fontFamily: F.heavy, paddingHorizontal: 14 }}
                   />
                 ) : null}
-                <View style={{ flexDirection: 'row', gap: 10 }}>
-                  {req.kind === 'prompt' ? (
+                {req.kind === 'prompt' ? (
+                  <View style={{ flexDirection: 'row', gap: 10 }}>
                     <>
                       <View style={{ flex: 1 }}>
                         <Button kind="ghost" title="Cancel" onPress={close} />
@@ -85,21 +85,25 @@ export function DialogHost() {
                         <Button kind="go" title="Join" onPress={submit} disabled={!text.trim()} />
                       </View>
                     </>
-                  ) : (
-                    req.buttons.map((b) => (
-                      <View key={b.text} style={{ flex: 1 }}>
-                        <Button
-                          kind={b.style === 'cancel' ? 'ghost' : b.style === 'destructive' ? 'danger' : 'go'}
-                          title={b.text}
-                          onPress={() => {
-                            close();
-                            b.onPress?.();
-                          }}
-                        />
-                      </View>
-                    ))
-                  )}
-                </View>
+                  </View>
+                ) : null}
+                {req.kind === 'alert' ? (
+                  // One full-width button per row, so long labels like "Close and host" always fit.
+                  // The action goes on top as a filled sticker button; Cancel/Keep sits under it.
+                  <View style={{ gap: 6 }}>
+                    {[...req.buttons.filter((b) => b.style !== 'cancel'), ...req.buttons.filter((b) => b.style === 'cancel')].map((b) => (
+                      <Button
+                        key={b.text}
+                        kind={b.style === 'cancel' ? 'ghost' : b.style === 'destructive' ? 'hot' : 'go'}
+                        title={b.text}
+                        onPress={() => {
+                          close();
+                          b.onPress?.();
+                        }}
+                      />
+                    ))}
+                  </View>
+                ) : null}
               </Card>
             ) : null}
           </Pressable>

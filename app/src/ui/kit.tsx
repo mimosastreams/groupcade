@@ -165,7 +165,7 @@ export function Button({ title, onPress, kind = 'plain', disabled, busy, small, 
       {busy ? (
         <ActivityIndicator color={fg} />
       ) : (
-        <Text style={[s.btnText, small && { fontSize: 16, fontFamily: F.heavy }, big && { fontSize: 26 }, { color: fg }]} numberOfLines={1}>
+        <Text style={[s.btnText, small && { fontSize: 16, fontFamily: F.heavy }, big && { fontSize: 26 }, { color: fg }]} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.75}>
           {title}
         </Text>
       )}
