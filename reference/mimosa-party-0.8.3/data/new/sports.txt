@@ -1,0 +1,130 @@
+Easy | Sports | How many points is a free throw worth in basketball? | 1 | 2 | 3 | 0.5
+Easy | Sports | How many bases are on a baseball field, including home plate? | 4 | 3 | 5 | 6
+Easy | Sports | Which sport uses a hoop and a backboard? | Basketball | Volleyball | Netball only | Handball
+Easy | Sports | Which sport has a "goalie" who can use their hands inside the box? | Soccer | Basketball | Tennis | Golf
+Easy | Sports | In which sport do players ride horses and hit a ball with mallets? | Polo | Croquet | Cricket | Lacrosse
+Easy | Sports | Which sport is played in a ring with gloves? | Boxing | Wrestling | Fencing | Judo
+Easy | Sports | Which sport uses swords called foils, epees and sabres? | Fencing | Kendo | Archery | Judo
+Easy | Sports | What do you call the person who rides a horse in a race? | Jockey | Rider | Driver | Trainer
+Easy | Sports | Which sport is played with a racket and a small hard ball against walls? | Squash | Tennis | Badminton | Pickleball
+Easy | Sports | Which paddle sport has become popular in parks and uses a plastic ball with holes? | Pickleball | Ping pong | Squash | Racquetball
+Easy | Sports | What is another name for table tennis? | Ping pong | Squash | Paddle ball | Badminton
+Easy | Sports | Which sport has events called the shot put, javelin and hurdles? | Track and field | Swimming | Gymnastics | Rowing
+Easy | Sports | How many players are on an ice hockey team on the ice, including the goalie? | 6 | 5 | 7 | 11
+Easy | Sports | What color card means a player is sent off in soccer? | Red | Yellow | Green | Blue
+Easy | Sports | What color card is a warning in soccer? | Yellow | Red | Orange | White
+Easy | Sports | What do you call the area in soccer where the goalkeeper can handle the ball? | The penalty area | The center circle | The touchline | The corner arc
+Easy | Sports | In which sport do you hear "Fore!"? | Golf | Tennis | Cricket | Baseball
+Easy | Sports | What is the score of a tennis game called after 15 and 30? | 40 | 45 | 35 | 50
+Easy | Sports | Which sport uses a pommel horse and rings? | Gymnastics | Equestrian | Weightlifting | Diving
+Easy | Sports | Which sport do the Dallas Cowboys play? | American football | Baseball | Basketball | Hockey
+Easy | Sports | What sport is Serena Williams famous for? | Tennis | Golf | Track | Basketball
+Easy | Sports | What sport is Simone Biles famous for? | Gymnastics | Swimming | Figure skating | Track
+Easy | Sports | What sport is Usain Bolt famous for? | Sprinting | Long jump | Soccer | Swimming
+Easy | Sports | What sport is Cristiano Ronaldo famous for? | Soccer | Basketball | Tennis | Rugby
+Easy | Sports | What do you call a hole in one in golf? | An ace | A birdie | An eagle | A bogey
+Easy | Sports | What is the name of the stick used to hit the ball in pool? | Cue | Bat | Club | Mallet
+Medium | Sports | In golf, what is one stroke over par called? | Bogey | Birdie | Eagle | Albatross
+Medium | Sports | In golf, what is two strokes under par called? | Eagle | Birdie | Albatross | Condor
+Medium | Sports | What is a "safety" worth in American football? | 2 points | 1 point | 3 points | 6 points
+Medium | Sports | What is the extra kick after a touchdown worth? | 1 point | 2 points | 3 points | 0 points
+Medium | Sports | How many yards long is an American football field between goal lines? | 100 | 120 | 110 | 90
+Medium | Sports | How many players are on the field for one NFL team? | 11 | 10 | 12 | 9
+Medium | Sports | How many innings are in a regular MLB game? | 9 | 7 | 10 | 8
+Medium | Sports | What do you call it when a pitcher allows no hits in a full game? | No-hitter | Perfect game | Shutout | Grand slam
+Medium | Sports | What is a home run with the bases loaded called? | Grand slam | Triple play | Walk-off | Cycle
+Medium | Sports | How many balls make a walk in baseball? | 4 | 3 | 5 | 2
+Medium | Sports | How many periods are in an NHL game? | 3 | 4 | 2 | 5
+Medium | Sports | How long is a regulation soccer match? | 90 minutes | 80 minutes | 60 minutes | 100 minutes
+Medium | Sports | How many players are on a cricket team? | 11 | 9 | 13 | 15
+Medium | Sports | What do you call six balls bowled in cricket? | An over | An innings | A wicket | A bail
+Medium | Sports | In which US city was basketball invented? | Springfield, Massachusetts | New York City | Chicago | Boston
+Medium | Sports | What is the name of golf's green jacket tournament? | The Masters | The Open | US Open | PGA Championship
+Medium | Sports | Where is the Masters golf tournament played? | Augusta National | Pebble Beach | St Andrews | Pinehurst
+Medium | Sports | Which race is called "the Run for the Roses"? | Kentucky Derby | Preakness Stakes | Belmont Stakes | Breeders' Cup
+Medium | Sports | Which three races make up horse racing's Triple Crown in the US? | Kentucky Derby, Preakness, Belmont | Derby, Oaks, Breeders' Cup | Preakness, Travers, Belmont | Derby, Grand National, Ascot
+Medium | Sports | Which car race is called "The Greatest Spectacle in Racing"? | Indianapolis 500 | Daytona 500 | Monaco Grand Prix | 24 Hours of Le Mans
+Medium | Sports | Which NASCAR race is called "The Great American Race"? | Daytona 500 | Indianapolis 500 | Coca-Cola 600 | Brickyard 400
+Medium | Sports | What does the winner of the Indy 500 traditionally drink? | Milk | Champagne | Lemonade | Beer
+Medium | Sports | What color jersey does the overall leader wear in the Tour de France? | Yellow | Green | Red | White
+Medium | Sports | What do you call a match in tennis that is decided at 6-6 in a set? | Tiebreak | Deuce | Advantage | Let
+Medium | Sports | What is it called when the score is 40-40 in tennis? | Deuce | Love | Advantage | Tie
+Medium | Sports | Which four tournaments make up tennis's Grand Slam? | Australian Open, French Open, Wimbledon, US Open | Wimbledon, Davis Cup, US Open, Olympics | French Open, Italian Open, Wimbledon, Indian Wells | Australian Open, Miami, Wimbledon, US Open
+Medium | Sports | Which surface is Wimbledon played on? | Grass | Clay | Hard court | Carpet
+Medium | Sports | In bowling, what is it called when you knock down all pins with two balls? | A spare | A strike | A split | A turkey
+Medium | Sports | In which year did Nadia Comaneci score the first perfect 10 at the Olympics? | 1976 | 1984 | 1972 | 1980
+Medium | Sports | Which country hosted the 2016 Summer Olympics? | Brazil | China | UK | Japan
+Medium | Sports | Which city hosted the 2012 Summer Olympics? | London | Beijing | Rio de Janeiro | Athens
+Medium | Sports | Which city hosted the 2008 Summer Olympics? | Beijing | Athens | London | Sydney
+Medium | Sports | Which city hosted the 2024 Summer Olympics? | Paris | Los Angeles | Tokyo | Brisbane
+Medium | Sports | Which city will host the 2028 Summer Olympics? | Los Angeles | Paris | Brisbane | Madrid
+Medium | Sports | What is the name of the trophy given to the college football player of the year? | Heisman Trophy | Lombardi Trophy | Davey O'Brien Award | Maxwell Award
+Medium | Sports | What is March Madness? | The college basketball tournament | The NBA playoffs | Spring training | The NFL draft
+Medium | Sports | How many teams start in the men's NCAA March Madness bracket main round? | 64 | 32 | 68 | 128
+Medium | Sports | In basketball, what is it called when a player walks without dribbling? | Traveling | Double dribble | Goaltending | Charging
+Medium | Sports | Which NFL team has the nickname "America's Team"? | Dallas Cowboys | New England Patriots | Green Bay Packers | Pittsburgh Steelers
+Medium | Sports | Which MLB team plays home games at Wrigley Field? | Chicago Cubs | Chicago White Sox | St. Louis Cardinals | Milwaukee Brewers
+Medium | Sports | Which MLB team plays at Fenway Park? | Boston Red Sox | New York Yankees | Baltimore Orioles | Philadelphia Phillies
+Medium | Sports | What is Fenway Park's famous left field wall called? | The Green Monster | The Big Wall | The Ivy | The Pesky Pole
+Hard | Sports | Which MLB stadium is famous for ivy on its outfield walls? | Wrigley Field | Fenway Park | Yankee Stadium | Dodger Stadium
+Hard | Sports | Who broke Babe Ruth's career home run record in 1974? | Hank Aaron | Willie Mays | Roger Maris | Mickey Mantle
+Hard | Sports | Who holds MLB's career home run record? | Barry Bonds | Hank Aaron | Babe Ruth | Alex Rodriguez
+Hard | Sports | Who holds MLB's record for career hits? | Pete Rose | Ty Cobb | Hank Aaron | Derek Jeter
+Hard | Sports | Who broke MLB's color barrier in 1947? | Jackie Robinson | Satchel Paige | Larry Doby | Roy Campanella
+Hard | Sports | What number is retired across all of MLB for Jackie Robinson? | 42 | 21 | 44 | 3
+Hard | Sports | Which NBA player scored 100 points in a single game? | Wilt Chamberlain | Kobe Bryant | Michael Jordan | Bill Russell
+Hard | Sports | Which NBA team did Michael Jordan win all six championships with? | Chicago Bulls | Washington Wizards | Los Angeles Lakers | Boston Celtics
+Hard | Sports | Which player has won the most NBA championships as a player? | Bill Russell | Michael Jordan | Robert Horry | Kareem Abdul-Jabbar
+Hard | Sports | What was Kareem Abdul-Jabbar's birth name? | Lew Alcindor | Cassius Clay | Chris Jackson | Lloyd Free
+Hard | Sports | What was Muhammad Ali's birth name? | Cassius Clay | Lew Alcindor | Joe Frazier | Sonny Liston
+Hard | Sports | What was the 1974 Ali vs. Foreman fight in Zaire called? | The Rumble in the Jungle | The Thrilla in Manila | The Fight of the Century | The Long Count
+Hard | Sports | Which boxer bit Evander Holyfield's ear in 1997? | Mike Tyson | Lennox Lewis | George Foreman | Riddick Bowe
+Hard | Sports | Which NHL team has won the most Stanley Cups? | Montreal Canadiens | Toronto Maple Leafs | Detroit Red Wings | Boston Bruins
+Hard | Sports | What is the "Miracle on Ice"? | The 1980 US hockey win over the Soviet Union | A 1994 Stanley Cup comeback | A figure skating upset | A Canadian gold in 2010
+Hard | Sports | Which NFL team completed a perfect season including the Super Bowl in 1972? | Miami Dolphins | New England Patriots | Pittsburgh Steelers | Dallas Cowboys
+Hard | Sports | How many Super Bowls did Tom Brady win? | 7 | 6 | 5 | 8
+Hard | Sports | What is "The Catch" in NFL history? | Dwight Clark's 1982 touchdown grab | Odell Beckham's one-hander | David Tyree's helmet catch | Franco Harris's Immaculate Reception
+Hard | Sports | What is "The Immaculate Reception"? | Franco Harris's 1972 deflected catch TD | Dwight Clark's 1982 catch | A Hail Mary by Doug Flutie | A 1958 title game catch
+Hard | Sports | Which college football bowl game is called "The Granddaddy of Them All"? | Rose Bowl | Orange Bowl | Sugar Bowl | Cotton Bowl
+Hard | Sports | Which golfer is nicknamed "The Golden Bear"? | Jack Nicklaus | Arnold Palmer | Tiger Woods | Gary Player
+Hard | Sports | How many majors did Jack Nicklaus win? | 18 | 15 | 14 | 20
+Hard | Sports | Which golfer's fans were called "Arnie's Army"? | Arnold Palmer | Jack Nicklaus | Lee Trevino | Ben Hogan
+Hard | Sports | Which course is known as "the home of golf"? | St Andrews | Augusta National | Pebble Beach | Carnoustie
+Hard | Sports | Which country invented golf as we know it? | Scotland | England | Netherlands | Ireland
+Hard | Sports | Which country invented ice hockey in its modern form? | Canada | USA | Russia | Sweden
+Hard | Sports | Which country invented rugby? | England | New Zealand | Wales | South Africa
+Hard | Sports | What is New Zealand's national rugby team called? | All Blacks | Wallabies | Springboks | Pumas
+Hard | Sports | What is the pre-match dance performed by the All Blacks? | The haka | The siva | The tango | The hula
+Hard | Sports | What is South Africa's national rugby team called? | Springboks | All Blacks | Wallabies | Lions
+Hard | Sports | Which country has won the most Olympic gold medals overall? | United States | Soviet Union | China | Great Britain
+Hard | Sports | Which sprinter won four golds at the 1936 Berlin Olympics? | Jesse Owens | Carl Lewis | Jim Thorpe | Ralph Metcalfe
+Hard | Sports | How many gold medals did Michael Phelps win at the 2008 Olympics? | 8 | 6 | 7 | 9
+Hard | Sports | Which swimmer won seven golds at the 1972 Olympics? | Mark Spitz | Michael Phelps | Ian Thorpe | Matt Biondi
+Hard | Sports | What is the distance of a marathon in kilometers, roughly? | 42.2 | 40 | 26.2 | 50
+Hard | Sports | Who was the first person to run a mile in under four minutes? | Roger Bannister | Jesse Owens | Sebastian Coe | Steve Prefontaine
+Hard | Sports | In which year did Roger Bannister run the first sub-four-minute mile? | 1954 | 1964 | 1948 | 1936
+Hard | Sports | Which F1 driver has the most world championships, tied at seven? | Lewis Hamilton and Michael Schumacher | Ayrton Senna and Alain Prost | Max Verstappen and Sebastian Vettel | Juan Manuel Fangio and Niki Lauda
+Hard | Sports | What color flag ends a car race? | Checkered | Red | Yellow | Green
+Hard | Sports | In horse racing, what is a "furlong"? | One eighth of a mile | One quarter mile | 100 yards | One kilometer
+Hard | Sports | What is the maximum break in snooker? | 147 | 155 | 180 | 100
+Hard | Sports | What is the highest score with three darts? | 180 | 150 | 170 | 160
+Hard | Sports | In curling, what is the target called? | The house | The button only | The ring | The well
+Hard | Sports | What sport did Babe Didrikson Zaharias excel at besides golf, winning Olympic golds in 1932? | Track and field | Swimming | Tennis | Basketball
+Easy | Sports | How many points is a basket from inside the arc worth in basketball? | 2 | 1 | 3 | 4
+Easy | Sports | What sport uses a "wicket"? | Cricket | Croquet only | Baseball | Polo
+Easy | Sports | What do you call the person who decides fouls in soccer? | Referee | Umpire | Judge | Coach
+Easy | Sports | What do you call the official behind home plate in baseball? | Umpire | Referee | Judge | Linesman
+Easy | Sports | Which sport is played at the Super Bowl? | American football | Soccer | Baseball | Rugby
+Easy | Sports | Which winter sport slides heavy stones toward a target? | Curling | Bobsled | Luge | Biathlon
+Easy | Sports | Which winter sport races down a hill on two skis between gates? | Slalom skiing | Snowboarding | Luge | Cross-country
+Easy | Sports | Which sport do you do on a board riding ocean waves? | Surfing | Skateboarding | Wakeboarding | Sailing
+Medium | Sports | Which Olympic event combines cross-country skiing and rifle shooting? | Biathlon | Pentathlon | Triathlon | Nordic combined
+Medium | Sports | Which three sports make up a triathlon? | Swimming, cycling and running | Running, jumping and throwing | Rowing, cycling and running | Swimming, rowing and running
+Medium | Sports | How many events are in a decathlon? | 10 | 5 | 7 | 12
+Medium | Sports | How many events are in a heptathlon? | 7 | 5 | 10 | 6
+Medium | Sports | What is the name of the sliding event where athletes go feet first on a sled? | Luge | Skeleton | Bobsled | Curling
+Medium | Sports | What is the name of the sliding event where athletes go head first on a sled? | Skeleton | Luge | Bobsled | Toboggan
+Hard | Sports | Which country has won the most men's Cricket World Cups? | Australia | India | England | West Indies
+Hard | Sports | What is a "Hail Mary" in American football? | A long desperate pass | A trick kick | A safety | A fake punt
+Hard | Sports | What does "MVP" stand for? | Most valuable player | Main varsity player | Most victorious player | Major venue player
+Hard | Sports | In baseball, what is it called when one batter hits a single, double, triple and home run in one game? | Hitting for the cycle | A grand slam | A golden sombrero | A perfect game

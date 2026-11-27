@@ -1,0 +1,130 @@
+Easy | General Knowledge | How many sides does a triangle have? | 3 | 4 | 5 | 6
+Easy | General Knowledge | How many sides does an octagon have? | 8 | 6 | 10 | 12
+Easy | General Knowledge | How many sides does a pentagon have? | 5 | 6 | 7 | 8
+Easy | General Knowledge | What is 7 x 8? | 56 | 54 | 48 | 64
+Easy | General Knowledge | What is 9 x 9? | 81 | 72 | 90 | 99
+Easy | General Knowledge | What is half of 100? | 50 | 25 | 40 | 60
+Easy | General Knowledge | How many seconds are in a minute? | 60 | 100 | 30 | 90
+Easy | General Knowledge | How many days are in September? | 30 | 31 | 28 | 29
+Easy | General Knowledge | How many items are in a dozen? | 12 | 10 | 6 | 20
+Easy | General Knowledge | What color is a school bus in the US? | Yellow | Orange | Red | White
+Easy | General Knowledge | What do you call a word that means the opposite of another word? | Antonym | Synonym | Homonym | Acronym
+Easy | General Knowledge | What do you call a word that means the same as another word? | Synonym | Antonym | Homophone | Pronoun
+Easy | General Knowledge | What is the color of an emerald? | Green | Red | Blue | Purple
+Easy | General Knowledge | What is the color of a ruby? | Red | Green | Blue | Yellow
+Easy | General Knowledge | What is the color of a sapphire, most commonly? | Blue | Red | Green | White
+Easy | General Knowledge | Which instrument has black and white keys? | Piano | Guitar | Drum | Violin
+Easy | General Knowledge | Which tool is used to cut paper? | Scissors | Hammer | Wrench | Spoon
+Easy | General Knowledge | What is the opposite of "hot"? | Cold | Warm | Wet | Dry
+Easy | General Knowledge | Which holiday has people carve pumpkins? | Halloween | Easter | Thanksgiving | Valentine's Day
+Easy | General Knowledge | On which holiday do people give heart-shaped cards? | Valentine's Day | Halloween | New Year's Day | Easter
+Easy | General Knowledge | What do you call a person who flies a plane? | Pilot | Captain of the sea | Driver | Conductor
+Easy | General Knowledge | What do you call a doctor for animals? | Veterinarian | Dentist | Surgeon | Pharmacist
+Easy | General Knowledge | What do you use to tell time on your wrist? | A watch | A compass | A ruler | A thermometer
+Easy | General Knowledge | What tool shows which way is north? | Compass | Ruler | Clock | Scale
+Easy | General Knowledge | What is the last letter of the English alphabet? | Z | Y | X | W
+Easy | General Knowledge | How many letters are in the English alphabet? | 26 | 24 | 28 | 25
+Easy | General Knowledge | What shape is a stop sign? | Octagon | Circle | Triangle | Square
+Easy | General Knowledge | Which month comes right after June? | July | May | August | September
+Easy | General Knowledge | What do you call a baby's first teeth? | Baby teeth | Wisdom teeth | Molars | Fangs
+Easy | General Knowledge | Which color light means "go" at a traffic light? | Green | Red | Yellow | Blue
+Easy | General Knowledge | What is 100 minus 37? | 63 | 73 | 67 | 57
+Easy | General Knowledge | How many hours are in two days? | 48 | 24 | 36 | 72
+Easy | General Knowledge | What do you call a group of stars that form a picture? | Constellation | Galaxy | Comet | Nebula
+Easy | General Knowledge | Which body part do you use to smell? | Nose | Ears | Eyes | Tongue
+Medium | General Knowledge | What is the Roman numeral for 100? | C | M | L | D
+Medium | General Knowledge | What is the Roman numeral for 1,000? | M | C | D | K
+Medium | General Knowledge | What is the Roman numeral for 9? | IX | VIIII | XI | IIX
+Medium | General Knowledge | What year is written MMXX in Roman numerals? | 2020 | 2002 | 2010 | 1990
+Medium | General Knowledge | How many sides does a heptagon have? | 7 | 6 | 8 | 9
+Medium | General Knowledge | What is the square root of 144? | 12 | 14 | 11 | 16
+Medium | General Knowledge | What is 25% of 80? | 20 | 25 | 16 | 40
+Medium | General Knowledge | How many degrees are in a right angle? | 90 | 180 | 45 | 360
+Medium | General Knowledge | How many degrees are in a full circle? | 360 | 180 | 100 | 270
+Medium | General Knowledge | How many feet are in a mile? | 5,280 | 5,000 | 3,280 | 1,760
+Medium | General Knowledge | How many yards are in a mile? | 1,760 | 5,280 | 1,000 | 2,000
+Medium | General Knowledge | How many ounces are in a pound? | 16 | 12 | 10 | 20
+Medium | General Knowledge | How many cups are in a US pint? | 2 | 4 | 3 | 8
+Medium | General Knowledge | How many quarts are in a gallon? | 4 | 2 | 8 | 3
+Medium | General Knowledge | What does "RSVP" ask you to do? | Reply to an invitation | Bring a gift | Dress formally | Arrive early
+Medium | General Knowledge | What does "DIY" stand for? | Do it yourself | Design it yourself | Done in a year | Draw it yourself
+Medium | General Knowledge | What does "FAQ" stand for? | Frequently asked questions | Final answer quiz | Fast and quick | Fully answered questions
+Medium | General Knowledge | What does "PIN" in "PIN number" stand for? | Personal identification number | Private internet number | Public ID number | Personal index note
+Medium | General Knowledge | What does "ATM" stand for? | Automated teller machine | Any time money | Automatic transfer machine | Account teller money
+Medium | General Knowledge | What is the 50th wedding anniversary traditionally called? | Golden | Silver | Diamond | Ruby
+Medium | General Knowledge | What is the 25th wedding anniversary traditionally called? | Silver | Golden | Pearl | Paper
+Medium | General Knowledge | What is the birthstone for April? | Diamond | Ruby | Emerald | Sapphire
+Medium | General Knowledge | What is the fear of heights called? | Acrophobia | Claustrophobia | Agoraphobia | Hydrophobia
+Medium | General Knowledge | What is the fear of small enclosed spaces called? | Claustrophobia | Acrophobia | Arachnophobia | Nyctophobia
+Medium | General Knowledge | Which chess piece moves in an L shape? | Knight | Bishop | Rook | Queen
+Medium | General Knowledge | What is the most powerful piece in chess? | Queen | King | Rook | Knight
+Medium | General Knowledge | How many squares are on a chessboard? | 64 | 81 | 100 | 48
+Medium | General Knowledge | How many dots are on a standard six-sided die in total? | 21 | 18 | 24 | 36
+Medium | General Knowledge | What do opposite sides of a standard die always add up to? | 7 | 6 | 8 | 12
+Medium | General Knowledge | What is a group of 13 sometimes called? | A baker's dozen | A gross | A score | A long dozen
+Medium | General Knowledge | How many is a "score"? | 20 | 12 | 100 | 50
+Medium | General Knowledge | How many is a "gross"? | 144 | 100 | 120 | 1,000
+Medium | General Knowledge | What color do you get by mixing yellow and red? | Orange | Green | Purple | Brown
+Medium | General Knowledge | Which language has the most words borrowed into English cooking terms like "saute" and "puree"? | French | Italian | German | Spanish
+Medium | General Knowledge | What is the plural of "cactus"? | Cacti | Cactuses only | Cactae | Cacta
+Medium | General Knowledge | What is a word formed from the first letters of other words, like "NASA"? | Acronym | Anagram | Palindrome | Homonym
+Medium | General Knowledge | What is a word made by rearranging the letters of another word? | Anagram | Acronym | Synonym | Palindrome
+Medium | General Knowledge | Which punctuation mark ends a question? | Question mark | Period | Comma | Colon
+Medium | General Knowledge | What do you call a 100th birthday or a person who reaches it? | Centenarian | Millennial | Octogenarian | Nonagenarian
+Medium | General Knowledge | What is the name for a two-week period? | Fortnight | Biweek | Decade | Sennight
+Medium | General Knowledge | What does a thermometer measure? | Temperature | Pressure | Weight | Speed
+Medium | General Knowledge | What does a barometer measure? | Air pressure | Temperature | Wind speed | Humidity
+Medium | General Knowledge | Which side of a ship is "port"? | Left | Right | Front | Back
+Medium | General Knowledge | Which side of a ship is "starboard"? | Right | Left | Front | Back
+Medium | General Knowledge | What is the front of a ship called? | Bow | Stern | Hull | Keel
+Medium | General Knowledge | What is the back of a ship called? | Stern | Bow | Mast | Deck
+Hard | General Knowledge | What is the Roman numeral MCMXC? | 1990 | 1910 | 2090 | 1890
+Hard | General Knowledge | What is the Roman numeral for 40? | XL | XXXX | LX | IL
+Hard | General Knowledge | How many sides does a nonagon have? | 9 | 8 | 10 | 11
+Hard | General Knowledge | How many sides does a decagon have? | 10 | 12 | 9 | 8
+Hard | General Knowledge | What is 17 x 3? | 51 | 47 | 53 | 57
+Hard | General Knowledge | What is the next prime number after 13? | 17 | 15 | 19 | 14
+Hard | General Knowledge | What is 2 to the power of 10? | 1,024 | 1,000 | 512 | 2,048
+Hard | General Knowledge | What is the cube of 4? | 64 | 16 | 12 | 48
+Hard | General Knowledge | What is the value of pi to two decimal places? | 3.14 | 3.41 | 3.15 | 3.12
+Hard | General Knowledge | How many centimeters are in an inch, roughly? | 2.54 | 2.2 | 3.12 | 1.6
+Hard | General Knowledge | About how many kilometers are in a mile? | 1.6 | 1.2 | 2.2 | 0.6
+Hard | General Knowledge | At what temperature are Celsius and Fahrenheit equal? | Minus 40 | 0 | Minus 32 | 100
+Hard | General Knowledge | What is the 60th wedding anniversary traditionally called? | Diamond | Golden | Platinum | Emerald
+Hard | General Knowledge | What is the 40th wedding anniversary traditionally called? | Ruby | Pearl | Coral | Sapphire
+Hard | General Knowledge | What is the birthstone for September? | Sapphire | Opal | Garnet | Topaz
+Hard | General Knowledge | What is the birthstone for January? | Garnet | Amethyst | Ruby | Peridot
+Hard | General Knowledge | What is the fear of the number 13 called? | Triskaidekaphobia | Hexakosioihexekontahexaphobia | Arithmophobia | Tetraphobia
+Hard | General Knowledge | What is the fear of long words ironically called? | Hippopotomonstrosesquippedaliophobia | Logophobia | Verbophobia | Sesquiphobia
+Hard | General Knowledge | What is a "sommelier's" opposite number for beer called? | Cicerone | Barista | Vintner | Maltster
+Hard | General Knowledge | What does "e.g." stand for in Latin? | Exempli gratia | Et cetera | Id est | Ergo
+Hard | General Knowledge | What does "i.e." mean? | That is | For example | And so on | Note well
+Hard | General Knowledge | What does "et cetera" mean? | And the rest | For example | That is | In the year
+Hard | General Knowledge | What does "carpe diem" mean? | Seize the day | Buyer beware | Love conquers all | I came, I saw
+Hard | General Knowledge | What does "caveat emptor" mean? | Let the buyer beware | Seize the day | Under the rose | Thus always to tyrants
+Hard | General Knowledge | Which letter is worth 10 points in English Scrabble? | Q | X | J | K
+Hard | General Knowledge | How many tiles does each player hold in Scrabble? | 7 | 8 | 6 | 10
+Hard | General Knowledge | In Monopoly, which property is the most expensive on the US board? | Boardwalk | Park Place | Marvin Gardens | Pennsylvania Avenue
+Hard | General Knowledge | How much money do you collect for passing Go in classic Monopoly? | $200 | $100 | $500 | $150
+Hard | General Knowledge | What does the "Q" on a QR code stand for? | Quick | Quality | Query | Quantum
+Hard | General Knowledge | What does "SOS" in Morse code look like? | Three dots, three dashes, three dots | Three dashes, three dots, three dashes | Six dots | Dot dash dot
+Hard | General Knowledge | Which word means a word that sounds like what it describes, like "buzz"? | Onomatopoeia | Alliteration | Hyperbole | Metaphor
+Hard | General Knowledge | What is it called when nearby words start with the same sound, like "Peter Piper picked"? | Alliteration | Onomatopoeia | Rhyme | Simile
+Hard | General Knowledge | What is a comparison using "like" or "as" called? | Simile | Metaphor | Hyperbole | Idiom
+Hard | General Knowledge | What is the name for the "#" symbol, besides hashtag or pound sign? | Octothorpe | Ampersand | Asterisk | Pilcrow
+Hard | General Knowledge | What is the "&" symbol called? | Ampersand | Octothorpe | Tilde | Caret
+Hard | General Knowledge | What is the "~" symbol called? | Tilde | Caret | Ampersand | Pilcrow
+Hard | General Knowledge | What is the dot over a lowercase "i" called? | Tittle | Jot | Serif | Umlaut
+Hard | General Knowledge | How many zeros are in a trillion? | 12 | 9 | 15 | 10
+Hard | General Knowledge | What is a 1 followed by 100 zeros called? | A googol | A googolplex | A zillion | A centillion
+Easy | General Knowledge | Which month has Independence Day in the US? | July | June | August | May
+Easy | General Knowledge | What is the opposite of "up"? | Down | Over | Under | Off
+Easy | General Knowledge | Which meal is eaten in the evening? | Dinner | Breakfast | Brunch | Lunch
+Medium | General Knowledge | How many minutes are in a day? | 1,440 | 1,240 | 1,600 | 960
+Medium | General Knowledge | How many hours are in a week? | 168 | 144 | 172 | 196
+Medium | General Knowledge | What do you call a 10-year period? | Decade | Century | Millennium | Score
+Medium | General Knowledge | What do you call a 1,000-year period? | Millennium | Century | Decade | Eon
+Medium | General Knowledge | What is the birthstone for December, often listed as one of several? | Turquoise | Garnet | Opal | Emerald
+Hard | General Knowledge | What is a group of 12 dozen called? | A gross | A score | A ream | A great dozen
+Hard | General Knowledge | How many sheets of paper are in a ream? | 500 | 100 | 250 | 1,000
+Hard | General Knowledge | What is the plural of "octopus" most accepted in English? | Octopuses | Octopi | Octopodes only | Octopus

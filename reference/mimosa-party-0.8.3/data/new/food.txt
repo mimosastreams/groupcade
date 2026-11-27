@@ -1,0 +1,136 @@
+Easy | Food & Drink | Which fruit is used to make wine? | Grapes | Apples | Oranges | Cherries
+Easy | Food & Drink | What is the main ingredient in ketchup? | Tomatoes | Peppers | Carrots | Beets
+Easy | Food & Drink | Which vegetable makes you cry when you cut it? | Onion | Carrot | Potato | Celery
+Easy | Food & Drink | What is the main ingredient in mashed potatoes? | Potatoes | Rice | Cauliflower | Bread
+Easy | Food & Drink | Which fruit has its seeds on the outside? | Strawberry | Blueberry | Cherry | Grape
+Easy | Food & Drink | What color is a ripe lime? | Green | Yellow | Orange | Red
+Easy | Food & Drink | What do you call a dried plum? | Prune | Raisin | Date | Fig
+Easy | Food & Drink | Which country is famous for sushi? | Japan | China | Thailand | Korea
+Easy | Food & Drink | What is spaghetti? | A type of pasta | A type of rice | A type of bread | A type of cheese
+Easy | Food & Drink | Which drink is made from leaves soaked in hot water? | Tea | Coffee | Soda | Milk
+Easy | Food & Drink | What is the main ingredient of chocolate? | Cocoa beans | Coffee beans | Vanilla | Peanuts
+Easy | Food & Drink | Which vegetable is orange and loved by rabbits in cartoons? | Carrot | Pumpkin | Sweet potato | Squash
+Easy | Food & Drink | Which fruit is known for keeping the doctor away? | Apple | Banana | Orange | Pear
+Easy | Food & Drink | What is a burger patty usually made of? | Ground beef | Chicken breast | Pork belly | Fish
+Easy | Food & Drink | What do you call the Mexican dish of a folded tortilla filled with cheese and grilled? | Quesadilla | Taco | Enchilada | Tamale
+Easy | Food & Drink | What is the main ingredient in a fruit smoothie? | Fruit | Bread | Rice | Cheese
+Easy | Food & Drink | What type of food is a baguette? | Bread | Cheese | Pastry | Pasta
+Easy | Food & Drink | What is lemonade made from? | Lemons, water and sugar | Limes and soda | Oranges and milk | Apples and water
+Easy | Food & Drink | Which green vegetable looks like a small tree? | Broccoli | Spinach | Lettuce | Cabbage
+Easy | Food & Drink | Which fruit is fuzzy on the outside and green inside? | Kiwi | Peach | Mango | Plum
+Easy | Food & Drink | What is a pickle made from? | Cucumber | Zucchini | Pepper | Green bean
+Easy | Food & Drink | Which nut grows on palm trees and has water inside? | Coconut | Walnut | Almond | Cashew
+Easy | Food & Drink | What is the main ingredient in a salad? | Leafy greens | Rice | Pasta | Bread
+Easy | Food & Drink | What are nachos made with? | Tortilla chips | Potato chips | Pretzels | Crackers
+Easy | Food & Drink | Which food is a frozen dessert made from cream? | Ice cream | Pudding | Jello | Cake
+Easy | Food & Drink | What type of meat is a drumstick? | Chicken | Beef | Pork | Lamb
+Easy | Food & Drink | Which country is famous for croissants and baguettes? | France | Spain | Germany | Greece
+Easy | Food & Drink | What is the most common topping on a pepperoni pizza? | Pepperoni | Pineapple | Anchovies | Olives
+Easy | Food & Drink | What is cola usually served with to make it cold? | Ice | Salt | Lemon only | Milk
+Easy | Food & Drink | Which tropical fruit has a spiky crown on top? | Pineapple | Mango | Papaya | Banana
+Easy | Food & Drink | What is a cupcake? | A small cake | A pie | A cookie | A muffin top
+Easy | Food & Drink | What is a s'more made of? | Graham cracker, chocolate and marshmallow | Bread, jam and butter | Cookie, ice cream and fudge | Toast, banana and honey
+Easy | Food & Drink | Which fruit is red, small and has a pit, often on top of sundaes? | Cherry | Grape | Raspberry | Strawberry
+Easy | Food & Drink | What is the main ingredient in popcorn's cousin, tortilla chips? | Corn | Wheat | Potato | Rice
+Medium | Food & Drink | Which country is the origin of the dish "pad thai"? | Thailand | Vietnam | Cambodia | Laos
+Medium | Food & Drink | What is the main ingredient in a traditional risotto? | Arborio rice | Pasta | Potatoes | Barley
+Medium | Food & Drink | Which country does the dish "paella" come from? | Spain | Portugal | Mexico | Italy
+Medium | Food & Drink | What is "ramen"? | A Japanese noodle soup | A Korean rice dish | A Chinese dumpling | A Thai curry
+Medium | Food & Drink | What is "tahini" made from? | Sesame seeds | Chickpeas | Peanuts | Sunflower seeds
+Medium | Food & Drink | What is "pesto" traditionally made with besides pine nuts? | Basil, garlic, cheese and olive oil | Tomato and onion | Spinach and cream | Mint and lemon
+Medium | Food & Drink | What is "tzatziki" made with? | Yogurt and cucumber | Eggplant and tahini | Chickpeas and lemon | Tomato and pepper
+Medium | Food & Drink | What is "prosciutto"? | Dry-cured Italian ham | Spicy salami | Smoked turkey | Beef jerky
+Medium | Food & Drink | Which country does chorizo come from originally? | Spain | Italy | Germany | Greece
+Medium | Food & Drink | What is "gnocchi" usually made from? | Potato and flour | Rice | Corn | Bread
+Medium | Food & Drink | What is a "calzone"? | A folded pizza | A pasta bake | A meat pie | A sandwich
+Medium | Food & Drink | What is "bruschetta"? | Grilled bread topped with tomatoes | A pasta shape | An Italian cheese | A dessert
+Medium | Food & Drink | Which cheese is famous for its holes? | Swiss (Emmental) | Cheddar | Brie | Feta
+Medium | Food & Drink | What is "parmesan" called in Italy? | Parmigiano-Reggiano | Pecorino | Grana Padano | Asiago
+Medium | Food & Drink | Which blue cheese comes from France and is made from sheep's milk? | Roquefort | Gorgonzola | Stilton | Danish Blue
+Medium | Food & Drink | Which blue cheese is from England? | Stilton | Roquefort | Gorgonzola | Cabrales
+Medium | Food & Drink | What are "edamame"? | Young soybeans | Green peas | Lima beans | Mung beans
+Medium | Food & Drink | What is "wasabi" traditionally made from? | A Japanese root | Green chili | Mustard seeds | Seaweed
+Medium | Food & Drink | What is "tempura"? | Battered and fried seafood or vegetables | Raw fish | Grilled chicken | Rice balls
+Medium | Food & Drink | What is "teriyaki" sauce mainly made of? | Soy sauce, mirin and sugar | Fish sauce and lime | Peanuts and coconut | Tomato and vinegar
+Medium | Food & Drink | What is a "samosa"? | A fried pastry with savory filling | A rice dish | A lentil soup | A flatbread
+Medium | Food & Drink | What is "naan"? | An Indian flatbread | A rice pudding | A spice mix | A yogurt drink
+Medium | Food & Drink | What is a "lassi"? | A yogurt drink | A tea | A fried snack | A curry
+Medium | Food & Drink | What is "ghee"? | Clarified butter | Coconut oil | Yogurt | A cheese
+Medium | Food & Drink | What is "paneer"? | A fresh Indian cheese | A bread | A lentil | A spice
+Medium | Food & Drink | Which country does "pierogi" come from? | Poland | Russia | Ukraine only | Germany
+Medium | Food & Drink | What is "borscht" mainly made from? | Beets | Potatoes | Cabbage | Carrots
+Medium | Food & Drink | What is "poutine"? | Fries with cheese curds and gravy | A meat pie | Maple pancakes | A seafood stew
+Medium | Food & Drink | Which country is poutine from? | Canada | France | USA | Belgium
+Medium | Food & Drink | What is "ceviche"? | Raw fish cured in citrus | Fried fish | Grilled shrimp | Fish soup
+Medium | Food & Drink | What is a "churro"? | A fried dough pastry | A corn tortilla | A bean dip | A rice drink
+Medium | Food & Drink | What is "mole" in Mexican cooking? | A rich sauce often with chili and chocolate | A corn drink | A fried pastry | A type of bean
+Medium | Food & Drink | What is "horchata" usually made from in Mexico? | Rice | Corn | Beans | Coconut
+Medium | Food & Drink | What is a "tamale" wrapped in for cooking? | A corn husk | A tortilla | Paper | Foil only
+Medium | Food & Drink | What type of drink is a "stout"? | A dark beer | A white wine | A spirit | A cider
+Medium | Food & Drink | Which country is Guinness from? | Ireland | Scotland | England | Wales
+Medium | Food & Drink | Which spirit is made from fermented sugarcane or molasses? | Rum | Vodka | Gin | Whiskey
+Medium | Food & Drink | What gives gin its main flavor? | Juniper berries | Agave | Potatoes | Anise
+Medium | Food & Drink | Which drink is made from fermented honey? | Mead | Cider | Sake | Kombucha
+Medium | Food & Drink | Which spirit is Scotch whisky? | Whisky from Scotland | Rum from Jamaica | Gin from London | Vodka from Russia
+Medium | Food & Drink | What is "bourbon" mostly made from? | Corn | Rye | Barley | Wheat
+Medium | Food & Drink | What is "sangria" made with? | Wine and fruit | Beer and lime | Rum and cola | Vodka and juice
+Medium | Food & Drink | What cocktail is made with vodka, cranberry, lime and triple sec? | Cosmopolitan | Margarita | Daiquiri | Mojito
+Medium | Food & Drink | What cocktail is made with rum, coconut cream and pineapple? | Pina colada | Mai tai | Mojito | Daiquiri
+Medium | Food & Drink | Which cocktail is gin and vermouth with an olive? | Martini | Manhattan | Negroni | Gimlet
+Medium | Food & Drink | Which cocktail is whiskey, sugar, bitters and an orange twist? | Old fashioned | Manhattan | Sour | Mint julep
+Medium | Food & Drink | Which drink is the official drink of the Kentucky Derby? | Mint julep | Old fashioned | Sazerac | Whiskey sour
+Medium | Food & Drink | What fruit is used in a classic daiquiri? | Lime | Strawberry | Mango | Pineapple
+Medium | Food & Drink | What is "sriracha"? | A chili sauce | A soy sauce | A rice vinegar | A curry paste
+Medium | Food & Drink | What is "kombu"? | A type of kelp | A noodle | A fish | A tea
+Medium | Food & Drink | What is the main ingredient in tabbouleh? | Parsley and bulgur | Rice and lentils | Chickpeas | Eggplant
+Medium | Food & Drink | What is "pita"? | A round pocket flatbread | A pastry | A cheese | A sausage
+Medium | Food & Drink | What is a "gyro"? | Meat cooked on a rotating spit in pita | A Greek salad | A cheese pie | A grape leaf roll
+Medium | Food & Drink | What are "dolmades"? | Stuffed grape leaves | Fried cheese | Meatballs | Honey pastries
+Hard | Food & Drink | What is "umami" known as? | The fifth basic taste, savory | A Japanese spice | A cooking method | A type of seaweed
+Hard | Food & Drink | What compound is most associated with umami taste? | Glutamate | Capsaicin | Sucrose | Caffeine
+Hard | Food & Drink | What compound makes chili peppers hot? | Capsaicin | Glutamate | Menthol | Tannin
+Hard | Food & Drink | What reaction browns bread crust and seared steak? | Maillard reaction | Caramelization only | Oxidation | Fermentation
+Hard | Food & Drink | What is "sous vide"? | Cooking food sealed in a water bath | Cooking over open flame | Deep frying | Smoking
+Hard | Food & Drink | What does "mise en place" mean in a kitchen? | Everything in its place | Ready to serve | Cooked in the pan | Chef's choice
+Hard | Food & Drink | What is a "roux"? | Flour cooked in fat to thicken sauces | A spiced broth | A stock of bones | A whipped cream
+Hard | Food & Drink | Which French mother sauce is made with milk and a white roux? | Bechamel | Veloute | Espagnole | Hollandaise
+Hard | Food & Drink | What is "confit"? | Food slowly cooked in its own fat | Food cured with salt | Food pickled in vinegar | Food smoked over wood
+Hard | Food & Drink | Which cheese is traditionally used in a Greek spanakopita? | Feta | Halloumi | Ricotta | Manchego
+Hard | Food & Drink | Which country does Manchego cheese come from? | Spain | Italy | Portugal | Mexico
+Hard | Food & Drink | Which country does halloumi come from? | Cyprus | Greece | Turkey | Lebanon
+Hard | Food & Drink | What is "jamon iberico" made from? | Black Iberian pigs | Wild boar | Lamb | Beef
+Hard | Food & Drink | What is "foie gras"? | Fattened duck or goose liver | Fish eggs | Truffle paste | Snail butter
+Hard | Food & Drink | What are "escargots"? | Snails | Frog legs | Mussels | Oysters
+Hard | Food & Drink | What is "caviar"? | Salted fish eggs from sturgeon | Squid ink | Sea urchin | Shrimp paste
+Hard | Food & Drink | What is "uni" in Japanese cuisine? | Sea urchin | Eel | Squid | Salmon roe
+Hard | Food & Drink | What is "unagi" in sushi? | Freshwater eel | Yellowtail | Octopus | Mackerel
+Hard | Food & Drink | Which fish is used in "fugu", which can be poisonous? | Pufferfish | Tuna | Salmon | Mackerel
+Hard | Food & Drink | What is the Korean dish "bibimbap"? | Mixed rice with vegetables and egg | Spicy noodle soup | Fried chicken | Grilled pork
+Hard | Food & Drink | What is "gochujang"? | A Korean red chili paste | A soybean soup | A fermented fish | A rice cake
+Hard | Food & Drink | What is "injera"? | A spongy Ethiopian flatbread | A Moroccan stew | A Nigerian rice dish | A South African sausage
+Hard | Food & Drink | What is a "tagine"? | A Moroccan stew and its clay pot | A Turkish coffee | An Egyptian bread | A Tunisian sauce
+Hard | Food & Drink | What is "harissa"? | A hot chili paste from North Africa | A sweet pastry | A yogurt dip | A grain
+Hard | Food & Drink | What is "jollof rice" a famous dish of? | West Africa | East Asia | South America | Scandinavia
+Hard | Food & Drink | What is "biltong"? | South African dried cured meat | Australian meat pie | Argentine steak | Brazilian stew
+Hard | Food & Drink | What is "feijoada"? | A Brazilian black bean and pork stew | A Portuguese custard tart | A Mexican soup | A Cuban sandwich
+Hard | Food & Drink | What is "pastel de nata"? | A Portuguese custard tart | A Spanish rice dish | A Brazilian cheese bread | A Mexican cake
+Hard | Food & Drink | What is "pao de queijo"? | Brazilian cheese bread | Portuguese sausage | Argentine pastry | Chilean soup
+Hard | Food & Drink | What are "empanadas"? | Stuffed baked or fried pastries | Corn drinks | Bean stews | Rice puddings
+Hard | Food & Drink | What is "chimichurri"? | An herb and vinegar sauce from Argentina | A Mexican chili | A Peruvian potato | A Cuban drink
+Hard | Food & Drink | What is "pisco"? | A grape brandy from Peru and Chile | A corn beer | A rum | A herbal liqueur
+Hard | Food & Drink | What is "mezcal" made from? | Agave | Sugarcane | Corn | Grapes
+Hard | Food & Drink | What is "ouzo" flavored with? | Anise | Juniper | Mint | Orange
+Hard | Food & Drink | What is "grappa" made from? | Grape pomace | Potatoes | Plums | Barley
+Hard | Food & Drink | What is "limoncello" made from? | Lemon zest | Lime juice | Oranges | Grapefruit
+Hard | Food & Drink | What is "absinthe" traditionally flavored with? | Wormwood | Juniper | Vanilla | Ginger
+Hard | Food & Drink | What does "brut" on a champagne bottle mean? | Dry | Sweet | Pink | Aged
+Hard | Food & Drink | What does "terroir" mean in wine? | How the place a grape is grown affects its taste | The age of the wine | The type of barrel | The wine's color
+Hard | Food & Drink | What is a "sommelier"? | A wine expert | A head chef | A cheese maker | A brewer
+Hard | Food & Drink | Which grape is used in most red Burgundy wines? | Pinot Noir | Merlot | Cabernet Sauvignon | Syrah
+Hard | Food & Drink | What is "Kobe beef" a type of? | Wagyu | Angus | Hereford | Bison
+Hard | Food & Drink | What is a "bao"? | A steamed filled bun | A fried noodle | A rice cake | A fish ball
+Hard | Food & Drink | What are "xiaolongbao"? | Soup dumplings | Spring rolls | Fried rice | Sesame balls
+Hard | Food & Drink | What is "Peking duck" famous for? | Its thin crispy skin | Being raw | Being boiled | Its spicy sauce
+Hard | Food & Drink | What is "laksa"? | A spicy noodle soup | A rice cake | A fish curry only | A fried bread
+Hard | Food & Drink | Which country does "rendang" come from? | Indonesia | Thailand | India | Philippines
+Hard | Food & Drink | What is "adobo" in Filipino cooking? | Meat stewed in vinegar and soy sauce | A rice cake | A sweet dessert | A noodle soup

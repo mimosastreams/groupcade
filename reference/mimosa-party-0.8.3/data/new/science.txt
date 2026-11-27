@@ -1,0 +1,132 @@
+Easy | Science & Space | What is the chemical symbol for oxygen? | O | Ox | Om | Og
+Easy | Science & Space | What is the chemical symbol for carbon? | C | Ca | Co | Cr
+Easy | Science & Space | What is the chemical symbol for silver? | Ag | Si | Sv | Au
+Easy | Science & Space | What do you call a scientist who studies living things? | Biologist | Chemist | Physicist | Geologist
+Easy | Science & Space | What do you call a scientist who studies rocks? | Geologist | Biologist | Botanist | Astronomer
+Easy | Science & Space | What do you call a scientist who studies plants? | Botanist | Zoologist | Geologist | Chemist
+Easy | Science & Space | Which organ do humans breathe with? | Lungs | Liver | Kidneys | Stomach
+Easy | Science & Space | What carries blood back to the heart? | Veins | Arteries | Nerves | Bones
+Easy | Science & Space | How many teeth does an adult human usually have? | 32 | 28 | 36 | 24
+Easy | Science & Space | What is the second planet from the Sun? | Venus | Mercury | Earth | Mars
+Easy | Science & Space | Which planet is farthest from the Sun? | Neptune | Uranus | Saturn | Pluto
+Easy | Science & Space | What is a shooting star really? | A meteor burning up in the air | A falling star | A comet's tail | A satellite
+Easy | Science & Space | What do you call a person who travels into space? | Astronaut | Pilot | Astronomer | Cosmologist
+Easy | Science & Space | What is the name of the US space agency? | NASA | ESA | NOAA | SpaceX
+Easy | Science & Space | What causes day and night on Earth? | Earth spinning on its axis | The Moon blocking the Sun | Earth orbiting the Sun | Clouds
+Easy | Science & Space | How long does it take Earth to orbit the Sun? | About 365 days | 24 hours | 30 days | 100 days
+Easy | Science & Space | What is the Sun? | A star | A planet | A moon | A comet
+Easy | Science & Space | What do you call molten rock that comes out of a volcano? | Lava | Magma only | Ash | Basalt
+Easy | Science & Space | What do you call molten rock while it is still underground? | Magma | Lava | Obsidian | Pumice
+Easy | Science & Space | What are the three states of matter we see every day? | Solid, liquid and gas | Hot, warm and cold | Rock, water and air | Big, medium and small
+Easy | Science & Space | What do magnets attract? | Iron | Wood | Plastic | Glass
+Easy | Science & Space | What color do you see when all colors of light mix together? | White | Black | Brown | Gray
+Easy | Science & Space | What do we call the colored arc that appears after rain? | Rainbow | Aurora | Halo | Mirage
+Easy | Science & Space | What do tadpoles grow into? | Frogs | Fish | Lizards | Snakes
+Easy | Science & Space | Which part of a plant takes in water from the soil? | Roots | Leaves | Petals | Stem
+Easy | Science & Space | What gives plants their green color? | Chlorophyll | Melanin | Carotene | Hemoglobin
+Easy | Science & Space | What does a seismograph measure? | Earthquakes | Rainfall | Wind | Temperature
+Easy | Science & Space | Which bone protects the brain? | Skull | Ribs | Spine | Pelvis
+Easy | Science & Space | Which bones protect the heart and lungs? | Ribs | Skull | Pelvis | Femur
+Easy | Science & Space | What do you call the hard outer layer of a tooth? | Enamel | Dentin | Pulp | Plaque
+Easy | Science & Space | Which is the closest planet to Earth on average? | Mercury | Venus | Mars | Jupiter
+Easy | Science & Space | How many moons does Earth have? | 1 | 2 | 0 | 3
+Medium | Science & Space | What is the chemical symbol for lead? | Pb | Le | Ld | Pl
+Medium | Science & Space | What is the chemical symbol for copper? | Cu | Co | Cp | Cr
+Medium | Science & Space | What is the chemical symbol for tin? | Sn | Ti | Tn | St
+Medium | Science & Space | What is the chemical symbol for mercury? | Hg | Me | Mr | Hy
+Medium | Science & Space | What is the chemical symbol for helium? | He | Hl | Hm | H
+Medium | Science & Space | Which gas is known as laughing gas? | Nitrous oxide | Carbon monoxide | Helium | Methane
+Medium | Science & Space | What is table salt made of? | Sodium chloride | Calcium carbonate | Potassium nitrate | Sodium bicarbonate
+Medium | Science & Space | What is baking soda's chemical name? | Sodium bicarbonate | Sodium chloride | Calcium carbonate | Acetic acid
+Medium | Science & Space | What acid is in vinegar? | Acetic acid | Citric acid | Hydrochloric acid | Lactic acid
+Medium | Science & Space | What acid is in your stomach? | Hydrochloric acid | Sulfuric acid | Citric acid | Acetic acid
+Medium | Science & Space | What is the smallest unit of a chemical element? | Atom | Molecule | Cell | Electron
+Medium | Science & Space | What particle has a negative charge? | Electron | Proton | Neutron | Photon
+Medium | Science & Space | What particle has a positive charge? | Proton | Electron | Neutron | Quark
+Medium | Science & Space | What is the unit of electrical resistance? | Ohm | Volt | Watt | Ampere
+Medium | Science & Space | What unit is used to measure force? | Newton | Joule | Watt | Pascal
+Medium | Science & Space | What unit is used to measure energy? | Joule | Newton | Volt | Hertz
+Medium | Science & Space | What unit measures frequency? | Hertz | Decibel | Watt | Ohm
+Medium | Science & Space | What unit measures loudness? | Decibel | Hertz | Lumen | Kelvin
+Medium | Science & Space | Which scientist is famous for E = mc squared? | Albert Einstein | Isaac Newton | Niels Bohr | Max Planck
+Medium | Science & Space | Which scientist proposed the theory of evolution by natural selection? | Charles Darwin | Gregor Mendel | Louis Pasteur | Alfred Wegener
+Medium | Science & Space | Which monk is called the father of genetics for his pea plant experiments? | Gregor Mendel | Charles Darwin | Francis Crick | Louis Pasteur
+Medium | Science & Space | Who created the periodic table of elements? | Dmitri Mendeleev | Marie Curie | John Dalton | Antoine Lavoisier
+Medium | Science & Space | Which scientist used a telescope to see Jupiter's moons in 1610? | Galileo Galilei | Isaac Newton | Johannes Kepler | Copernicus
+Medium | Science & Space | Who proposed that the Sun, not the Earth, is the center of the solar system? | Nicolaus Copernicus | Ptolemy | Galileo | Aristotle
+Medium | Science & Space | Which scientist developed a rabies vaccine and pasteurization? | Louis Pasteur | Edward Jenner | Alexander Fleming | Robert Koch
+Medium | Science & Space | Who developed the first smallpox vaccine? | Edward Jenner | Louis Pasteur | Jonas Salk | Joseph Lister
+Medium | Science & Space | Who developed the first widely used polio vaccine? | Jonas Salk | Albert Sabin | Edward Jenner | Louis Pasteur
+Medium | Science & Space | Which two scientists are credited with the double helix structure of DNA in 1953? | Watson and Crick | Darwin and Wallace | Curie and Curie | Newton and Leibniz
+Medium | Science & Space | What is the largest gland in the human body? | Liver | Pancreas | Thyroid | Spleen
+Medium | Science & Space | What is the smallest bone in the human body? | Stapes, in the ear | Pinky toe bone | Coccyx | Hyoid
+Medium | Science & Space | Which blood cells fight infection? | White blood cells | Red blood cells | Platelets | Plasma
+Medium | Science & Space | Which blood cells help blood clot? | Platelets | Red blood cells | White blood cells | Plasma
+Medium | Science & Space | What protein in red blood cells carries oxygen? | Hemoglobin | Insulin | Keratin | Collagen
+Medium | Science & Space | Which organ makes insulin? | Pancreas | Liver | Kidney | Stomach
+Medium | Science & Space | Which organs filter blood to make urine? | Kidneys | Lungs | Liver | Spleen
+Medium | Science & Space | How many chambers does the human heart have? | 4 | 2 | 3 | 6
+Medium | Science & Space | What is the hottest layer of the Sun that we see during an eclipse? | Corona | Core | Photosphere | Chromosphere
+Medium | Science & Space | What do you call it when the Moon blocks the Sun? | Solar eclipse | Lunar eclipse | Equinox | Solstice
+Medium | Science & Space | What is a "light-year"? | The distance light travels in a year | A year on a bright planet | The time light takes to reach Earth | A unit of brightness
+Medium | Science & Space | Which planet has the shortest day? | Jupiter | Mercury | Earth | Mars
+Medium | Science & Space | Which planet is the coldest on average? | Uranus | Neptune | Saturn | Mars
+Medium | Science & Space | What is the name of the largest volcano in the solar system, on Mars? | Olympus Mons | Mauna Kea | Valles Marineris | Maxwell Montes
+Medium | Science & Space | What is the name of the belt of space rocks between Mars and Jupiter? | The asteroid belt | The Kuiper belt | The Oort cloud | The ring belt
+Medium | Science & Space | Which comet returns about every 76 years? | Halley's Comet | Hale-Bopp | Comet Encke | Shoemaker-Levy 9
+Medium | Science & Space | What is the name of the colorful lights near the North Pole? | Aurora borealis | Aurora australis | Zodiacal light | Noctilucent clouds
+Medium | Science & Space | What is the name of the space station that orbits Earth with astronauts aboard? | International Space Station | Mir | Skylab | Tiangong 1
+Medium | Science & Space | Which company makes the Falcon 9 rocket? | SpaceX | Blue Origin | Boeing | NASA
+Hard | Science & Space | What is the chemical symbol for antimony? | Sb | An | At | Am
+Hard | Science & Space | Which element has the chemical symbol "Pt"? | Platinum | Plutonium | Potassium | Palladium
+Hard | Science & Space | Which element has atomic number 6? | Carbon | Nitrogen | Oxygen | Boron
+Hard | Science & Space | Which element has atomic number 8? | Oxygen | Carbon | Nitrogen | Neon
+Hard | Science & Space | What is the most abundant element in Earth's crust? | Oxygen | Silicon | Iron | Aluminum
+Hard | Science & Space | What is the most abundant metal in Earth's crust? | Aluminum | Iron | Copper | Calcium
+Hard | Science & Space | What noble gas glows red-orange in signs? | Neon | Argon | Xenon | Krypton
+Hard | Science & Space | What is the lightest noble gas? | Helium | Neon | Argon | Radon
+Hard | Science & Space | What is the name for the number 6.022 x 10^23? | Avogadro's number | Planck's constant | Euler's number | Boltzmann's constant
+Hard | Science & Space | What is the speed of sound in air at room temperature, roughly? | 343 meters per second | 100 meters per second | 1,000 meters per second | 3,000 meters per second
+Hard | Science & Space | What is the SI unit of temperature? | Kelvin | Celsius | Fahrenheit | Rankine
+Hard | Science & Space | What is the SI base unit of electric current? | Ampere | Volt | Ohm | Coulomb
+Hard | Science & Space | What is the SI unit of power? | Watt | Joule | Newton | Volt
+Hard | Science & Space | Which law says every action has an equal and opposite reaction? | Newton's third law | Newton's first law | Hooke's law | Ohm's law
+Hard | Science & Space | Which law relates voltage, current and resistance? | Ohm's law | Boyle's law | Newton's law | Faraday's law
+Hard | Science & Space | Which law states that pressure and volume of a gas are inversely related at fixed temperature? | Boyle's law | Charles's law | Hooke's law | Pascal's law
+Hard | Science & Space | What molecule carries energy in cells? | ATP | DNA | RNA | Glucose
+Hard | Science & Space | Which part of the brain controls balance and coordination? | Cerebellum | Cerebrum | Brainstem | Hypothalamus
+Hard | Science & Space | What is the longest bone in the human arm? | Humerus | Radius | Ulna | Clavicle
+Hard | Science & Space | What is the common name for the clavicle? | Collarbone | Shoulder blade | Kneecap | Breastbone
+Hard | Science & Space | What is the common name for the patella? | Kneecap | Collarbone | Shin bone | Ankle bone
+Hard | Science & Space | What is the medical term for the voice box? | Larynx | Pharynx | Trachea | Esophagus
+Hard | Science & Space | Which vitamin is also called ascorbic acid? | Vitamin C | Vitamin A | Vitamin B12 | Vitamin E
+Hard | Science & Space | Lack of which vitamin causes scurvy? | Vitamin C | Vitamin D | Vitamin A | Vitamin K
+Hard | Science & Space | Which vitamin helps blood clot? | Vitamin K | Vitamin C | Vitamin D | Vitamin B6
+Hard | Science & Space | Which planet has the moon Europa, thought to have an ocean under its ice? | Jupiter | Saturn | Uranus | Neptune
+Hard | Science & Space | Which moon of Saturn sprays water geysers from its south pole? | Enceladus | Titan | Mimas | Rhea
+Hard | Science & Space | Which planet's moon Triton orbits backwards? | Neptune | Uranus | Saturn | Jupiter
+Hard | Science & Space | What are the two moons of Mars called? | Phobos and Deimos | Io and Europa | Titan and Rhea | Castor and Pollux
+Hard | Science & Space | Which planet is the densest in the solar system? | Earth | Jupiter | Mercury | Venus
+Hard | Science & Space | Which probe is the farthest human-made object from Earth? | Voyager 1 | Voyager 2 | Pioneer 10 | New Horizons
+Hard | Science & Space | Which spacecraft flew past Pluto in 2015? | New Horizons | Voyager 2 | Juno | Cassini
+Hard | Science & Space | Which spacecraft studied Saturn and ended by diving into it in 2017? | Cassini | Juno | Galileo | Voyager 1
+Hard | Science & Space | Which star is the brightest in the night sky? | Sirius | Polaris | Betelgeuse | Vega
+Hard | Science & Space | What is the North Star's name? | Polaris | Sirius | Vega | Rigel
+Hard | Science & Space | Which constellation contains Betelgeuse and Rigel? | Orion | Ursa Major | Cassiopeia | Scorpius
+Hard | Science & Space | What is the closest star system to the Sun? | Alpha Centauri | Sirius | Barnard's Star | Wolf 359
+Hard | Science & Space | What type of star will our Sun become near the end of its life? | Red giant | Black hole | Neutron star | Blue supergiant
+Hard | Science & Space | What is a "supernova"? | A massive exploding star | A new planet | A bright comet | A galaxy collision
+Hard | Science & Space | About how old is the universe? | 13.8 billion years | 4.5 billion years | 100 billion years | 1 billion years
+Hard | Science & Space | About how old is Earth? | 4.5 billion years | 13.8 billion years | 500 million years | 10,000 years
+Hard | Science & Space | Which layer of the atmosphere do we live in? | Troposphere | Stratosphere | Mesosphere | Thermosphere
+Hard | Science & Space | Which layer of the atmosphere holds the ozone layer? | Stratosphere | Troposphere | Mesosphere | Exosphere
+Hard | Science & Space | What is the scale used to measure mineral hardness? | Mohs scale | Richter scale | Beaufort scale | Kelvin scale
+Hard | Science & Space | What scale measures wind force at sea? | Beaufort scale | Richter scale | Saffir-Simpson scale | Fujita scale
+Hard | Science & Space | What scale rates tornado strength? | Enhanced Fujita scale | Saffir-Simpson scale | Beaufort scale | Mohs scale
+Hard | Science & Space | What scale rates hurricanes by wind speed? | Saffir-Simpson scale | Fujita scale | Beaufort scale | Richter scale
+Easy | Science & Space | Which planet is the smallest in our solar system? | Mercury | Mars | Pluto | Venus
+Medium | Science & Space | What is the study of weather called? | Meteorology | Astronomy | Geology | Ecology
+Medium | Science & Space | What type of rock is formed from cooled lava? | Igneous | Sedimentary | Metamorphic | Limestone
+Medium | Science & Space | What type of rock is formed from layers of sediment? | Sedimentary | Igneous | Metamorphic | Basalt
+Hard | Science & Space | What is the name of the supercontinent that existed about 300 million years ago? | Pangaea | Gondwana | Laurasia | Rodinia
+Hard | Science & Space | Who proposed the theory of continental drift? | Alfred Wegener | Charles Lyell | James Hutton | Harry Hess

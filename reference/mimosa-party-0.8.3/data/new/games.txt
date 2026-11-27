@@ -1,0 +1,130 @@
+Easy | Video Games | What color is Mario's hat? | Red | Green | Blue | Yellow
+Easy | Video Games | What color is Luigi's hat? | Green | Red | Blue | Purple
+Easy | Video Games | What does Mario get bigger from eating? | A Super Mushroom | A Fire Flower | A Star | A coin
+Easy | Video Games | What does Sonic collect? | Rings | Coins | Stars | Gems
+Easy | Video Games | What is the name of Sonic's two-tailed fox friend? | Tails | Knuckles | Shadow | Amy
+Easy | Video Games | What kind of animal is Sonic? | Hedgehog | Fox | Echidna | Porcupine
+Easy | Video Games | What kind of animal is Donkey Kong? | Gorilla | Monkey | Bear | Chimp
+Easy | Video Games | What does Donkey Kong love to eat? | Bananas | Apples | Coconuts | Peaches
+Easy | Video Games | In Minecraft, what do you use to mine stone? | A pickaxe | An axe | A shovel | A hoe
+Easy | Video Games | In Minecraft, what tall black creature hates being looked at? | Enderman | Creeper | Zombie | Skeleton
+Easy | Video Games | Which block game has pieces falling from the top and clearing lines? | Tetris | Minecraft | Candy Crush | Breakout
+Easy | Video Games | Which game is about building and exploring a blocky world? | Minecraft | Fortnite | Roblox only | Terraria
+Easy | Video Games | Which game lets you live on an island with animal villagers and pay off loans? | Animal Crossing | Stardew Valley | The Sims | Harvest Moon
+Easy | Video Games | Which game lets you create people and control their lives? | The Sims | SimCity | Animal Crossing | Second Life
+Easy | Video Games | Which game series features cars playing soccer? | Rocket League | FIFA | Mario Kart | Gran Turismo
+Easy | Video Games | Which Nintendo racing game throws banana peels and shells? | Mario Kart | Crash Team Racing | Need for Speed | F-Zero
+Easy | Video Games | In Mario Kart, which item is the blue spiny shell famous for hitting? | The racer in first place | The racer in last place | Everyone | Only Bowser
+Easy | Video Games | Which Nintendo game has you fight with characters like Mario, Link and Pikachu? | Super Smash Bros. | Mario Party | Mario Kart | Splatoon
+Easy | Video Games | Which board game style Nintendo series has minigames and stars? | Mario Party | Mario Kart | Mario Golf | Paper Mario
+Easy | Video Games | Which Pokemon is famous for sleeping and blocking roads? | Snorlax | Pikachu | Jigglypuff | Psyduck
+Easy | Video Games | Which Pokemon sings people to sleep? | Jigglypuff | Snorlax | Meowth | Togepi
+Easy | Video Games | Which Pokemon type is Squirtle? | Water | Grass | Fire | Electric
+Easy | Video Games | Which Pokemon type is Bulbasaur? | Grass | Water | Fire | Bug
+Easy | Video Games | What do you throw to catch a Pokemon? | A Poke Ball | A net | A rock | A berry
+Easy | Video Games | What is the name of Link's horse? | Epona | Roach | Agro | Shadowfax
+Easy | Video Games | What is the main villain of the Zelda series usually? | Ganon | Bowser | Dr. Eggman | Ridley
+Easy | Video Games | Who is Sonic's main villain? | Dr. Eggman | Bowser | Ganon | Wario
+Easy | Video Games | Which game company has a red logo and made the Switch? | Nintendo | Sony | Sega | Atari
+Easy | Video Games | Which video game is a pong-style tennis game from 1972? | Pong | Tennis for Two | Breakout | Asteroids
+Easy | Video Games | Which video game involves shooting aliens descending in rows? | Space Invaders | Asteroids | Galaga only | Defender
+Easy | Video Games | What do you call extra lives in many games? | 1-ups | Power-ups | Checkpoints | Continues
+Easy | Video Games | Which game series features Crash, an orange marsupial? | Crash Bandicoot | Spyro | Jak and Daxter | Ratchet & Clank
+Easy | Video Games | Which purple dragon starred in his own PlayStation games? | Spyro | Puff | Charizard | Toothless
+Easy | Video Games | Which game lets players build and play games made by others on one platform with blocky avatars? | Roblox | Minecraft | Fortnite | Dreams
+Medium | Video Games | What is Wario's purple-capped partner called? | Waluigi | Luigi | Toad | Wart
+Medium | Video Games | What are the small mushroom-headed people in Mario called? | Toads | Koopas | Goombas | Shy Guys
+Medium | Video Games | What are the brown mushroom enemies Mario stomps called? | Goombas | Koopas | Boos | Bob-ombs
+Medium | Video Games | What are the ghost enemies in Mario that hide when you look at them? | Boos | Goombas | Shy Guys | Lakitus
+Medium | Video Games | What is the name of the Mario enemy who throws spiny eggs from a cloud? | Lakitu | Hammer Bro | Magikoopa | Bullet Bill
+Medium | Video Games | What is the name of the princess in the Zelda series? | Zelda | Peach | Daisy | Midna
+Medium | Video Games | Which 2017 Zelda game was a Switch launch title? | Breath of the Wild | Tears of the Kingdom | Skyward Sword | Twilight Princess
+Medium | Video Games | Which Pokemon is number 025 in the Pokedex? | Pikachu | Raichu | Eevee | Charmander
+Medium | Video Games | Which Pokemon evolves into many forms depending on stones and more? | Eevee | Pikachu | Ditto | Mew
+Medium | Video Games | Which Pokemon can transform into any other Pokemon? | Ditto | Mew | Eevee | Smeargle
+Medium | Video Games | Which Pokemon is the final evolution of Charmander? | Charizard | Charmeleon | Dragonite | Arcanine
+Medium | Video Games | Which Pokemon is the final evolution of Squirtle? | Blastoise | Wartortle | Gyarados | Lapras
+Medium | Video Games | Which Pokemon is the legendary psychic made in a lab in Pokemon Red and Blue? | Mewtwo | Mew | Lugia | Articuno
+Medium | Video Games | What is the name of Team Rocket's talking cat Pokemon? | Meowth | Persian | Purrloin | Skitty
+Medium | Video Games | Which Pokemon professor gives you your first Pokemon in Red and Blue? | Professor Oak | Professor Elm | Professor Birch | Professor Rowan
+Medium | Video Games | In The Legend of Zelda, what is the name of the sacred triangle relic? | Triforce | Master Sword | Ocarina | Hylian Shield
+Medium | Video Games | What is the name of Link's legendary sword? | Master Sword | Excalibur | Buster Sword | Keyblade
+Medium | Video Games | What is the name of Sonic's red echidna rival? | Knuckles | Tails | Shadow | Silver
+Medium | Video Games | Which company made Sonic the Hedgehog? | Sega | Nintendo | Sony | Capcom
+Medium | Video Games | Which company made the Street Fighter series? | Capcom | SNK | Namco | Sega
+Medium | Video Games | Which fighting game series has the phrase "Finish him!"? | Mortal Kombat | Street Fighter | Tekken | Killer Instinct
+Medium | Video Games | Which zombie survival game series is set in Raccoon City? | Resident Evil | Dead Rising | Left 4 Dead | The Last of Us
+Medium | Video Games | Which game series features Nathan Drake? | Uncharted | Tomb Raider | Gears of War | Far Cry
+Medium | Video Games | Which game series has the protagonist Geralt of Rivia? | The Witcher | Dragon Age | Elder Scrolls | Dark Souls
+Medium | Video Games | Which game series features Arthur Morgan and the Van der Linde gang? | Red Dead Redemption | Gun | GTA | Mafia
+Medium | Video Games | Which game series features Ezio and Altair? | Assassin's Creed | Prince of Persia | Hitman | Splinter Cell
+Medium | Video Games | Which game series features Agent 47? | Hitman | Splinter Cell | Metal Gear | Deus Ex
+Medium | Video Games | Which game series features Cloud Strife? | Final Fantasy | Kingdom Hearts | Dragon Quest | Chrono Trigger
+Medium | Video Games | Which game series features Sora, Donald and Goofy? | Kingdom Hearts | Final Fantasy | Disney Infinity | Epic Mickey
+Medium | Video Games | Which game company made World of Warcraft? | Blizzard | Riot Games | Valve | Bethesda
+Medium | Video Games | Which company makes the Steam store? | Valve | Epic Games | EA | Ubisoft
+Medium | Video Games | Which company made The Elder Scrolls V: Skyrim? | Bethesda | BioWare | Obsidian | CD Projekt
+Medium | Video Games | Which company makes The Witcher and Cyberpunk 2077? | CD Projekt Red | Bethesda | Ubisoft | Rockstar
+Medium | Video Games | Which company makes Grand Theft Auto? | Rockstar Games | Ubisoft | EA | Activision
+Medium | Video Games | Which company makes the FIFA (now EA Sports FC) games? | EA | Konami | 2K | Ubisoft
+Medium | Video Games | Which company makes the NBA 2K series? | 2K | EA | Konami | Sega
+Medium | Video Games | In Fortnite, what do players gather wood, brick and metal for? | Building | Crafting weapons | Trading | Healing
+Medium | Video Games | In Minecraft, what dimension has the Ender Dragon? | The End | The Nether | The Overworld | The Aether
+Medium | Video Games | In Minecraft, what ore is used to make the strongest classic armor before netherite? | Diamond | Gold | Iron | Emerald
+Medium | Video Games | In Minecraft, what do villagers trade for? | Emeralds | Diamonds | Gold | Coins
+Medium | Video Games | In Among Us, what do impostors use to travel secretly? | Vents | Doors | Ladders | Portals
+Medium | Video Games | Which game asks you to deliver cargo across a ruined America as Sam Porter Bridges? | Death Stranding | Metal Gear Solid V | The Last of Us | Days Gone
+Medium | Video Games | Which indie game features a skeleton named Sans? | Undertale | Hollow Knight | Celeste | Cuphead
+Medium | Video Games | Which 2017 game has run-and-gun boss fights drawn like 1930s cartoons? | Cuphead | Hollow Knight | Shovel Knight | Ori
+Medium | Video Games | Which farming game was created by one developer, ConcernedApe? | Stardew Valley | Harvest Moon | Animal Crossing | Farmville
+Medium | Video Games | Which 2020 game has you escape the Underworld as Zagreus? | Hades | Dead Cells | Celeste | Returnal
+Hard | Video Games | What is the name of the console Nintendo released in 2006 with motion controls? | Wii | GameCube | Wii U | DS
+Hard | Video Games | What was Nintendo's 2001 console with a handle? | GameCube | N64 | Wii | Virtual Boy
+Hard | Video Games | Which Nintendo console used cartridges and had a three-pronged controller? | Nintendo 64 | Super Nintendo | GameCube | Virtual Boy
+Hard | Video Games | Which Nintendo console of 1995 showed only red 3D images? | Virtual Boy | Game Boy Color | Nintendo 64 | Power Glove
+Hard | Video Games | What was Sega's last home console? | Dreamcast | Saturn | Genesis | Game Gear
+Hard | Video Games | What was the first Xbox console released in? | 2001 | 1999 | 2003 | 2005
+Hard | Video Games | Which Atari game was famously buried in a New Mexico landfill? | E.T. the Extra-Terrestrial | Pac-Man | Pong | Pitfall!
+Hard | Video Games | Which game is considered the first commercially successful arcade video game? | Pong | Space Invaders | Computer Space | Asteroids
+Hard | Video Games | Which 1980 arcade game was originally called Puck Man in Japan? | Pac-Man | Dig Dug | Galaxian | Frogger
+Hard | Video Games | Which Konami cheat code is famous? | Up Up Down Down Left Right Left Right B A | A B A B Up Down | Left Right Left Right Start | B A B A Up Up
+Hard | Video Games | Which game featured the Konami Code to get 30 lives? | Contra | Gradius | Castlevania | Metal Gear
+Hard | Video Games | In Metroid, what is the surprise about Samus Aran revealed at the end of the original? | Samus is a woman | Samus is a robot | Samus is Ridley | Samus is a clone
+Hard | Video Games | What is the name of Samus's main enemy dragon? | Ridley | Kraid | Mother Brain | Dark Samus
+Hard | Video Games | In Halo, what is the name of Master Chief's AI companion? | Cortana | Navi | GLaDOS | EDI
+Hard | Video Games | In Portal, what is the name of the AI that tests you? | GLaDOS | Cortana | SHODAN | HAL
+Hard | Video Games | In Portal, what object is your loyal companion in a test chamber? | The Weighted Companion Cube | The Turret | The Core | The Cake
+Hard | Video Games | Which game series features the Vault-Tec company and Vault Boy? | Fallout | BioShock | Borderlands | Wasteland
+Hard | Video Games | In Fallout, what are the bottle caps used for? | Money | Health | Ammo | Keys
+Hard | Video Games | In Skyrim, what phrase about an arrow in the knee became a meme? | I used to be an adventurer like you | Fus ro dah | Hey, you, you're finally awake | Stop right there, criminal scum
+Hard | Video Games | In Skyrim, what are the dragon shouts called? | Thu'um | Mana | Chi | Runes
+Hard | Video Games | In The Elder Scrolls, which cat-like race appears? | Khajiit | Argonians | Bosmer | Orsimer
+Hard | Video Games | In Dark Souls, what message do players often leave before a jump? | Try jumping | Praise the sun | Beware of dog | Amazing chest ahead
+Hard | Video Games | Which FromSoftware game is set in the Lands Between? | Elden Ring | Bloodborne | Sekiro | Demon's Souls
+Hard | Video Games | Which FromSoftware game is set in the Gothic city of Yharnam? | Bloodborne | Dark Souls | Elden Ring | Lies of P
+Hard | Video Games | Which game series features the city of Columbia in the sky? | BioShock | Dishonored | Final Fantasy | Prey
+Hard | Video Games | In Mass Effect, what is the name of the main hero? | Commander Shepard | Master Chief | Marcus Fenix | Garrus Vakarian
+Hard | Video Games | In Gears of War, who is the main hero? | Marcus Fenix | Dom Santiago | Master Chief | Commander Shepard
+Hard | Video Games | Which company developed League of Legends? | Riot Games | Valve | Blizzard | Tencent only
+Hard | Video Games | Which company developed Valorant? | Riot Games | Valve | Blizzard | Epic Games
+Hard | Video Games | Which game is the battle royale from Respawn set in the Titanfall universe? | Apex Legends | PUBG | Fortnite | Warframe
+Hard | Video Games | What does PUBG stand for? | PlayerUnknown's Battlegrounds | Players Unite Battle Game | Public Battle Grounds | Pick Up Battle Gun
+Hard | Video Games | What does "MMORPG" stand for? | Massively multiplayer online role-playing game | Multiple map online role-play game | Mass multiplayer open real play game | Main mode online RPG
+Hard | Video Games | Which game company makes Counter-Strike? | Valve | Riot Games | Epic Games | Bungie
+Hard | Video Games | Which game company made Destiny after Halo? | Bungie | 343 Industries | Respawn | Infinity Ward
+Hard | Video Games | Which game series features Kirby's rival with a mask? | Meta Knight | King Dedede | Waddle Dee | Magolor
+Hard | Video Games | Which Nintendo series features squid kids who shoot ink? | Splatoon | Arms | Pikmin | Kid Icarus
+Hard | Video Games | Which Nintendo series features little plant creatures led by Captain Olimar? | Pikmin | Splatoon | Star Fox | Kirby
+Hard | Video Games | Which Nintendo series stars Fox McCloud? | Star Fox | F-Zero | Metroid | Kid Icarus
+Hard | Video Games | What does Shigeru Miyamoto's company, Nintendo, mean roughly in Japanese? | Leave luck to heaven | Play together | Game king | Good fortune machine
+Hard | Video Games | What was Nintendo's original business before video games? | Playing cards | Toys only | Cameras | Taxis
+Hard | Video Games | In which year was the Nintendo Entertainment System released in North America? | 1985 | 1983 | 1987 | 1989
+Hard | Video Games | What is the name of the 2023 sequel to Breath of the Wild? | Tears of the Kingdom | Echoes of Wisdom | Skyward Sword | Spirit Tracks
+Easy | Video Games | Which game has you swing through New York as a web-slinging hero on PlayStation? | Marvel's Spider-Man | Batman: Arkham City | Infamous | Prototype
+Easy | Video Games | In Pac-Man, how many ghosts chase you? | 4 | 3 | 5 | 6
+Medium | Video Games | What are the names of Pac-Man's ghosts? | Blinky, Pinky, Inky and Clyde | Red, Pink, Blue and Orange | Huey, Dewey, Louie and Bob | Boo, Lakitu, Spike and Shy
+Medium | Video Games | Which Batman game series was made by Rocksteady? | Arkham | Gotham Knights | Batman: The Telltale Series | Lego Batman
+Medium | Video Games | In Mario Kart, what item makes you invincible and fast? | Star | Mushroom | Banana | Bullet Bill only
+Hard | Video Games | Which 1993 shooter by id Software popularized the genre on PCs? | Doom | Quake | Wolfenstein 3D | Duke Nukem 3D
+Hard | Video Games | Which company created the first Tomb Raider in 1996? | Core Design | Crystal Dynamics | Eidos Montreal | Naughty Dog
+Hard | Video Games | Which studio made The Last of Us and Uncharted? | Naughty Dog | Insomniac Games | Sucker Punch | Santa Monica Studio

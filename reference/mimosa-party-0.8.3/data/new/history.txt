@@ -1,0 +1,125 @@
+Easy | History | Which US president is on the one-dollar bill? | George Washington | Abraham Lincoln | Thomas Jefferson | Benjamin Franklin
+Easy | History | Who is on the US $100 bill? | Benjamin Franklin | George Washington | Alexander Hamilton | Ulysses S. Grant
+Easy | History | Who is on the US $10 bill? | Alexander Hamilton | Benjamin Franklin | Andrew Jackson | Abraham Lincoln
+Easy | History | What holiday celebrates US independence? | Fourth of July | Thanksgiving | Labor Day | Memorial Day
+Easy | History | Which ancient people built the Parthenon? | Greeks | Romans | Egyptians | Persians
+Easy | History | Who were the famous Norse sea raiders of the Middle Ages? | Vikings | Pirates | Samurai | Knights
+Easy | History | What were Japanese warriors in armor called? | Samurai | Ninjas | Shoguns | Ronin
+Easy | History | What were medieval soldiers in armor on horseback called? | Knights | Squires | Peasants | Monks
+Easy | History | In which country did the Olympic Games begin? | Greece | Italy | Egypt | France
+Easy | History | Who was the first person to fly solo across the Atlantic nonstop? | Charles Lindbergh | Amelia Earhart | Orville Wright | Howard Hughes
+Easy | History | Which famous female pilot vanished over the Pacific in 1937? | Amelia Earhart | Bessie Coleman | Sally Ride | Harriet Quimby
+Easy | History | Who led India's nonviolent independence movement? | Mahatma Gandhi | Nelson Mandela | Jawaharlal Nehru | Dalai Lama
+Easy | History | Who became South Africa's first Black president in 1994? | Nelson Mandela | Desmond Tutu | Thabo Mbeki | Jacob Zuma
+Easy | History | Which civil rights figure refused to give up her bus seat in 1955? | Rosa Parks | Harriet Tubman | Coretta Scott King | Maya Angelou
+Easy | History | What famous speech did Martin Luther King Jr. give in 1963? | I Have a Dream | Ich bin ein Berliner | Gettysburg Address | Four Freedoms
+Easy | History | Who gave the Gettysburg Address? | Abraham Lincoln | George Washington | Ulysses S. Grant | Robert E. Lee
+Easy | History | Which country did the Pilgrims sail from to America? | England | France | Spain | Netherlands
+Easy | History | What did the ancient Egyptians use to preserve the dead? | Mummification | Freezing | Burning | Salt mines
+Easy | History | Which ancient Roman structure hosted gladiator fights? | Colosseum | Pantheon | Forum | Circus Maximus only
+Easy | History | Who was the leader of the Confederate army in the US Civil War? | Robert E. Lee | Ulysses S. Grant | Stonewall Jackson | Jefferson Davis
+Easy | History | Who was the commander of the Union army who later became president? | Ulysses S. Grant | Robert E. Lee | William Sherman | Andrew Johnson
+Easy | History | What was the name of the first successful English colony in America? | Jamestown | Plymouth | Roanoke | Boston
+Easy | History | Which country did Napoleon rule? | France | Spain | Italy | Austria
+Easy | History | What was the Underground Railroad? | A network helping enslaved people escape | A secret subway | A mining tunnel | A Civil War railroad
+Easy | History | Which tea party happened in 1773 in protest of British taxes? | Boston Tea Party | New York Tea Party | Philadelphia Tea Party | London Tea Party
+Easy | History | What ancient writing system used pictures and symbols in Egypt? | Hieroglyphics | Cuneiform | Runes | Sanskrit
+Easy | History | Who was the US president during most of World War II? | Franklin D. Roosevelt | Harry Truman | Herbert Hoover | Dwight Eisenhower
+Easy | History | What disease was called the Black Death in the 1300s? | The bubonic plague | Smallpox | Cholera | Flu
+Easy | History | Who was the first woman in space? | Valentina Tereshkova | Sally Ride | Mae Jemison | Eileen Collins
+Easy | History | Who was the first American woman in space? | Sally Ride | Valentina Tereshkova | Christa McAuliffe | Amelia Earhart
+Easy | History | What 1849 event brought thousands to California looking for riches? | The Gold Rush | The Oil Boom | The Land Run | The Silver Rush
+Easy | History | Which ocean liner was sunk by a German submarine in 1915? | Lusitania | Titanic | Britannic | Olympic
+Easy | History | Who was the second President of the United States? | John Adams | Thomas Jefferson | James Madison | Benjamin Franklin
+Easy | History | Which US president is famous for the Louisiana Purchase? | Thomas Jefferson | James Monroe | John Adams | Andrew Jackson
+Medium | History | From which country did the US buy the Louisiana Territory? | France | Spain | Britain | Mexico
+Medium | History | Which explorers did Thomas Jefferson send west in 1804? | Lewis and Clark | Daniel Boone and Davy Crockett | Marquette and Joliet | Pike and Fremont
+Medium | History | Who helped guide Lewis and Clark as an interpreter? | Sacagawea | Pocahontas | Squanto | Tecumseh
+Medium | History | Which document begins with "We the People"? | US Constitution | Declaration of Independence | Bill of Rights | Gettysburg Address
+Medium | History | What are the first ten amendments to the US Constitution called? | Bill of Rights | Articles of Confederation | Federalist Papers | Emancipation
+Medium | History | What did the Emancipation Proclamation of 1863 declare? | Freedom for enslaved people in Confederate states | The end of the Civil War | Women's right to vote | Independence from Britain
+Medium | History | Who assassinated Abraham Lincoln? | John Wilkes Booth | Lee Harvey Oswald | Charles Guiteau | Leon Czolgosz
+Medium | History | In which theater was Lincoln shot? | Ford's Theatre | Globe Theatre | Lincoln Center | National Theatre
+Medium | History | Which US president was assassinated in Dallas in 1963? | John F. Kennedy | Robert Kennedy | Lyndon Johnson | William McKinley
+Medium | History | Which US president served the longest? | Franklin D. Roosevelt | Ronald Reagan | Thomas Jefferson | Theodore Roosevelt
+Medium | History | Which US president was a famous actor before politics? | Ronald Reagan | Richard Nixon | Gerald Ford | Jimmy Carter
+Medium | History | Who was the youngest elected US president? | John F. Kennedy | Theodore Roosevelt | Bill Clinton | Barack Obama
+Medium | History | Which US president was a peanut farmer? | Jimmy Carter | Gerald Ford | Herbert Hoover | Harry Truman
+Medium | History | The "Teddy bear" is named after which president? | Theodore Roosevelt | Franklin D. Roosevelt | Teddy Kennedy | Woodrow Wilson
+Medium | History | What attack brought the US into World War II? | Pearl Harbor | D-Day | Midway | Sinking of the Lusitania
+Medium | History | What is the name for the Allied invasion of Normandy on June 6, 1944? | D-Day | V-E Day | Operation Barbarossa | Blitzkrieg
+Medium | History | What was the German bombing of Britain in 1940 and 1941 called? | The Blitz | The Surge | Operation Overlord | The Battle of the Bulge
+Medium | History | What was the secret US project that built the atomic bomb? | Manhattan Project | Apollo Program | Project Mercury | Operation Paperclip
+Medium | History | Which city was hit by the second atomic bomb? | Nagasaki | Hiroshima | Tokyo | Osaka
+Medium | History | What was the long standoff between the US and Soviet Union called? | The Cold War | The Great War | The Hundred Years' War | The Long Peace
+Medium | History | Which war was the US involved in from the 1960s until 1973? | Vietnam War | Korean War | Gulf War | World War II
+Medium | History | Which country launched Sputnik? | Soviet Union | United States | China | Germany
+Medium | History | Which was the first animal to orbit the Earth? | Laika the dog | Ham the chimp | A fruit fly | A mouse
+Medium | History | What was the first space shuttle to fly into space? | Columbia | Challenger | Discovery | Enterprise
+Medium | History | Which telescope was launched in 1990 and named after an astronomer? | Hubble | Kepler | Webb | Spitzer
+Medium | History | Who was the French queen famously (and probably falsely) said to say "Let them eat cake"? | Marie Antoinette | Catherine de Medici | Josephine | Eleanor of Aquitaine
+Medium | History | What prison was stormed on July 14, 1789, starting the French Revolution? | The Bastille | The Tower | Alcatraz | Newgate
+Medium | History | Which English king had six wives? | Henry VIII | Henry VII | Edward VI | Richard III
+Medium | History | Which English queen was known as the "Virgin Queen"? | Elizabeth I | Mary I | Victoria | Anne
+Medium | History | What fleet did England defeat in 1588? | The Spanish Armada | The French Navy | The Dutch Fleet | The Ottoman Fleet
+Medium | History | Who wrote "The Communist Manifesto" with Friedrich Engels? | Karl Marx | Vladimir Lenin | Leon Trotsky | Joseph Stalin
+Medium | History | Who led the Russian Bolshevik Revolution in 1917? | Vladimir Lenin | Joseph Stalin | Nicholas II | Leon Trotsky
+Medium | History | Who was the last tsar of Russia? | Nicholas II | Peter the Great | Ivan the Terrible | Alexander III
+Medium | History | Which Mongol leader founded the largest land empire? | Genghis Khan | Kublai Khan | Attila | Tamerlane
+Medium | History | Which Italian explorer's travels to China were written about in the 1300s? | Marco Polo | Amerigo Vespucci | John Cabot | Ferdinand Magellan
+Medium | History | Which explorer's expedition first sailed around the world? | Ferdinand Magellan | Christopher Columbus | Vasco da Gama | James Cook
+Medium | History | The Americas are named after which explorer? | Amerigo Vespucci | Christopher Columbus | Americo Cabot | Ameri Polo
+Medium | History | Which ancient city did the Greeks attack using a wooden horse? | Troy | Sparta | Athens | Carthage
+Medium | History | Which general crossed the Alps with elephants to attack Rome? | Hannibal | Julius Caesar | Alexander the Great | Scipio
+Medium | History | Which king of Macedonia conquered much of the known world by age 30? | Alexander the Great | Philip II | Darius | Xerxes
+Medium | History | On what date was Julius Caesar assassinated? | The Ides of March | New Year's Day | The summer solstice | Christmas Eve
+Medium | History | Who invented the printing press with movable type in Europe? | Johannes Gutenberg | Leonardo da Vinci | Martin Luther | Galileo
+Medium | History | Who painted the ceiling of the Sistine Chapel? | Michelangelo | Raphael | Leonardo da Vinci | Donatello
+Medium | History | What period of "rebirth" in art and science started in Italy in the 1300s? | The Renaissance | The Enlightenment | The Reformation | The Baroque
+Medium | History | Who nailed 95 theses to a church door in 1517? | Martin Luther | John Calvin | Henry VIII | Erasmus
+Medium | History | Who was the famous nurse of the Crimean War called "The Lady with the Lamp"? | Florence Nightingale | Clara Barton | Mary Seacole | Edith Cavell
+Medium | History | Who founded the American Red Cross? | Clara Barton | Florence Nightingale | Susan B. Anthony | Dorothea Dix
+Hard | History | Which battle in 1863 is often called the turning point of the US Civil War? | Gettysburg | Antietam | Bull Run | Shiloh
+Hard | History | Where did Robert E. Lee surrender to Ulysses S. Grant? | Appomattox Court House | Gettysburg | Richmond | Fort Sumter
+Hard | History | Where were the first shots of the US Civil War fired? | Fort Sumter | Fort McHenry | Harpers Ferry | Bull Run
+Hard | History | Which battle inspired "The Star-Spangled Banner"? | Fort McHenry | Bunker Hill | Yorktown | New Orleans
+Hard | History | Where did the British surrender to end major fighting in the American Revolution? | Yorktown | Saratoga | Trenton | Lexington
+Hard | History | In what year was the US Constitution signed? | 1787 | 1776 | 1791 | 1783
+Hard | History | Which US president bought Alaska's deal through his Secretary of State William Seward? | Andrew Johnson | Abraham Lincoln | Ulysses S. Grant | Rutherford Hayes
+Hard | History | What was "Seward's Folly"? | The purchase of Alaska | The Louisiana Purchase | The Panama Canal | The Gadsden Purchase
+Hard | History | Which US president died after only 31 days in office? | William Henry Harrison | James Garfield | Zachary Taylor | Warren Harding
+Hard | History | Who is the only US president to serve two non-consecutive terms before 2025? | Grover Cleveland | Theodore Roosevelt | Andrew Jackson | Martin Van Buren
+Hard | History | Which ancient wonder was located in Babylon? | Hanging Gardens | Lighthouse of Alexandria | Temple of Artemis | Mausoleum
+Hard | History | Which ancient wonder stood in Alexandria's harbor? | The Lighthouse (Pharos) | The Colossus | The Hanging Gardens | The Temple of Zeus
+Hard | History | Which ancient city was Hannibal from? | Carthage | Athens | Babylon | Alexandria
+Hard | History | What was the name of the ancient trade route linking China and the Mediterranean? | The Silk Road | The Spice Way | The Amber Road | The Royal Road
+Hard | History | Which dynasty built most of the Great Wall that stands today? | Ming dynasty | Qin dynasty | Han dynasty | Tang dynasty
+Hard | History | Which Chinese emperor was buried with the Terracotta Army? | Qin Shi Huang | Kublai Khan | Emperor Wu | Puyi
+Hard | History | Who was the last emperor of China? | Puyi | Qin Shi Huang | Kangxi | Guangxu
+Hard | History | What were the Japanese military rulers called from 1192 to 1867? | Shoguns | Daimyo | Samurai | Emperors
+Hard | History | Who was the first Holy Roman Emperor, crowned in 800 AD? | Charlemagne | Otto I | Frederick Barbarossa | Charles V
+Hard | History | Which Byzantine city fell to the Ottomans in 1453? | Constantinople | Athens | Jerusalem | Rome
+Hard | History | Which battle in 1815 ended Napoleon's rule for good? | Waterloo | Austerlitz | Trafalgar | Leipzig
+Hard | History | Which admiral died winning the Battle of Trafalgar? | Horatio Nelson | Francis Drake | John Paul Jones | Lord Howe
+Hard | History | To which island was Napoleon finally exiled? | Saint Helena | Elba | Corsica | Malta
+Hard | History | What was the name of the Soviet leader who started perestroika? | Mikhail Gorbachev | Boris Yeltsin | Leonid Brezhnev | Nikita Khrushchev
+Hard | History | Which Soviet leader banged his shoe at the UN, according to legend? | Nikita Khrushchev | Joseph Stalin | Leonid Brezhnev | Yuri Andropov
+Hard | History | What year was the Declaration of Independence adopted? | 1776 | 1775 | 1781 | 1789
+Hard | History | Who was the first female Prime Minister of India? | Indira Gandhi | Sonia Gandhi | Pratibha Patil | Benazir Bhutto
+Hard | History | Who was the first woman elected to lead a Muslim-majority country? | Benazir Bhutto | Indira Gandhi | Golda Meir | Tansu Ciller
+Hard | History | Who was the first woman to serve on the US Supreme Court? | Sandra Day O'Connor | Ruth Bader Ginsburg | Sonia Sotomayor | Elena Kagan
+Hard | History | Who was the first Black justice on the US Supreme Court? | Thurgood Marshall | Clarence Thomas | Earl Warren | Frederick Douglass
+Hard | History | Which 1954 Supreme Court case ended legal school segregation? | Brown v. Board of Education | Roe v. Wade | Plessy v. Ferguson | Marbury v. Madison
+Hard | History | Which 1896 Supreme Court case allowed "separate but equal"? | Plessy v. Ferguson | Brown v. Board of Education | Dred Scott v. Sandford | Miranda v. Arizona
+Hard | History | Who was the leader of Cuba from 1959 to 2008? | Fidel Castro | Che Guevara | Raul Castro | Fulgencio Batista
+Hard | History | What 1961 failed invasion of Cuba was backed by the US? | Bay of Pigs | Operation Mongoose | Cuban Missile Crisis | Guantanamo Raid
+Hard | History | What was the Apollo mission that had an oxygen tank explode on the way to the Moon? | Apollo 13 | Apollo 11 | Apollo 1 | Apollo 17
+Hard | History | Who was the second person to walk on the Moon? | Buzz Aldrin | Michael Collins | Alan Shepard | John Glenn
+Hard | History | Who was the first American to orbit the Earth? | John Glenn | Alan Shepard | Gus Grissom | Neil Armstrong
+Hard | History | What was the name of the first ship to reach the Titanic's survivors? | RMS Carpathia | RMS Californian | RMS Olympic | SS Mount Temple
+Hard | History | In what year did the Wright brothers make their first flight? | 1903 | 1899 | 1908 | 1911
+Hard | History | At which place in North Carolina did the Wright brothers first fly? | Kitty Hawk | Raleigh | Outer Banks Bay | Charlotte
+Hard | History | Which ancient Egyptian king's tomb was found nearly intact in 1922? | Tutankhamun | Ramses II | Khufu | Akhenaten
+Hard | History | Who discovered Tutankhamun's tomb? | Howard Carter | Lord Carnarvon alone | Flinders Petrie | Indiana Jones
+Hard | History | What stone helped scholars decode Egyptian hieroglyphs? | Rosetta Stone | Blarney Stone | Moonstone | Philosopher's Stone
+Hard | History | Which ancient Greek historian is called the "Father of History"? | Herodotus | Thucydides | Plato | Homer

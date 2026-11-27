@@ -1,0 +1,134 @@
+Easy | Music | Which instrument has a bow and four strings and is held under the chin? | Violin | Cello | Guitar | Harp
+Easy | Music | Which instrument do you blow into and has a slide? | Trombone | Trumpet | Flute | Tuba
+Easy | Music | Which is the largest brass instrument in a typical band? | Tuba | Trumpet | French horn | Trombone
+Easy | Music | Which instrument is a large string instrument played sitting down, between the knees? | Cello | Violin | Viola | Banjo
+Easy | Music | How many musicians are in a trio? | 3 | 2 | 4 | 5
+Easy | Music | How many musicians are in a quartet? | 4 | 3 | 5 | 6
+Easy | Music | Which Disney movie has the song "Under the Sea"? | The Little Mermaid | Moana | Finding Nemo | Frozen
+Easy | Music | Who sang "Like a Prayer"? | Madonna | Cher | Whitney Houston | Mariah Carey
+Easy | Music | Who sang "I Will Always Love You" in The Bodyguard? | Whitney Houston | Celine Dion | Mariah Carey | Toni Braxton
+Easy | Music | Who sang "My Heart Will Go On" from Titanic? | Celine Dion | Whitney Houston | Shania Twain | Mariah Carey
+Easy | Music | Which holiday song is sung by Mariah Carey and comes back every December? | All I Want for Christmas Is You | Last Christmas | Jingle Bell Rock | Feliz Navidad
+Easy | Music | Who sang "Last Christmas"? | Wham! | Queen | Duran Duran | Culture Club
+Easy | Music | Which singer is known as "the Boss"? | Bruce Springsteen | Bob Dylan | Tom Petty | Billy Joel
+Easy | Music | Who sang "Piano Man"? | Billy Joel | Elton John | Barry Manilow | Ray Charles
+Easy | Music | Who sang "Rocket Man"? | Elton John | David Bowie | Rod Stewart | Billy Joel
+Easy | Music | Which band sang "Yellow Submarine"? | The Beatles | The Rolling Stones | The Monkees | The Beach Boys
+Easy | Music | Which band is famous for "Surfin' USA"? | The Beach Boys | The Beatles | The Eagles | The Ramones
+Easy | Music | Who sang "Thinking Out Loud" and "Shape of You"? | Ed Sheeran | Sam Smith | Shawn Mendes | Harry Styles
+Easy | Music | Who sang "Firework" and "Roar"? | Katy Perry | Lady Gaga | Taylor Swift | Rihanna
+Easy | Music | Who sang "Umbrella"? | Rihanna | Beyonce | Ciara | Kelly Rowland
+Easy | Music | Who sang "Poker Face"? | Lady Gaga | Katy Perry | Ke$ha | Britney Spears
+Easy | Music | Who sang "...Baby One More Time"? | Britney Spears | Christina Aguilera | Jessica Simpson | Mandy Moore
+Easy | Music | Who sang "Happy" from Despicable Me 2? | Pharrell Williams | Bruno Mars | Justin Timberlake | Will.i.am
+Easy | Music | What do you call the person who leads an orchestra? | Conductor | Composer | Soloist | Drummer
+Easy | Music | What is the name of a song sung by one person alone? | Solo | Duet | Chorus | Trio
+Easy | Music | What is a song sung by two people called? | Duet | Solo | Trio | Choir
+Easy | Music | Which K-pop girl group sang "How You Like That"? | Blackpink | Twice | Red Velvet | Itzy
+Easy | Music | Who sang "Old Town Road"? | Lil Nas X | Post Malone | Travis Scott | Lil Wayne
+Easy | Music | Who sang "Blinding Lights"? | The Weeknd | Drake | Post Malone | Harry Styles
+Easy | Music | Who sang "Watermelon Sugar"? | Harry Styles | Shawn Mendes | Niall Horan | Ed Sheeran
+Easy | Music | Who sang "drivers license"? | Olivia Rodrigo | Billie Eilish | Sabrina Carpenter | Dua Lipa
+Easy | Music | Who sang "Levitating"? | Dua Lipa | Doja Cat | Ariana Grande | Selena Gomez
+Easy | Music | Who sang "Thank U, Next"? | Ariana Grande | Selena Gomez | Demi Lovato | Camila Cabello
+Easy | Music | Who sang "Halo" and "Crazy in Love"? | Beyonce | Rihanna | Alicia Keys | Mariah Carey
+Easy | Music | Which instrument has pedals and pipes in a church? | Organ | Piano | Harp | Accordion
+Medium | Music | Which band sang "Stairway to Heaven"? | Led Zeppelin | The Who | Deep Purple | Black Sabbath
+Medium | Music | Which band sang "Sweet Child o' Mine"? | Guns N' Roses | Aerosmith | Bon Jovi | Def Leppard
+Medium | Music | Which band sang "Don't Stop Believin'"? | Journey | Boston | Foreigner | Styx
+Medium | Music | Which band sang "Wonderwall"? | Oasis | Blur | Radiohead | Coldplay
+Medium | Music | Which band sang "Yellow" and "Viva la Vida"? | Coldplay | Keane | Snow Patrol | U2
+Medium | Music | Which band sang "With or Without You"? | U2 | The Police | Simple Minds | INXS
+Medium | Music | Which band sang "Every Breath You Take"? | The Police | U2 | Duran Duran | The Cure
+Medium | Music | Which band sang "Dancing Queen"? | ABBA | Bee Gees | Boney M | Roxette
+Medium | Music | Which group sang "Stayin' Alive"? | Bee Gees | ABBA | Earth, Wind & Fire | KC and the Sunshine Band
+Medium | Music | Which band sang "Satisfaction" (I Can't Get No)? | The Rolling Stones | The Beatles | The Who | The Kinks
+Medium | Music | Which band sang "Back in Black"? | AC/DC | Metallica | Iron Maiden | Motorhead
+Medium | Music | Which band sang "Enter Sandman"? | Metallica | Megadeth | Slayer | Anthrax
+Medium | Music | Who sang "Despacito" with Daddy Yankee? | Luis Fonsi | Ricky Martin | J Balvin | Bad Bunny
+Medium | Music | Which Puerto Rican artist released "Un Verano Sin Ti"? | Bad Bunny | Daddy Yankee | Ozuna | Anuel AA
+Medium | Music | Who sang "Respect" in 1967? | Aretha Franklin | Diana Ross | Tina Turner | Etta James
+Medium | Music | Who was the lead singer of The Supremes? | Diana Ross | Aretha Franklin | Gladys Knight | Martha Reeves
+Medium | Music | Who sang "What's Love Got to Do with It"? | Tina Turner | Diana Ross | Gloria Gaynor | Chaka Khan
+Medium | Music | Who sang "I Will Survive"? | Gloria Gaynor | Donna Summer | Diana Ross | Cher
+Medium | Music | Which singer was known as the "Queen of Disco"? | Donna Summer | Gloria Gaynor | Cher | Diana Ross
+Medium | Music | Which record label was famous for soul music from Detroit? | Motown | Stax | Atlantic | Sun Records
+Medium | Music | Which singer was "The Man in Black"? | Johnny Cash | Willie Nelson | Hank Williams | Merle Haggard
+Medium | Music | Which country singer sang "Friends in Low Places"? | Garth Brooks | George Strait | Alan Jackson | Kenny Chesney
+Medium | Music | Which singer sang "Crazy" (1961), written by Willie Nelson? | Patsy Cline | Loretta Lynn | Dolly Parton | Tammy Wynette
+Medium | Music | Which Nashville venue is famous as the home of country music? | Grand Ole Opry | Ryman Hall only | Bluebird Cafe | Carnegie Hall
+Medium | Music | Who wrote "Blowin' in the Wind"? | Bob Dylan | Neil Young | Paul Simon | Joni Mitchell
+Medium | Music | Which duo sang "The Sound of Silence"? | Simon & Garfunkel | Hall & Oates | The Everly Brothers | The Carpenters
+Medium | Music | Which singer was known as "Ziggy Stardust"? | David Bowie | Freddie Mercury | Elton John | Marc Bolan
+Medium | Music | Which band's logo is a tongue and lips? | The Rolling Stones | KISS | Aerosmith | The Who
+Medium | Music | Which band wears face paint and has members called the Demon and the Starchild? | KISS | Slipknot | Twisted Sister | Motley Crue
+Medium | Music | Who was the lead singer of Nirvana? | Kurt Cobain | Dave Grohl | Chris Cornell | Layne Staley
+Medium | Music | Which band did Dave Grohl form after Nirvana? | Foo Fighters | Pearl Jam | Soundgarden | Queens of the Stone Age
+Medium | Music | Who was the lead singer of the Red Hot Chili Peppers? | Anthony Kiedis | Flea | Chris Cornell | Scott Weiland
+Medium | Music | Which rapper was known as "2Pac"? | Tupac Shakur | Christopher Wallace | Calvin Broadus | Andre Young
+Medium | Music | Which rapper was known as "The Notorious B.I.G."? | Christopher Wallace | Tupac Shakur | Shawn Carter | Nasir Jones
+Medium | Music | What is Jay-Z's real first name? | Shawn | Sean | Calvin | Andre
+Medium | Music | What is Snoop Dogg's real first name? | Calvin | Andre | Shawn | Curtis
+Medium | Music | Which group released "Hey Ya!"? | OutKast | The Fugees | Black Eyed Peas | N.E.R.D.
+Medium | Music | Which group was Lauryn Hill a member of? | The Fugees | TLC | Destiny's Child | En Vogue
+Medium | Music | Which group was Beyonce in before going solo? | Destiny's Child | TLC | Spice Girls | En Vogue
+Medium | Music | Which girl group had Scary, Sporty, Baby, Ginger and Posh? | Spice Girls | Little Mix | All Saints | Girls Aloud
+Medium | Music | Which boy band sang "I Want It That Way"? | Backstreet Boys | NSYNC | 98 Degrees | Boyz II Men
+Medium | Music | Which boy band was Justin Timberlake in? | NSYNC | Backstreet Boys | New Kids on the Block | 98 Degrees
+Medium | Music | What do you call the speed of a piece of music? | Tempo | Pitch | Timbre | Harmony
+Medium | Music | How many lines are on a standard music staff? | 5 | 4 | 6 | 7
+Medium | Music | What is a musical symbol that raises a note by a half step? | Sharp | Flat | Natural | Rest
+Hard | Music | Which composer became deaf but kept composing? | Beethoven | Mozart | Bach | Handel
+Hard | Music | Which composer wrote "The Magic Flute"? | Mozart | Beethoven | Haydn | Wagner
+Hard | Music | Which composer wrote "The Nutcracker"? | Tchaikovsky | Rachmaninoff | Stravinsky | Prokofiev
+Hard | Music | Which composer wrote "Swan Lake"? | Tchaikovsky | Debussy | Ravel | Chopin
+Hard | Music | Which composer wrote "The Rite of Spring"? | Stravinsky | Tchaikovsky | Mahler | Debussy
+Hard | Music | Which composer wrote "Clair de Lune"? | Debussy | Ravel | Satie | Chopin
+Hard | Music | Which composer wrote "Bolero"? | Ravel | Debussy | Bizet | Saint-Saens
+Hard | Music | Which composer wrote the opera "Carmen"? | Bizet | Verdi | Puccini | Rossini
+Hard | Music | Which composer wrote the opera "La Boheme"? | Puccini | Verdi | Rossini | Donizetti
+Hard | Music | Which composer wrote "Messiah", with the "Hallelujah" chorus? | Handel | Bach | Haydn | Mozart
+Hard | Music | Which composer wrote the "Brandenburg Concertos"? | Johann Sebastian Bach | Handel | Vivaldi | Telemann
+Hard | Music | Which composer wrote "The Ring Cycle" of operas? | Richard Wagner | Giuseppe Verdi | Richard Strauss | Gustav Mahler
+Hard | Music | Which composer wrote "Rhapsody in Blue"? | George Gershwin | Aaron Copland | Leonard Bernstein | Duke Ellington
+Hard | Music | Who composed the music for "West Side Story"? | Leonard Bernstein | Stephen Sondheim | Richard Rodgers | Cole Porter
+Hard | Music | Which Broadway musical tells the story of a US Founding Father with hip-hop? | Hamilton | In the Heights | Rent | Dear Evan Hansen
+Hard | Music | Who created the musical "Hamilton"? | Lin-Manuel Miranda | Andrew Lloyd Webber | Stephen Sondheim | Jonathan Larson
+Hard | Music | Who composed "The Phantom of the Opera" musical? | Andrew Lloyd Webber | Stephen Sondheim | Claude-Michel Schonberg | Tim Rice
+Hard | Music | Which jazz trumpeter was nicknamed "Satchmo"? | Louis Armstrong | Miles Davis | Dizzy Gillespie | Chet Baker
+Hard | Music | Which jazz trumpeter recorded "Kind of Blue"? | Miles Davis | Louis Armstrong | Chet Baker | Wynton Marsalis
+Hard | Music | Which jazz singer was nicknamed "Lady Day"? | Billie Holiday | Ella Fitzgerald | Sarah Vaughan | Nina Simone
+Hard | Music | Which singer was "The First Lady of Song"? | Ella Fitzgerald | Billie Holiday | Etta James | Aretha Franklin
+Hard | Music | Which saxophonist recorded "A Love Supreme"? | John Coltrane | Charlie Parker | Sonny Rollins | Stan Getz
+Hard | Music | Which singer was known as "Ol' Blue Eyes"? | Frank Sinatra | Dean Martin | Bing Crosby | Tony Bennett
+Hard | Music | Which singer had the hit "White Christmas" in 1942? | Bing Crosby | Frank Sinatra | Nat King Cole | Perry Como
+Hard | Music | What was the name of Elvis Presley's Memphis home? | Graceland | Neverland | Paisley Park | Sun Studio
+Hard | Music | What was the name of Prince's home and studio complex? | Paisley Park | Graceland | Neverland | Electric Lady
+Hard | Music | Which studio in London did the Beatles record most of their music in? | Abbey Road | Olympic Studios | Trident | AIR Studios
+Hard | Music | Which 1969 music festival took place on a dairy farm in New York? | Woodstock | Monterey Pop | Altamont | Newport
+Hard | Music | Which 1985 charity concert was held in London and Philadelphia? | Live Aid | Band Aid | Farm Aid | Live 8
+Hard | Music | What song did Band Aid record in 1984? | Do They Know It's Christmas? | We Are the World | Feed the World Tonight | Heal the World
+Hard | Music | Who wrote "We Are the World" with Lionel Richie? | Michael Jackson | Quincy Jones | Stevie Wonder | Bob Geldof
+Hard | Music | Which Beatle wrote and sang "Something"? | George Harrison | John Lennon | Paul McCartney | Ringo Starr
+Hard | Music | Who was the Beatles' drummer? | Ringo Starr | George Harrison | Pete Best | Charlie Watts
+Hard | Music | Who was the Rolling Stones' longtime drummer? | Charlie Watts | Ringo Starr | Keith Moon | John Bonham
+Hard | Music | Who was the drummer for Led Zeppelin? | John Bonham | Keith Moon | Ginger Baker | Neil Peart
+Hard | Music | Who was the drummer for The Who known for smashing kits? | Keith Moon | John Bonham | Ringo Starr | Charlie Watts
+Hard | Music | Which band released "OK Computer"? | Radiohead | Blur | Pulp | Muse
+Hard | Music | Which band released "Rumours" in 1977? | Fleetwood Mac | Eagles | Steely Dan | The Doobie Brothers
+Hard | Music | Which band released "Pet Sounds"? | The Beach Boys | The Beatles | The Byrds | The Mamas & the Papas
+Hard | Music | Which album by the Beatles has them crossing a street? | Abbey Road | Let It Be | Revolver | Help!
+Hard | Music | What is the Italian term for playing softly? | Piano | Forte | Allegro | Largo
+Hard | Music | What is the Italian term for playing loudly? | Forte | Piano | Adagio | Lento
+Hard | Music | What does "a cappella" mean? | Singing without instruments | Singing very fast | Singing in a church | Singing in Italian
+Easy | Music | Who sang "Shallow" with Bradley Cooper? | Lady Gaga | Ariana Grande | Adele | Kelly Clarkson
+Easy | Music | Who sang "Rich Girl" and "Hollaback Girl"? | Gwen Stefani | Avril Lavigne | Fergie | Pink
+Easy | Music | Who sang "Sk8er Boi"? | Avril Lavigne | Gwen Stefani | Hilary Duff | Kelly Clarkson
+Easy | Music | Who won the first season of American Idol? | Kelly Clarkson | Carrie Underwood | Fantasia | Ruben Studdard
+Medium | Music | Which singer had a hit with "Before He Cheats" after winning American Idol? | Carrie Underwood | Kelly Clarkson | Miranda Lambert | Faith Hill
+Medium | Music | Which country singer is known as "The Queen of Country"? | Dolly Parton | Reba McEntire | Loretta Lynn | Shania Twain
+Medium | Music | Which singer sang "Man! I Feel Like a Woman!"? | Shania Twain | Faith Hill | Reba McEntire | Martina McBride
+Medium | Music | Which band sang "Bye Bye Bye"? | NSYNC | Backstreet Boys | 98 Degrees | O-Town
+Hard | Music | Which British band released "Parklife"? | Blur | Oasis | Pulp | Suede
+Hard | Music | Which band released "The Joshua Tree"? | U2 | R.E.M. | The Cure | Simple Minds
+Hard | Music | Which band released "Appetite for Destruction"? | Guns N' Roses | Motley Crue | Poison | Skid Row

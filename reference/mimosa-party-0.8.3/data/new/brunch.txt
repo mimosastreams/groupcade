@@ -1,0 +1,121 @@
+Easy | Brunch Bunch | What do you usually pour on pancakes? | Syrup | Ketchup | Gravy | Mustard
+Easy | Brunch Bunch | What is a croissant shaped like? | A crescent | A circle | A square | A star
+Easy | Brunch Bunch | What fruit is mashed to make guacamole? | Avocado | Banana | Mango | Pear
+Easy | Brunch Bunch | What is a bagel shaped like? | A ring | A triangle | A square | A stick
+Easy | Brunch Bunch | What are scrambled eggs cooked in? | A pan | An oven | A toaster | A blender
+Easy | Brunch Bunch | Which spread is made from crushed peanuts? | Peanut butter | Jam | Nutella | Margarine
+Easy | Brunch Bunch | What is jam made from? | Fruit and sugar | Milk and eggs | Nuts and oil | Flour and water
+Easy | Brunch Bunch | What is a breakfast burrito wrapped in? | A tortilla | A crepe | A bun | Lettuce
+Easy | Brunch Bunch | What is yogurt layered with fruit and granola called? | A parfait | A smoothie | A sundae | A trifle
+Easy | Brunch Bunch | What is a smoothie made in? | A blender | An oven | A toaster | A waffle iron
+Easy | Brunch Bunch | What machine makes toast? | A toaster | A blender | A kettle | A microwave
+Easy | Brunch Bunch | What color is the yolk of an egg? | Yellow | White | Green | Brown
+Easy | Brunch Bunch | Which hot drink is often served with a tea bag? | Tea | Coffee | Cocoa | Cider
+Easy | Brunch Bunch | What is a cinnamon roll shaped like? | A spiral | A square | A star | A heart
+Easy | Brunch Bunch | What kind of food is a muffin? | A small baked cake or bread | A fried egg | A meat patty | A drink
+Easy | Brunch Bunch | Which breakfast cereal grain is used in oatmeal? | Oats | Rice | Corn | Wheat
+Easy | Brunch Bunch | What is melted on top of a cheese omelet? | Cheese | Butter only | Syrup | Jam
+Easy | Brunch Bunch | What do you call bread that has been browned with heat? | Toast | Crouton | Biscuit | Bun
+Easy | Brunch Bunch | What is a doughnut usually cooked in? | Hot oil | A toaster | Boiling water | A blender
+Easy | Brunch Bunch | Which juice is made from apples? | Apple juice | Cider vinegar | Lemonade | Grape juice
+Easy | Brunch Bunch | What is the hole in the middle of a doughnut famous for? | Being empty | Holding jam | Holding cream | Holding fruit
+Easy | Brunch Bunch | What is iced coffee served with? | Ice | Hot milk only | Soup | Syrup only
+Easy | Brunch Bunch | Which breakfast dish is a thick slice of bread soaked and fried? | French toast | Grilled cheese | Garlic bread | Crostini
+Easy | Brunch Bunch | What is a latte mostly made of? | Espresso and steamed milk | Tea and water | Juice and soda | Cocoa and cream
+Easy | Brunch Bunch | What fruit is often sliced on top of a waffle with whipped cream? | Strawberries | Onions | Olives | Tomatoes
+Easy | Brunch Bunch | What is a hard-boiled egg cooked in? | Boiling water | Hot oil | An oven | A toaster
+Easy | Brunch Bunch | Which spread is made by churning cream? | Butter | Jam | Honey | Mayonnaise
+Easy | Brunch Bunch | Which breakfast item is a flat round fried patty of potatoes or a whole fried egg on a muffin? | Breakfast sandwich | Pancake | Crepe | Scone
+Easy | Brunch Bunch | What is a "bottomless" mimosa deal? | Unlimited refills | No glass | No orange juice | A free meal
+Easy | Brunch Bunch | What gas makes champagne bubbly? | Carbon dioxide | Oxygen | Helium | Nitrogen
+Easy | Brunch Bunch | What is a hot chocolate often topped with? | Marshmallows | Pickles | Cheese | Croutons
+Easy | Brunch Bunch | What is usually inside a jelly doughnut? | Jelly or jam | Cheese | Meat | Eggs
+Medium | Brunch Bunch | What is a "Bloody Maria"? | A Bloody Mary made with tequila | A Bloody Mary with beer | A mimosa with tomato | A margarita with juice
+Medium | Brunch Bunch | What is a "Red Snapper" cocktail? | A Bloody Mary made with gin | A rum punch | A Bellini with cherries | A spritz
+Medium | Brunch Bunch | What is a "Bloody Caesar" made with instead of plain tomato juice? | Clamato | V8 | Orange juice | Beer
+Medium | Brunch Bunch | Which country is the Bloody Caesar most associated with? | Canada | Mexico | Ireland | Australia
+Medium | Brunch Bunch | What is an Aperol spritz made with besides Aperol and soda? | Prosecco | Orange juice | Gin | Beer
+Medium | Brunch Bunch | What is a "Poinsettia" cocktail? | Champagne and cranberry juice | Vodka and grapefruit | Rum and pineapple | Beer and lime
+Medium | Brunch Bunch | What is a "Rossini" cocktail made with? | Sparkling wine and strawberry puree | Champagne and peach | Prosecco and orange | Gin and lemon
+Medium | Brunch Bunch | What is a "Greyhound" cocktail? | Vodka and grapefruit juice | Gin and tonic | Rum and cola | Tequila and orange
+Medium | Brunch Bunch | What is a "Salty Dog"? | A Greyhound with a salted rim | A margarita with beer | A Bloody Mary with clams | A spritz with olives
+Medium | Brunch Bunch | What is an "Irish coffee" spiked with? | Irish whiskey | Rum | Vodka | Gin
+Medium | Brunch Bunch | What is "cold brew" coffee? | Coffee steeped in cold water for hours | Espresso poured over ice | Instant coffee | Coffee with ice cream
+Medium | Brunch Bunch | What is an "affogato"? | Espresso poured over ice cream | Iced latte | Coffee with whiskey | Milk with chocolate
+Medium | Brunch Bunch | What is a "cortado"? | Espresso cut with a little warm milk | A large iced coffee | A tea latte | Coffee with orange
+Medium | Brunch Bunch | What is a "macchiato" in Italian coffee terms? | Espresso marked with a little foam | A big milky coffee | Coffee with chocolate | Iced espresso
+Medium | Brunch Bunch | What is a "mocha"? | Coffee with chocolate | Coffee with cinnamon | Tea with milk | Coffee with orange
+Medium | Brunch Bunch | What is a "chai latte" made from? | Spiced tea and milk | Espresso and milk | Cocoa and cream | Green tea and juice
+Medium | Brunch Bunch | What is "matcha"? | Powdered green tea | Roasted barley tea | Black tea leaves | Coffee extract
+Medium | Brunch Bunch | What is a "scone" traditionally served with in Britain? | Clotted cream and jam | Gravy | Maple syrup | Hot sauce
+Medium | Brunch Bunch | What is "biscuits and gravy" gravy usually made with? | Sausage | Beef | Mushroom | Chicken
+Medium | Brunch Bunch | What is "eggs in a basket"? | An egg fried in a hole in toast | Eggs in a bread bowl | Deviled eggs | Eggs in pastry
+Medium | Brunch Bunch | What is a "Scotch egg"? | A boiled egg wrapped in sausage and fried | An egg in whisky sauce | A pickled egg | Eggs on oatcakes
+Medium | Brunch Bunch | What are "deviled eggs"? | Halved boiled eggs with seasoned yolk filling | Spicy scrambled eggs | Fried eggs with chili | Eggs in hot sauce
+Medium | Brunch Bunch | What is a "quiche"? | A savory egg and cream tart | A sweet custard | A fried bread | A potato pancake
+Medium | Brunch Bunch | What country is the quiche Lorraine from? | France | Germany | Belgium | Switzerland
+Medium | Brunch Bunch | What is a "Belgian waffle" known for compared to regular waffles? | Bigger, deeper pockets | Being square and thin | Having no sugar | Being fried
+Medium | Brunch Bunch | What are "silver dollar" pancakes? | Very small pancakes | Pancakes with coins | Silver colored pancakes | Pancakes with nuts
+Medium | Brunch Bunch | What is "chicken and waffles" most associated with? | Southern US soul food | French bistros | Japanese cafes | Mexican street food
+Medium | Brunch Bunch | What is a "Dutch oven" commonly used for at brunch? | Baking bread and casseroles | Making coffee | Toasting bagels | Blending smoothies
+Medium | Brunch Bunch | What is a "frappe" in Greek cafes? | Foamy iced instant coffee | Hot tea | A wine drink | A yogurt
+Medium | Brunch Bunch | What is "granola" mainly made of? | Rolled oats | Rice | Corn flakes | Bread crumbs
+Medium | Brunch Bunch | What is "muesli"? | A raw oat and fruit cereal from Switzerland | A Greek yogurt | A fried pastry | A cheese
+Medium | Brunch Bunch | What is "porridge" made by cooking? | Oats in milk or water | Rice in oil | Corn in syrup | Bread in eggs
+Medium | Brunch Bunch | What are "grits" made from? | Ground corn | Oats | Rice | Wheat
+Medium | Brunch Bunch | What is a "bagel and schmear"? | A bagel with cream cheese | A bagel with butter and jam | A toasted bagel with egg | A bagel with lox only
+Medium | Brunch Bunch | What is "lox"? | Cured salmon | Smoked trout | Pickled herring | Tuna salad
+Medium | Brunch Bunch | What is a "danish"? | A sweet filled pastry | A savory pie | A rye bread | A cheese omelet
+Medium | Brunch Bunch | What is "pain perdu", French for "lost bread"? | French toast | Croutons | Bread pudding | Garlic bread
+Medium | Brunch Bunch | What is a "breakfast hash" usually made of? | Chopped potatoes and meat | Rice and beans | Bread and eggs | Oats and fruit
+Medium | Brunch Bunch | What is "corned beef hash"? | Chopped corned beef fried with potatoes | Beef stew with corn | A beef sandwich | Beef pancakes
+Medium | Brunch Bunch | What is "Canadian bacon" in the US? | Lean back bacon like ham | Bacon with maple | Turkey bacon | Thick pork belly
+Medium | Brunch Bunch | What is "black pudding" in a full English breakfast? | A blood sausage | A chocolate dessert | A black bean dish | A burnt toast
+Medium | Brunch Bunch | What is "bubble and squeak"? | Fried leftover potatoes and cabbage | A fizzy drink | A kind of sausage | A mushy pea dish
+Medium | Brunch Bunch | What is a "Belgian beer mimosa" more commonly called? | A beermosa | A shandy | A radler | A michelada
+Medium | Brunch Bunch | What is a "shandy"? | Beer mixed with lemonade | Wine with soda | Cider with juice | Gin with tonic
+Medium | Brunch Bunch | What is a "Mimosa" called in the UK when made with more champagne? | Buck's Fizz | Bellini | Kir | Spritz
+Medium | Brunch Bunch | What is a "Mimosa" glass usually called? | A champagne flute | A coupe | A tumbler | A snifter
+Medium | Brunch Bunch | What is the name of champagne made only from white grapes? | Blanc de blancs | Blanc de noirs | Rose | Brut nature
+Medium | Brunch Bunch | On a champagne label, which of these means the driest? | Brut | Doux | Demi-sec | Sec
+Medium | Brunch Bunch | What is a "magnum" of champagne? | A 1.5 liter bottle | A single glass | A half bottle | A 3 liter bottle
+Hard | Brunch Bunch | What is "Eggs Sardou"? | Poached eggs on artichoke and creamed spinach | Eggs on crab cakes | Eggs with caviar | Eggs on steak
+Hard | Brunch Bunch | Which New Orleans restaurant is famous for creating Eggs Sardou? | Antoine's | Commander's Palace | Cafe du Monde | Brennan's
+Hard | Brunch Bunch | Which New Orleans restaurant is famous for Bananas Foster at brunch? | Brennan's | Antoine's | Galatoire's | Cafe du Monde
+Hard | Brunch Bunch | What are the fried square doughnuts at Cafe du Monde called? | Beignets | Churros | Zeppole | Sopapillas
+Hard | Brunch Bunch | What is a "Ramos Gin Fizz" famous for? | Being shaken for a very long time | Being served hot | Using no ice | Being blue
+Hard | Brunch Bunch | Which city is the Ramos Gin Fizz from? | New Orleans | London | Havana | New York
+Hard | Brunch Bunch | What is "Hollandaise" sauce mainly made of? | Egg yolks, butter and lemon | Cream and flour | Mayonnaise and mustard | Milk and cheese
+Hard | Brunch Bunch | Which sauce is hollandaise with tarragon and shallots? | Bearnaise | Bechamel | Veloute | Mornay
+Hard | Brunch Bunch | Hollandaise is considered one of the French "mother sauces" listed by which chef? | Auguste Escoffier | Julia Child | Paul Bocuse | Marie-Antoine Careme only
+Hard | Brunch Bunch | What is "Turkish eggs" or "cilbir"? | Poached eggs on garlic yogurt with chili butter | Eggs in tomato sauce | Fried eggs with lamb | Scrambled eggs with feta
+Hard | Brunch Bunch | What is "khachapuri"? | A Georgian cheese bread with egg | A Turkish yogurt soup | A Russian pancake | An Armenian sausage
+Hard | Brunch Bunch | What is "congee"? | A rice porridge | A noodle soup | A steamed bun | A tofu dish
+Hard | Brunch Bunch | What is "dim sum" traditionally served with? | Tea | Coffee | Beer | Orange juice
+Hard | Brunch Bunch | What is "yum cha" in Cantonese culture? | Drinking tea with dim sum | A noodle festival | A tea ceremony only | A New Year dish
+Hard | Brunch Bunch | What is "Ful medames"? | A dish of stewed fava beans | A lentil soup | A chickpea dip | A rice pudding
+Hard | Brunch Bunch | What are "Swedish pancakes" most like? | Thin crepes | Thick fluffy pancakes | Potato pancakes | Waffles
+Hard | Brunch Bunch | What is "Aebleskiver"? | Danish round pancake puffs | Swedish meatballs | Norwegian waffles | Dutch cookies
+Hard | Brunch Bunch | What are "poffertjes"? | Tiny Dutch pancakes | Belgian waffles | German doughnuts | Swiss rolls
+Hard | Brunch Bunch | What is "Kaiserschmarrn"? | Austrian shredded pancake | German sausage | Swiss cheese toast | Hungarian stew
+Hard | Brunch Bunch | What are "migas" in Tex-Mex cooking? | Eggs scrambled with tortilla strips | Fried beans | A corn drink | Grilled peppers
+Hard | Brunch Bunch | What is "Hangtown fry"? | An omelet with oysters and bacon | A fried chicken dish | A potato pancake | A fried bread
+Hard | Brunch Bunch | Which California Gold Rush town gave the Hangtown fry its name? | Placerville | Sacramento | San Francisco | Sutter's Mill
+Hard | Brunch Bunch | What is "Champagne" required by law to undergo in the bottle to get its bubbles? | A second fermentation | Carbonation by tank | Freezing | Pasteurization
+Hard | Brunch Bunch | What is the traditional method of making champagne called? | Methode champenoise | Charmat method | Tank method | Solera method
+Hard | Brunch Bunch | Prosecco is usually made using which method? | Charmat (tank) method | Methode champenoise | Solera method | Carbonation injection
+Hard | Brunch Bunch | Which grape is Prosecco mainly made from? | Glera | Chardonnay | Pinot Noir | Riesling
+Hard | Brunch Bunch | Which three grapes are most used in champagne? | Chardonnay, Pinot Noir and Pinot Meunier | Merlot, Cabernet and Syrah | Riesling, Glera and Muscat | Sauvignon, Malbec and Grenache
+Hard | Brunch Bunch | What is a "Jeroboam" of champagne? | A 3 liter bottle | A 1.5 liter bottle | A half bottle | A 15 liter bottle
+Hard | Brunch Bunch | What is "sabrage"? | Opening champagne with a saber | Pouring champagne in a tower | Chilling champagne in snow | Mixing champagne with juice
+Hard | Brunch Bunch | Which monk is often (wrongly) credited with inventing champagne? | Dom Perignon | Saint Benedict | Brother Juniper | Friar Tuck
+Hard | Brunch Bunch | Which Italian city did the Bellini cocktail come from? | Venice | Rome | Milan | Florence
+Hard | Brunch Bunch | In which Venice bar was the Bellini invented? | Harry's Bar | Caffe Florian | Bar Basso | Danieli Bar
+Hard | Brunch Bunch | What painter is the Bellini named after? | Giovanni Bellini | Titian | Caravaggio | Botticelli
+Hard | Brunch Bunch | What is "Pimm's Cup" made with? | Pimm's No. 1 and lemonade with fruit | Gin and tonic | Rum and cola | Vodka and juice
+Hard | Brunch Bunch | What is "Cafe de olla"? | Mexican coffee spiced with cinnamon and piloncillo | Cuban espresso | Spanish coffee with brandy | Colombian iced coffee
+Hard | Brunch Bunch | What is a "cafecito" in Cuban culture? | A sweet shot of espresso | A big milky coffee | Coffee with rum | An iced coffee
+Hard | Brunch Bunch | What is "Vietnamese coffee" usually sweetened with? | Sweetened condensed milk | Honey | Maple syrup | Brown sugar
+Hard | Brunch Bunch | What is "dalgona coffee"? | Whipped instant coffee on milk | Coffee with cheese | Coffee with egg yolk | Coffee with butter
+Hard | Brunch Bunch | What is "bulletproof coffee" made with? | Butter and oil | Whiskey | Egg | Chocolate
+Hard | Brunch Bunch | Which country is famous for "egg coffee" made with whipped egg yolk? | Vietnam | Sweden | Italy | Brazil

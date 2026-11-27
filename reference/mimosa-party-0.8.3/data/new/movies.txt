@@ -1,0 +1,131 @@
+Easy | Movies | What is the name of the lion cub hero in The Lion King? | Simba | Nala | Scar | Kovu
+Easy | Movies | Who is the villain uncle in The Lion King? | Scar | Mufasa | Rafiki | Zazu
+Easy | Movies | What kind of animal is Dumbo? | Elephant | Mouse | Bear | Horse
+Easy | Movies | What kind of animal is Bambi? | Deer | Rabbit | Skunk | Fox
+Easy | Movies | Which Disney princess has a glass slipper? | Cinderella | Snow White | Aurora | Belle
+Easy | Movies | How many dwarfs are in Snow White? | 7 | 5 | 6 | 9
+Easy | Movies | Which Disney princess is a mermaid? | Ariel | Jasmine | Moana | Rapunzel
+Easy | Movies | Which Disney princess has very long magic hair? | Rapunzel | Belle | Aurora | Mulan
+Easy | Movies | What is the name of the genie's master in Aladdin? | Aladdin | Jafar | Abu | Iago
+Easy | Movies | What kind of animal is Abu in Aladdin? | Monkey | Parrot | Tiger | Camel
+Easy | Movies | What color is Shrek? | Green | Blue | Gray | Brown
+Easy | Movies | In Toy Story, who owns Woody and Buzz? | Andy | Sid | Bonnie | Al
+Easy | Movies | What is the name of the cowgirl in Toy Story 2? | Jessie | Bo Peep | Barbie | Molly
+Easy | Movies | Which superhero is Peter Parker? | Spider-Man | Superman | Batman | Iron Man
+Easy | Movies | Which superhero is Clark Kent? | Superman | Batman | The Flash | Captain America
+Easy | Movies | Which superhero is Tony Stark? | Iron Man | Captain America | Thor | Hulk
+Easy | Movies | What color is the Hulk? | Green | Red | Blue | Purple
+Easy | Movies | What is the name of Harry Potter's owl? | Hedwig | Errol | Pigwidgeon | Crookshanks
+Easy | Movies | In Monsters, Inc., what is the name of the big blue furry monster? | Sulley | Mike | Randall | Boo
+Easy | Movies | In Cars, what is the name of the red race car hero? | Lightning McQueen | Mater | Doc Hudson | Chick Hicks
+Easy | Movies | In Cars, what kind of vehicle is Mater? | Tow truck | Fire truck | Bus | Taxi
+Easy | Movies | What does E.T. want to do? | Phone home | Eat candy | Fly a bike | Find a dog
+Easy | Movies | Which dinosaur movie series is set on Isla Nublar? | Jurassic Park | The Land Before Time | Godzilla | King Kong
+Easy | Movies | Which giant ape climbs the Empire State Building? | King Kong | Godzilla | Mighty Joe Young | Bigfoot
+Easy | Movies | In Frozen, who is Elsa's sister? | Anna | Merida | Rapunzel | Moana
+Easy | Movies | Which movie has the song "Let It Go"? | Frozen | Moana | Tangled | Encanto
+Easy | Movies | Which movie has the song "Hakuna Matata"? | The Lion King | Jungle Book | Tarzan | Aladdin
+Easy | Movies | What is the name of the yellow bear who loves honey? | Winnie the Pooh | Baloo | Paddington | Yogi
+Easy | Movies | What does Paddington Bear love to eat? | Marmalade sandwiches | Honey | Fish | Pizza
+Easy | Movies | What kind of animal is Stuart Little? | Mouse | Rat | Hamster | Cat
+Easy | Movies | In Madagascar, what kind of animal is Alex? | Lion | Zebra | Giraffe | Hippo
+Easy | Movies | In Kung Fu Panda, what is the panda's name? | Po | Shifu | Tai Lung | Oogway
+Easy | Movies | What is the name of the cowboy dog villain-turned-hero in Up? | Dug | Kevin | Russell | Alpha
+Easy | Movies | Which movie features a talking snowman and reindeer named Sven? | Frozen | Rudolph | Elf | The Polar Express
+Easy | Movies | Which actor plays Buddy in Elf? | Will Ferrell | Jim Carrey | Adam Sandler | Vince Vaughn
+Easy | Movies | Which green creature hates Christmas in Dr. Seuss's story? | The Grinch | Shrek | Oscar | Yoda
+Medium | Movies | Which actor plays Jack in Titanic? | Leonardo DiCaprio | Brad Pitt | Matt Damon | Johnny Depp
+Medium | Movies | Which actress plays Rose in Titanic? | Kate Winslet | Gwyneth Paltrow | Nicole Kidman | Julia Roberts
+Medium | Movies | Who plays Forrest Gump? | Tom Hanks | Tom Cruise | Robin Williams | Kevin Costner
+Medium | Movies | Which actor plays Neo in The Matrix? | Keanu Reeves | Laurence Fishburne | Will Smith | Hugo Weaving
+Medium | Movies | Who plays Captain Jack Sparrow's rival, Captain Barbossa? | Geoffrey Rush | Orlando Bloom | Bill Nighy | Javier Bardem
+Medium | Movies | Which actor plays Captain America in the Marvel movies? | Chris Evans | Chris Hemsworth | Chris Pratt | Chris Pine
+Medium | Movies | Which actor plays Thor in the Marvel movies? | Chris Hemsworth | Chris Evans | Tom Hiddleston | Chris Pratt
+Medium | Movies | Who plays Star-Lord in Guardians of the Galaxy? | Chris Pratt | Chris Evans | Paul Rudd | Ryan Reynolds
+Medium | Movies | Who plays Deadpool? | Ryan Reynolds | Ryan Gosling | Hugh Jackman | Paul Rudd
+Medium | Movies | Which actor plays Ant-Man? | Paul Rudd | Chris Pratt | Jeremy Renner | Tom Holland
+Medium | Movies | What is the name of Thor's adopted brother? | Loki | Odin | Heimdall | Hela
+Medium | Movies | Which villain collects the Infinity Stones? | Thanos | Ultron | Loki | Red Skull
+Medium | Movies | What is the name of the tree-like hero in Guardians of the Galaxy? | Groot | Rocket | Drax | Yondu
+Medium | Movies | Which wizard is the headmaster of Hogwarts for most of the Harry Potter films? | Albus Dumbledore | Severus Snape | Minerva McGonagall | Gandalf
+Medium | Movies | What is the name of Harry Potter's Quidditch position? | Seeker | Keeper | Chaser | Beater
+Medium | Movies | Which house is Harry Potter sorted into? | Gryffindor | Slytherin | Hufflepuff | Ravenclaw
+Medium | Movies | What is the name of the wizard who guides the Fellowship in The Lord of the Rings? | Gandalf | Saruman | Radagast | Elrond
+Medium | Movies | What does Gollum call the One Ring? | My precious | My treasure | My shiny | My birthday
+Medium | Movies | Which volcano must the One Ring be destroyed in? | Mount Doom | Mount Olympus | Mount Fuji | Lonely Mountain
+Medium | Movies | Which movie features the quote "May the Force be with you"? | Star Wars | Star Trek | Dune | Avatar
+Medium | Movies | What is the name of Han Solo's ship in Star Wars? | Millennium Falcon | Star Destroyer | X-wing | Slave I
+Medium | Movies | What kind of creature is Chewbacca? | Wookiee | Ewok | Jawa | Hutt
+Medium | Movies | Who trained Luke Skywalker on Dagobah? | Yoda | Obi-Wan Kenobi | Qui-Gon Jinn | Mace Windu
+Medium | Movies | Which film features the quote "Here's looking at you, kid"? | Casablanca | Gone with the Wind | The Maltese Falcon | Citizen Kane
+Medium | Movies | Which film features the line "Frankly, my dear, I don't give a damn"? | Gone with the Wind | Casablanca | Rebecca | Vertigo
+Medium | Movies | Which movie features the line "There's no place like home"? | The Wizard of Oz | Home Alone | E.T. | Up
+Medium | Movies | In Jaws, what is the name of the island town? | Amity Island | Nantucket | Martha's Vineyard | Shark Island
+Medium | Movies | Which movie features the line "We're gonna need a bigger boat"? | Jaws | Titanic | The Perfect Storm | Moby Dick
+Medium | Movies | What does the Ghostbusters logo show? | A ghost in a no symbol | A slime ball | A proton pack | A firehouse
+Medium | Movies | In The Princess Bride, what does Westley say instead of "I love you"? | As you wish | Inconceivable | Hello | Farewell
+Medium | Movies | Who directed E.T. the Extra-Terrestrial? | Steven Spielberg | George Lucas | James Cameron | Ridley Scott
+Medium | Movies | Who directed the original Star Wars? | George Lucas | Steven Spielberg | J.J. Abrams | Irvin Kershner
+Medium | Movies | Who directed The Dark Knight trilogy? | Christopher Nolan | Zack Snyder | Tim Burton | Sam Raimi
+Medium | Movies | Who directed the Lord of the Rings trilogy? | Peter Jackson | Ridley Scott | Guillermo del Toro | Steven Spielberg
+Medium | Movies | Which actor plays John McClane in Die Hard? | Bruce Willis | Arnold Schwarzenegger | Sylvester Stallone | Mel Gibson
+Medium | Movies | Which actor plays Rocky Balboa? | Sylvester Stallone | Arnold Schwarzenegger | Robert De Niro | Al Pacino
+Medium | Movies | In Rocky, what city does Rocky famously run up the museum steps in? | Philadelphia | New York | Boston | Chicago
+Medium | Movies | Which actor plays Ferris Bueller? | Matthew Broderick | John Cusack | Michael J. Fox | Tom Cruise
+Medium | Movies | Who plays Marty McFly in Back to the Future? | Michael J. Fox | Matthew Broderick | John Cusack | Christopher Lloyd
+Medium | Movies | In Mean Girls, what color do they wear on Wednesdays? | Pink | Black | White | Red
+Medium | Movies | Which movie features "the dude abides"? | The Big Lebowski | Fargo | Pulp Fiction | Office Space
+Medium | Movies | What is the name of the shark in Finding Nemo who says "fish are friends"? | Bruce | Jaws | Chum | Anchor
+Medium | Movies | In Coco, what holiday does the story take place on? | Day of the Dead | Christmas | Cinco de Mayo | Halloween
+Medium | Movies | In Moana, what is the name of the demigod? | Maui | Tamatoa | Te Fiti | Hei Hei
+Medium | Movies | In Inside Out, which emotion is blue? | Sadness | Fear | Disgust | Anger
+Medium | Movies | In Encanto, which family member "we don't talk about"? | Bruno | Mirabel | Luisa | Isabela
+Hard | Movies | Which film won Best Picture at the Oscars for 1997, including 11 Oscars total? | Titanic | Good Will Hunting | As Good as It Gets | L.A. Confidential
+Hard | Movies | Which three films share the record of 11 Oscars wins? | Ben-Hur, Titanic and The Return of the King | Titanic, Avatar and Gladiator | Ben-Hur, Gone with the Wind and Casablanca | The Godfather, Titanic and Schindler's List
+Hard | Movies | Who directed Psycho (1960)? | Alfred Hitchcock | Stanley Kubrick | Orson Welles | Billy Wilder
+Hard | Movies | Who directed 2001: A Space Odyssey? | Stanley Kubrick | Steven Spielberg | Ridley Scott | Francis Ford Coppola
+Hard | Movies | Who directed The Godfather? | Francis Ford Coppola | Martin Scorsese | Brian De Palma | Sergio Leone
+Hard | Movies | Who directed Goodfellas? | Martin Scorsese | Francis Ford Coppola | Quentin Tarantino | Oliver Stone
+Hard | Movies | Who directed Parasite, the first non-English Best Picture winner? | Bong Joon-ho | Park Chan-wook | Hirokazu Kore-eda | Ang Lee
+Hard | Movies | Who directed Spirited Away? | Hayao Miyazaki | Isao Takahata | Makoto Shinkai | Mamoru Hosoda
+Hard | Movies | Which Japanese studio made My Neighbor Totoro? | Studio Ghibli | Toei | Madhouse | Kyoto Animation
+Hard | Movies | Who played Don Vito Corleone in The Godfather? | Marlon Brando | Al Pacino | Robert De Niro | James Caan
+Hard | Movies | Who played the young Vito Corleone in The Godfather Part II? | Robert De Niro | Al Pacino | Marlon Brando | Joe Pesci
+Hard | Movies | Which actress played Hannibal Lecter's FBI trainee Clarice Starling in The Silence of the Lambs? | Jodie Foster | Julianne Moore | Sigourney Weaver | Meryl Streep
+Hard | Movies | Which actor played Hannibal Lecter in The Silence of the Lambs? | Anthony Hopkins | Brian Cox | Gene Hackman | Jack Nicholson
+Hard | Movies | Which actor is famous for "Here's Johnny!" in The Shining? | Jack Nicholson | Jack Lemmon | Johnny Carson | Christopher Walken
+Hard | Movies | Which actress played Ellen Ripley in Alien? | Sigourney Weaver | Linda Hamilton | Jamie Lee Curtis | Carrie Fisher
+Hard | Movies | Which actress played Sarah Connor in The Terminator? | Linda Hamilton | Sigourney Weaver | Kathleen Turner | Sharon Stone
+Hard | Movies | What is the name of the corporation in Alien? | Weyland-Yutani | Cyberdyne | Tyrell | Umbrella
+Hard | Movies | Which company created Skynet in the Terminator films? | Cyberdyne Systems | Weyland-Yutani | Tyrell Corporation | OCP
+Hard | Movies | What is the name of the replicant-making company in Blade Runner? | Tyrell Corporation | Cyberdyne | Weyland-Yutani | Omni Consumer Products
+Hard | Movies | In Citizen Kane, what is "Rosebud"? | A sled | A flower | A horse | A girl
+Hard | Movies | Which film features the quote "I'm going to make him an offer he can't refuse"? | The Godfather | Scarface | Goodfellas | Casino
+Hard | Movies | Which film features the quote "I see dead people"? | The Sixth Sense | The Others | Ghost | Poltergeist
+Hard | Movies | Which film features the quote "You talking to me?" | Taxi Driver | Raging Bull | Mean Streets | Goodfellas
+Hard | Movies | Which film features "I feel the need, the need for speed"? | Top Gun | Days of Thunder | Fast and Furious | Speed
+Hard | Movies | Which film features the line "Houston, we have a problem"? | Apollo 13 | The Right Stuff | Armageddon | Gravity
+Hard | Movies | Which film features the line "Nobody puts Baby in a corner"? | Dirty Dancing | Grease | Footloose | Flashdance
+Hard | Movies | What is the name of the fictional boarding school in Dead Poets Society? | Welton Academy | Rushmore Academy | Hogwarts | Bayside
+Hard | Movies | Which 1999 film features a fictional "Paper Street Soap Company"? | Fight Club | American Beauty | The Matrix | Office Space
+Hard | Movies | In The Shawshank Redemption, what is Andy's last name? | Dufresne | Redding | Norton | Hadley
+Hard | Movies | In Casablanca, what is the name of Rick's bar? | Rick's Cafe Americain | The Blue Parrot | Cafe Casablanca | Sam's Place
+Hard | Movies | In Raiders of the Lost Ark, what artifact is Indiana Jones searching for? | The Ark of the Covenant | The Holy Grail | The Crystal Skull | The Sankara Stones
+Hard | Movies | In Indiana Jones and the Last Crusade, who plays Indy's father? | Sean Connery | Harrison Ford | Michael Caine | Peter O'Toole
+Hard | Movies | Which actor was the first to play James Bond in the official film series? | Sean Connery | Roger Moore | George Lazenby | David Niven
+Hard | Movies | Which actor played James Bond in Casino Royale (2006)? | Daniel Craig | Pierce Brosnan | Timothy Dalton | Roger Moore
+Hard | Movies | What is James Bond's favorite drink order? | Vodka martini, shaken not stirred | Whiskey on the rocks | Gin and tonic | Champagne cocktail
+Hard | Movies | What is the name of the hotel in The Grand Budapest Hotel's story? | The Grand Budapest | The Overlook | The Continental | The Bates Motel
+Hard | Movies | What is the name of the motel in Psycho? | Bates Motel | Overlook Motel | Shady Rest | Roadhouse Inn
+Hard | Movies | What is the name of the hotel for assassins in John Wick? | The Continental | The Grand Budapest | The Overlook | The Plaza
+Hard | Movies | Which film was the first to win the "Big Five" Oscars? | It Happened One Night | Gone with the Wind | One Flew Over the Cuckoo's Nest | The Silence of the Lambs
+Hard | Movies | What was the first movie released by Pixar after Toy Story? | A Bug's Life | Monsters, Inc. | Toy Story 2 | Finding Nemo
+Hard | Movies | Which mouse appeared in "Steamboat Willie" (1928)? | Mickey Mouse | Jerry | Mighty Mouse | Speedy Gonzales
+Easy | Movies | Which Pixar movie has a robot who cleans up a trash-covered Earth? | WALL-E | Big Hero 6 | Robots | The Iron Giant
+Easy | Movies | Which Pixar movie features a family of superheroes? | The Incredibles | Big Hero 6 | Megamind | Sky High
+Easy | Movies | Which Disney film features Belle and a cursed prince? | Beauty and the Beast | Cinderella | Tangled | Sleeping Beauty
+Medium | Movies | In The Incredibles, what is the name of the costume designer? | Edna Mode | Mirage | Frozone | Violet
+Medium | Movies | In Toy Story, what is the name of the evil neighbor kid? | Sid | Andy | Al | Lotso
+Medium | Movies | In Monsters, Inc., what is the name of Sulley's one-eyed friend? | Mike Wazowski | Randall | Roz | George
+Hard | Movies | Which 1999 film features the phrase "There is no spoon"? | The Matrix | Fight Club | The Sixth Sense | eXistenZ
+Hard | Movies | Which movie won Best Picture for 2019, made by Bong Joon-ho? | Parasite | 1917 | Joker | Roma

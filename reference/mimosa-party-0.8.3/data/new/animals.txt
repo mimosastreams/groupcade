@@ -1,0 +1,126 @@
+Easy | Animals | What is a baby cow called? | Calf | Foal | Kid | Cub
+Easy | Animals | What is a baby sheep called? | Lamb | Calf | Kit | Pup
+Easy | Animals | What is a baby bear called? | Cub | Joey | Kit | Calf
+Easy | Animals | What is a baby frog called before it grows legs? | Tadpole | Larva | Fry | Nymph
+Easy | Animals | What is a baby duck called? | Duckling | Gosling | Cygnet | Chick
+Easy | Animals | What is a baby goose called? | Gosling | Duckling | Cygnet | Poult
+Easy | Animals | What is a baby pig called? | Piglet | Kid | Calf | Cub
+Easy | Animals | What sound does a sheep make? | Baa | Moo | Oink | Neigh
+Easy | Animals | What sound does a horse make? | Neigh | Moo | Baa | Quack
+Easy | Animals | What sound does a duck make? | Quack | Honk | Hoot | Cluck
+Easy | Animals | Which animal is known for its hump and living in deserts? | Camel | Horse | Llama | Donkey
+Easy | Animals | Which bird is famous for its colorful tail feathers that fan out? | Peacock | Parrot | Flamingo | Toucan
+Easy | Animals | What color is a flamingo usually? | Pink | Blue | Green | Yellow
+Easy | Animals | Which animal builds dams in rivers? | Beaver | Otter | Muskrat | Raccoon
+Easy | Animals | Which insect makes honey? | Bee | Wasp | Ant | Butterfly
+Easy | Animals | Which animal is known for its black mask-like face markings and raiding trash cans? | Raccoon | Skunk | Badger | Opossum
+Easy | Animals | What animal says "hoot"? | Owl | Pigeon | Crow | Duck
+Easy | Animals | Which animal is known for spraying a bad smell when scared? | Skunk | Raccoon | Squirrel | Rabbit
+Easy | Animals | What is the main food of a koala? | Eucalyptus leaves | Bamboo | Grass | Insects
+Easy | Animals | Which animal has a shell and moves very slowly on land? | Tortoise | Frog | Lizard | Rabbit
+Easy | Animals | What kind of animal is a Labrador? | Dog | Cat | Horse | Rabbit
+Easy | Animals | What kind of animal is a Siamese? | Cat | Dog | Fish | Bird
+Easy | Animals | Which farm animal gives us wool? | Sheep | Cow | Pig | Chicken
+Easy | Animals | Which animal is famous for laughing sounds and living in Africa? | Hyena | Jackal | Meerkat | Baboon
+Easy | Animals | What do you call an animal that eats only plants? | Herbivore | Carnivore | Omnivore | Insectivore
+Easy | Animals | What do you call an animal that eats only meat? | Carnivore | Herbivore | Omnivore | Frugivore
+Easy | Animals | What is the name of the place where bees live? | Hive | Nest | Den | Burrow
+Easy | Animals | Which bird is known for repeating words people say? | Parrot | Crow | Pigeon | Sparrow
+Easy | Animals | Which ocean animal is known for being very smart and using clicks to talk? | Dolphin | Shark | Tuna | Jellyfish
+Easy | Animals | How many legs does a crab have, including its claws? | 10 | 8 | 6 | 12
+Easy | Animals | Which animal is the national bird of the United States? | Bald eagle | Wild turkey | Red-tailed hawk | Robin
+Easy | Animals | What is a group of cows called? | A herd | A flock | A pack | A pod
+Easy | Animals | What is a group of sheep called? | A flock | A herd | A pod | A pride
+Easy | Animals | What is a group of whales or dolphins called? | A pod | A school | A herd | A flock
+Easy | Animals | Which animal is known for its very long ears and hopping? | Rabbit | Mouse | Squirrel | Fox
+Easy | Animals | Which reptile has no legs? | Snake | Lizard | Crocodile | Turtle
+Easy | Animals | Which animal is famous for spinning webs? | Spider | Ant | Beetle | Moth
+Easy | Animals | Where do polar bears live? | The Arctic | Antarctica | The Amazon | The Sahara
+Medium | Animals | What is a group of geese on the ground called? | A gaggle | A murder | A parliament | A pod
+Medium | Animals | What is a group of jellyfish called? | A smack | A school | A swarm | A gaggle
+Medium | Animals | What is a group of ravens often called? | An unkindness | A parliament | A gaggle | A flamboyance
+Medium | Animals | What is a group of rhinos called? | A crash | A bloat | A tower | A pride
+Medium | Animals | What is a group of hippos called? | A bloat | A crash | A tower | A gaggle
+Medium | Animals | What is a group of giraffes called? | A tower | A bloat | A pride | A troop
+Medium | Animals | What is a group of monkeys often called? | A troop | A pack | A herd | A crash
+Medium | Animals | What is a baby hare called? | Leveret | Kit | Joey | Cygnet
+Medium | Animals | What is a baby owl called? | Owlet | Eyas | Cygnet | Squab
+Medium | Animals | What is a baby eel called? | Elver | Fry | Smolt | Spat
+Medium | Animals | What is a male duck called? | Drake | Gander | Cob | Tom
+Medium | Animals | What is a male goose called? | Gander | Drake | Cob | Buck
+Medium | Animals | What is a female horse called? | Mare | Doe | Ewe | Sow
+Medium | Animals | What is a female sheep called? | Ewe | Mare | Sow | Jenny
+Medium | Animals | What is a female pig called? | Sow | Ewe | Doe | Hen
+Medium | Animals | What is a male deer called? | Buck | Bull | Ram | Boar
+Medium | Animals | Which animal can sleep with half its brain awake? | Dolphin | Cat | Giraffe | Horse
+Medium | Animals | What do you call an animal that is active at night? | Nocturnal | Diurnal | Crepuscular | Arboreal
+Medium | Animals | What do you call an animal that lives in trees? | Arboreal | Aquatic | Terrestrial | Nocturnal
+Medium | Animals | Which big cat cannot fully retract its claws? | Cheetah | Leopard | Lion | Jaguar
+Medium | Animals | What is the largest species of bear? | Polar bear | Grizzly bear | Kodiak bear | Black bear
+Medium | Animals | What kind of animal is a Komodo dragon? | Lizard | Snake | Crocodile | Dinosaur
+Medium | Animals | Which animal is the largest living primate? | Gorilla | Orangutan | Chimpanzee | Baboon
+Medium | Animals | Which bird lays the largest eggs? | Ostrich | Emu | Albatross | Eagle
+Medium | Animals | Which sea animal has no brain, heart or blood? | Jellyfish | Starfish | Squid | Crab
+Medium | Animals | How many arms does a typical starfish have? | 5 | 4 | 6 | 8
+Medium | Animals | Which animal has the largest eyes of any land animal? | Ostrich | Owl | Horse | Tarsier
+Medium | Animals | Which animal is known as the "ship of the desert"? | Camel | Horse | Donkey | Elephant
+Medium | Animals | Where does a kangaroo keep its baby? | In a pouch | In a nest | In a burrow | On its back
+Medium | Animals | Which insect has the best-known "waggle dance" to share where food is? | Honeybee | Ant | Termite | Butterfly
+Medium | Animals | Which animal sheds its skin in one piece as it grows? | Snake | Frog | Lizard | Turtle
+Medium | Animals | What is the largest type of penguin? | Emperor penguin | King penguin | Adelie penguin | Gentoo penguin
+Medium | Animals | What is the only marsupial native to the United States and Canada? | Virginia opossum | Raccoon | Armadillo | Sugar glider
+Medium | Animals | Which animal is known for building mounds that can be taller than a person? | Termite | Ant | Mole | Beaver
+Medium | Animals | What do you call an animal that eats both plants and meat? | Omnivore | Herbivore | Carnivore | Scavenger
+Medium | Animals | Which mammal has the thickest fur of any animal? | Sea otter | Polar bear | Chinchilla | Musk ox
+Medium | Animals | Which animal's horn is made of keratin, the same material as human hair and nails? | Rhinoceros | Narwhal | Bull | Goat
+Medium | Animals | The narwhal's famous "horn" is actually what? | A tooth | A bone | A nose | A claw
+Medium | Animals | Which cat breed is famous for having no tail? | Manx | Sphynx | Persian | Siamese
+Medium | Animals | Which cat breed is known for being hairless? | Sphynx | Manx | Maine Coon | Ragdoll
+Medium | Animals | Which dog breed is the smallest in the world by standard? | Chihuahua | Pomeranian | Yorkshire Terrier | Pug
+Medium | Animals | Which dog breed is known for its blue-black tongue? | Chow Chow | Husky | Dalmatian | Akita
+Medium | Animals | Which dog breed was bred to pull sleds in Siberia? | Siberian Husky | Great Dane | Beagle | Poodle
+Medium | Animals | Which bird is known for laying its eggs in other birds' nests? | Cuckoo | Robin | Sparrow | Pigeon
+Medium | Animals | What is a baby pigeon called? | Squab | Cygnet | Owlet | Gosling
+Hard | Animals | What is a group of porcupines called? | A prickle | A crash | A bloat | A skulk
+Hard | Animals | What is a group of foxes called? | A skulk | A prickle | A gaggle | A clowder
+Hard | Animals | What is a group of cats called? | A clowder | A skulk | A drove | A sleuth
+Hard | Animals | What is a group of bears called? | A sleuth | A clowder | A bloat | A tower
+Hard | Animals | What is a group of ferrets called? | A business | A drove | A crash | A smack
+Hard | Animals | What is a group of zebras called? | A dazzle | A tower | A bloat | A prickle
+Hard | Animals | What is a group of larks called? | An exaltation | A murder | A charm | A gaggle
+Hard | Animals | What is a group of goldfinches called? | A charm | An exaltation | A parliament | A murder
+Hard | Animals | What is a baby echidna called? | Puggle | Joey | Kit | Pup
+Hard | Animals | What is a baby falcon or hawk taken from the nest called? | Eyas | Owlet | Squab | Cygnet
+Hard | Animals | What is a male swan called? | Cob | Pen | Drake | Gander
+Hard | Animals | What is a female swan called? | Pen | Cob | Jenny | Hen
+Hard | Animals | What is a female donkey called? | Jenny | Mare | Pen | Ewe
+Hard | Animals | What is a female ferret called? | Jill | Jenny | Pen | Doe
+Hard | Animals | Which animal has the largest brain of any animal? | Sperm whale | Blue whale | African elephant | Orca
+Hard | Animals | What is the scientific name for the gray wolf? | Canis lupus | Felis catus | Vulpes vulpes | Ursus arctos
+Hard | Animals | What is the scientific name for the house cat? | Felis catus | Canis lupus | Panthera leo | Felis lynx
+Hard | Animals | Which animal is the closest living relative of the hippopotamus? | Whale | Pig | Rhino | Elephant
+Hard | Animals | Which animal is the closest living relative of the elephant among these? | Manatee | Hippo | Rhino | Walrus
+Hard | Animals | What is the world's largest rodent? | Capybara | Beaver | Porcupine | Nutria
+Hard | Animals | Which bird has the largest wingspan of any living bird? | Wandering albatross | Andean condor | Marabou stork | Bald eagle
+Hard | Animals | What is the smallest bird in the world? | Bee hummingbird | Goldcrest | Ruby-throated hummingbird | Wren
+Hard | Animals | Which venomous mammal has a spur on its back legs? | Platypus | Echidna | Shrew | Slow loris
+Hard | Animals | What is a pangolin's body covered in? | Scales | Spines | Feathers | Shells
+Hard | Animals | Which shark is known as the fastest shark? | Shortfin mako | Great white | Tiger shark | Hammerhead
+Hard | Animals | Which animal is known to have the highest blood pressure? | Giraffe | Elephant | Horse | Blue whale
+Hard | Animals | What color is the tongue of a giraffe? | Dark blue or purple | Pink | Red | Yellow
+Hard | Animals | Which bird is the only one known to have nostrils at the tip of its beak? | Kiwi | Toucan | Pelican | Woodpecker
+Hard | Animals | How many hearts does a squid have? | 3 | 1 | 2 | 4
+Hard | Animals | What do you call a scientist who studies birds? | Ornithologist | Entomologist | Herpetologist | Ichthyologist
+Hard | Animals | What do you call a scientist who studies insects? | Entomologist | Ornithologist | Mammalogist | Ichthyologist
+Hard | Animals | What do you call a scientist who studies reptiles and amphibians? | Herpetologist | Entomologist | Ornithologist | Malacologist
+Hard | Animals | What do you call a scientist who studies fish? | Ichthyologist | Herpetologist | Ornithologist | Primatologist
+Hard | Animals | Which animal can survive being frozen, boiled and sent to space? | Tardigrade | Cockroach | Scorpion | Jellyfish
+Hard | Animals | Which jellyfish is called "immortal" because it can revert to an earlier life stage? | Turritopsis dohrnii | Box jellyfish | Moon jellyfish | Lion's mane jellyfish
+Hard | Animals | What is the largest species of jellyfish? | Lion's mane jellyfish | Box jellyfish | Moon jellyfish | Portuguese man o' war
+Hard | Animals | How long is an elephant's pregnancy, roughly? | About 22 months | About 9 months | About 12 months | About 30 months
+Easy | Animals | Which animal sleeps hanging upside down? | Bat | Owl | Sloth | Monkey
+Easy | Animals | What does a caterpillar build before turning into a butterfly? | Chrysalis | Nest | Web | Hive
+Medium | Animals | Which African animal looks like a zebra-giraffe mix? | Okapi | Tapir | Gnu | Kudu
+Medium | Animals | What is another name for a wildebeest? | Gnu | Eland | Ibex | Oryx
+Hard | Animals | Which bird is famous for its mimicry, including chainsaws and camera shutters? | Lyrebird | Mockingbird | Parrot | Myna
+Hard | Animals | What type of animal is a gharial? | Crocodilian | Lizard | Fish | Bird
