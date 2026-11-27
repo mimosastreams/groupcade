@@ -11,12 +11,17 @@ module.exports = function withGroupcadeTv(config) {
   return withInfoPlist(config, (cfg) => {
     const plist = cfg.modResults;
     const manifest = plist.UIApplicationSceneManifest;
-    if (!manifest || !manifest.UISceneConfigurations) {
-      throw new Error(
-        'groupcade-tv: Info.plist has no UIApplicationSceneManifest. This plugin expects the scene-based ' +
-          'iOS template (Expo SDK 58+). Adding a scene manifest to an app-delegate-only app would break its main window.'
-      );
+    if (!manifest) {
+      // EAS CLI reads the config before there is an ios/ folder (introspection), against a bare
+      // Info.plist with no scene manifest. Nothing to add then; the real prebuild uses the SDK 58
+      // template, which has one. Never add a manifest ourselves: on an app-delegate-only app that
+      // would break its main window.
+      if (!(cfg.modRequest && cfg.modRequest.introspect)) {
+        console.warn('groupcade-tv: Info.plist has no UIApplicationSceneManifest, so the TV scene was not added.');
+      }
+      return cfg;
     }
+    manifest.UISceneConfigurations = manifest.UISceneConfigurations || {};
     manifest.UISceneConfigurations[ROLE] = [
       {
         UISceneConfigurationName: 'Groupcade TV',
