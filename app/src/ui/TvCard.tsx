@@ -1,4 +1,6 @@
+import { useEffect, useState } from 'react';
 import { Text, View } from 'react-native';
+import { tvDiagnostics, type TvDiagnostics } from '../../modules/groupcade-tv';
 import { links } from '../lib/api';
 import { useTv } from '../lib/useTv';
 import { C, Card, P } from './kit';
@@ -6,6 +8,14 @@ import { C, Card, P } from './kit';
 /** How to get the game on the TV, and whether it's there now. */
 export function TvCard({ code, compact }: { code: string; compact?: boolean }) {
   const { supported, connected } = useTv();
+  const [diag, setDiag] = useState<TvDiagnostics | null>(null);
+  useEffect(() => {
+    // Refresh the TV check every few seconds, so it shows a screen attaching or leaving.
+    const read = () => setDiag(tvDiagnostics());
+    read();
+    const t = setInterval(read, 3000);
+    return () => clearInterval(t);
+  }, []);
   if (supported && connected) {
     return (
       <Card style={{ borderColor: 'rgba(91,227,139,0.5)' }}>
@@ -31,6 +41,19 @@ export function TvCard({ code, compact }: { code: string; compact?: boolean }) {
           </P>
         </View>
       ) : null}
+      {supported && !compact && diag ? <DiagLine d={diag} /> : null}
     </Card>
+  );
+}
+
+/** One small line that says what iOS sees, so a "it still mirrors" report shows why. */
+function DiagLine({ d }: { d: TvDiagnostics }) {
+  const ok = (b?: boolean) => (b ? '✓' : '✗');
+  const tvScenes = (d.scenes || []).filter((r) => r.includes('External')).length;
+  return (
+    <Text style={{ color: C.mist, fontSize: 11, opacity: 0.8 }}>
+      TV check: scenes {ok(d.multipleScenes)} · TV role {ok(d.tvRole)} · TV code {ok(d.delegateLinked)} · screens {d.screens ?? 0} · TV
+      scenes {tvScenes}
+    </Text>
   );
 }
