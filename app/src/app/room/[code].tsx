@@ -68,14 +68,11 @@ export default function Room() {
     ]);
 
   const playToo = async () => {
-    if (myName) {
-      router.push({ pathname: '/play/[code]', params: { code } });
-      return;
-    }
+    if (myName) return; // Already playing: answers go right on this screen.
     const last = (await store.name()) || '';
     Alert.prompt(
       'Play too',
-      'Your name on the scoreboard. You can switch back to these host controls any time.',
+      'Your name on the scoreboard. You answer right here on the host screen, like everyone else.',
       async (name) => {
         const n = (name || '').trim();
         if (!n) return;
@@ -85,7 +82,6 @@ export default function Room() {
           await store.saveName(n);
           setMyName(r.name);
           setMyTok(r.token);
-          router.push({ pathname: '/play/[code]', params: { code } });
         } catch (e) {
           Alert.alert('Could not join', (e as Error).message);
         }
@@ -99,6 +95,8 @@ export default function Room() {
     <Stack.Screen
       options={{
         title: `Room ${code}`,
+        // One screen for hosting and playing; a stray swipe shouldn't leave the game.
+        gestureEnabled: false,
         headerLeft: () => (
           <Pressable onPress={leave} hitSlop={12} accessibilityRole="button">
             <Text style={{ color: C.white, fontWeight: '700', fontSize: 16 }}>Home</Text>
