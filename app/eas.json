@@ -25,25 +25,21 @@
     "preview": {
       "distribution": "internal",
       "channel": "preview",
-<<<<<<< HEAD
       "env": {
         "GROUPCADE_CAST_APP_ID": ""
-=======
+      },
       "ios": {
         "image": "latest"
->>>>>>> origin/main
       }
     },
     "production": {
       "autoIncrement": true,
       "channel": "production",
-<<<<<<< HEAD
       "env": {
         "GROUPCADE_CAST_APP_ID": ""
-=======
+      },
       "ios": {
         "image": "latest"
->>>>>>> origin/main
       }
     }
   },
