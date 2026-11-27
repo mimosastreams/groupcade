@@ -6,7 +6,7 @@ import { api, ApiError, type RoomState } from './api';
  * Polls a room as its host, about once a second while a game runs (the same pace as the web
  * client), slower in the lobby, paused while the app is in the background.
  */
-export function useRoom(code: string, host: string | null) {
+export function useRoom(code: string, host: string | null, token: string | null = null) {
   const [st, setSt] = useState<RoomState | null>(null);
   const [error, setError] = useState<ApiError | null>(null);
   const [offline, setOffline] = useState(false);
@@ -29,7 +29,7 @@ export function useRoom(code: string, host: string | null) {
     if (!host || !active.current) return;
     const my = ++seq.current;
     try {
-      const s = await api.state(code, host);
+      const s = await api.state(code, host, token);
       if (my !== seq.current) return;
       offset.current = s.now - Date.now();
       latest.current = s;
@@ -47,7 +47,7 @@ export function useRoom(code: string, host: string | null) {
       setOffline(true);
       timer.current = setTimeout(poll, 3000);
     }
-  }, [code, host]);
+  }, [code, host, token]);
 
   useEffect(() => {
     poll();
@@ -67,7 +67,10 @@ export function useRoom(code: string, host: string | null) {
   const act = useCallback(
     async (action: string, extra: object = {}) => {
       if (!host) return;
-      const s = await api.host(code, host, action, extra);
+      const r = await api.host(code, host, action, extra);
+      // Host replies don't carry the host's own player; keep it while the round is the same.
+      const prev = latest.current;
+      const s = r.me || !prev?.me || prev.round !== r.round ? r : { ...r, me: prev.me };
       offset.current = s.now - Date.now();
       seq.current++;
       latest.current = s;
