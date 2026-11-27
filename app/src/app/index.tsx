@@ -91,7 +91,7 @@ export default function Home() {
           </Pressable>
         ))}
         <P muted small>
-          Only you need the app. Everyone else joins on their phone's browser with a 4-letter code, and the game goes on your TV with AirPlay.
+          Only you need the app. Everyone else joins on their phone's browser with a 4-letter code, and the game goes on your TV with AirPlay, Chromecast or any TV browser.
         </P>
 
         <Card>

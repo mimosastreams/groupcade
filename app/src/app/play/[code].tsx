@@ -4,10 +4,11 @@
 // plugin/groupcade/games/trivia/assets/app.html).
 import { router, Stack, useLocalSearchParams } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
-import { ActivityIndicator, View } from 'react-native';
+import { ActivityIndicator, Platform, View } from 'react-native';
 import { WebView, type WebViewMessageEvent } from 'react-native-webview';
 import { API_BASE, links } from '../../lib/api';
 import { store } from '../../lib/store';
+import { useCast } from '../../lib/cast';
 import { useTv } from '../../lib/useTv';
 import { C } from '../../ui/kit';
 
@@ -25,7 +26,9 @@ export default function Play() {
   const [boot, setBoot] = useState<Boot>(null);
   const [hosting, setHosting] = useState(false);
   const web = useRef<Web>(null);
-  const tv = useTv();
+  const tvScreen = useTv();
+  const cast = useCast();
+  const tv = { connected: tvScreen.connected || cast.status === 'on' };
 
   useEffect(() => {
     (async () => {
@@ -97,5 +100,5 @@ export default function Play() {
 
 /** window.GROUPCADE_APP tells the page it is inside the app. */
 function appFlag(hosting: boolean, tvOn: boolean) {
-  return `window.GROUPCADE_APP=${JSON.stringify({ tv: hosting, tvOn, nativeHost: hosting })};true;`;
+  return `window.GROUPCADE_APP=${JSON.stringify({ tv: hosting, tvOn, nativeHost: hosting, os: Platform.OS })};true;`;
 }

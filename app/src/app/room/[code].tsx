@@ -5,16 +5,19 @@ import { router, Stack, useFocusEffect, useLocalSearchParams } from 'expo-router
 import { useCallback, useEffect, useState } from 'react';
 import { ActivityIndicator, Alert, Pressable, Text, View } from 'react-native';
 import { setTvRoomUrl } from '../../../modules/groupcade-tv';
+import { setCastRoom } from '../../lib/cast';
 import { TriviaHost } from '../../games/trivia/Host';
 import { api, links } from '../../lib/api';
 import { store, type SavedRoom } from '../../lib/store';
 import { useRoom } from '../../lib/useRoom';
 import { Button, C, Card, H2, P, Screen } from '../../ui/kit';
+import { NamePrompt } from '../../ui/NamePrompt';
 
 export default function Room() {
   const { code } = useLocalSearchParams<{ code: string }>();
   const [saved, setSaved] = useState<SavedRoom | null | undefined>(undefined);
   const [myName, setMyName] = useState<string | null>(null);
+  const [askName, setAskName] = useState<string | null>(null);
   useKeepAwake();
 
   useEffect(() => {
@@ -25,6 +28,7 @@ export default function Room() {
   useFocusEffect(
     useCallback(() => {
       setTvRoomUrl(links.tv(code));
+      setCastRoom(code);
       // Did the host join to play? Check the saved token is still in the room.
       store.playerToken(code).then(async (tok) => {
         if (!tok) return setMyName(null);
@@ -59,6 +63,7 @@ export default function Room() {
         onPress: async () => {
           await store.clearRoom();
           setTvRoomUrl(null);
+          setCastRoom(null);
           router.replace('/');
         },
       },
@@ -69,26 +74,20 @@ export default function Room() {
       router.push({ pathname: '/play/[code]', params: { code } });
       return;
     }
-    const last = (await store.name()) || '';
-    Alert.prompt(
-      'Play too',
-      'Your name on the scoreboard. You can switch back to these host controls any time.',
-      async (name) => {
-        const n = (name || '').trim();
-        if (!n) return;
-        try {
-          const r = await api.join(code, n);
-          await store.savePlayerToken(code, r.token);
-          await store.saveName(n);
-          setMyName(r.name);
-          router.push({ pathname: '/play/[code]', params: { code } });
-        } catch (e) {
-          Alert.alert('Could not join', (e as Error).message);
-        }
-      },
-      'plain-text',
-      last
-    );
+    setAskName((await store.name()) || '');
+  };
+
+  const joinAs = async (n: string) => {
+    setAskName(null);
+    try {
+      const r = await api.join(code, n);
+      await store.savePlayerToken(code, r.token);
+      await store.saveName(n);
+      setMyName(r.name);
+      router.push({ pathname: '/play/[code]', params: { code } });
+    } catch (e) {
+      Alert.alert('Could not join', (e as Error).message);
+    }
   };
 
   const header = (
@@ -137,6 +136,14 @@ export default function Room() {
     <>
       {header}
       <TriviaHost st={st} act={act} now={now} offline={offline} myName={myName} onPlayToo={playToo} onNewRoom={newRoom} />
+      <NamePrompt
+        open={askName !== null}
+        title="Play too"
+        message="Your name on the scoreboard. You can switch back to these host controls any time."
+        initial={askName || ''}
+        onCancel={() => setAskName(null)}
+        onSubmit={joinAs}
+      />
     </>
   );
 }

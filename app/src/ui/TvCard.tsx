@@ -1,31 +1,53 @@
-import { Text, View } from 'react-native';
+import { Platform, Text, View } from 'react-native';
 import { links } from '../lib/api';
+import { useCast } from '../lib/cast';
 import { useTv } from '../lib/useTv';
-import { C, Card, P } from './kit';
+import { Button, C, Card, P } from './kit';
 
-/** How to get the game on the TV, and whether it's there now. */
+const ios = Platform.OS === 'ios';
+
+/** How to get the game on the TV, and whether it's there now. Every way the phone can reach a TV:
+ * Chromecast (both), AirPlay (iPhone), a cable or wireless display (Android), or any TV browser. */
 export function TvCard({ code, compact }: { code: string; compact?: boolean }) {
-  const { supported, connected } = useTv();
-  if (supported && connected) {
+  const screen = useTv();
+  const cast = useCast();
+  const castOn = cast.status === 'on';
+
+  if ((screen.supported && screen.connected) || castOn) {
     return (
       <Card style={{ borderColor: 'rgba(91,227,139,0.5)' }}>
-        <Text style={{ color: C.right, fontWeight: '800', fontSize: 16 }}>● TV connected</Text>
+        <Text style={{ color: C.right, fontWeight: '800', fontSize: 16 }}>● {castOn ? 'Casting to the TV' : 'TV connected'}</Text>
         {!compact && <P muted small>The TV shows the game. This phone is your controller, so nobody sees your screen.</P>}
+        {castOn ? <Button small kind="ghost" title="Stop casting" onPress={cast.toggle} /> : null}
       </Card>
     );
   }
+
+  const castFound = cast.supported && cast.status !== 'none';
   return (
     <Card>
       <Text style={{ color: C.white, fontWeight: '800', fontSize: 16 }}>Put it on the TV</Text>
-      {supported ? (
+      {castFound ? (
+        <Button
+          kind="go"
+          small
+          title={cast.status === 'connecting' ? 'Connecting…' : 'Cast to Chromecast or Google TV'}
+          busy={cast.status === 'connecting'}
+          onPress={cast.toggle}
+        />
+      ) : null}
+      {screen.supported && ios ? (
         <P muted small>
-          Open Control Center, tap Screen Mirroring and pick your Apple TV or AirPlay TV. The TV gets the big game screen, not a copy of your phone.
+          Apple TV or AirPlay TV: open Control Center, tap Screen Mirroring and pick it. The TV gets the big game screen, not a copy of your phone.
         </P>
       ) : null}
-      {!compact || !supported ? (
+      {screen.supported && !ios && !compact ? (
+        <P muted small>Plugged into the TV with a USB-C to HDMI cable? The TV gets the big game screen on its own.</P>
+      ) : null}
+      {!compact || !(screen.supported || castFound) ? (
         <View>
           <P muted small>
-            {supported ? 'No AirPlay? ' : ''}On any TV or laptop browser, go to{' '}
+            {screen.supported || castFound ? 'Or, on' : 'On'} any TV or laptop browser, go to{' '}
             <Text style={{ color: C.white, fontWeight: '800' }}>{links.tvShort()}</Text> and type{' '}
             <Text style={{ color: C.white, fontWeight: '800', letterSpacing: 2 }}>{code}</Text>.
           </P>
