@@ -2,8 +2,9 @@
 // game as it runs (the TV shows the big version); then winners. All native, no web view.
 import QRCode from 'react-native-qrcode-svg';
 import { useEffect, useState } from 'react';
-import { Alert, Share, Text, View } from 'react-native';
-import { links, type Player, type RoomState } from '../../lib/api';
+import * as Haptics from 'expo-haptics';
+import { Alert, Pressable, Share, Text, View } from 'react-native';
+import { api, links, type Player, type RoomState } from '../../lib/api';
 import { Banner, Button, C, Card, Chip, H2, Label, P, Row, Screen, s } from '../../ui/kit';
 import { TvCard } from '../../ui/TvCard';
 import { NO_CATS, noCats, TriviaSettingsForm, type TriviaSettings } from './Settings';
@@ -14,6 +15,8 @@ type Props = {
   now: () => number;
   offline: boolean;
   myName: string | null; // The host's own player name, if they joined to play.
+  myToken: string | null; // Their player token, so they can answer right here.
+  onAnswered: () => void;
   onPlayToo: () => void;
   onNewRoom: () => void;
 };
@@ -25,6 +28,25 @@ export function TriviaHost(p: Props) {
   const { st } = p;
   const [busy, setBusy] = useState('');
   const [err, setErr] = useState('');
+  const [answering, setAnswering] = useState(false);
+  const [sent, setSent] = useState(0); // Answer just tapped, shown until the next poll confirms it.
+  useEffect(() => setSent(0), [st.round]);
+
+  const answer = async (choice: number) => {
+    if (!p.myToken || answering) return;
+    setAnswering(true);
+    setErr('');
+    try {
+      await api.answer(st.code, p.myToken, st.round, choice);
+      setSent(choice);
+      Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success).catch(() => {});
+      p.onAnswered();
+    } catch (e) {
+      setErr((e as Error).message);
+    } finally {
+      setAnswering(false);
+    }
+  };
 
   const run = async (action: string, extra?: object) => {
     setBusy(action);
@@ -101,6 +123,10 @@ export function TriviaHost(p: Props) {
   }
 
   // cat, q, rev
+  // The host can play too: answers are tappable here when they're still in and haven't locked in.
+  const me = p.myToken && st.me ? st.me : null;
+  const myAns = me && (st.phase === 'q' || st.phase === 'rev') ? sent || me.ans : 0;
+  const canAnswer = !!me && me.alive && st.phase === 'q' && !myAns && !answering;
   const last = st.phase === 'rev' && st.last && st.last.round === st.round ? st.last : null;
   const finalReveal = last && (st.mode === 'points' ? st.round >= st.rounds : st.alive <= 1 && st.players.length > 1);
   return (
@@ -110,7 +136,7 @@ export function TriviaHost(p: Props) {
           {st.phase === 'rev' ? <Button kind="go" title={finalReveal ? 'See the winner →' : 'Next round →'} busy={busy === 'next'} onPress={() => run('next')} /> : null}
           <Row style={{ justifyContent: 'space-between' }}>
             <Button kind="danger" small title="End game" onPress={confirmEnd} />
-            {p.myName ? <Button kind="ghost" small title="My answers →" onPress={p.onPlayToo} /> : null}
+            {p.myName ? <Button kind="ghost" small title="Player view →" onPress={p.onPlayToo} /> : null}
           </Row>
         </>
       }
@@ -138,14 +164,32 @@ export function TriviaHost(p: Props) {
 
       {st.phase !== 'cat' ? (
         <View style={{ gap: 8 }}>
+          {canAnswer ? <P muted small center>You're playing too: tap your answer. First tap locks it in.</P> : null}
           {(st.choices || []).map((c, i) => {
             const right = last && last.right === i;
+            const mine = myAns === i + 1;
             return (
-              <View key={i} style={[s.card, { flexDirection: 'row', alignItems: 'center', padding: 12, gap: 12 }, right && { borderColor: C.right, backgroundColor: 'rgba(91,227,139,0.12)' }, last && !right && { opacity: 0.5 }]}>
+              <Pressable
+                key={i}
+                disabled={!canAnswer}
+                accessibilityRole={canAnswer ? 'button' : undefined}
+                accessibilityLabel={canAnswer ? `Answer ${L[i]}: ${c}` : undefined}
+                onPress={() => answer(i + 1)}
+                style={({ pressed }) => [
+                  s.card,
+                  { flexDirection: 'row', alignItems: 'center', padding: 12, gap: 12 },
+                  mine && { borderColor: C.accent, backgroundColor: 'rgba(255,79,163,0.14)' },
+                  right && { borderColor: C.right, backgroundColor: 'rgba(91,227,139,0.12)' },
+                  last && !right && !mine && { opacity: 0.5 },
+                  !!myAns && !mine && !last && { opacity: 0.5 },
+                  pressed && { opacity: 0.7 },
+                ]}
+              >
                 <Text style={{ color: C.answers[i], fontWeight: '900', fontSize: 18, width: 22 }}>{L[i]}</Text>
                 <Text style={{ color: C.white, fontWeight: '700', fontSize: 17, flex: 1 }}>{c}</Text>
+                {mine ? <Text style={{ color: C.accent, fontWeight: '800' }}>{last ? 'You' : 'Locked in'}</Text> : null}
                 {last ? <Text style={{ color: C.mist, fontWeight: '800' }}>{last.counts[i]}</Text> : null}
-              </View>
+              </Pressable>
             );
           })}
         </View>
