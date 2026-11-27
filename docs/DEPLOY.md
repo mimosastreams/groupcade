@@ -24,8 +24,16 @@ Updating: upload the new zip and pick "Replace current with uploaded". Tables up
 
 ### Home page
 
-The WordPress home page is yours to design. `[groupcade_games]` is a shortcode that lists the games
-with links and the TV address, if you want a quick start.
+From 1.1.0 the plugin serves the groupcade.com home page itself (join box, game shelf, how to
+host, app links), in place of the theme's front page. Settings > Groupcade:
+
+- **Use the Groupcade home page**: on by default. Turn it off to show the theme's front page again.
+- **App Store link** and **Google Play link**: while empty, the home page shows "iPhone app coming
+  soon" and "Android app coming soon" instead of store buttons.
+
+The game shelf lists every registered game (name, `blurb()`, `tags()`), then "coming soon" cards
+so it always shows three. The join box sends players to `/join/CODE/`. The page is
+`plugin/groupcade/assets/home.html`. `[groupcade_games]` still works on any other page.
 
 ## Redirecting gametogethr.com and game2night.com
 

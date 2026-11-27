@@ -3,7 +3,9 @@
  * Pages:
  *   /<game>/ and /<game>/CODE   A game's page (home, join, host and player views). Trivia: /trivia/.
  *   /tv/ and /tv/CODE           The big screen for any game. Shows the room's game.
- *   /join/CODE                  Short link that sends you to the room's game page.
+ *   /join/CODE, /join/?code=    Short link that sends you to the room's game page (the home page's
+ *                               join box uses it). An unknown code goes to the default game's page,
+ *                               which says the room wasn't found.
  *   /wp-json/groupcade/v1/app   The same page, as a fallback when the pretty URLs are blocked.
  * Each page is one self-contained HTML file from the game (games/<slug>/assets/app.html) with the
  * logo, QR library and config inlined.
@@ -25,6 +27,7 @@ class GC_Page {
 	public static function rewrite() {
 		add_rewrite_rule( '^tv/?$', 'index.php?gc_page=tv', 'top' );
 		add_rewrite_rule( '^tv/([A-Za-z]{4})/?$', 'index.php?gc_page=tv&gc_code=$matches[1]', 'top' );
+		add_rewrite_rule( '^join/?$', 'index.php?gc_page=join', 'top' );
 		add_rewrite_rule( '^join/([A-Za-z]{4})/?$', 'index.php?gc_page=join&gc_code=$matches[1]', 'top' );
 		foreach ( GC_Games::all() as $slug => $g ) {
 			$path = preg_quote( trim( $g->path(), '/' ), '#' );
@@ -47,9 +50,12 @@ class GC_Page {
 		}
 		$code = GC_Room::norm_code( (string) get_query_var( 'gc_code' ) );
 		if ( 'join' === $page ) {
-			$room = GC_Room::load( $code );
+			if ( '' === $code && isset( $_GET['code'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification
+				$code = GC_Room::norm_code( sanitize_text_field( wp_unslash( $_GET['code'] ) ) ); // phpcs:ignore WordPress.Security.NonceVerification
+			}
+			$room = 4 === strlen( $code ) ? GC_Room::load( $code ) : null;
 			$game = $room ? GC_Room::game( $room ) : GC_Games::get( GC_Games::default_slug() );
-			wp_safe_redirect( home_url( '/' . $game->path() . '/' . ( $room ? $code . '/' : '' ) ), 302 );
+			wp_safe_redirect( home_url( '/' . $game->path() . '/' . ( 4 === strlen( $code ) ? $code . '/' : '' ) ), 302 );
 			exit;
 		}
 		if ( 'tv' === $page ) {

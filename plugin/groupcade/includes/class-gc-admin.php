@@ -31,6 +31,28 @@ class GC_Admin {
 				'default'           => '',
 			)
 		);
+		register_setting(
+			'gc',
+			'gc_home',
+			array(
+				'type'              => 'string',
+				'sanitize_callback' => function ( $v ) {
+					return $v ? '1' : '0';
+				},
+				'default'           => '1',
+			)
+		);
+		foreach ( array( 'gc_app_ios', 'gc_app_android' ) as $opt ) {
+			register_setting(
+				'gc',
+				$opt,
+				array(
+					'type'              => 'string',
+					'sanitize_callback' => 'esc_url_raw',
+					'default'           => '',
+				)
+			);
+		}
 	}
 
 	private static function dur( $sec ) {
@@ -121,10 +143,32 @@ class GC_Admin {
 			echo implode( ', ', $links ); // phpcs:ignore WordPress.Security.EscapeOutput
 			?>. TV view at <a href="<?php echo esc_url( home_url( '/tv/' ) ); ?>" target="_blank"><?php echo esc_html( home_url( '/tv/' ) ); ?></a>. Rooms active in the last 30 minutes: <strong><?php echo (int) $active; ?></strong>.</p>
 			<?php self::stats(); ?>
-			<h2>Cast</h2>
+			<h2>Settings</h2>
 			<form method="post" action="options.php">
 				<?php settings_fields( 'gc' ); ?>
 				<table class="form-table">
+					<tr>
+						<th>Home page</th>
+						<td>
+							<input type="hidden" name="gc_home" value="0">
+							<label><input type="checkbox" name="gc_home" value="1" <?php checked( GC_Home::enabled() ); ?>> Use the Groupcade home page at <a href="<?php echo esc_url( home_url( '/' ) ); ?>" target="_blank"><?php echo esc_html( home_url( '/' ) ); ?></a></label>
+							<p class="description">Turn this off to show your theme's front page instead.</p>
+						</td>
+					</tr>
+					<tr>
+						<th><label for="gc_app_ios">App Store link</label></th>
+						<td>
+							<input id="gc_app_ios" name="gc_app_ios" type="url" class="regular-text" value="<?php echo esc_attr( get_option( 'gc_app_ios', '' ) ); ?>" placeholder="https://apps.apple.com/app/...">
+							<p class="description">Leave empty and the home page shows "iPhone app coming soon".</p>
+						</td>
+					</tr>
+					<tr>
+						<th><label for="gc_app_android">Google Play link</label></th>
+						<td>
+							<input id="gc_app_android" name="gc_app_android" type="url" class="regular-text" value="<?php echo esc_attr( get_option( 'gc_app_android', '' ) ); ?>" placeholder="https://play.google.com/store/apps/details?id=...">
+							<p class="description">Leave empty and the home page shows "Android app coming soon".</p>
+						</td>
+					</tr>
 					<tr>
 						<th><label for="gc_cast_app">Google Cast app ID</label></th>
 						<td>

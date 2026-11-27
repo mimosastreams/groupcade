@@ -30,6 +30,16 @@ abstract class GC_Game {
 		return '';
 	}
 
+	/** A sentence or two for the game's card on the home page. */
+	public function blurb() {
+		return $this->tagline();
+	}
+
+	/** Two or three short tags for the home page card, such as "Up to 30 players". */
+	public function tags() {
+		return array( 'Up to ' . (int) $this->max_players() . ' players' );
+	}
+
 	/** Page path on the site: /<path>/ and /<path>/CODE. Defaults to the slug. */
 	public function path() {
 		return $this->slug();

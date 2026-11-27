@@ -38,6 +38,14 @@ class GC_Trivia extends GC_Game {
 		return 'Answer on your phone. Survival or Points.';
 	}
 
+	public function blurb() {
+		return '13 categories and questions that get harder as you go. Last one standing wins, or play for points.';
+	}
+
+	public function tags() {
+		return array( 'Up to ' . (int) $this->max_players() . ' players', 'Survival or Points' );
+	}
+
 	public function client_config() {
 		return array(
 			'cats'     => GC_Trivia_Bank::categories(),
