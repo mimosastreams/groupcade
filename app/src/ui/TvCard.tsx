@@ -75,7 +75,8 @@ function DiagLine({ d }: { d: TvDiagnostics }) {
   return (
     <Text style={{ color: C.mist, fontSize: 11, opacity: 0.8 }}>
       TV check: scenes {ok(d.multipleScenes)} · TV role {ok(d.tvRole)} · TV code {ok(d.delegateLinked)} · screens {d.screens ?? 0} · TV
-      scenes {tvScenes}
+      scenes {tvScenes} · iOS {d.ios ?? '?'} · accessory {d.accessory ?? '?'}
+      {d.accessoryAvailable === undefined ? '' : ` (${d.accessoryAvailable ? 'TV available' : 'no TV yet'})`}
     </Text>
   );
 }
