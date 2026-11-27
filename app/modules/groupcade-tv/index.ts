@@ -18,6 +18,10 @@ export type TvDiagnostics = {
   scenes?: string[];
   screens?: number;
   connected?: boolean;
+  /** iOS 27+ scene accessory: registered, waiting, not needed, or old SDK. */
+  accessory?: string;
+  accessoryAvailable?: boolean;
+  ios?: string;
 };
 
 const native = requireOptionalNativeModule<TvModule>('GroupcadeTv');
