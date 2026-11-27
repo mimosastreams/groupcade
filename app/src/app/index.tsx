@@ -1,20 +1,26 @@
-// Home: pick a game to host, get back into your last room, or join someone else's game.
+// Home: join someone's game first, then host one. A still-open room shows on top of the host
+// list, with a way back in and a way to close it.
 import { router, useFocusEffect } from 'expo-router';
 import { useCallback, useEffect, useState } from 'react';
 import { Pressable, Text, TextInput, View } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import Svg, { Path } from 'react-native-svg';
 import { setTvRoomUrl } from '../../modules/groupcade-tv';
 import { NATIVE_GAMES, type AppGame } from '../games';
 import { api } from '../lib/api';
+import { closeRoom } from '../lib/closeRoom';
 import { store, type SavedRoom } from '../lib/store';
-import { Button, C, Card, H2, Label, P, Screen, s } from '../ui/kit';
-import { Logo } from '../ui/Logo';
+import { Buddy } from '../ui/Buddy';
+import { dialog } from '../ui/Dialog';
+import { Button, C, Card, F, H1, H2, P, Screen, shadow } from '../ui/kit';
+import { Logo, LogoWide } from '../ui/Logo';
+
+type Open = SavedRoom & { players: number; name: string };
 
 export default function Home() {
-  const insets = useSafeAreaInsets();
   const [games, setGames] = useState<AppGame[]>(Object.values(NATIVE_GAMES));
-  const [resume, setResume] = useState<SavedRoom | null>(null);
+  const [open, setOpen] = useState<Open | null>(null);
   const [code, setCode] = useState('');
+  const [closing, setClosing] = useState(false);
 
   useEffect(() => {
     api
@@ -34,28 +40,55 @@ export default function Home() {
   }, []);
 
   // Back on the home screen: the TV goes to its idle screen, and offer the last room if it's still live.
+  const check = useCallback(() => {
+    let live = true;
+    store.room().then(async (r) => {
+      if (!r) return live && setOpen(null);
+      try {
+        const st = await api.state(r.code, r.host);
+        const name = NATIVE_GAMES[r.game]?.name || r.game;
+        if (live) setOpen(st.host ? { ...r, players: st.players.length, name } : null);
+      } catch {
+        if (live) setOpen(null);
+      }
+    });
+    return () => {
+      live = false;
+    };
+  }, []);
   useFocusEffect(
     useCallback(() => {
       setTvRoomUrl(null);
-      let live = true;
-      store.room().then(async (r) => {
-        if (!r) return live && setResume(null);
-        try {
-          const st = await api.state(r.code, r.host);
-          if (live) setResume(st.host ? r : null);
-        } catch {
-          if (live) setResume(null);
-        }
-      });
-      return () => {
-        live = false;
-      };
-    }, [])
+      return check();
+    }, [check])
   );
 
-  const host = (g: AppGame) => {
+  const startNew = (g: AppGame) => {
     if (g.newRoute) router.push(g.newRoute as never);
     else router.push({ pathname: '/play/[code]', params: { code: 'new', path: g.path } });
+  };
+
+  const close = async (then?: () => void) => {
+    if (!open) return then?.();
+    setClosing(true);
+    await closeRoom(open);
+    setOpen(null);
+    setClosing(false);
+    then?.();
+  };
+
+  const confirmClose = () =>
+    dialog.alert(`Close room ${open?.code}?`, 'Anyone still in it will need a new code to play again.', [
+      { text: 'Keep it', style: 'cancel' },
+      { text: 'Close room', style: 'destructive', onPress: () => close() },
+    ]);
+
+  const host = (g: AppGame) => {
+    if (!open) return startNew(g);
+    dialog.alert(`Host ${g.name}?`, `This closes your open room ${open.code} and starts a new one.`, [
+      { text: 'Cancel', style: 'cancel' },
+      { text: 'Close and host', onPress: () => close(() => startNew(g)) },
+    ]);
   };
 
   const join = () => {
@@ -64,54 +97,93 @@ export default function Home() {
   };
 
   return (
-    <View style={{ flex: 1, backgroundColor: C.bg, paddingTop: insets.top }}>
-      <Screen>
-        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 14, marginTop: 8 }}>
-          <Logo size={56} />
-          <View>
-            <Text style={{ color: C.white, fontSize: 28, fontWeight: '900' }}>Groupcade</Text>
-            <Text style={{ color: C.mist, fontSize: 15, fontWeight: '600' }}>Party games for the big screen</Text>
-          </View>
+    <Screen
+      top={
+        <View style={{ paddingHorizontal: 20, paddingTop: 10, paddingBottom: 4 }}>
+          <LogoWide height={40} />
         </View>
+      }
+    >
+      <Card tint={C.mintTint} lifted style={{ borderRadius: 28, padding: 20, gap: 14 }}>
+        <View style={{ gap: 4 }}>
+          <H1>Join a game</H1>
+          <Text nativeID="codeLabel" style={{ fontFamily: F.bold, fontSize: 15, color: C.mist }}>
+            Type the 4-letter code from the TV.
+          </Text>
+        </View>
+        <TextInput
+          value={code}
+          onChangeText={(t) => setCode(t.toUpperCase().replace(/[^A-Z]/g, '').slice(0, 4))}
+          placeholder="ABCD"
+          placeholderTextColor={C.faint}
+          autoCapitalize="characters"
+          autoCorrect={false}
+          maxLength={4}
+          returnKeyType="go"
+          onSubmitEditing={join}
+          accessibilityLabelledBy="codeLabel"
+          accessibilityLabel="Room code"
+          style={{ height: 64, borderRadius: 18, borderWidth: 3, borderColor: C.ink, backgroundColor: C.white, color: C.ink, fontSize: 32, fontFamily: F.display, letterSpacing: 8, textAlign: 'center', paddingTop: 6 }}
+        />
+        <Button kind="hot" title="Join" onPress={join} disabled={code.length !== 4} />
+      </Card>
 
-        {resume ? (
-          <Card style={{ borderColor: C.accent }}>
-            <Label>Your room is still open</Label>
-            <Text style={[s.code, { fontSize: 40, textAlign: 'left' }]}>{resume.code}</Text>
-            <Button kind="go" title="Back to my room" onPress={() => router.push({ pathname: '/room/[code]', params: { code: resume.code } })} />
+      <View style={{ gap: 14, marginTop: 8 }}>
+        <H2 style={{ fontSize: 26 }}>Or host a game</H2>
+
+        {open ? (
+          <Card tint={C.gold} style={{ gap: 12, padding: 14 }}>
+            <View>
+              <Text style={{ fontFamily: F.display, fontSize: 20, lineHeight: 24, color: C.ink }}>Your room is still open</Text>
+              <Text style={{ fontFamily: F.heavy, fontSize: 14, color: C.ink }}>
+                {open.name} · Room {open.code} · {open.players} player{open.players === 1 ? '' : 's'}
+              </Text>
+            </View>
+            <View style={{ flexDirection: 'row', gap: 10 }}>
+              <View style={{ flex: 1 }}>
+                <Button small kind="dark" title="Back to my room" onPress={() => router.push({ pathname: '/room/[code]', params: { code: open.code } })} />
+              </View>
+              <Button small title="Close room" busy={closing} onPress={confirmClose} />
+            </View>
           </Card>
         ) : null}
 
-        <H2>Host a game</H2>
-        {games.map((g) => (
-          <Pressable key={g.slug} onPress={() => host(g)} accessibilityRole="button" style={({ pressed }) => [s.card, { opacity: pressed ? 0.8 : 1 }]}>
-            <Text style={{ color: C.white, fontSize: 24, fontWeight: '900' }}>{g.name}</Text>
-            <P muted small>{g.tagline}</P>
-            <Text style={{ color: C.accent, fontWeight: '800', marginTop: 4 }}>Make a room →</Text>
+        {games.map((g, i) => (
+          <Pressable
+            key={g.slug}
+            onPress={() => host(g)}
+            accessibilityRole="button"
+            accessibilityLabel={`Host ${g.name}`}
+            accessibilityHint={open ? 'Closes your open room first' : g.tagline}
+            style={({ pressed }) => [
+              { backgroundColor: C.coralTint, borderWidth: 3, borderColor: C.ink, borderRadius: 22, padding: 14, flexDirection: 'row', alignItems: 'center', gap: 14 },
+              pressed ? { transform: [{ translateX: 2 }, { translateY: 2 }] } : shadow(4),
+            ]}
+          >
+            <View style={{ width: 84, height: 84, borderRadius: 18, borderWidth: 3, borderColor: C.ink, backgroundColor: C.sky, alignItems: 'center', justifyContent: 'center' }}>
+              {g.slug === 'trivia' ? <Logo size={60} /> : <Buddy index={i} size={60} />}
+            </View>
+            <View style={{ flex: 1, gap: 2 }}>
+              <Text style={{ fontFamily: F.display, fontSize: 26, lineHeight: 30, color: C.ink }}>Host {g.name}</Text>
+              <Text style={{ fontFamily: F.body, fontSize: 14, lineHeight: 19, color: C.mist }}>
+                {open ? 'Starts a new room. Your open room closes first.' : g.tagline || 'Starts a new room.'}
+              </Text>
+            </View>
+            <View style={{ width: 48, height: 48, borderRadius: 24, borderWidth: 3, borderColor: C.ink, backgroundColor: C.accent, alignItems: 'center', justifyContent: 'center' }}>
+              <Svg width={20} height={20} viewBox="0 0 24 24" fill="none" stroke={C.white} strokeWidth={3} strokeLinecap="round" strokeLinejoin="round">
+                <Path d="M5 12h14M13 6l6 6-6 6" />
+              </Svg>
+            </View>
           </Pressable>
         ))}
-        <P muted small>
-          Only you need the app. Everyone else joins on their phone's browser with a 4-letter code, and the game goes on your TV with AirPlay.
-        </P>
 
-        <Card>
-          <H2>Join a game</H2>
-          <P muted small>Got a code from someone else's game?</P>
-          <TextInput
-            value={code}
-            onChangeText={(t) => setCode(t.toUpperCase().replace(/[^A-Z]/g, '').slice(0, 4))}
-            placeholder="ABCD"
-            placeholderTextColor={C.mist}
-            autoCapitalize="characters"
-            autoCorrect={false}
-            maxLength={4}
-            returnKeyType="go"
-            onSubmitEditing={join}
-            style={{ height: 56, borderRadius: 12, borderWidth: 1, borderColor: C.line, backgroundColor: C.ink, color: C.white, fontSize: 28, fontWeight: '900', letterSpacing: 10, textAlign: 'center' }}
-          />
-          <Button title="Join" onPress={join} disabled={code.length !== 4} />
-        </Card>
-      </Screen>
-    </View>
+        <P muted small center style={{ fontFamily: F.bold }}>
+          More games are on the way.
+        </P>
+        <P muted small center>
+          Only you need the app. Everyone else joins in their phone's browser with the code, and the game goes on your TV with AirPlay, Chromecast or any TV browser.
+        </P>
+      </View>
+    </Screen>
   );
 }

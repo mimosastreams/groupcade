@@ -1,21 +1,25 @@
 // Host screen for a room. Points the TV at the room's /tv/CODE page and shows the native
 // controller for the room's game.
 import { useKeepAwake } from 'expo-keep-awake';
-import { router, Stack, useFocusEffect, useLocalSearchParams } from 'expo-router';
+import { router, useFocusEffect, useLocalSearchParams } from 'expo-router';
 import { useCallback, useEffect, useState } from 'react';
-import { ActivityIndicator, Pressable, Text, View } from 'react-native';
+import { ActivityIndicator, View } from 'react-native';
 import { setTvRoomUrl } from '../../../modules/groupcade-tv';
+import { setCastRoom } from '../../lib/cast';
 import { TriviaHost } from '../../games/trivia/Host';
 import { dialog } from '../../ui/Dialog';
 import { api, links } from '../../lib/api';
 import { store, type SavedRoom } from '../../lib/store';
 import { useRoom } from '../../lib/useRoom';
-import { Button, C, Card, H2, P, Screen } from '../../ui/kit';
+import { closeRoom } from '../../lib/closeRoom';
+import { Button, C, Card, H2, P, Screen, TopBar } from '../../ui/kit';
+import { NamePrompt } from '../../ui/NamePrompt';
 
 export default function Room() {
   const { code } = useLocalSearchParams<{ code: string }>();
   const [saved, setSaved] = useState<SavedRoom | null | undefined>(undefined);
   const [myName, setMyName] = useState<string | null>(null);
+  const [askName, setAskName] = useState<string | null>(null);
   const [myTok, setMyTok] = useState<string | null>(null);
   useKeepAwake();
 
@@ -27,6 +31,7 @@ export default function Room() {
   useFocusEffect(
     useCallback(() => {
       setTvRoomUrl(links.tv(code));
+      setCastRoom(code);
       // Did the host join to play? Check the saved token is still in the room.
       store.playerToken(code).then(async (tok) => {
         setMyTok(tok);
@@ -55,62 +60,44 @@ export default function Room() {
       { text: 'Leave', onPress: () => router.replace('/') },
     ]);
 
-  const newRoom = () =>
-    dialog.alert('Close this room and make a new one?', 'Players will need the new code.', [
-      { text: 'Cancel', style: 'cancel' },
+  const close = (then: () => void, title: string, ok: string) =>
+    dialog.alert(title, 'Anyone still in it will need a new code to play again.', [
+      { text: 'Keep it', style: 'cancel' },
       {
-        text: 'New room',
+        text: ok,
+        style: 'destructive',
         onPress: async () => {
-          await store.clearRoom();
-          setTvRoomUrl(null);
-          router.replace('/');
+          if (saved) await closeRoom(saved);
+          then();
         },
       },
     ]);
+  const closeAndHome = () => close(() => router.replace('/'), `Close room ${code}?`, 'Close room');
+  const newRoom = () => close(() => router.replace(saved?.game === 'trivia' || !saved ? '/trivia/new' : '/'), 'Close this room and make a new one?', 'New room');
 
   const playToo = async () => {
     if (myName) return; // Already playing: answers go right on this screen.
-    const last = (await store.name()) || '';
-    dialog.prompt(
-      'Play too',
-      'Your name on the scoreboard. You answer right here on the host screen, like everyone else.',
-      async (name) => {
-        const n = (name || '').trim();
-        if (!n) return;
-        try {
-          const r = await api.join(code, n);
-          await store.savePlayerToken(code, r.token);
-          await store.saveName(n);
-          setMyName(r.name);
-          setMyTok(r.token);
-        } catch (e) {
-          dialog.alert('Could not join', (e as Error).message);
-        }
-      },
-      'plain-text',
-      last
-    );
+    setAskName((await store.name()) || '');
   };
 
-  const header = (
-    <Stack.Screen
-      options={{
-        title: `Room ${code}`,
-        // One screen for hosting and playing; a stray swipe shouldn't leave the game.
-        gestureEnabled: false,
-        headerLeft: () => (
-          <Pressable onPress={leave} hitSlop={12} accessibilityRole="button">
-            <Text style={{ color: C.white, fontWeight: '700', fontSize: 16 }}>Home</Text>
-          </Pressable>
-        ),
-      }}
-    />
-  );
+  const joinAs = async (n: string) => {
+    setAskName(null);
+    try {
+      const r = await api.join(code, n);
+      await store.savePlayerToken(code, r.token);
+      await store.saveName(n);
+      setMyName(r.name);
+      setMyTok(r.token);
+    } catch (e) {
+      dialog.alert('Could not join', (e as Error).message);
+    }
+  };
+
+  const header = <TopBar onBack={leave} backLabel="Back to home" title={`Room ${code}`} />;
 
   if (saved === null || (error && error.status === 404)) {
     return (
-      <Screen>
-        {header}
+      <Screen top={header}>
         <Card>
           <H2>{saved === null ? 'This isn’t your room on this phone' : 'This room has ended'}</H2>
           <P muted>{saved === null ? 'Only the phone that made a room can host it.' : 'Rooms close 2 hours after the last activity.'}</P>
@@ -129,17 +116,25 @@ export default function Room() {
 
   if (!st) {
     return (
-      <View style={{ flex: 1, backgroundColor: C.bg, alignItems: 'center', justifyContent: 'center' }}>
-        {header}
-        <ActivityIndicator color={C.accent} />
+      <View style={{ flex: 1, backgroundColor: C.bg }}>
+        <Screen top={header}>
+          <ActivityIndicator color={C.accent} style={{ marginTop: 60 }} />
+        </Screen>
       </View>
     );
   }
 
   return (
     <>
-      {header}
-      <TriviaHost st={st} act={act} now={now} offline={offline} myName={myName} myToken={myTok} onAnswered={refresh} onPlayToo={playToo} onNewRoom={newRoom} />
+      <TriviaHost st={st} act={act} now={now} offline={offline} myName={myName} myToken={myTok} onAnswered={refresh} onPlayToo={playToo} onLeave={leave} onClose={closeAndHome} onNewRoom={newRoom} />
+      <NamePrompt
+        open={askName !== null}
+        title="Play too"
+        message="Your name on the scoreboard. You answer right here on the host screen, like everyone else."
+        initial={askName || ''}
+        onCancel={() => setAskName(null)}
+        onSubmit={joinAs}
+      />
     </>
   );
 }

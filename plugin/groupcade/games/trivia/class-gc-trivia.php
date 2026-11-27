@@ -38,6 +38,14 @@ class GC_Trivia extends GC_Game {
 		return 'Answer on your phone. Survival or Points.';
 	}
 
+	public function blurb() {
+		return '13 categories and questions that get harder as you go. Last one standing wins, or play for points.';
+	}
+
+	public function tags() {
+		return array( 'Up to ' . (int) $this->max_players() . ' players', 'Survival or Points' );
+	}
+
 	public function client_config() {
 		return array(
 			'cats'     => GC_Trivia_Bank::categories(),
@@ -183,6 +191,11 @@ class GC_Trivia extends GC_Game {
 		$order = array( 0, 1, 2, 3 );
 		shuffle( $order );
 		$s['qid']    = $qid;
+		// The question's words travel with the room, so polls don't load the whole question bank.
+		$s['qt']     = array( $q[2], $q[3], $q[4], $q[5], $q[6] );
+		if ( empty( $s['catlist'] ) ) {
+			$s['catlist'] = GC_Trivia_Bank::categories();
+		}
 		$s['level']  = $q[0];
 		$s['cat']    = $q[1];
 		$s['order']  = $order; // Shown slot i holds answer $order[i]; answer 0 is the right one.
@@ -509,10 +522,10 @@ class GC_Trivia extends GC_Game {
 		if ( in_array( $s['phase'], array( 'cat', 'q', 'rev' ), true ) || ( 'end' === $s['phase'] && ! empty( $s['qid'] ) ) ) {
 			$out['level'] = $s['level'];
 			$out['cat']   = $s['cat'];
-			$out['cats']  = ! empty( $s['only'] ) ? array_values( $s['only'] ) : GC_Trivia_Bank::categories();
+			$out['cats']  = ! empty( $s['only'] ) ? array_values( $s['only'] ) : ( ! empty( $s['catlist'] ) ? $s['catlist'] : GC_Trivia_Bank::categories() );
 		}
 		if ( in_array( $s['phase'], array( 'q', 'rev' ), true ) || ( 'end' === $s['phase'] && ! empty( $s['last'] ) ) ) {
-			$q = GC_Trivia_Bank::get( (int) $s['qid'] );
+			$q = ! empty( $s['qt'] ) ? array_merge( array( '', '' ), $s['qt'] ) : GC_Trivia_Bank::get( (int) $s['qid'] );
 			if ( $q ) {
 				$ans            = array( $q[3], $q[4], $q[5], $q[6] );
 				$out['q']       = $q[2];

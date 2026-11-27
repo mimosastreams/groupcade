@@ -1,5 +1,5 @@
-// AirPlay second screen. On iOS with a dev or store build, the TV shows the room's /tv/CODE page
-// in its own window while the phone keeps the host controls. In Expo Go, on Android or on web
+// AirPlay second screen. On iOS (AirPlay or a cable) and Android (a USB-C/HDMI adapter or a wireless display) with a dev or store build, the TV shows the room's /tv/CODE page
+// in its own window while the phone keeps the host controls. In Expo Go or on web
 // the native module is missing, and everything here quietly does nothing.
 import { requireOptionalNativeModule, type EventSubscription } from 'expo';
 
@@ -26,7 +26,7 @@ export type TvDiagnostics = {
 
 const native = requireOptionalNativeModule<TvModule>('GroupcadeTv');
 
-/** True when this build can drive a TV window (iOS dev or store build). */
+/** True when this build can drive a TV window (a dev or store build). */
 export const tvSupported = !!native;
 
 export function isTvConnected(): boolean {

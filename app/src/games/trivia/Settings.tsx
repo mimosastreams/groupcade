@@ -1,6 +1,7 @@
 // Trivia settings: mode, rounds, seconds, categories. Used before making a room and in the lobby.
-import { Text, View } from 'react-native';
-import { Button, C, Chip, Label, P, Row, Seg } from '../../ui/kit';
+import * as Haptics from 'expo-haptics';
+import { Pressable, Text, View } from 'react-native';
+import { C, Chip, F, Row, shadow } from '../../ui/kit';
 
 export type TriviaSettings = {
   mode: 'survive' | 'points';
@@ -22,12 +23,13 @@ type Props = {
   specCats: string[];
 };
 
+const tap = () => Haptics.selectionAsync().catch(() => {});
+
 export function TriviaSettingsForm({ value, onChange, allCats, specCats }: Props) {
   const pts = value.mode === 'points';
   const rounds = pts ? [10, 15, 20] : [10, 15, 20, 0];
   const none = noCats(value);
   const on = none ? [] : value.cats.length ? value.cats : allCats;
-  const regularOn = on.filter((c) => allCats.includes(c));
 
   // Any mix is fine (specialty only too), as long as something is on before the game starts.
   const save = (next: string[]) => {
@@ -39,37 +41,45 @@ export function TriviaSettingsForm({ value, onChange, allCats, specCats }: Props
   const specOn = on.filter((c) => specCats.includes(c));
 
   return (
-    <View style={{ gap: 12 }}>
-      <Label>Game mode</Label>
-      <Seg
-        options={[
-          { value: 'survive', label: 'Survival' },
-          { value: 'points', label: 'Points' },
-        ]}
-        value={value.mode}
-        onChange={(mode) => onChange({ mode, rounds: mode === 'points' && !value.rounds ? 15 : value.rounds })}
-      />
-      <P muted small>
-        {pts
-          ? 'Nobody is knocked out. A right answer scores 500 points plus up to 500 more for speed. Most points after the last round wins.'
-          : "Wrong answer and you're out. If everyone misses, nobody is out. Last one standing wins."}
-      </P>
+    <View style={{ gap: 18 }}>
+      <View style={{ gap: 8 }}>
+        <Heading>Game mode</Heading>
+        <View style={{ flexDirection: 'row', gap: 12 }}>
+          <ModeCard
+            title="Survival"
+            line="Miss one and you're out"
+            on={!pts}
+            onPress={() => onChange({ mode: 'survive' })}
+          />
+          <ModeCard
+            title="Points"
+            line="Faster answers score more"
+            on={pts}
+            onPress={() => onChange({ mode: 'points', rounds: value.rounds || 15 })}
+          />
+        </View>
+      </View>
 
-      <Label>Rounds</Label>
-      <Seg options={rounds.map((n) => ({ value: n, label: n ? String(n) : 'Until one is left' }))} value={value.rounds} onChange={(r) => onChange({ rounds: r })} />
-
-      <Label>Seconds per question</Label>
-      <Seg options={[15, 20, 30].map((n) => ({ value: n, label: `${n}s` }))} value={value.secs} onChange={(secs) => onChange({ secs })} />
+      <View style={{ flexDirection: 'row', gap: 12 }}>
+        <Stepper
+          label="Rounds"
+          values={rounds}
+          value={rounds.includes(value.rounds) ? value.rounds : 15}
+          show={(n) => (n ? String(n) : '∞')}
+          say={(n) => (n ? `${n} rounds` : 'Until one is left')}
+          onChange={(r) => onChange({ rounds: r })}
+        />
+        <Stepper label="Seconds per question" values={[15, 20, 30]} value={value.secs} show={String} say={(n) => `${n} seconds`} onChange={(secs) => onChange({ secs })} />
+      </View>
+      {!pts && value.rounds === 0 ? <Text style={{ fontFamily: F.bold, color: C.mist, fontSize: 14, marginTop: -8 }}>∞ = keep going until one player is left.</Text> : null}
 
       {allCats.length ? (
-        <>
+        <View style={{ gap: 10 }}>
           <Row style={{ justifyContent: 'space-between' }}>
-            <Label>
-              Categories ({regularOn.length} of {allCats.length})
-            </Label>
-            <Row style={{ gap: 6 }}>
-              <Button small kind="ghost" title="All" onPress={() => save([...allCats, ...specOn])} />
-              <Button small kind="ghost" title="Clear" onPress={() => save(specOn)} />
+            <Heading>Categories</Heading>
+            <Row style={{ gap: 4 }}>
+              <LinkButton title="All" onPress={() => save([...allCats, ...specOn])} />
+              <LinkButton title="Clear" onPress={() => save(specOn)} />
             </Row>
           </Row>
           <Row style={{ gap: 8 }}>
@@ -77,24 +87,115 @@ export function TriviaSettingsForm({ value, onChange, allCats, specCats }: Props
               <Chip key={c} text={c} on={on.includes(c)} onPress={() => toggle(c)} />
             ))}
           </Row>
-          {none ? <Text style={{ color: C.gold, fontWeight: '700', fontSize: 13 }}>Pick at least one category.</Text> : null}
+          {none ? <Text style={{ color: C.out, fontFamily: F.heavy, fontSize: 14 }}>Pick at least one category.</Text> : null}
           {specCats.length ? (
             <>
-              <Text style={{ color: C.mist, fontWeight: '700', fontSize: 13 }}>Specialty (off unless you turn them on)</Text>
+              <Text style={{ color: C.mist, fontFamily: F.heavy, fontSize: 14, marginTop: 4 }}>Specialty (off unless you turn them on)</Text>
               <Row style={{ gap: 8 }}>
                 {specCats.map((c) => (
-                  <Chip
-                    key={c}
-                    text={`🎄 ${c}`}
-                    on={on.includes(c)}
-                    onPress={() => toggle(c)}
-                  />
+                  <Chip key={c} text={c} on={on.includes(c)} onPress={() => toggle(c)} />
                 ))}
               </Row>
             </>
           ) : null}
-        </>
+        </View>
       ) : null}
     </View>
+  );
+}
+
+function Heading({ children }: { children: string }) {
+  return <Text style={{ fontFamily: F.display, fontSize: 19, lineHeight: 24, color: C.ink }}>{children}</Text>;
+}
+
+function LinkButton({ title, onPress }: { title: string; onPress: () => void }) {
+  return (
+    <Pressable
+      accessibilityRole="button"
+      onPress={() => {
+        tap();
+        onPress();
+      }}
+      hitSlop={6}
+      style={{ minHeight: 44, paddingHorizontal: 8, justifyContent: 'center' }}
+    >
+      <Text style={{ fontFamily: F.heavy, fontSize: 15, color: C.accent }}>{title}</Text>
+    </Pressable>
+  );
+}
+
+function ModeCard({ title, line, on, onPress }: { title: string; line: string; on: boolean; onPress: () => void }) {
+  return (
+    <Pressable
+      accessibilityRole="button"
+      accessibilityState={{ selected: on }}
+      onPress={() => {
+        tap();
+        onPress();
+      }}
+      style={[
+        { flex: 1, backgroundColor: on ? C.coral : C.white, borderWidth: 3, borderColor: C.ink, borderRadius: 20, padding: 12 },
+        on ? [shadow(4), { transform: [{ rotate: '-1.5deg' }] }] : null,
+      ]}
+    >
+      <Text style={{ fontFamily: F.display, fontSize: 22, lineHeight: 26, color: C.ink }}>{title}</Text>
+      <Text style={{ fontFamily: F.heavy, fontSize: 13, color: on ? C.ink : C.mist, marginTop: 2 }}>{line}</Text>
+    </Pressable>
+  );
+}
+
+function Stepper({
+  label,
+  values,
+  value,
+  show,
+  say,
+  onChange,
+}: {
+  label: string;
+  values: number[];
+  value: number;
+  show: (n: number) => string;
+  say: (n: number) => string;
+  onChange: (n: number) => void;
+}) {
+  const i = Math.max(0, values.indexOf(value));
+  const step = (d: number) => {
+    const j = i + d;
+    if (j < 0 || j >= values.length) return;
+    tap();
+    onChange(values[j]);
+  };
+  return (
+    <View
+      style={{ flex: 1, backgroundColor: C.goldTint, borderWidth: 3, borderColor: C.ink, borderRadius: 20, paddingHorizontal: 12, paddingVertical: 10 }}
+      accessible
+      accessibilityRole="adjustable"
+      accessibilityLabel={label}
+      accessibilityValue={{ text: say(value) }}
+      accessibilityActions={[{ name: 'increment' }, { name: 'decrement' }]}
+      onAccessibilityAction={(e) => step(e.nativeEvent.actionName === 'increment' ? 1 : -1)}
+    >
+      <Text style={{ fontFamily: F.heavy, fontSize: 14, color: C.ink }}>{label}</Text>
+      <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginTop: 6 }}>
+        <StepButton sign="−" disabled={i === 0} onPress={() => step(-1)} />
+        <Text style={{ fontFamily: F.display, fontSize: 30, lineHeight: 36, color: C.ink }}>{show(value)}</Text>
+        <StepButton sign="+" disabled={i === values.length - 1} onPress={() => step(1)} />
+      </View>
+    </View>
+  );
+}
+
+function StepButton({ sign, disabled, onPress }: { sign: string; disabled: boolean; onPress: () => void }) {
+  return (
+    <Pressable
+      onPress={onPress}
+      disabled={disabled}
+      importantForAccessibility="no"
+      accessibilityElementsHidden
+      style={({ pressed }) => ({ width: 44, height: 44, borderRadius: 22, borderWidth: 3, borderColor: C.ink, backgroundColor: C.white, alignItems: 'center', justifyContent: 'center', opacity: disabled ? 0.35 : pressed ? 0.7 : 1 })}
+    >
+      <Text style={{ fontFamily: F.heavy, fontSize: 22, lineHeight: 24, color: C.ink }}>{sign}</Text>
+    </Pressable>
   );
 }

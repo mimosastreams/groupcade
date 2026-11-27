@@ -23,7 +23,7 @@
 - Two modes. Survival: a wrong answer puts you out, and if everyone misses, nobody goes out. Points: a 5-second read period first.
 - Question time is 15, 20 or 30 seconds, and the reveal shows for 7 seconds. Rounds are 10, 15 or 20, or "until one left". Questions get harder through the game (easy, then medium, then hard).
 - Also built: a host category picker, a specialty Christmas Movies category that's off by default, swipe-to-lock answers, trash talk chat, a still-in bar, and a stats page.
-- Limits: 30 players per room, rooms deleted 2 hours after the last activity.
+- Limits: 50 players per room, rooms deleted 2 hours after the last activity.
 - REST namespace mimosa-party/v1: rooms, join, answer, host actions, leave. Phones poll about once a second. Own tables, wp_mpt_rooms and wp_mpt_players.
 - It must stay separate from the Twitch stream's Survive Trivia scores and records. The MIMOSA category (questions about Dylan) is excluded.
 
@@ -46,5 +46,10 @@
   `UIWindowSceneSessionRoleExternalDisplayNonInteractive` scene in `app/modules/groupcade-tv/`.
   The page's app flag is `window.GROUPCADE_APP` and it posts `{groupcade:1, type:'room', game, code, role}`.
   Bundle ID `com.groupcade.app` until Dylan says otherwise.
+- **Brand (plugin 1.2.0):** the TV mascot and three phone friends, files in `brand/`. Home page is
+  design C "Sticker Book"; every word and picture is edited on Pages > Home with ACF
+  (`GC_Home::fields()` lists them; `GC_Home_Fields` builds the ACF field group from that list).
+- **Admin (plugin 1.3.0):** a top-level Groupcade menu: Questions (post type `gc_question`,
+  categories `gc_question_cat`), Analytics and Settings. Trivia reads questions from there.
 - **Still open:** free or a one-time unlock; an Apple TV or AirPlay TV to test on; which Apple
-  developer account; a real logo (the current mark is a placeholder).
+  developer account.

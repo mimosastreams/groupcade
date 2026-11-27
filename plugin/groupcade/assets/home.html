@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{META_TITLE}}</title>
+<meta name="description" content="{{META_DESC}}">
+<meta property="og:title" content="{{META_TITLE}}">
+<meta property="og:description" content="{{META_DESC}}">
+<meta property="og:url" content="{{SITE}}">
+<meta property="og:image" content="{{SHARE_IMG}}">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#FFFDF7">
+<link rel="icon" href="{{FAVICON}}" type="image/svg+xml">
+<link rel="alternate icon" href="{{FAVICON_PNG}}" type="image/png">
+<link rel="apple-touch-icon" href="{{TOUCH_ICON}}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Nunito:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FFFDF7; --ink:#1B1F3B; --soft:#3A4366;
+  --indigo:#4A3AFF; --indigo-deep:#2F22C9;
+  --sky:#CFEBFF; --sun:#FFC93C; --sun-soft:#FFF4CF;
+  --coral:#FF6B4A; --coral-soft:#FFE3DA;
+  --mint:#3DD68C; --mint-soft:#DDF8EA;
+  --display:'Baloo 2', system-ui, sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:'Nunito',system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:var(--indigo)}
+a:hover{color:var(--indigo-deep)}
+:focus-visible{outline:3px solid var(--indigo);outline-offset:3px}
+h1,h2,h3{font-family:var(--display);font-weight:800;margin:0;line-height:1.02}
+p{margin:0}
+img{max-width:100%;height:auto;display:block}
+.wrap{max-width:1240px;margin:0 auto;padding:0 max(5vw,16px)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* Top bar */
+.nav{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;padding-top:18px;padding-bottom:18px}
+.brand img{height:50px;width:auto}
+.links{display:flex;flex-wrap:wrap;align-items:center;gap:10px;font-weight:800;font-size:16px}
+.links a{color:var(--ink);text-decoration:none;padding:10px 16px;border-radius:999px}
+.links a.y{background:var(--sun-soft)}
+.links a.g{background:var(--mint-soft)}
+.links a.cta{background:var(--indigo);color:#fff;border:3px solid var(--ink);padding:8px 18px}
+.links a:hover{filter:brightness(.96)}
+
+/* Hero */
+.hero{display:flex;flex-wrap:wrap;align-items:center;gap:48px;padding-top:36px;padding-bottom:72px}
+.hero .copy{flex:1 1 440px;min-width:0}
+.hero h1{font-size:clamp(46px,6vw,80px);line-height:.98;letter-spacing:-.02em;margin-bottom:20px}
+.hero h1 mark{background:var(--sun);color:var(--ink);padding:0 12px;border-radius:14px;display:inline-block;transform:rotate(-2deg)}
+.hero .intro{font-size:20px;color:var(--soft);max-width:30em;margin-bottom:26px}
+.join{display:flex;flex-wrap:wrap;gap:10px;max-width:480px}
+.join input{flex:1 1 200px;min-width:0;height:62px;font-family:var(--display);font-weight:800;font-size:26px;letter-spacing:.08em;text-transform:uppercase;padding:0 18px;border-radius:18px;border:3px solid var(--ink);background:#fff;color:var(--ink)}
+.join input::placeholder{text-transform:none;letter-spacing:0;color:#8A93AE}
+.join input:focus{outline:none;border-color:var(--indigo)}
+.join button{height:62px;padding:0 28px;background:var(--coral);color:var(--ink);border:3px solid var(--ink);border-radius:18px;font-family:var(--display);font-weight:800;font-size:24px;box-shadow:4px 4px 0 var(--ink);cursor:pointer}
+.join button:hover{transform:translate(1px,1px);box-shadow:3px 3px 0 var(--ink)}
+.prompt{margin-top:14px;font-size:16px;font-weight:700}
+.collage{flex:1 1 460px;min-width:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.sticker{border:3px solid var(--ink);border-radius:24px;box-shadow:5px 5px 0 var(--ink)}
+.sticker.big{grid-column:1/-1;background:var(--sky);border-radius:30px;padding:22px;transform:rotate(-1.5deg);box-shadow:6px 6px 0 var(--ink)}
+.sticker.big img{width:100%}
+.sticker.small{padding:18px}
+.sticker.small .st{font-family:var(--display);font-weight:800;font-size:26px;line-height:1.05;margin-bottom:6px}
+.sticker.small p{font-size:15px}
+.sticker.sun{background:var(--sun);transform:rotate(2deg)}
+.sticker.mint{background:var(--mint);transform:rotate(-2deg)}
+
+/* Games */
+.games{background:var(--indigo);color:#fff;padding:72px 0}
+.games h2,.how h2{font-size:clamp(38px,4.5vw,52px);margin-bottom:30px}
+.shelf{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr));gap:26px}
+.game{background:#fff;color:var(--ink);border:3px solid var(--ink);border-radius:28px;padding:26px;box-shadow:6px 6px 0 var(--ink);display:flex;flex-direction:column;gap:12px}
+.game:nth-child(3n+1){transform:rotate(-1deg)}
+.game:nth-child(3n+2){transform:rotate(1.2deg)}
+.game:nth-child(3n){transform:rotate(-.6deg)}
+.game.coral{background:var(--coral-soft)}
+.game.sun{background:var(--sun-soft)}
+.game.mint{background:var(--mint-soft)}
+.game h3{font-size:40px}
+.game h3 a{color:inherit;text-decoration:none}
+.game p{color:var(--soft)}
+.badge{align-self:flex-start;background:#fff;border-radius:999px;padding:4px 12px;font-weight:800;font-size:14px}
+.badge.green{background:var(--mint)}
+.btn{display:inline-block;align-self:flex-start;text-decoration:none;font-weight:800;font-size:18px;padding:13px 24px;border-radius:999px;border:3px solid var(--ink)}
+.btn.indigo{background:var(--indigo);color:#fff}
+.btn.indigo:hover{background:var(--indigo-deep);color:#fff}
+.btn.white{background:#fff;color:var(--ink)}
+.btn.white:hover{background:var(--sun-soft);color:var(--ink)}
+.btn.off{opacity:.75;cursor:default}
+.btn.off small{font-weight:700;font-size:14px}
+
+/* How it works */
+.how{padding:80px 0}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:24px}
+.step{border:3px solid var(--ink);border-radius:28px;padding:28px}
+.step.coral{background:var(--coral-soft)}
+.step.sun{background:var(--sun-soft)}
+.step.mint{background:var(--mint-soft)}
+.step .label{font-family:var(--display);font-weight:800;font-size:22px;margin-bottom:8px}
+.step.coral .label{color:#B83A1E}
+.step.sun .label{color:#8A6400}
+.step.mint .label{color:#12784A}
+.step h3{font-size:30px;margin-bottom:10px}
+
+/* Host */
+.hostwrap{padding-bottom:80px}
+.host{background:var(--sky);border:3px solid var(--ink);border-radius:36px;box-shadow:8px 8px 0 var(--ink);padding:clamp(24px,4vw,44px);display:flex;flex-wrap:wrap;align-items:center;gap:36px}
+.host img{flex:0 1 320px;width:320px;max-width:100%}
+.host .copy{flex:1 1 400px;min-width:0}
+.host h2{font-size:clamp(38px,4.5vw,52px);margin-bottom:12px}
+.host .copy>p{font-size:19px;color:var(--soft);margin-bottom:24px}
+.buttons{display:flex;flex-wrap:wrap;gap:12px}
+
+/* Footer */
+footer{background:var(--ink);color:#CBD3F0;padding:36px 0}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:18px;font-weight:700}
+footer img{height:44px;width:auto}
+footer .fl{display:flex;flex-wrap:wrap;gap:24px;align-items:center}
+footer a{color:#CBD3F0}
+footer a:hover{color:#fff}
+
+@media (max-width:600px){
+  .brand img{height:40px}
+  .links{font-size:15px;gap:6px}
+  .links a{padding:8px 12px}
+  .links a.y,.links a.g{display:none}
+  .hero{gap:32px;padding-top:16px}
+  .collage{gap:14px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header class="wrap nav">
+<a class="brand" href="{{SITE}}" aria-label="Groupcade home"><img src="{{LOGO_H}}" alt="Groupcade" width="243" height="66"></a>
+<nav class="links" aria-label="Main">
+<a class="y" href="#games">{{NAV_GAMES}}</a>
+<a class="g" href="#how">{{NAV_HOW}}</a>
+<a class="cta" href="#host">{{NAV_HOST}}</a>
+</nav>
+</header>
+
+<main>
+<section class="wrap hero">
+<div class="copy">
+<h1>{{HERO_TITLE}}</h1>
+<p class="intro">{{HERO_TEXT}}</p>
+<form class="join" action="{{JOIN_ACTION}}" method="get">
+<label class="sr" for="gc-code">{{JOIN_HINT}}</label>
+<input id="gc-code" name="code" placeholder="{{JOIN_HINT}}" maxlength="4" minlength="4" pattern="[A-Za-z]{4}" autocomplete="off" autocapitalize="characters" spellcheck="false" required>
+<button type="submit">{{JOIN_BUTTON}}</button>
+</form>
+<p class="prompt">{{HOST_PROMPT}} <a href="#host">{{HOST_PROMPT_LINK}}</a></p>
+</div>
+<div class="collage">
+<div class="sticker big"><img src="{{HERO_IMG}}" alt="{{HERO_ALT}}"></div>
+{{HERO_CARDS}}
+</div>
+</section>
+
+<section class="games" id="games">
+<div class="wrap">
+<h2>{{GAMES_TITLE}}</h2>
+<div class="shelf">
+{{GAMES}}
+</div>
+</div>
+</section>
+
+<section class="how" id="how">
+<div class="wrap">
+<h2>{{HOW_TITLE}}</h2>
+<div class="steps">
+{{STEPS}}
+</div>
+</div>
+</section>
+
+<section class="wrap hostwrap" id="host">
+<div class="host">
+<img src="{{HOST_IMG}}" alt="">
+<div class="copy">
+<h2>{{HOST_TITLE}}</h2>
+<p>{{HOST_TEXT}}</p>
+<div class="buttons">
+<a class="btn indigo" href="{{HOST_URL}}">{{HOST_BUTTON}}</a>
+{{APPS}}
+</div>
+</div>
+</div>
+</section>
+</main>
+
+<footer>
+<div class="wrap">
+<img src="{{LOGO_H_DARK}}" alt="Groupcade" width="250" height="66">
+<div class="fl"><a href="{{TV_URL}}">{{FOOTER_TV}}</a>{{FOOTER_LINKS}}<span>{{FOOTER_NOTE}}</span></div>
+</div>
+</footer>
+<script>
+(function(){
+  var f = document.querySelector('.join'), i = document.getElementById('gc-code');
+  i.addEventListener('input', function(){ i.value = i.value.replace(/[^a-z]/gi, '').toUpperCase().slice(0, 4); });
+  f.addEventListener('submit', function(e){
+    if (!/^[A-Z]{4}$/.test(i.value)) { e.preventDefault(); i.focus(); return; }
+    e.preventDefault(); location.href = f.action.replace(/\/?$/, '/') + i.value + '/';
+  });
+})();
+</script>
+</body>
+</html>

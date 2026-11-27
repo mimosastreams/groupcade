@@ -2,8 +2,9 @@
 // nudge and lights up the hint, so a stray touch never picks an answer.
 import * as Haptics from 'expo-haptics';
 import { useRef, useState, type ReactNode } from 'react';
-import { Animated, PanResponder, Pressable, Text, View, type StyleProp, type ViewStyle } from 'react-native';
-import { C } from './kit';
+import { Animated, PanResponder, Pressable, View, type StyleProp, type ViewStyle } from 'react-native';
+import Svg, { Path } from 'react-native-svg';
+import { C, shadow } from './kit';
 
 const LOCK_AT = 0.4; // Share of the row's width to slide before it locks in.
 
@@ -78,10 +79,14 @@ export function SwipeAnswer({
           accessibilityHint={enabled ? 'Slide right to lock in this answer' : undefined}
           accessibilityActions={enabled ? [{ name: 'activate', label: 'Lock in' }] : undefined}
           onAccessibilityAction={() => enabled && onLock()}
-          style={[style, { flexDirection: 'row', alignItems: 'center' }, ready && { borderColor: C.accent, backgroundColor: 'rgba(255,79,163,0.2)' }]}
+          style={[style, { flexDirection: 'row', alignItems: 'center' }, ready && [{ backgroundColor: C.gold }, shadow(3)]]}
         >
           {children}
-          {enabled ? <Text style={{ color: ready ? C.accent : C.mist, fontWeight: '900', fontSize: 18, marginLeft: 8, opacity: ready ? 1 : 0.5 }}>→</Text> : null}
+          {enabled ? (
+            <Svg width={22} height={22} viewBox="0 0 24 24" fill="none" stroke={C.ink} strokeWidth={3} strokeLinecap="round" strokeLinejoin="round" style={{ opacity: ready ? 1 : 0.4 }}>
+              <Path d="M9 5l7 7-7 7" />
+            </Svg>
+          ) : null}
         </Pressable>
       </Animated.View>
     </View>

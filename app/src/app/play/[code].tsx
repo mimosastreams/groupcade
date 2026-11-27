@@ -2,14 +2,16 @@
 // the tokens the app holds), when joining someone else's game, and for games without native host
 // screens yet. The page talks back through window.ReactNativeWebView (see the app bridge in
 // plugin/groupcade/games/trivia/assets/app.html).
-import { router, Stack, useLocalSearchParams } from 'expo-router';
+import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
-import { ActivityIndicator, View } from 'react-native';
+import { ActivityIndicator, Platform, View } from 'react-native';
 import { WebView, type WebViewMessageEvent } from 'react-native-webview';
 import { API_BASE, links } from '../../lib/api';
 import { store } from '../../lib/store';
+import { useCast } from '../../lib/cast';
 import { useTv } from '../../lib/useTv';
-import { C } from '../../ui/kit';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { C, TopBar } from '../../ui/kit';
 
 type Boot = { uri: string; inject: string } | null;
 
@@ -25,7 +27,10 @@ export default function Play() {
   const [boot, setBoot] = useState<Boot>(null);
   const [hosting, setHosting] = useState(false);
   const web = useRef<Web>(null);
-  const tv = useTv();
+  const insets = useSafeAreaInsets();
+  const tvScreen = useTv();
+  const cast = useCast();
+  const tv = { connected: tvScreen.connected || cast.status === 'on' };
 
   useEffect(() => {
     (async () => {
@@ -70,7 +75,9 @@ export default function Play() {
 
   return (
     <View style={{ flex: 1, backgroundColor: C.bg }}>
-      <Stack.Screen options={{ title: hosting ? 'Playing' : code === 'new' ? 'Groupcade' : `Room ${code}`, headerBackTitle: hosting ? 'Host' : undefined }} />
+      <View style={{ paddingTop: insets.top, backgroundColor: C.bg, borderBottomWidth: 3, borderBottomColor: C.ink }}>
+        <TopBar onBack={() => router.back()} backLabel={hosting ? 'Back to host screen' : 'Back'} title={hosting ? 'Playing' : code === 'new' ? 'Groupcade' : `Room ${code}`} />
+      </View>
       {boot ? (
         <Web
           ref={web}
@@ -97,5 +104,5 @@ export default function Play() {
 
 /** window.GROUPCADE_APP tells the page it is inside the app. */
 function appFlag(hosting: boolean, tvOn: boolean) {
-  return `window.GROUPCADE_APP=${JSON.stringify({ tv: hosting, tvOn, nativeHost: hosting })};true;`;
+  return `window.GROUPCADE_APP=${JSON.stringify({ tv: hosting, tvOn, nativeHost: hosting, os: Platform.OS })};true;`;
 }

@@ -11,12 +11,15 @@
     ],
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "dark",
+    "userInterfaceStyle": "light",
     "ios": {
       "bundleIdentifier": "com.groupcade.app",
       "supportsTablet": false,
       "config": {
         "usesNonExemptEncryption": false
+      },
+      "infoPlist": {
+        "NSLocalNetworkUsageDescription": "Groupcade looks for a Chromecast or Google TV on your Wi-Fi so you can put the game on the TV."
       }
     },
     "web": {
@@ -28,8 +31,8 @@
         "expo-splash-screen",
         {
           "image": "./assets/splash-icon.png",
-          "imageWidth": 160,
-          "backgroundColor": "#15122B"
+          "imageWidth": 240,
+          "backgroundColor": "#FFFDF7"
         }
       ],
       "./modules/groupcade-tv/app.plugin.js"
@@ -42,6 +45,14 @@
     },
     "runtimeVersion": {
       "policy": "appVersion"
+    },
+    "android": {
+      "package": "com.groupcade.app",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#6FBEF7"
+      },
+      "predictiveBackGestureEnabled": false
     },
     "updates": {
       "url": "https://u.expo.dev/154b6f6f-1f7a-4862-824e-7e8f81b6093c"

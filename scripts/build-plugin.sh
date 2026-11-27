@@ -2,8 +2,9 @@
 # Zip the WordPress plugin for upload: dist/groupcade-<version>.zip
 set -euo pipefail
 cd "$(dirname "$0")/.."
-ver=$(sed -n "s/^define( 'GC_VERSION', '\(.*\)' );/\1/p" plugin/groupcade/groupcade.php)
+plugin=${1:-groupcade}
+ver=$(sed -n "s/^ \* Version: *\(.*\)$/\1/p" plugin/$plugin/$plugin.php | head -1)
 mkdir -p dist
-rm -f "dist/groupcade-$ver.zip"
-(cd plugin && zip -qr "../dist/groupcade-$ver.zip" groupcade -x '*.DS_Store')
-echo "dist/groupcade-$ver.zip"
+rm -f "dist/$plugin-$ver.zip"
+(cd plugin && zip -qr "../dist/$plugin-$ver.zip" "$plugin" -x '*.DS_Store')
+echo "dist/$plugin-$ver.zip"
