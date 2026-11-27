@@ -5,6 +5,10 @@
     "owner": "seensorts-team",
     "scheme": "groupcade",
     "version": "1.0.0",
+    "platforms": [
+      "ios",
+      "android"
+    ],
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "dark",
