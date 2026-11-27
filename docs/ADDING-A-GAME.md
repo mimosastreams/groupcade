@@ -9,7 +9,7 @@ Groupcade is one WordPress plugin (`plugin/groupcade/`) with a small core and on
 - Moving the game forward. There is no websocket or cron: every request calls `GC_Room::tick()`,
   which asks the room's game `due()` and runs `step()` until nothing is due.
 - Trash talk chat, rate limits, the name filter, cleanup 2 hours after a room's last activity.
-- Stats (`wp_gc_matches`, `wp_gc_room_log`), shown under Settings > Groupcade.
+- Stats (`wp_gc_matches`, `wp_gc_room_log`), shown under Groupcade > Analytics.
 - REST API (`groupcade/v1`) and pages: `/<game>/`, `/<game>/CODE`, `/tv/`, `/tv/CODE`, `/join/CODE`.
 
 ## What a game provides

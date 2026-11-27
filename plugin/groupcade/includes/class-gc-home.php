@@ -1,9 +1,9 @@
 <?php
 /**
  * The site's home page (groupcade.com/), design C "Sticker Book".
- * Shown in place of the theme's front page while Settings > Groupcade > "Use the Groupcade home
- * page" is on. The layout is assets/home.html; every word and picture on it comes from the
- * gc_home_content option, edited at Settings > Groupcade home (GC_Home_Admin). Empty fields fall
+ * Shown in place of the theme's front page while Groupcade > Settings > "Use the Groupcade home
+ * page" is on. The layout is assets/home.html; every word and picture on it comes from fields on
+ * the Pages > Home page (Advanced Custom Fields, registered in GC_Home_Fields). Empty fields fall
  * back to the defaults below; an empty optional card or step is left out.
  *
  * Text fields are plain text. Two shortcuts work in any of them: {site} and {tv} become the
@@ -16,8 +16,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 class GC_Home {
-
-	const OPTION = 'gc_home_content';
 
 	public static function init() {
 		add_action( 'template_redirect', array( __CLASS__, 'maybe_render' ), 1 );
@@ -96,7 +94,7 @@ class GC_Home {
 		$f['host_title']  = array( 'Host section', 'Heading', 'text', 'Ready to host?', '' );
 		$f['host_text']   = array( 'Host section', 'Text', 'textarea', 'Start right now in your browser, or get the app for iPhone or Android. Whatever screen you have, Groupcade can play on it.', '' );
 		$f['host_button'] = array( 'Host section', 'Browser button', 'text', 'Host in your browser', '' );
-		$f['host_ios']    = array( 'Host section', 'App Store button', 'text', 'App Store', 'The link is set on the Settings > Groupcade page. Without a link the button says "coming soon".' );
+		$f['host_ios']    = array( 'Host section', 'App Store button', 'text', 'App Store', 'The link is set at Groupcade > Settings. Without a link the button says "coming soon".' );
 		$f['host_android'] = array( 'Host section', 'Google Play button', 'text', 'Google Play', '' );
 		$f['host_soon']   = array( 'Host section', 'Word added when an app has no link yet', 'text', 'coming soon', '' );
 		$f['host_image']  = array( 'Host section', 'Picture', 'image', 0, 'Leave empty for the full logo.' );
@@ -118,17 +116,18 @@ class GC_Home {
 	 * too, except optional cards and steps, where empty means "hide it".
 	 */
 	public static function get( $key ) {
-		static $fields = null;
+		static $fields = null, $page = null;
 		if ( null === $fields ) {
 			$fields = self::fields();
+			$page   = GC_Home_Fields::page_id();
 		}
-		$saved = get_option( self::OPTION, array() );
-		$def   = isset( $fields[ $key ] ) ? $fields[ $key ][3] : '';
-		if ( ! is_array( $saved ) || ! array_key_exists( $key, $saved ) ) {
+		$def  = isset( $fields[ $key ] ) ? $fields[ $key ][3] : '';
+		$meta = GC_Home_Fields::meta( $key );
+		if ( ! $page || ! metadata_exists( 'post', $page, $meta ) ) {
 			return $def;
 		}
-		$v = $saved[ $key ];
-		if ( ( '' === $v || null === $v ) && ! self::optional( $key ) ) {
+		$v = get_post_meta( $page, $meta, true );
+		if ( ( '' === $v || null === $v || false === $v ) && ! self::optional( $key ) ) {
 			return $def;
 		}
 		return $v;

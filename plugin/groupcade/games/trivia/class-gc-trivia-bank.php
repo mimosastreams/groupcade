@@ -1,8 +1,9 @@
 <?php
 /**
- * Trivia question bank: games/trivia/data/questions.txt. A question's id is its line number, so
- * add new questions at the end.
- * Format: Easy|Medium|Hard | Category | Question | Right | Wrong | Wrong | Wrong
+ * Trivia question bank. Questions are edited at Groupcade > Questions (GC_Trivia_Questions) and a
+ * question's id is its post id. Until the first import from data/questions.txt has finished, the
+ * text file is used instead, with line numbers as ids.
+ * File format: Easy|Medium|Hard | Category | Question | Right | Wrong | Wrong | Wrong
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -16,6 +17,10 @@ class GC_Trivia_Bank {
 	/** @return array id => [level, cat, q, right, w1, w2, w3] */
 	public static function all() {
 		if ( null !== self::$all ) {
+			return self::$all;
+		}
+		if ( GC_Trivia_Questions::imported() ) {
+			self::$all = GC_Trivia_Questions::load();
 			return self::$all;
 		}
 		self::$all = array();
@@ -41,6 +46,11 @@ class GC_Trivia_Bank {
 			self::$all[ $id ] = array( $lvl, $f[1], $f[2], $f[3], $f[4], $f[5], $f[6] );
 		}
 		return self::$all;
+	}
+
+	/** Forget this request's copy, after a question changes. */
+	public static function reset() {
+		self::$all = null;
 	}
 
 	public static function get( $id ) {

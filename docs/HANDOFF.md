@@ -47,7 +47,9 @@
   The page's app flag is `window.GROUPCADE_APP` and it posts `{groupcade:1, type:'room', game, code, role}`.
   Bundle ID `com.groupcade.app` until Dylan says otherwise.
 - **Brand (plugin 1.2.0):** the TV mascot and three phone friends, files in `brand/`. Home page is
-  design C "Sticker Book"; every word and picture is edited at Settings > Groupcade home
-  (`GC_Home::fields()` lists them; the admin form is built from that list).
+  design C "Sticker Book"; every word and picture is edited on Pages > Home with ACF
+  (`GC_Home::fields()` lists them; `GC_Home_Fields` builds the ACF field group from that list).
+- **Admin (plugin 1.3.0):** a top-level Groupcade menu: Questions (post type `gc_question`,
+  categories `gc_question_cat`), Analytics and Settings. Trivia reads questions from there.
 - **Still open:** free or a one-time unlock; an Apple TV or AirPlay TV to test on; which Apple
   developer account.
