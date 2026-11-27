@@ -116,6 +116,8 @@ export type RoomState = {
   };
   winners?: string[];
   stopped?: boolean;
+  /** The caller's own player, when the request carried their player token. ans: 1-4 locked in, 0 = not yet. */
+  me?: { name: string; alive: boolean; ans: number; score: number; gain: number };
 };
 
 // ------------------------------------------------------------------ calls
@@ -135,6 +137,9 @@ export const api = {
 
   host: (code: string, host: string, action: string, extra: object = {}) =>
     call<RoomState>('POST', `/rooms/${code}/host`, { action, ...extra }, { 'X-Party-Host': host }),
+
+  answer: (code: string, token: string, round: number, choice: number) =>
+    call<{ ok: boolean }>('POST', `/rooms/${code}/action`, { type: 'answer', round, choice }, { 'X-Party-Token': token }),
 
   join: (code: string, name: string) =>
     call<{ token: string; name: string; late?: boolean }>('POST', `/rooms/${code}/join`, { name }),

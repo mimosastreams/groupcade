@@ -18,6 +18,7 @@ export default function Room() {
   const [saved, setSaved] = useState<SavedRoom | null | undefined>(undefined);
   const [myName, setMyName] = useState<string | null>(null);
   const [askName, setAskName] = useState<string | null>(null);
+  const [myTok, setMyTok] = useState<string | null>(null);
   useKeepAwake();
 
   useEffect(() => {
@@ -31,12 +32,14 @@ export default function Room() {
       setCastRoom(code);
       // Did the host join to play? Check the saved token is still in the room.
       store.playerToken(code).then(async (tok) => {
+        setMyTok(tok);
         if (!tok) return setMyName(null);
         try {
           const st = await api.state(code, null, tok);
           if (st.gone || !('me' in st)) {
             await store.savePlayerToken(code, null);
             setMyName(null);
+            setMyTok(null);
           } else {
             setMyName((st as unknown as { me: { name: string } }).me.name);
           }
@@ -47,7 +50,7 @@ export default function Room() {
     }, [code])
   );
 
-  const { st, error, offline, act, now } = useRoom(code, saved ? saved.host : null);
+  const { st, error, offline, act, now, refresh } = useRoom(code, saved ? saved.host : null, myTok);
 
   const leave = () =>
     Alert.alert('Leave this room?', 'The room stays open for 2 hours, and you can come back to it from the home screen.', [
@@ -84,6 +87,7 @@ export default function Room() {
       await store.savePlayerToken(code, r.token);
       await store.saveName(n);
       setMyName(r.name);
+      setMyTok(r.token);
       router.push({ pathname: '/play/[code]', params: { code } });
     } catch (e) {
       Alert.alert('Could not join', (e as Error).message);
@@ -135,7 +139,7 @@ export default function Room() {
   return (
     <>
       {header}
-      <TriviaHost st={st} act={act} now={now} offline={offline} myName={myName} onPlayToo={playToo} onNewRoom={newRoom} />
+      <TriviaHost st={st} act={act} now={now} offline={offline} myName={myName} myToken={myTok} onAnswered={refresh} onPlayToo={playToo} onNewRoom={newRoom} />
       <NamePrompt
         open={askName !== null}
         title="Play too"
