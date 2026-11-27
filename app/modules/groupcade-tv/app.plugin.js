@@ -2,7 +2,7 @@
 // Adds an external display scene configuration to Info.plist that points at
 // GCExternalDisplaySceneDelegate (ios/GCExternalDisplaySceneDelegate.swift).
 // Expo SDK 58's iOS template already uses the scene life cycle (UIApplicationSceneManifest with
-// a SceneDelegate), so this only adds a second role next to the app's own.
+// a SceneDelegate), so this adds a second role next to the app's own and turns on multiple scenes.
 const { withInfoPlist } = require('expo/config-plugins');
 
 const ROLE = 'UIWindowSceneSessionRoleExternalDisplayNonInteractive';
@@ -21,6 +21,10 @@ module.exports = function withGroupcadeTv(config) {
       }
       return cfg;
     }
+    // iOS only hands an app its own external display scene if the app declares it supports more
+    // than one scene. The SDK 58 template sets this to false, and then AirPlay just mirrors the
+    // phone. On iPhone this flag only allows the TV scene; it doesn't add any windows on the phone.
+    manifest.UIApplicationSupportsMultipleScenes = true;
     manifest.UISceneConfigurations = manifest.UISceneConfigurations || {};
     manifest.UISceneConfigurations[ROLE] = [
       {
