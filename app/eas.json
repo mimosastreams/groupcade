@@ -7,27 +7,18 @@
     "development": {
       "developmentClient": true,
       "distribution": "internal",
-      "channel": "development",
-      "env": {
-        "GROUPCADE_CAST_APP_ID": ""
-      }
+      "channel": "development"
     },
     "simulator": {
       "developmentClient": true,
       "ios": {
         "simulator": true
       },
-      "channel": "development",
-      "env": {
-        "GROUPCADE_CAST_APP_ID": ""
-      }
+      "channel": "development"
     },
     "preview": {
       "distribution": "internal",
       "channel": "preview",
-      "env": {
-        "GROUPCADE_CAST_APP_ID": ""
-      },
       "ios": {
         "image": "latest"
       }
@@ -35,9 +26,6 @@
     "production": {
       "autoIncrement": true,
       "channel": "production",
-      "env": {
-        "GROUPCADE_CAST_APP_ID": ""
-      },
       "ios": {
         "image": "latest"
       }
