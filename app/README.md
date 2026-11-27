@@ -67,8 +67,9 @@ would get. On a real iPhone, AirPlay to an Apple TV or an AirPlay 2 TV, or use a
 1. In the [Google Cast SDK Developer Console](https://cast.google.com/publish) ($5 one-time), add a
    **Custom Receiver** app. Receiver URL: `https://groupcade.com/wp-json/groupcade/v1/app?cast=1`.
 2. Paste its app ID in WordPress under **Settings > Groupcade** (turns on Cast for web hosts).
-3. Put the same ID in `eas.json` as `GROUPCADE_CAST_APP_ID` (it's there, empty, in every build
-   profile), then make a new build. Until then the app hides Cast.
+3. Add the same ID to each build profile in `eas.json` as `"env": { "GROUPCADE_CAST_APP_ID": "<id>" }`
+   (EAS refuses an empty value, so leave it out until you have one), then make a new build. Until
+   then the app hides Cast.
 
 New Cast apps only show on Chromecasts registered as test devices in that console until you publish
 the app there, so publish it once it works.
