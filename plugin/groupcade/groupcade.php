@@ -26,6 +26,7 @@ require_once GC_DIR . 'includes/class-gc-limits.php';
 require_once GC_DIR . 'includes/class-gc-room.php';
 require_once GC_DIR . 'includes/class-gc-chat.php';
 require_once GC_DIR . 'includes/class-gc-rest.php';
+require_once GC_DIR . 'includes/class-gc-fast.php';
 require_once GC_DIR . 'includes/class-gc-page.php';
 require_once GC_DIR . 'includes/class-gc-home.php';
 require_once GC_DIR . 'includes/class-gc-home-fields.php';
@@ -33,8 +34,22 @@ require_once GC_DIR . 'includes/class-gc-home-fields.php';
 // Games. Each game lives in games/<slug>/ and registers itself. See docs/ADDING-A-GAME.md.
 require_once GC_DIR . 'games/trivia/trivia.php';
 
+// Phones' room checks: answer them now, before the theme and the rest of WordPress load.
+GC_Fast::maybe_serve();
+
 register_activation_hook( __FILE__, array( 'GC_DB', 'activate' ) );
 register_deactivation_hook( __FILE__, array( 'GC_DB', 'deactivate' ) );
+register_deactivation_hook( __FILE__, array( 'GC_Fast', 'remove_loader' ) );
+add_action(
+	'init',
+	function () {
+		// Refresh the mu-plugin loader once per plugin version (plugin updates skip the activation hook).
+		if ( get_option( 'gc_fast_loader' ) !== GC_VERSION ) {
+			GC_Fast::install_loader();
+			update_option( 'gc_fast_loader', GC_VERSION, false );
+		}
+	}
+);
 
 add_action( 'init', array( 'GC_DB', 'maybe_upgrade' ), 20 ); // After rewrite rules are registered.
 add_action( 'rest_api_init', array( 'GC_Rest', 'routes' ) );

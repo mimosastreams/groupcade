@@ -99,20 +99,51 @@ class GC_Rest {
 			return $room;
 		}
 		$room = GC_Room::tick( $room );
-		$host = GC_Room::is_host( $room, (string) $req->get_header( 'x_party_host' ) );
-		$tok  = (string) $req->get_header( 'x_party_token' );
+		return self::reply(
+			self::state_view(
+				$room,
+				(string) $req->get_header( 'x_party_token' ),
+				(string) $req->get_header( 'x_party_host' ),
+				(int) $req->get_param( 'chat' ),
+				(string) $req->get_param( 'h' )
+			)
+		);
+	}
+
+	/**
+	 * The room state a phone, the host or the TV polls for. Shared by the REST route and the
+	 * fast path (GC_Fast), which answers the same request without loading all of WordPress.
+	 *
+	 * @param string $known The 'h' the caller got last time. When nothing changed since, the reply
+	 *                      is a short { same: true } instead of the whole room.
+	 */
+	public static function state_view( $room, $tok, $host_tok, $chat_since, $known = '' ) {
+		$host = GC_Room::is_host( $room, $host_tok );
 		$me   = $tok ? GC_Room::player_by_token( $room, $tok ) : null;
 		if ( $tok && ! $me ) {
 			$view         = GC_Room::view( $room, null, $host );
 			$view['gone'] = true; // Kicked, or the token is from an old room.
-			return self::reply( $view );
+			return $view;
 		}
 		if ( $host || $me ) {
 			GC_Room::touch( $room );
 		}
-		$view         = GC_Room::view( $room, $me, $host );
-		$view['chat'] = GC_Chat::since( (int) $room['id'], (int) $req->get_param( 'chat' ) );
-		return self::reply( $view );
+		$view      = GC_Room::view( $room, $me, $host );
+		$sig       = $view;
+		unset( $sig['now'] );
+		$view['h'] = substr( md5( (string) wp_json_encode( $sig ) ), 0, 12 );
+		$chat      = GC_Chat::since( (int) $room['id'], $chat_since );
+		if ( '' !== $known && hash_equals( $view['h'], $known ) ) {
+			return array(
+				'same' => true,
+				'code' => $view['code'],
+				'h'    => $view['h'],
+				'now'  => $view['now'],
+				'chat' => $chat,
+			);
+		}
+		$view['chat'] = $chat;
+		return $view;
 	}
 
 	public static function chat( WP_REST_Request $req ) {

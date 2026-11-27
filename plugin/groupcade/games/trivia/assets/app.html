@@ -331,8 +331,15 @@ var pollSeq = 0, pollApplied = 0;
 function poll(){
   stopPoll();
   var my = ++pollSeq;
-  api('GET', '/rooms/' + S.code + '?chat=' + talkSince()).then(function(st){
+  var known = (S.st && S.st.h && S.st.code === S.code && !S.st.gone) ? S.st.h : '';
+  api('GET', '/rooms/' + S.code + '?chat=' + talkSince() + (known ? '&h=' + known : '')).then(function(st){
     if (my < pollApplied) return;
+    // Nothing changed since our last copy: the server sends only the clock and new chat.
+    if (st.same) {
+      // Our copy changed while this was in flight (a host action, say): ask again for the whole room.
+      if (!S.st || S.st.h !== st.h) { if (S.st) S.st.h = ''; if (my === pollSeq) S.timer = setTimeout(poll, 0); return; }
+      var keep = S.st; keep.now = st.now; keep.chat = st.chat; st = keep;
+    }
     chatFeed(st.chat, st.me ? st.me.name : '');
     pollApplied = my;
     S.net = true;
@@ -663,7 +670,7 @@ function vHost(st, tv){
         '<div class="row" style="justify-content:center;margin-top:10px">' + (tv ? '' : '<button class="btn sm" data-act="copy">Copy link</button>') + (!tv && navigator.share ? '<button class="btn sm" data-act="share">Share</button>' : '') + (tv ? '' : '<button class="btn sm" data-act="tvsheet">' + castIcon() + 'Show on TV</button><button class="btn sm ghost" data-act="playhere">Play on this device too</button>') + '</div>' +
       '</div>' +
       '<div style="display:flex;flex-direction:column;gap:14px">' +
-        '<div class="card"><div class="meta"><h2>Players</h2><span class="sp"></span><span class="stat" style="color:#fff">' + players.length + '</span><span>/ ' + (CFG.maxPlayers || 30) + '</span></div><div style="height:12px"></div>' +
+        '<div class="card"><div class="meta"><h2>Players</h2><span class="sp"></span><span class="stat" style="color:#fff">' + players.length + '</span><span>/ ' + (CFG.maxPlayers || 50) + '</span></div><div style="height:12px"></div>' +
           (players.length ? '<div class="chips">' + players.map(function(p){ return '<span class="chip pop">' + esc(p.name) + (tv ? '' : '<button class="x" data-kick="' + p.id + '" title="Remove ' + esc(p.name) + '" aria-label="Remove ' + esc(p.name) + '">×</button>') + '</span>'; }).join('') + '</div>' : '<p class="muted" style="margin:0">Waiting for players to join…</p>') +
         '</div>' +
         (tv ? '<div class="card"><div class="waiting">Waiting for the host to start…</div><p class="muted small" style="margin:6px 0 0">' + (isPts(st) ? 'Points mode · ' : 'Survival · ') + (st.rounds ? st.rounds + ' rounds' : 'Until one is left') + ' · ' + st.secs + ' seconds per question' + (st.only && st.only.length ? ' · ' + st.only.map(esc).join(', ') : ' · All categories') + '</p></div></div></div>' : '') +
