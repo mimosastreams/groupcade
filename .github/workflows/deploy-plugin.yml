@@ -5,7 +5,7 @@
 # Ways to run it:
 #   - Actions > Deploy plugin > Run workflow, on any branch, and pick the plugin.
 #   - Push a commit whose message contains [deploy] (deploys plugin/groupcade) or
-#     [deploy groupcade-deploy] (deploys plugin/groupcade-deploy).
+#     [deploy groupcade-deploy] or [deploy acf-pro].
 # acf-pro downloads ACF Pro with the ACF_PRO_KEY repository secret (your license key).
 name: Deploy plugin
 
@@ -45,7 +45,9 @@ jobs:
         run: |
           p="$INPUT"
           if [ -z "$p" ]; then
-            if printf '%s' "$MSG" | grep -q '\[deploy groupcade-deploy\]'; then p=groupcade-deploy; else p=groupcade; fi
+            if printf '%s' "$MSG" | grep -q '\[deploy groupcade-deploy\]'; then p=groupcade-deploy
+            elif printf '%s' "$MSG" | grep -q '\[deploy acf-pro\]'; then p=acf-pro
+            else p=groupcade; fi
           fi
           echo "plugin=$p" >> "$GITHUB_OUTPUT"
 
