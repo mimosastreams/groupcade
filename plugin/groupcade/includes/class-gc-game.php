@@ -108,6 +108,14 @@ abstract class GC_Game {
 	 */
 	abstract public function view( $room, $rows, $me, $host );
 
+	/**
+	 * Final places for a signed-in host's game history, best first:
+	 * [ [ 'n' => name, 's' => score, 'w' => 1 for a winner ], ... ]. Empty = not tracked.
+	 */
+	public function standings( $room ) {
+		return array();
+	}
+
 	/** Short label for the stats table, e.g. a mode name. */
 	public function stats_mode( $s ) {
 		return '';

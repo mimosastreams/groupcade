@@ -68,6 +68,51 @@ class GC_Admin {
 				'default'           => '1',
 			)
 		);
+		// Host sign-in. Plain IDs, plus the Sign in with Apple private key (used to revoke Apple's token
+		// when a host deletes their account, which Apple requires).
+		foreach ( array( 'gc_apple_services', 'gc_apple_bundle', 'gc_apple_team', 'gc_apple_key_id', 'gc_google_web', 'gc_google_ios', 'gc_google_android' ) as $opt ) {
+			register_setting(
+				'gc',
+				$opt,
+				array(
+					'type'              => 'string',
+					'sanitize_callback' => function ( $v ) {
+						return preg_replace( '/[^A-Za-z0-9._\-]/', '', (string) $v );
+					},
+					'default'           => '',
+				)
+			);
+		}
+		register_setting(
+			'gc',
+			'gc_apple_key',
+			array(
+				'type'              => 'string',
+				'sanitize_callback' => function ( $v ) {
+					$v = trim( (string) $v );
+					// The field shows a placeholder once a key is saved; an untouched field keeps the old key.
+					if ( '' === $v || '(saved)' === $v ) {
+						return (string) get_option( 'gc_apple_key', '' );
+					}
+					if ( 'delete' === strtolower( $v ) ) {
+						return '';
+					}
+					return preg_replace( '/[^A-Za-z0-9+\/=\-\n ]/', '', str_replace( "\r", '', $v ) );
+				},
+				'default'           => '',
+			)
+		);
+		register_setting(
+			'gc',
+			'gc_paid_launch',
+			array(
+				'type'              => 'string',
+				'sanitize_callback' => function ( $v ) {
+					return $v ? (string) get_option( 'gc_paid_launch', '' ) ?: (string) time() : '';
+				},
+				'default'           => '',
+			)
+		);
 		foreach ( array( 'gc_app_ios', 'gc_app_android' ) as $opt ) {
 			register_setting(
 				'gc',
@@ -209,6 +254,47 @@ class GC_Admin {
 						<td>
 							<input id="gc_cast_app" name="gc_cast_app" class="regular-text" value="<?php echo esc_attr( get_option( 'gc_cast_app', '' ) ); ?>" placeholder="e.g. A1B2C3D4">
 							<p class="description">From the Google Cast SDK Developer Console (Custom Receiver). Receiver URL: <code><?php echo esc_html( rest_url( GC_Rest::NS . '/app' ) . '?cast=1' ); ?></code>. Leave empty to hide the Cast button.</p>
+						</td>
+					</tr>
+					<tr><th colspan="2"><h2 style="margin:16px 0 0">Host sign-in</h2><p class="description" style="font-weight:400">Hosts can sign in to save their setup, game history and question packs. Players never sign in. Buttons only show once their IDs are filled in; email codes always work. Hosts so far: <?php echo (int) ( count_users()['avail_roles'][ GC_Accounts::ROLE ] ?? 0 ); ?> (<a href="<?php echo esc_url( admin_url( 'users.php?role=' . GC_Accounts::ROLE ) ); ?>">see them</a>). Account page: <a href="<?php echo esc_url( home_url( '/account/' ) ); ?>" target="_blank"><?php echo esc_html( home_url( '/account/' ) ); ?></a></p></th></tr>
+					<tr>
+						<th><label for="gc_apple_bundle">Apple: app bundle ID</label></th>
+						<td><input id="gc_apple_bundle" name="gc_apple_bundle" class="regular-text" value="<?php echo esc_attr( get_option( 'gc_apple_bundle', '' ) ); ?>" placeholder="com.groupcade.app"><p class="description">Leave empty for com.groupcade.app.</p></td>
+					</tr>
+					<tr>
+						<th><label for="gc_apple_services">Apple: Services ID (website)</label></th>
+						<td><input id="gc_apple_services" name="gc_apple_services" class="regular-text" value="<?php echo esc_attr( get_option( 'gc_apple_services', '' ) ); ?>" placeholder="com.groupcade.web"><p class="description">Shows the Apple button on the website. In the Services ID, add the domain <code><?php echo esc_html( wp_parse_url( home_url(), PHP_URL_HOST ) ); ?></code> and the return URL <code><?php echo esc_html( home_url( '/account/' ) ); ?></code>.</p></td>
+					</tr>
+					<tr>
+						<th><label for="gc_apple_team">Apple: Team ID</label></th>
+						<td><input id="gc_apple_team" name="gc_apple_team" class="regular-text" value="<?php echo esc_attr( get_option( 'gc_apple_team', '' ) ); ?>"></td>
+					</tr>
+					<tr>
+						<th><label for="gc_apple_key_id">Apple: Key ID</label></th>
+						<td><input id="gc_apple_key_id" name="gc_apple_key_id" class="regular-text" value="<?php echo esc_attr( get_option( 'gc_apple_key_id', '' ) ); ?>"></td>
+					</tr>
+					<tr>
+						<th><label for="gc_apple_key">Apple: private key (.p8)</label></th>
+						<td><textarea id="gc_apple_key" name="gc_apple_key" class="large-text code" rows="3" placeholder="-----BEGIN PRIVATE KEY-----"><?php echo get_option( 'gc_apple_key', '' ) ? '(saved)' : ''; ?></textarea><p class="description">The Sign in with Apple key. Used only to cancel Apple's sign-in when a host deletes their account (Apple requires it). Type <code>delete</code> to remove it.</p></td>
+					</tr>
+					<tr>
+						<th><label for="gc_google_web">Google: web client ID</label></th>
+						<td><input id="gc_google_web" name="gc_google_web" class="regular-text" value="<?php echo esc_attr( get_option( 'gc_google_web', '' ) ); ?>" placeholder="....apps.googleusercontent.com"><p class="description">Shows the Google button on the website. The Android app uses it too. Add <code><?php echo esc_html( untrailingslashit( home_url() ) ); ?></code> as an authorized JavaScript origin.</p></td>
+					</tr>
+					<tr>
+						<th><label for="gc_google_ios">Google: iOS client ID</label></th>
+						<td><input id="gc_google_ios" name="gc_google_ios" class="regular-text" value="<?php echo esc_attr( get_option( 'gc_google_ios', '' ) ); ?>" placeholder="....apps.googleusercontent.com"><p class="description">Shows the Google button in the iPhone app.</p></td>
+					</tr>
+					<tr>
+						<th><label for="gc_google_android">Google: Android client ID</label></th>
+						<td><input id="gc_google_android" name="gc_google_android" class="regular-text" value="<?php echo esc_attr( get_option( 'gc_google_android', '' ) ); ?>" placeholder="....apps.googleusercontent.com"><p class="description">Optional. Android sign-ins normally come in with the web client ID.</p></td>
+					</tr>
+					<tr>
+						<th>Paid plans</th>
+						<td>
+							<input type="hidden" name="gc_paid_launch" value="">
+							<label><input type="checkbox" name="gc_paid_launch" value="1" <?php checked( (bool) get_option( 'gc_paid_launch' ) ); ?>> Paid plans have launched</label>
+							<p class="description">Until this is on, everyone who signs up is marked a founding member, so you can thank early hosts later.<?php if ( get_option( 'gc_paid_launch' ) ) : ?> Turned on <?php echo esc_html( wp_date( get_option( 'date_format' ), (int) get_option( 'gc_paid_launch' ) ) ); ?>.<?php endif; ?></p>
 						</td>
 					</tr>
 				</table>

@@ -340,7 +340,7 @@ function api(method, path, body){
   var h = { 'X-Groupcade': '1' };
   if (S.token) h['X-Party-Token'] = S.token;
   if (S.host) h['X-Party-Host'] = S.host;
-  var o = { method: method, headers: h, cache: 'no-store', credentials: 'omit' };
+  var o = { method: method, headers: h, cache: 'no-store', credentials: 'same-origin' }; // Sends the host's account cookie, if any.
   if (body) { h['Content-Type'] = 'application/json'; o.body = JSON.stringify(body); }
   var url = CFG.api + path + (method === 'GET' ? (path.indexOf('?') < 0 ? '?' : '&') + '_=' + Date.now() : '');
   return fetch(url, o).then(function(r){
@@ -455,10 +455,51 @@ document.addEventListener('visibilitychange', function(){ if (!document.hidden &
 function createRoom(rounds, secs, mode){
   var cats = homeSel();
   S.busy = true; S.err = ''; render(true);
-  api('POST', '/rooms', { rounds: rounds, secs: secs, cats: cats, mode: mode || 'survive' }).then(function(r){
+  var pack = S.user ? +(sget('gc_pack') || 0) : 0;
+  if (pack && !(S.packs || []).some(function(k){ return k.id === pack; })) pack = 0;
+  api('POST', '/rooms', { rounds: rounds, secs: secs, cats: cats, mode: mode || 'survive', pack: pack || undefined }).then(function(r){
+    if (S.user) savePrefs(rounds, secs, cats, mode || 'survive', pack);
     sset('gc_host_' + r.code, r.host); S.busy = false; enterRoom(r.code, true);
   }).catch(function(e){ S.busy = false; S.err = e.message; render(true); });
 }
+// ---------------------------------------------------------------- host account (optional)
+// A signed-in host's settings follow them between the app and the website, and their games are saved.
+function allCats(c){ var reg = CFG.cats || []; return c.length === reg.length && reg.every(function(x){ return c.indexOf(x) >= 0; }); }
+function savePrefs(rounds, secs, cats, mode, pack){
+  api('POST', '/me/prefs', { game: CFG.game, settings: { mode: mode, rounds: rounds, secs: secs, cats: allCats(cats) ? [] : cats, pack: pack || 0 } }).catch(function(){});
+}
+function loadAccount(){
+  if (CFG.tv || CFG.cast) return;
+  api('GET', '/me').then(function(r){
+    S.user = r.user; if (!S.user) { if (S.mode === 'home') render(true); return; }
+    return Promise.all([
+      api('GET', '/me/prefs?game=' + CFG.game).then(function(p){
+        var v = p.settings; if (!v) return;
+        if (v.mode) sset('gc_mode', v.mode === 'points' ? 'points' : 'survive');
+        if (v.rounds !== undefined) sset('gc_rounds', +v.rounds);
+        if (v.secs) sset('gc_secs', +v.secs);
+        if (Array.isArray(v.cats)) sset('gc_cats', v.cats.length ? JSON.stringify(v.cats) : null);
+        sset('gc_pack', v.pack ? +v.pack : null);
+      }).catch(function(){}),
+      api('GET', '/me/packs').then(function(p){ S.packs = p.packs; }).catch(function(){})
+    ]).then(function(){ if (S.mode === 'home') { S.sig = ''; render(true); } });
+  }).catch(function(){});
+}
+function accountLink(extra){ return CFG.site + 'account/' + (extra || ''); }
+function packPick(){
+  if (!S.user) return '<p class="muted small" style="margin:12px 0 0"><a href="' + esc(accountLink('?next=' + encodeURIComponent(pathOf(CFG.party)))) + '" style="color:var(--text);font-weight:800">Sign in</a> to save your setup, keep your game history and play your own questions. Optional.</p>';
+  var packs = S.packs || [], cur = +(sget('gc_pack') || 0);
+  var opts = '<button type="button" data-pack="0" class="' + (!cur ? 'on' : '') + '">None</button>' + packs.filter(function(k){ return k.count > 0; }).map(function(k){ return '<button type="button" data-pack="' + k.id + '" class="' + (k.id === cur ? 'on' : '') + '">' + esc(k.name) + ' (' + k.count + ')</button>'; }).join('');
+  return '<div style="height:12px"></div><label style="margin:0">Your question pack</label><div style="height:8px"></div>' +
+    (packs.some(function(k){ return k.count > 0; }) ? '<div class="seg">' + opts + '</div><p class="muted small" style="margin:6px 0 0">Your questions come first, then regular ones fill any rounds left.</p>' : '<p class="muted small" style="margin:0">Write your own questions on <a href="' + esc(accountLink()) + '" style="color:var(--text)">your account page</a>.</p>') +
+    '<p class="muted small" style="margin:10px 0 0">Signed in as <b>' + esc(S.user.name) + '</b>. Your setup and games are saved.</p>';
+}
+function saveCard(st){
+  if (st.owned) return '<p class="muted small center" style="margin:0">Saved to <a href="' + esc(accountLink()) + '" style="color:var(--text)">your game history</a>.</p>';
+  var to = accountLink('?claim=' + st.code + '&next=' + encodeURIComponent(pathOf(link(st.code)) + '/'));
+  return '<div class="card center" style="background:var(--mint-t)"><h2 style="font-size:20px">Keep this game?</h2><p class="muted small" style="margin:6px 0 12px">Sign in to save who won, keep your setup for next time and write your own questions. It\'s optional and takes a few seconds.</p><a class="btn" href="' + esc(to) + '">Save my games</a></div>';
+}
+
 function joinRoom(code, name){
   code = (code || '').toUpperCase().replace(/[^A-Z]/g,'').slice(0,4);
   name = (name || '').trim();
@@ -605,7 +646,7 @@ function vHome(){
     modeSeg('data-mode', md) +
     '<label>Rounds</label><div class="seg" data-seg="rounds">' + roundsList(md === 'points').map(function(n){ return '<button type="button" data-v="' + n + '" class="' + (n === r ? 'on' : '') + '">' + (n ? n : 'Until one is left') + '</button>'; }).join('') + '</div>' +
     '<div style="height:12px"></div><label>Seconds per question</label><div class="seg" data-seg="secs">' + [15,20,30].map(function(n){ return '<button type="button" data-v="' + n + '" class="' + (n === s ? 'on' : '') + '">' + n + 's</button>'; }).join('') + '</div>' +
-    homeCats() +
+    homeCats() + packPick() +
     '<div style="height:14px"></div><button class="btn wide" data-act="create" ' + (S.busy ? 'disabled' : '') + '>Make a room</button></div>' +
   '<div class="err" role="alert">' + esc(S.err) + '</div>' +
   '<div class="card"><h2 style="font-size:17px">How it works</h2><ul class="rules"><li>Each round lands on a category, then a question with 4 answers.</li><li>Wrong answer, or no answer in time, and you\'re out.</li><li>If everyone still standing misses, nobody is out.</li><li>Questions start easy and get harder.</li><li>Last one standing wins. If several make it through the last round, they all win.</li></ul></div>';
@@ -788,7 +829,7 @@ function vHost(st, tv){
   // end
   return '<div class="card center pop" style="padding:32px 18px"><p class="muted" style="margin:0 0 8px;font-weight:800;letter-spacing:.14em;text-transform:uppercase">' + ((st.winners || []).length > 1 ? 'Winners' : ((st.winners || []).length ? 'Winner' : '')) + '</p><div class="win">' + winnersTxt(st) + '</div>' +
     '<p class="muted" style="margin:12px 0 0">' + (st.round ? 'After ' + st.round + ' round' + (st.round === 1 ? '' : 's') : '') + '</p></div>' +
-    (tv ? '<p class="waiting center" style="margin:0">Waiting for the host to start the next game…</p>' : '<div class="row" style="justify-content:center"><button class="btn go" data-act="again">Play again, same players</button><button class="btn" data-act="newroom">New room</button></div>') +
+    (tv ? '<p class="waiting center" style="margin:0">Waiting for the host to start the next game…</p>' : '<div class="row" style="justify-content:center"><button class="btn go" data-act="again">Play again, same players</button><button class="btn" data-act="newroom">New room</button></div>' + saveCard(st)) +
     '<div class="card"><h2 style="font-size:17px;margin-bottom:10px">Standings</h2>' + standingsHtml(st) + '</div>';
 }
 // ---------------- Phone buddies: each player gets one of the TV mascot's phone friends, in join order.
@@ -1108,6 +1149,7 @@ function wire(){
     var cb = app.querySelector('[data-act=create]'); if (cb) cb.disabled = !on.length;
   };
   app.querySelectorAll('[data-mode]').forEach(function(b){ b.addEventListener('click', function(){ sset('gc_mode', b.getAttribute('data-mode')); S.sig = ''; render(true); }); });
+  app.querySelectorAll('[data-pack]').forEach(function(b){ b.addEventListener('click', function(){ var v = +b.getAttribute('data-pack'); sset('gc_pack', v || null); b.parentNode.querySelectorAll('button').forEach(function(x){ x.classList.toggle('on', x === b); }); }); });
   app.querySelectorAll('[data-hmode]').forEach(function(b){ b.addEventListener('click', function(){ hostDo('settings', { mode: b.getAttribute('data-hmode') }); }); });
   app.querySelectorAll('[data-hcat]').forEach(function(b){ b.addEventListener('click', function(){ b.classList.toggle('on'); saveH(); }); });
   app.querySelectorAll('[data-hcats]').forEach(function(b){ b.addEventListener('click', function(){
@@ -1187,6 +1229,7 @@ else if (startCode.length === 4) {
   // A host returning to their own room link gets the host screen, unless they came to play.
   enterRoom(startCode, !!sget('gc_host_' + startCode) && !sget('gc_tok_' + startCode) && qs.get('play') !== '1');
 } else { render(true); }
+if (!APP) loadAccount();
 })();
 </script>
 </body>

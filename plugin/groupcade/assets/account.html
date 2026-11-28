@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#FFFDF7">
+<title>Your account · Groupcade</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@800&family=Nunito:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FFFDF7;--card:#fff;--ink:#1B1F3B;--mist:#3A4366;--faint:#8A93AE;--soft:#C4C9DA;
+  --accent:#4A3AFF;--coral:#FF6B4A;--gold:#FFC93C;--mint:#3DD68C;--blue:#5BB8F5;--sky:#CFEBFF;
+  --coral-t:#FFE3DA;--gold-t:#FFF4CF;--mint-t:#DDF8EA;--pink-t:#FFE0EE;--right:#12784A;--out:#B83A1E;
+  --bw:3px;--display:"Baloo 2","Nunito",system-ui,sans-serif;--body:"Nunito",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-weight:500;-webkit-text-size-adjust:100%}
+body{min-height:100vh;display:flex;flex-direction:column}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+a{color:var(--accent)}
+.top{display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:var(--bw) solid var(--ink);background:#fff}
+.top a.home{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
+.top .logo{width:44px;flex:none}.top .logo svg{width:100%;height:auto;display:block}
+.top b{font-family:var(--display);font-size:22px}
+.top .sp{flex:1}
+main{flex:1;width:100%;max-width:640px;margin:0 auto;padding:18px 16px 40px;display:flex;flex-direction:column;gap:16px}
+.card{background:var(--card);border:var(--bw) solid var(--ink);border-radius:22px;padding:18px;box-shadow:5px 5px 0 var(--ink)}
+.card.mint{background:var(--mint-t)}.card.gold{background:var(--gold-t)}.card.coral{background:var(--coral-t)}.card.flat{box-shadow:none}
+h1,h2,h3{margin:0;font-family:var(--display);font-weight:800;line-height:1.05}
+h1{font-size:clamp(30px,8vw,42px)}h2{font-size:24px}h3{font-size:19px}
+p{margin:0}
+.muted{color:var(--mist)}.small{font-size:14px}.center{text-align:center}
+.stack{display:flex;flex-direction:column;gap:10px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.sp{flex:1}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 20px;border-radius:999px;border:var(--bw) solid var(--ink);background:#fff;color:var(--ink);font-weight:800;font-size:16px;text-decoration:none}
+.btn.go{background:var(--coral);font-family:var(--display);font-size:20px;box-shadow:4px 4px 0 var(--ink)}
+.btn.dark{background:var(--ink);color:#fff}
+.btn.sm{min-height:38px;padding:0 14px;font-size:14px}
+.btn.wide{width:100%}
+.btn.ghost{border-color:var(--soft)}
+.btn.danger{background:var(--coral-t);color:var(--out);border-color:var(--out)}
+.btn:disabled{opacity:.45;cursor:not-allowed;box-shadow:none}
+.btn.apple{background:#000;color:#fff;border-color:#000}
+.field{width:100%;min-height:50px;border:var(--bw) solid var(--ink);border-radius:16px;padding:10px 14px;background:#fff;font-size:17px}
+textarea.field{min-height:120px;font-size:15px;line-height:1.4}
+select.field{appearance:auto}
+label{display:block;font-weight:800;margin:0 0 6px}
+.err{color:var(--out);font-weight:800;min-height:0}
+.err:empty{display:none}
+.ok{color:var(--right);font-weight:800}
+.banner{border:var(--bw) solid var(--ink);border-radius:16px;padding:12px 14px;font-weight:700;background:var(--gold-t)}
+.banner.good{background:var(--mint-t)}
+.tag{display:inline-block;border:2px solid var(--ink);border-radius:999px;padding:1px 10px;font-size:13px;font-weight:800;background:var(--gold)}
+.list{display:flex;flex-direction:column;gap:8px;margin:0;padding:0;list-style:none}
+.item{border:2px solid var(--ink);border-radius:14px;padding:10px 12px;background:#fff}
+.item .t{font-weight:800}
+.board{display:grid;grid-template-columns:auto 1fr auto auto;gap:6px 12px;align-items:center;font-weight:700}
+.board .n{font-family:var(--display);font-size:20px;color:var(--accent)}
+.q{border:2px solid var(--ink);border-radius:14px;padding:10px 12px;background:#fff;display:flex;gap:10px;align-items:flex-start}
+.q .body{flex:1;min-width:0}
+.q .qq{font-weight:800}
+.q .ans{font-size:14px;color:var(--mist);word-break:break-word}
+.q .ans b{color:var(--right)}
+.lvl{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--mist)}
+.x{border:none;background:none;font-size:22px;line-height:1;padding:2px 6px;color:var(--out)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media (max-width:480px){.grid2{grid-template-columns:1fr}}
+.or{display:flex;align-items:center;gap:10px;color:var(--mist);font-weight:800;font-size:14px}
+.or:before,.or:after{content:"";flex:1;height:2px;background:var(--soft)}
+#gbtn{display:flex;justify-content:center;min-height:44px}
+.foot{padding:20px 16px 32px;text-align:center;font-size:14px;color:var(--mist)}
+.check{display:flex;gap:10px;align-items:flex-start;font-weight:700}
+.check input{width:22px;height:22px;margin:1px 0 0;accent-color:var(--accent)}
+details summary{cursor:pointer;font-weight:800}
+</style>
+</head>
+<body>
+<header class="top"><a class="home" id="home" href="/"><span class="logo">{{LOGO}}</span><b>Groupcade</b></a><span class="sp"></span><span id="who" class="small muted"></span></header>
+<main id="app" aria-live="polite"><div class="card center muted">Loading…</div></main>
+<footer class="foot">Accounts are for hosts. Players always join with just a code. <span id="privacy"></span></footer>
+<script>
+(function(){
+"use strict";
+var CFG = {{CONFIG}};
+var app = document.getElementById('app');
+var Q = new URLSearchParams(location.search);
+var S = { user: null, view: 'home', err: '', note: '', busy: false, email: '', codeSent: false, history: null, packs: null, pack: null, dirty: false };
+document.getElementById('home').href = CFG.site;
+if (CFG.privacy) document.getElementById('privacy').innerHTML = '<a href="' + esc(CFG.privacy) + '">Privacy</a>';
+
+function esc(s){ return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+function sget(k){ try { return localStorage.getItem(k); } catch(e){ return null; } }
+function api(method, path, body, headers){
+  var h = { 'X-Groupcade': '1', 'Accept': 'application/json' };
+  for (var k in (headers || {})) h[k] = headers[k];
+  var o = { method: method, headers: h, credentials: 'same-origin', cache: 'no-store' };
+  if (body) { h['Content-Type'] = 'application/json'; o.body = JSON.stringify(body); }
+  return fetch(CFG.api + path, o).then(function(r){
+    return r.json().catch(function(){ return {}; }).then(function(j){
+      if (!r.ok) { var e = new Error(j.message || ('Something went wrong (' + r.status + ').')); e.status = r.status; e.code = j.code; throw e; }
+      return j;
+    });
+  });
+}
+function fail(e){ S.busy = false; S.err = e.message; draw(); }
+// Show a problem without redrawing, so nothing the host typed is lost.
+function showErr(m){ S.err = m; var e = app.querySelector('.err'); if (e) { e.textContent = m; e.scrollIntoView({ block: 'center', behavior: 'smooth' }); } }
+function when(t){ var d = new Date(t * 1000); return d.toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: d.getFullYear() === new Date().getFullYear() ? undefined : 'numeric' }) + ', ' + d.toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit' }); }
+function viaTxt(v){ return (v || []).map(function(x){ return { apple: 'Apple', google: 'Google', email: 'email code' }[x] || x; }).join(', '); }
+
+// ---------------------------------------------------------------- sign in
+function signedIn(r){
+  S.user = r.user; S.busy = false; S.err = ''; S.codeSent = false;
+  afterSignIn();
+}
+function afterSignIn(){
+  var claim = (Q.get('claim') || '').toUpperCase().replace(/[^A-Z]/g, '').slice(0, 4);
+  var host = claim ? sget('gc_host_' + claim) : null;
+  if (claim && host) {
+    api('POST', '/rooms/' + claim + '/claim', {}, { 'X-Party-Host': host }).then(function(r){
+      S.note = 'Saved! Room ' + claim + (r.games ? ' and its ' + (r.games === 1 ? 'game' : r.games + ' games') : '') + ' are in your history now, and the next games will save too.';
+      Q.delete('claim'); try { history.replaceState(null, '', location.pathname + (Q.toString() ? '?' + Q : '')); } catch(e){}
+      loadAll();
+    }).catch(function(e){ S.note = ''; S.err = e.message; loadAll(); });
+    return;
+  }
+  loadAll();
+}
+function loadAll(){
+  S.view = CFG.del ? 'delete' : 'home';
+  draw();
+  api('GET', '/me/history').then(function(r){ S.history = r; draw(); }).catch(function(){});
+  api('GET', '/me/packs').then(function(r){ S.packs = r.packs; draw(); }).catch(function(){});
+}
+function apple(){
+  if (!window.AppleID) { S.err = 'Apple sign-in is still loading. Try again in a second.'; draw(); return; }
+  S.err = ''; S.busy = true; draw();
+  AppleID.auth.signIn().then(function(d){
+    var n = d.user && d.user.name ? ((d.user.name.firstName || '') + ' ' + (d.user.name.lastName || '')).trim() : '';
+    return api('POST', '/auth/apple', { id_token: d.authorization.id_token, code: d.authorization.code, name: n, web: true, device: 'Web' }).then(signedIn);
+  }).catch(function(e){ S.busy = false; if (e && e.error === 'popup_closed_by_user') { draw(); return; } fail(e instanceof Error ? e : new Error('Apple sign-in didn\'t finish. Try again.')); });
+}
+function google(resp){
+  S.err = ''; S.busy = true; draw();
+  api('POST', '/auth/google', { id_token: resp.credential, web: true, device: 'Web' }).then(signedIn).catch(fail);
+}
+function loadScript(src, cb){ var s = document.createElement('script'); s.src = src; s.async = true; s.onload = cb; document.head.appendChild(s); }
+var gReady = false, aReady = false;
+function setupProviders(){
+  if (CFG.auth.apple.web && !aReady) {
+    loadScript('https://appleid.cdn-apple.com/appleauth/static/jsapi/appleid/1/en_US/appleid.auth.js', function(){
+      try { AppleID.auth.init({ clientId: CFG.auth.apple.web, scope: 'name email', redirectURI: CFG.account, usePopup: true }); aReady = true; } catch(e){}
+    });
+  }
+  if (CFG.auth.google.web && !gReady) {
+    loadScript('https://accounts.google.com/gsi/client', function(){
+      try { google_init(); gReady = true; drawGoogle(); } catch(e){}
+    });
+  }
+}
+function google_init(){ window.google.accounts.id.initialize({ client_id: CFG.auth.google.web, callback: google, ux_mode: 'popup' }); }
+function drawGoogle(){
+  var el = document.getElementById('gbtn');
+  if (el && gReady && !el.firstChild) window.google.accounts.id.renderButton(el, { theme: 'outline', size: 'large', shape: 'pill', text: 'continue_with', width: Math.min(360, el.offsetWidth || 320) });
+}
+
+// ---------------------------------------------------------------- views
+function draw(){
+  document.getElementById('who').textContent = S.user ? S.user.name : '';
+  var h;
+  if (!S.user) h = vSignIn();
+  else if (S.view === 'pack') h = vPack();
+  else if (S.view === 'delete') h = vDelete();
+  else h = vHome();
+  // Keep what the host was typing in the add-a-question form across redraws (saves redraw the page).
+  var keep = {};
+  if (!S.clearForm) app.querySelectorAll('[data-keep]').forEach(function(e){ keep[e.id] = e.tagName === 'DETAILS' ? e.open : e.value; });
+  S.clearForm = false;
+  app.innerHTML = h;
+  Object.keys(keep).forEach(function(id){ var e = document.getElementById(id); if (!e) return; if (e.tagName === 'DETAILS') e.open = keep[id]; else e.value = keep[id]; });
+  wire();
+  drawGoogle();
+}
+
+function vSignIn(){
+  var claim = Q.get('claim');
+  var head = CFG.del
+    ? '<div class="card coral"><h1>Delete your account</h1><p class="muted" style="margin-top:8px">Sign in the way you usually do, and you can delete your Groupcade account and everything in it right away: your saved settings, game history and question packs.</p></div>'
+    : '<div class="card mint"><h1>Sign in</h1><p class="muted" style="margin-top:8px">For hosts. Save your setup, keep your game history, and write your own question packs. Players never need an account.</p></div>';
+  var buttons = '';
+  if (CFG.auth.apple.web) buttons += '<button class="btn apple wide" data-act="apple"' + (S.busy ? ' disabled' : '') + '>&#63743; Sign in with Apple</button>';
+  if (CFG.auth.google.web) buttons += '<div id="gbtn"></div>';
+  var email = S.codeSent
+    ? '<form id="codef" class="stack"><p class="small">We sent a 6-digit code to <b>' + esc(S.email) + '</b>. It works for 10 minutes.</p>' +
+      '<label for="code" style="margin:0">Code</label><input id="code" class="field" inputmode="numeric" autocomplete="one-time-code" maxlength="6" placeholder="123456" autofocus>' +
+      '<button class="btn dark wide"' + (S.busy ? ' disabled' : '') + '>Sign in</button>' +
+      '<button type="button" class="btn sm ghost" data-act="again">Use a different email</button></form>'
+    : '<form id="emailf" class="stack"><label for="em" style="margin:0">Email</label><input id="em" class="field" type="email" autocomplete="email" placeholder="you@example.com" value="' + esc(S.email) + '">' +
+      '<button class="btn wide"' + (S.busy ? ' disabled' : '') + '>Email me a code</button></form>';
+  return head +
+    (claim ? '<div class="banner">Sign in to save room ' + esc(claim.toUpperCase()) + ' and its games to your history.</div>' : '') +
+    '<div class="card stack">' + buttons + (buttons ? '<div class="or">or</div>' : '') + email + '<div class="err" role="alert">' + esc(S.err) + '</div></div>' +
+    '<p class="small muted center">By signing in you agree that we keep your name, email and what you save here, so we can show it back to you. You can delete it all at any time.</p>';
+}
+
+function vHome(){
+  var u = S.user, next = Q.get('next');
+  var backLink = next && /^\/[^\/]/.test(next) ? '<a class="btn go wide" href="' + esc(next) + '">Back to your game</a>' : '';
+  var h = (S.note ? '<div class="banner good">' + esc(S.note) + '</div>' : '') + backLink +
+    '<div class="card stack"><div class="row"><h1 style="flex:1">Hi, ' + esc(u.name) + '</h1>' + (u.founding ? '<span class="tag" title="You signed up before paid plans. Thanks for being early.">Founding member</span>' : '') + '</div>' +
+      '<p class="muted small">' + (u.email && !u.relay ? esc(u.email) + ' · ' : '') + 'Signed in with ' + esc(viaTxt(u.via)) + '</p>' +
+      '<form id="namef" class="row"><input id="nm" class="field" style="flex:1;min-width:180px" maxlength="40" value="' + esc(u.name) + '" aria-label="Your name"><button class="btn sm">Save name</button></form>' +
+      '<label class="check"><input type="checkbox" id="news"' + (u.news ? ' checked' : '') + (u.email ? '' : ' disabled') + '> <span>Email me when a new game comes out' + (u.email ? '' : ' <span class="muted small">(needs an email on your account)</span>') + '</span></label>' +
+      '<div class="err" role="alert">' + esc(S.err) + '</div></div>';
+  h += vHistory() + vPacks();
+  h += '<div class="card flat stack"><h3>Account</h3><div class="row"><button class="btn sm" data-act="logout">Sign out</button><button class="btn sm ghost" data-act="logoutall">Sign out everywhere</button><span class="sp"></span><button class="btn sm danger" data-act="del">Delete account</button></div></div>';
+  return h;
+}
+
+function vHistory(){
+  var r = S.history;
+  if (!r) return '<div class="card"><h2>Your games</h2><p class="muted" style="margin-top:8px">Loading…</p></div>';
+  if (!r.games.length) return '<div class="card"><h2>Your games</h2><p class="muted" style="margin-top:8px">Games you host while signed in show up here, with who won.</p></div>';
+  var board = r.board.length ? '<h3 style="margin:14px 0 8px">Most wins</h3><div class="board">' + r.board.map(function(b, i){
+    return '<span class="n">' + (i + 1) + '</span><span>' + esc(b.name) + '</span><span>' + b.wins + ' win' + (b.wins === 1 ? '' : 's') + '</span><span class="muted small">' + b.games + ' played</span>';
+  }).join('') + '</div>' : '';
+  var list = '<ul class="list" style="margin-top:10px">' + r.games.slice(0, 15).map(function(g){
+    var w = g.winners.length ? (g.winners.length > 1 ? 'Winners: ' : 'Winner: ') + g.winners.map(esc).join(', ') : (g.stopped ? 'Ended early' : 'No winner');
+    return '<li class="item"><div class="row"><span class="t">' + esc(g.name) + (g.mode ? ' · ' + (g.mode === 'points' ? 'Points' : 'Survival') : '') + '</span><span class="sp"></span><span class="small muted">' + esc(when(g.at)) + '</span></div>' +
+      '<div class="small">' + w + '</div><div class="small muted">' + g.players + ' player' + (g.players === 1 ? '' : 's') + ' · ' + g.rounds + ' round' + (g.rounds === 1 ? '' : 's') + (g.mins ? ' · ' + g.mins + ' min' : '') + '</div></li>';
+  }).join('') + '</ul>';
+  return '<div class="card"><h2>Your games</h2><p class="muted small" style="margin-top:4px">' + r.total + ' game' + (r.total === 1 ? '' : 's') + ' hosted</p>' + board + '<h3 style="margin:14px 0 0">Recent</h3>' + list + '</div>';
+}
+
+function vPacks(){
+  var p = S.packs;
+  var list = !p ? '<p class="muted">Loading…</p>' : !p.length ? '<p class="muted">Write your own Trivia questions: inside jokes, a birthday quiz, an office party. Pick the pack when you make a room.</p>'
+    : '<ul class="list">' + p.map(function(k){ return '<li class="item row" style="gap:8px"><span class="t" style="flex:1">' + esc(k.name) + '</span><span class="small muted">' + k.count + ' question' + (k.count === 1 ? '' : 's') + '</span><button class="btn sm" data-open="' + k.id + '">Edit</button></li>'; }).join('') + '</ul>';
+  return '<div class="card stack"><h2>Your question packs</h2>' + list +
+    '<form id="newpack" class="row"><input id="pn" class="field" style="flex:1;min-width:180px" maxlength="60" placeholder="Pack name, like Sam\'s 30th"><button class="btn sm dark">New pack</button></form></div>';
+}
+
+function lvlSel(id, v){ return '<select class="field" data-keep id="' + id + '">' + ['easy', 'medium', 'hard'].map(function(l){ return '<option value="' + l + '"' + (l === v ? ' selected' : '') + '>' + l.charAt(0).toUpperCase() + l.slice(1) + '</option>'; }).join('') + '</select>'; }
+
+function vPack(){
+  var k = S.pack;
+  if (!k) return '<div class="card center muted">Loading…</div>';
+  var qs = k.questions.length ? k.questions.map(function(q, i){
+    return '<div class="q"><div class="body"><div class="lvl">' + esc(q.level) + (q.cat ? ' · ' + esc(q.cat) : '') + '</div><div class="qq">' + esc(q.q) + '</div><div class="ans"><b>' + esc(q.right) + '</b> · ' + q.wrong.map(esc).join(' · ') + '</div></div>' +
+      '<button class="x" data-delq="' + i + '" aria-label="Delete this question">×</button></div>';
+  }).join('') : '<p class="muted">No questions yet. Add one below, or paste a bunch at once.</p>';
+  return '<div class="row"><button class="btn sm" data-act="back">← Back</button><span class="sp"></span>' + '<span id="savest">' + saveTxt() + '</span>' + '</div>' +
+    '<div class="card stack"><label for="pkn" style="margin:0">Pack name</label><input id="pkn" class="field" maxlength="60" value="' + esc(k.name) + '">' +
+      '<p class="small muted">' + k.questions.length + ' of ' + k.max + ' questions. In a game, your questions come first (easy ones early, hard ones late), then regular questions fill any rounds left.</p></div>' +
+    '<div class="card stack"><h3>Add a question</h3>' +
+      '<div><label for="aq">Question</label><textarea id="aq" data-keep class="field" style="min-height:70px" maxlength="300"></textarea></div>' +
+      '<div><label for="ar">Right answer</label><input id="ar" data-keep class="field" maxlength="120"></div>' +
+      '<div class="grid2"><div><label for="aw1">Wrong answer</label><input id="aw1" data-keep class="field" maxlength="120"></div><div><label for="aw2">Wrong answer</label><input id="aw2" data-keep class="field" maxlength="120"></div></div>' +
+      '<div class="grid2"><div><label for="aw3">Wrong answer</label><input id="aw3" data-keep class="field" maxlength="120"></div><div><label for="al">How hard</label>' + lvlSel('al', 'medium') + '</div></div>' +
+      '<div><label for="ac">Category <span class="muted small">(optional, shown on the category card)</span></label><input id="ac" data-keep class="field" maxlength="40" placeholder="' + esc(k.name) + '"></div>' +
+      '<button class="btn dark" data-act="addq">Add question</button>' +
+      '<details id="bulkd" data-keep><summary>Paste a bunch at once</summary><div class="stack" style="margin-top:10px"><p class="small muted">One question per line: <code>Question | Right answer | Wrong | Wrong | Wrong</code>. You can start a line with <code>Easy |</code>, <code>Medium |</code> or <code>Hard |</code>, and then a category.</p>' +
+      '<textarea id="bulk" data-keep class="field" placeholder="What year did we meet? | 2015 | 2013 | 2016 | 2018"></textarea><button class="btn sm" data-act="bulk">Add these</button></div></details>' +
+    '</div>' +
+    '<div class="err" role="alert">' + esc(S.err) + '</div>' +
+    '<div class="card stack"><h3>Questions</h3>' + qs + '</div>' +
+    '<div class="row"><button class="btn go" data-act="savepack"' + (S.busy ? ' disabled' : '') + '>Save pack</button><span class="sp"></span><button class="btn sm danger" data-act="delpack">Delete pack</button></div>';
+}
+
+function saveTxt(){ return S.dirty ? '<span class="small" style="font-weight:800;color:var(--out)">Not saved yet</span>' : '<span class="small ok">Saved</span>'; }
+
+function vDelete(){
+  return '<div class="card coral stack"><h1>Delete your account?</h1>' +
+    '<p>This deletes your Groupcade account right away, with your saved settings, game history and question packs. It can\'t be undone.</p>' +
+    '<p class="small muted">Records of games you hosted stay in our stats, without your name or anyone\'s scores. If you pay for a plan later, cancel it in your App Store, Google Play or billing settings too.</p>' +
+    '<label for="dc">Type DELETE to confirm</label><input id="dc" class="field" autocomplete="off" autocapitalize="characters">' +
+    '<div class="err" role="alert">' + esc(S.err) + '</div>' +
+    '<div class="row"><button class="btn danger" data-act="reallydel"' + (S.busy ? ' disabled' : '') + '>Delete my account</button><button class="btn ghost" data-act="back">Keep it</button></div></div>';
+}
+
+// ---------------------------------------------------------------- packs
+function parseLine(line){
+  var f = line.split('|').map(function(x){ return x.trim(); });
+  var lv = 'medium', cat = '';
+  if (f.length >= 6 && /^(easy|medium|hard)$/i.test(f[0])) { lv = f.shift().toLowerCase(); }
+  if (f.length === 6) cat = f.shift();
+  if (f.length !== 5) return null;
+  return { level: lv, cat: cat, q: f[0], right: f[1], wrong: [f[2], f[3], f[4]] };
+}
+function val(id){ var e = document.getElementById(id); return e ? e.value.trim() : ''; }
+function openPack(id){
+  S.view = 'pack'; S.pack = null; S.err = ''; S.dirty = false; S.clearForm = true; draw(); scrollTo(0, 0);
+  api('GET', '/me/packs/' + id).then(function(r){ S.pack = r.pack; draw(); }).catch(fail);
+}
+function savePack(cb){
+  var k = S.pack; S.busy = true; S.err = ''; draw();
+  api('POST', '/me/packs/' + k.id, { name: val('pkn') || k.name, questions: k.questions }).then(function(r){
+    S.pack = r.pack; S.busy = false; S.dirty = false; draw();
+    api('GET', '/me/packs').then(function(x){ S.packs = x.packs; });
+    if (cb) cb();
+  }).catch(fail);
+}
+
+// ---------------------------------------------------------------- events
+function wire(){
+  var f;
+  if ((f = document.getElementById('emailf'))) f.onsubmit = function(e){
+    e.preventDefault(); S.email = val('em'); S.busy = true; S.err = ''; draw();
+    api('POST', '/auth/email/start', { email: S.email }).then(function(){ S.busy = false; S.codeSent = true; draw(); }).catch(fail);
+  };
+  if ((f = document.getElementById('codef'))) f.onsubmit = function(e){
+    e.preventDefault(); S.busy = true; S.err = ''; var c = val('code'); draw();
+    api('POST', '/auth/email/verify', { email: S.email, code: c, web: true, device: 'Web' }).then(signedIn).catch(fail);
+  };
+  if ((f = document.getElementById('namef'))) f.onsubmit = function(e){
+    e.preventDefault(); api('POST', '/me', { name: val('nm') }).then(function(r){ S.user = r.user; S.err = ''; S.note = 'Name saved.'; draw(); }).catch(fail);
+  };
+  if ((f = document.getElementById('news'))) f.onchange = function(){
+    api('POST', '/me', { news: this.checked }).then(function(r){ S.user = r.user; draw(); }).catch(fail);
+  };
+  if ((f = document.getElementById('newpack'))) f.onsubmit = function(e){
+    e.preventDefault(); var n = val('pn'); if (!n) return showErr('Give your pack a name.');
+    api('POST', '/me/packs', { name: n }).then(function(r){ S.packs = null; openPack(r.pack.id); }).catch(fail);
+  };
+  if ((f = document.getElementById('pkn'))) f.oninput = function(){ S.pack.name = this.value; S.dirty = true; document.getElementById('savest').innerHTML = saveTxt(); };
+  app.querySelectorAll('[data-open]').forEach(function(b){ b.onclick = function(){ openPack(b.getAttribute('data-open')); }; });
+  app.querySelectorAll('[data-delq]').forEach(function(b){ b.onclick = function(){ S.pack.questions.splice(+b.getAttribute('data-delq'), 1); S.dirty = true; draw(); }; });
+  app.querySelectorAll('[data-act]').forEach(function(b){ b.onclick = function(){ act(b.getAttribute('data-act')); }; });
+}
+function act(a){
+  if (a === 'apple') return apple();
+  if (a === 'again') { S.codeSent = false; S.err = ''; return draw(); }
+  if (a === 'logout' || a === 'logoutall') return api('POST', '/auth/logout', { all: a === 'logoutall' }).then(function(){ S.user = null; S.history = S.packs = null; S.note = ''; draw(); setupProviders(); }).catch(fail);
+  if (a === 'del') { S.view = 'delete'; S.err = ''; draw(); scrollTo(0, 0); return; }
+  if (a === 'back') {
+    if (S.view === 'pack' && S.dirty && !confirm('Leave without saving this pack?')) return;
+    S.view = 'home'; S.err = ''; S.pack = null; CFG.del = false; draw(); return;
+  }
+  if (a === 'reallydel') {
+    if (val('dc').toUpperCase() !== 'DELETE') return showErr('Type DELETE to confirm.');
+    S.busy = true; draw();
+    return api('POST', '/me/delete', {}).then(function(){
+      S.user = null; S.busy = false; CFG.del = false;
+      app.innerHTML = '<div class="card mint center stack"><h1>Your account is deleted</h1><p class="muted">Everything in it is gone. You can still host and play without an account any time.</p><a class="btn go" href="' + esc(CFG.site) + '">Back to Groupcade</a></div>';
+    }).catch(fail);
+  }
+  if (a === 'addq') {
+    var q = { level: val('al') || 'medium', cat: val('ac'), q: val('aq'), right: val('ar'), wrong: [val('aw1'), val('aw2'), val('aw3')] };
+    if (!q.q || !q.right || !q.wrong[0] || !q.wrong[1] || !q.wrong[2]) return showErr('Fill in the question, the right answer and three wrong ones.');
+    if (S.pack.questions.length >= S.pack.max) return showErr('This pack is full.');
+    S.pack.name = val('pkn') || S.pack.name;
+    S.pack.questions.push(q); S.err = ''; S.dirty = true; S.clearForm = true; return savePack();
+  }
+  if (a === 'bulk') {
+    var lines = val('bulk').split(/\r?\n/).filter(function(l){ return l.trim(); }), add = [], bad = [];
+    lines.forEach(function(l, i){ var q = parseLine(l); if (q) add.push(q); else bad.push(i + 1); });
+    if (!add.length && !bad.length) return showErr('Paste some questions first.');
+    if (bad.length) return showErr('Line' + (bad.length > 1 ? 's ' : ' ') + bad.slice(0, 8).join(', ') + ' should look like: Question | Right | Wrong | Wrong | Wrong');
+    if (S.pack.questions.length + add.length > S.pack.max) return showErr('That would go past ' + S.pack.max + ' questions.');
+    S.pack.name = val('pkn') || S.pack.name;
+    S.pack.questions = S.pack.questions.concat(add); S.err = ''; S.dirty = true; S.clearForm = true; return savePack();
+  }
+  if (a === 'savepack') { S.pack.name = val('pkn') || S.pack.name; return savePack(); }
+  if (a === 'delpack') {
+    if (!confirm('Delete "' + S.pack.name + '" and its questions?')) return;
+    return api('POST', '/me/packs/' + S.pack.id + '/delete', {}).then(function(){ S.view = 'home'; S.pack = null; S.packs = null; loadAll(); }).catch(fail);
+  }
+}
+
+// ---------------------------------------------------------------- start
+api('GET', '/me').then(function(r){
+  if (r.user) { S.user = r.user; afterSignIn(); }
+  else { draw(); setupProviders(); }
+}).catch(function(e){ S.err = e.message; draw(); setupProviders(); });
+})();
+</script>
+</body>
+</html>

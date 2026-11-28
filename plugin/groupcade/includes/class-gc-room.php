@@ -123,7 +123,7 @@ class GC_Room {
 	/**
 	 * @return array|WP_Error code, host (token), game
 	 */
-	public static function create( $slug, $params ) {
+	public static function create( $slug, $params, $owner = 0 ) {
 		global $wpdb;
 		$game = GC_Games::get( $slug ? $slug : GC_Games::default_slug() );
 		if ( ! $game ) {
@@ -135,7 +135,9 @@ class GC_Room {
 			GC_DB::cleanup();
 			return new WP_Error( 'busy', 'Lots of games are running right now. Try again in a few minutes.', array( 'status' => 503 ) );
 		}
-		$s = $game->new_state( (array) $params );
+		$params           = (array) $params;
+		$params['_owner'] = (int) $owner; // The signed-in host (0 for a guest), so a game can use their packs.
+		$s                = $game->new_state( $params );
 		if ( is_wp_error( $s ) ) {
 			return $s;
 		}
@@ -158,6 +160,7 @@ class GC_Room {
 					'code'      => $code,
 					'game'      => $game->slug(),
 					'host_hash' => self::hash( $host ),
+					'owner_id'  => (int) $owner,
 					'ip_hash'   => GC_Limits::ip_hash(),
 					'ver'       => 1,
 					'state'     => wp_json_encode( $s ),
