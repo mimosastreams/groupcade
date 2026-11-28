@@ -3,7 +3,7 @@
 import { useKeepAwake } from 'expo-keep-awake';
 import { router, useFocusEffect, useLocalSearchParams } from 'expo-router';
 import { useCallback, useEffect, useState } from 'react';
-import { ActivityIndicator, View } from 'react-native';
+import { ActivityIndicator, BackHandler, View } from 'react-native';
 import { setTvRoomUrl } from '../../../modules/groupcade-tv';
 import { setCastRoom } from '../../lib/cast';
 import { BaloneyHost } from '../../games/baloney/Host';
@@ -62,6 +62,17 @@ export default function Room() {
       { text: 'Stay', style: 'cancel' },
       { text: 'Leave', onPress: () => router.replace('/') },
     ]);
+
+  // Android's back gesture or button asks first too, instead of dropping the host on the home screen.
+  useFocusEffect(
+    useCallback(() => {
+      const sub = BackHandler.addEventListener('hardwareBackPress', () => {
+        leave();
+        return true;
+      });
+      return () => sub.remove();
+    }, [])
+  );
 
   const close = (then: () => void, title: string, ok: string) =>
     dialog.alert(title, 'Anyone still in it will need a new code to play again.', [

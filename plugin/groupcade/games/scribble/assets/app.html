@@ -294,7 +294,10 @@ body.tv input.field{border-color:var(--text)}
 @media (prefers-reduced-motion:reduce){.pop,.tva,button.ans.nudge{animation:none;transition:none}}
 /* ---------- Scribble Squad ---------- */
 .ans.vopt::after,html.coarse .ans.vopt::after{content:none!important}
-.sk{display:block;width:100%;aspect-ratio:4/3;background:#fff;border:var(--bw) solid var(--ink);border-radius:18px;touch-action:none}
+.sk{display:block;width:100%;aspect-ratio:4/3;background:#fff;border:var(--bw) solid var(--ink);border-radius:18px;touch-action:none;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+/* No rubber-band scroll, pull-to-refresh or swipe navigation off a fast stroke. */
+html,body{overscroll-behavior:none}
+.padwrap{-webkit-user-select:none;user-select:none}
 .padwrap{position:relative}
 .padwrap .sk{box-shadow:5px 5px 0 var(--ink)}
 .drawword{font-family:var(--display);font-weight:800;font-size:clamp(26px,8vw,38px);line-height:1.05;color:var(--ink)}
@@ -844,6 +847,7 @@ function holdRender(st){
 }
 function afterRender(st){
   if (st && st.phase === 'draw' && document.getElementById('pad')) padInit(st);
+  drawGuard(!!document.getElementById('pad'));
   live(st);
 }
 function stillHtml(){ return ''; }
@@ -917,10 +921,33 @@ function padInit(st){
     });
     inkMeter();
   });
+  // iOS Safari still scrolls or starts a back swipe off a quick stroke unless the touches
+  // themselves are cancelled; touch-action alone isn't enough there.
+  var stop = function(e){ if (e.cancelable) e.preventDefault(); };
+  cv.addEventListener('touchstart', stop, { passive: false });
+  cv.addEventListener('touchmove', stop, { passive: false });
   var up = function(){ cur = null; };
   cv.addEventListener('pointerup', up); cv.addEventListener('pointercancel', up); cv.addEventListener('pointerleave', up);
   paint(cv, pad.strokes, 1); inkMeter(); padTools();
 }
+// While the pad is up, a browser back swipe (Safari's edge swipe, Android's back gesture) lands
+// on a spare history entry instead of leaving the game. The app turns these gestures off itself.
+var guard = { on: false, skip: false };
+function drawGuard(want){
+  if (window.GROUPCADE_APP || !window.history || !history.pushState) return;
+  if (want && !guard.on) { guard.on = true; try { history.pushState({ gcDraw: 1 }, ''); } catch (e) { guard.on = false; } }
+  else if (!want && guard.on) {
+    guard.on = false;
+    // Still in the room (time's up, or sent): drop the spare entry so back works normally again.
+    if (S.mode === 'play' && S.code) { guard.skip = true; history.back(); }
+  }
+}
+window.addEventListener('popstate', function(){
+  if (guard.skip) { guard.skip = false; return; }
+  if (!guard.on) return;
+  try { history.pushState({ gcDraw: 1 }, ''); } catch (e) {}
+  alertMsg('Still drawing! Finish your sketch first.');
+});
 function padTools(){
   document.querySelectorAll('[data-col]').forEach(function(b){ b.classList.toggle('on', b.getAttribute('data-col') === pad.col); });
   document.querySelectorAll('[data-wid]').forEach(function(b){ b.classList.toggle('on', +b.getAttribute('data-wid') === pad.wid); });

@@ -32,7 +32,9 @@ export default function RootLayout() {
         <Stack.Screen name="baloney/new" />
         <Stack.Screen name="scribble/new" />
         <Stack.Screen name="room/[code]" options={{ gestureEnabled: false }} />
-        <Stack.Screen name="play/[code]" />
+        {/* No swipe-back in a game: drawing and sliding answers are swipes, and one near the edge
+            used to drop players on the home screen. The on-screen back button still works. */}
+        <Stack.Screen name="play/[code]" options={{ gestureEnabled: false }} />
         <Stack.Screen name="account/index" />
         <Stack.Screen name="account/email" />
         <Stack.Screen name="account/pack/[id]" />
