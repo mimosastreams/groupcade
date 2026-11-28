@@ -66,7 +66,7 @@ export function Screen({ children, footer, bg = C.bg, top }: { children: ReactNo
   return (
     <View style={{ flex: 1, backgroundColor: bg }}>
       <View style={{ paddingTop: insets.top }}>{top}</View>
-      <ScrollView contentContainerStyle={{ padding: 20, paddingTop: top ? 8 : 16, gap: 16, paddingBottom: footer ? 20 : insets.bottom + 28 }} keyboardShouldPersistTaps="handled">
+      <ScrollView contentContainerStyle={{ padding: 20, paddingTop: top ? 8 : 16, gap: 16, paddingBottom: footer ? 20 : insets.bottom + 28 }} keyboardShouldPersistTaps="handled" automaticallyAdjustKeyboardInsets>
         {children}
       </ScrollView>
       {footer ? <View style={{ paddingHorizontal: 20, paddingTop: 14, paddingBottom: insets.bottom + 14, gap: 8 }}>{footer}</View> : null}

@@ -61,7 +61,8 @@
   - Scribble Squad: prompts are one list under Groupcade > Drawing prompts (option
     `gc_scribble_prompts`, built-in list in `games/scribble/data/prompts.txt`). Sketches are kept in
     transients (`gc_sk_<room>_<round>_<player>`, 3 hours), not in the room state.
-  - The iPhone app's native host screens are Trivia only; for the new games the app opens the web
-    host screen. Tests: `plugin/tests/baloney-smoke.mjs` and `scribble-smoke.mjs`.
+  - The app has native host screens for all three games (`app/src/games/<slug>/`). The host can
+    play too right on the host screen: write fakes and vote, or draw on a pad and guess. Shared host
+    pieces are in `app/src/games/shared/`. Tests: `plugin/tests/baloney-smoke.mjs` and `scribble-smoke.mjs`.
 - **Still open:** free or a one-time unlock; an Apple TV or AirPlay TV to test on; which Apple
   developer account.

@@ -1,26 +1,27 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { AppState } from 'react-native';
-import { api, ApiError, type RoomState } from './api';
+import { api, ApiError, type BaseState, type RoomState } from './api';
 
 /**
  * Polls a room as its host, about once a second while a game runs (the same pace as the web
  * client), slower in the lobby, paused while the app is in the background.
  */
-export function useRoom(code: string, host: string | null, token: string | null = null) {
-  const [st, setSt] = useState<RoomState | null>(null);
+export function useRoom<T extends BaseState & { me?: unknown } = RoomState>(code: string, host: string | null, token: string | null = null) {
+  const [st, setSt] = useState<T | null>(null);
   const [error, setError] = useState<ApiError | null>(null);
   const [offline, setOffline] = useState(false);
   const offset = useRef(0); // Server clock minus phone clock.
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const seq = useRef(0);
   const active = useRef(AppState.currentState === 'active');
-  const latest = useRef<RoomState | null>(null);
+  const latest = useRef<T | null>(null);
 
-  const delay = (s: RoomState | null) => {
+  const delay = (s: T | null) => {
     if (!s) return 2000;
-    const base = { lobby: 2000, cat: 1000, q: 1000, rev: 1200, end: 3000 }[s.phase] ?? 2000;
+    // Faster while players act or a reveal plays out; slow in the lobby and on the results.
+    const base = ({ lobby: 2000, end: 3000, cat: 1000, q: 1000, rev: 1000, write: 1000, vote: 1000, board: 1200, draw: 1500, show: 900, srev: 1200, best: 1000 } as Record<string, number>)[s.phase] ?? 2000;
     let left = s.t1 ? s.t1 - (Date.now() + offset.current) : 99999;
-    if (s.phase === 'q') left += s.grace;
+    if (s.phase === 'q' || s.phase === 'write' || s.phase === 'vote' || s.phase === 'draw' || s.phase === 'best') left += s.grace;
     return left > 0 && left < base ? Math.max(150, left + 150) : base;
   };
 
@@ -29,7 +30,7 @@ export function useRoom(code: string, host: string | null, token: string | null 
     if (!host || !active.current) return;
     const my = ++seq.current;
     try {
-      const s = await api.state(code, host, token);
+      const s = (await api.state(code, host, token)) as unknown as T;
       if (my !== seq.current) return;
       offset.current = s.now - Date.now();
       latest.current = s;
@@ -67,7 +68,7 @@ export function useRoom(code: string, host: string | null, token: string | null 
   const act = useCallback(
     async (action: string, extra: object = {}) => {
       if (!host) return;
-      const r = await api.host(code, host, action, extra);
+      const r = (await api.host(code, host, action, extra)) as unknown as T;
       // Host replies don't carry the host's own player; keep it while the round is the same.
       const prev = latest.current;
       const s = r.me || !prev?.me || prev.round !== r.round ? r : { ...r, me: prev.me };

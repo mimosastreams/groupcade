@@ -16,4 +16,18 @@ export const NATIVE_GAMES: Record<string, AppGame> = {
     path: 'trivia',
     newRoute: '/trivia/new',
   },
+  baloney: {
+    slug: 'baloney',
+    name: 'Phony Baloney',
+    tagline: 'Write a fake that sounds real. Find the truth.',
+    path: 'baloney',
+    newRoute: '/baloney/new',
+  },
+  scribble: {
+    slug: 'scribble',
+    name: 'Scribble Squad',
+    tagline: "Draw your secret prompt. Guess everyone else's.",
+    path: 'scribble',
+    newRoute: '/scribble/new',
+  },
 };
