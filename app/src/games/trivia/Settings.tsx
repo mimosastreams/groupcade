@@ -14,7 +14,10 @@ export type TriviaSettings = {
 export const NO_CATS = '__none__';
 export const noCats = (s: Pick<TriviaSettings, 'cats'>) => s.cats.length === 1 && s.cats[0] === NO_CATS;
 
-export const DEFAULT_SETTINGS: TriviaSettings = { mode: 'survive', rounds: 15, secs: 20, cats: [] };
+export const DEFAULT_SETTINGS: TriviaSettings = { mode: 'survive', rounds: 0, secs: 30, cats: [] };
+
+/** Seconds per question the host can pick. */
+export const SECS = [15, 20, 30, 45, 60];
 
 type Props = {
   value: TriviaSettings;
@@ -49,7 +52,7 @@ export function TriviaSettingsForm({ value, onChange, allCats, specCats }: Props
             title="Survival"
             line="Miss one and you're out"
             on={!pts}
-            onPress={() => onChange({ mode: 'survive' })}
+            onPress={() => onChange({ mode: 'survive', rounds: 0 })}
           />
           <ModeCard
             title="Points"
@@ -64,12 +67,12 @@ export function TriviaSettingsForm({ value, onChange, allCats, specCats }: Props
         <Stepper
           label="Rounds"
           values={rounds}
-          value={rounds.includes(value.rounds) ? value.rounds : 15}
+          value={rounds.includes(value.rounds) ? value.rounds : pts ? 15 : 0}
           show={(n) => (n ? String(n) : '∞')}
           say={(n) => (n ? `${n} rounds` : 'Until one is left')}
           onChange={(r) => onChange({ rounds: r })}
         />
-        <Stepper label="Seconds per question" values={[15, 20, 30]} value={value.secs} show={String} say={(n) => `${n} seconds`} onChange={(secs) => onChange({ secs })} />
+        <Stepper label="Seconds per question" values={SECS} value={SECS.includes(value.secs) ? value.secs : 30} show={String} say={(n) => `${n} seconds`} onChange={(secs) => onChange({ secs })} />
       </View>
       {!pts && value.rounds === 0 ? <Text style={{ fontFamily: F.bold, color: C.mist, fontSize: 14, marginTop: -8 }}>∞ = keep going until one player is left.</Text> : null}
 

@@ -94,6 +94,7 @@ body.tv .card.qcard{border-color:var(--text);box-shadow:8px 8px 0 var(--accent)}
 .answers{display:grid;gap:10px}
 .ans.press{background:var(--gold)!important;box-shadow:3px 3px 0 var(--ink)}
 button.ans{touch-action:pan-y;transition:transform .18s ease;background:linear-gradient(90deg,rgba(255,201,60,calc(var(--p,0)*1)),rgba(255,201,60,calc(var(--p,0)*.5))),#fff}
+html.coarse button.ans:not(:disabled)::after{content:"Slide right \203A";font-size:16px;white-space:nowrap;padding-left:8px;opacity:calc(.6 + var(--p,0)*.4)}
 button.ans:not(:disabled)::after{content:"\203A";margin-left:auto;font-family:var(--display);font-size:28px;line-height:1;color:var(--ink);opacity:calc(.35 + var(--p,0)*.65)}
 button.ans.nudge{animation:nudge .5s ease}
 @keyframes nudge{30%{transform:translateX(22px)}60%{transform:translateX(-4px)}100%{transform:none}}
@@ -102,7 +103,7 @@ body.tv .readbar{color:var(--gold)}
 .readbar b{font-family:var(--display);font-size:20px}
 .hostview .readbar{font-size:clamp(18px,2vw,30px)}
 .answers.wait .ans{opacity:.55}
-.answers.wait button.ans::after{content:none}
+.answers.wait button.ans::after,html.coarse .answers.wait button.ans::after{content:none}
 .swipehint{text-align:left;font-size:14px;font-weight:800;color:var(--mist);margin:-4px 0 0}
 #talkbtn{position:fixed;right:14px;bottom:calc(var(--bb,0px) + 14px);z-index:11;width:56px;height:56px;border-radius:50%;border:var(--bw) solid var(--ink);background:var(--gold);color:var(--ink);font-size:24px;display:none;align-items:center;justify-content:center;box-shadow:3px 3px 0 var(--ink)}
 #talkbtn .ub{position:absolute;top:-6px;right:-6px;min-width:22px;height:22px;border-radius:11px;background:var(--coral);border:2px solid var(--ink);color:var(--ink);font:800 12px/18px var(--body);padding:0 5px;display:none}
@@ -316,6 +317,7 @@ var strip = document.getElementById('strip');
 var stillEl = document.getElementById('still');
 var L = ['A','B','C','D'];
 var coarse = !!(window.matchMedia && matchMedia('(pointer: coarse)').matches);
+if (coarse) document.documentElement.classList.add('coarse');
 
 // ---------------------------------------------------------------- storage (per device)
 function sget(k){ try { return localStorage.getItem(k); } catch(e){ return null; } }
@@ -633,7 +635,7 @@ function vLoading(){
 }
 
 function vHome(){
-  var r = +(sget('gc_rounds') || 15), s = +(sget('gc_secs') || 20), md = sget('gc_mode') === 'points' ? 'points' : 'survive';
+  var md = sget('gc_mode') === 'points' ? 'points' : 'survive', r = sget('gc_rounds2') === null || sget('gc_rounds2') === '' ? (md === 'points' ? 15 : 0) : +sget('gc_rounds2'), s = +(sget('gc_secs2') || 30);
   if (md === 'points' && !r) r = 15;
   return '' +
   '<div class="card"><h1>Trivia</h1><p class="muted" style="margin:8px 0 0">Party trivia for phones and the big screen. Play Survival (wrong answer and you\'re out) or Points (fastest right answers score most).</p></div>' +
@@ -645,7 +647,7 @@ function vHome(){
   '<div class="card"><h2>Host a game</h2><p class="muted small" style="margin:4px 0 12px">Put this screen on a TV or laptop. Everyone plays on their phone. You can play too.</p>' +
     modeSeg('data-mode', md) +
     '<label>Rounds</label><div class="seg" data-seg="rounds">' + roundsList(md === 'points').map(function(n){ return '<button type="button" data-v="' + n + '" class="' + (n === r ? 'on' : '') + '">' + (n ? n : 'Until one is left') + '</button>'; }).join('') + '</div>' +
-    '<div style="height:12px"></div><label>Seconds per question</label><div class="seg" data-seg="secs">' + [15,20,30].map(function(n){ return '<button type="button" data-v="' + n + '" class="' + (n === s ? 'on' : '') + '">' + n + 's</button>'; }).join('') + '</div>' +
+    '<div style="height:12px"></div><label>Seconds per question</label><div class="seg" data-seg="secs">' + SECS.map(function(n){ return '<button type="button" data-v="' + n + '" class="' + (n === s ? 'on' : '') + '">' + n + 's</button>'; }).join('') + '</div>' +
     homeCats() + packPick() +
     '<div style="height:14px"></div><button class="btn wide" data-act="create" ' + (S.busy ? 'disabled' : '') + '>Make a room</button></div>' +
   '<div class="err" role="alert">' + esc(S.err) + '</div>' +
@@ -729,6 +731,7 @@ function rankOf(st, name){
   if (!me) return 0; var r = 1; st.players.forEach(function(p){ if (p.score > me.score) r++; }); return r;
 }
 function ord(n){ var s = ['th','st','nd','rd'], v = n % 100; return n + (s[(v - 20) % 10] || s[v] || s[0]); }
+var SECS = [15, 20, 30, 45, 60];
 function roundsList(pts){ return pts ? [10,15,20] : [10,15,20,0]; }
 function modeSeg(attr, cur){
   return '<label>Game mode</label><div class="seg">' + [['survive','Survival'],['points','Points']].map(function(m){ return '<button type="button" ' + attr + '="' + m[0] + '" class="' + (m[0] === cur ? 'on' : '') + '">' + m[1] + '</button>'; }).join('') + '</div>' +
@@ -806,7 +809,7 @@ function vHost(st, tv){
         '</div>' +
         (tv ? '<div class="card"><div class="waiting">Waiting for the host to start…</div><p class="muted small" style="margin:6px 0 0">' + (isPts(st) ? 'Points mode · ' : 'Survival · ') + (st.rounds ? st.rounds + ' rounds' : 'Until one is left') + ' · ' + st.secs + ' seconds per question' + (st.only && st.only.length ? ' · ' + st.only.map(esc).join(', ') : ' · All categories') + '</p></div></div></div>' : '') +
         (tv ? '' : '<div class="card">' + modeSeg('data-hmode', isPts(st) ? 'points' : 'survive') + '<label>Rounds</label><div class="seg" data-seg="h-rounds">' + roundsList(isPts(st)).map(function(n){ return '<button type="button" data-v="' + n + '" class="' + (n === st.rounds ? 'on' : '') + '">' + (n ? n : 'Until one is left') + '</button>'; }).join('') + '</div>' +
-          '<div style="height:12px"></div><label>Seconds per question</label><div class="seg" data-seg="h-secs">' + [15,20,30].map(function(n){ return '<button type="button" data-v="' + n + '" class="' + (n === st.secs ? 'on' : '') + '">' + n + 's</button>'; }).join('') + '</div>' +
+          '<div style="height:12px"></div><label>Seconds per question</label><div class="seg" data-seg="h-secs">' + SECS.map(function(n){ return '<button type="button" data-v="' + n + '" class="' + (n === st.secs ? 'on' : '') + '">' + n + 's</button>'; }).join('') + '</div>' +
           catsHtml(st) + '<div style="height:16px"></div><button class="btn go wide" data-act="start" ' + (players.length ? '' : 'disabled') + '>' + (players.length ? 'Start game · ' + players.length + ' player' + (players.length === 1 ? '' : 's') : 'Waiting for players') + '</button>' +
           (players.length === 1 && !isPts(st) ? '<p class="muted small" style="margin:8px 0 0">With one player it\'s practice: one miss ends it.</p>' : '') +
         '</div></div></div>');
@@ -1119,14 +1122,14 @@ function wire(){
   app.querySelectorAll('[data-seg] button').forEach(function(b){
     b.addEventListener('click', function(){
       var seg = b.parentNode.getAttribute('data-seg'), v = +b.getAttribute('data-v');
-      if (seg === 'rounds' || seg === 'secs') { sset('gc_' + seg, v); b.parentNode.querySelectorAll('button').forEach(function(x){ x.classList.toggle('on', x === b); }); return; }
+      if (seg === 'rounds' || seg === 'secs') { sset('gc_' + seg + '2', v); b.parentNode.querySelectorAll('button').forEach(function(x){ x.classList.toggle('on', x === b); }); return; }
       var o = {}; o[seg === 'h-rounds' ? 'rounds' : 'secs'] = v; hostDo('settings', o);
     });
   });
   document.querySelectorAll('[data-act]').forEach(function(b){
     b.addEventListener('click', function(e){
       var a = b.getAttribute('data-act');
-      if (a === 'create') { var md = sget('gc_mode') === 'points' ? 'points' : 'survive', rr = +(sget('gc_rounds') || 15); if (md === 'points' && !rr) rr = 15; createRoom(rr, +(sget('gc_secs') || 20), md); }
+      if (a === 'create') { var md = sget('gc_mode') === 'points' ? 'points' : 'survive', gr = sget('gc_rounds2'), rr = gr === null || gr === '' ? (md === 'points' ? 15 : 0) : +gr; if (md === 'points' && !rr) rr = 15; createRoom(rr, +(sget('gc_secs2') || 30), md); }
       else if (a === 'home') { goHome(); }
       else if (a === 'start' || a === 'next' || a === 'again') { b.disabled = true; hostDo(a); }
       else if (a === 'end') { if (confirmEnd(b)) hostDo('end'); }
@@ -1148,7 +1151,7 @@ function wire(){
     sset('gc_cats', JSON.stringify(on)); var n = document.getElementById('hcn'); if (n) n.textContent = countTxt(on, CFG.cats || []);
     var cb = app.querySelector('[data-act=create]'); if (cb) cb.disabled = !on.length;
   };
-  app.querySelectorAll('[data-mode]').forEach(function(b){ b.addEventListener('click', function(){ sset('gc_mode', b.getAttribute('data-mode')); S.sig = ''; render(true); }); });
+  app.querySelectorAll('[data-mode]').forEach(function(b){ b.addEventListener('click', function(){ var m = b.getAttribute('data-mode'); sset('gc_mode', m); sset('gc_rounds2', m === 'points' ? 15 : 0); S.sig = ''; render(true); }); });
   app.querySelectorAll('[data-pack]').forEach(function(b){ b.addEventListener('click', function(){ var v = +b.getAttribute('data-pack'); sset('gc_pack', v || null); b.parentNode.querySelectorAll('button').forEach(function(x){ x.classList.toggle('on', x === b); }); }); });
   app.querySelectorAll('[data-hmode]').forEach(function(b){ b.addEventListener('click', function(){ hostDo('settings', { mode: b.getAttribute('data-hmode') }); }); });
   app.querySelectorAll('[data-hcat]').forEach(function(b){ b.addEventListener('click', function(){ b.classList.toggle('on'); saveH(); }); });

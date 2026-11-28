@@ -23,7 +23,7 @@ class GC_Trivia extends GC_Game {
 	const GRACE_MS    = 1200; // Answers sent right as the clock hits 0 still count.
 	const READ_MS     = 5000; // Points mode: 5 s to read before the scoring clock starts; locking in early = full speed points.
 	const ROUND_SET   = array( 10, 15, 20, 0 ); // 0 = until one is left (capped at 50).
-	const SECS_SET    = array( 15, 20, 30 );
+	const SECS_SET    = array( 15, 20, 30, 45, 60 );
 	const MAX_ENDLESS = 50;
 
 	public function slug() {
@@ -71,13 +71,14 @@ class GC_Trivia extends GC_Game {
 	// ------------------------------------------------------------------ create
 
 	public function new_state( $params ) {
-		$rounds = isset( $params['rounds'] ) ? (int) $params['rounds'] : 15;
-		$secs   = isset( $params['secs'] ) ? (int) $params['secs'] : 20;
+		// Survival defaults to "until one is left", Points to 15 rounds (fixed below). 30 seconds a question.
+		$rounds = isset( $params['rounds'] ) ? (int) $params['rounds'] : 0;
+		$secs   = isset( $params['secs'] ) ? (int) $params['secs'] : 30;
 		if ( ! in_array( $rounds, self::ROUND_SET, true ) ) {
 			$rounds = 15;
 		}
 		if ( ! in_array( $secs, self::SECS_SET, true ) ) {
-			$secs = 20;
+			$secs = 30;
 		}
 		$s = array(
 			'phase'  => 'lobby',
@@ -503,6 +504,10 @@ class GC_Trivia extends GC_Game {
 				}
 				if ( isset( $args['mode'] ) && in_array( $args['mode'], array( 'survive', 'points' ), true ) ) {
 					$s['mode'] = $args['mode'];
+					// Switching to Survival without picking rounds: play until one is left.
+					if ( 'survive' === $args['mode'] && ! isset( $args['rounds'] ) ) {
+						$s['rounds'] = 0;
+					}
 				}
 				if ( self::points( $s ) && ! (int) $s['rounds'] ) {
 					$s['rounds'] = 15;

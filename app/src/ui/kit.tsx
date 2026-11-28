@@ -165,7 +165,7 @@ export function Button({ title, onPress, kind = 'plain', disabled, busy, small, 
       {busy ? (
         <ActivityIndicator color={fg} />
       ) : (
-        <Text style={[s.btnText, small && { fontSize: 16, fontFamily: F.heavy }, big && { fontSize: 26 }, { color: fg }]} numberOfLines={1}>
+        <Text style={[s.btnText, small && { fontSize: 16, fontFamily: F.heavy }, big && { fontSize: 26, lineHeight: 34 }, { color: fg }]} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.75}>
           {title}
         </Text>
       )}
@@ -256,7 +256,7 @@ export const s = StyleSheet.create({
   p: { color: C.text, fontSize: 16, lineHeight: 22, fontFamily: F.body },
   label: { color: C.text, fontSize: 19, lineHeight: 24, fontFamily: F.display },
   btn: { height: 54, borderRadius: 999, borderWidth: 3, alignItems: 'center', justifyContent: 'center', paddingHorizontal: 20 },
-  btnText: { fontSize: 22, fontFamily: F.display, lineHeight: 28 },
+  btnText: { fontSize: 22, fontFamily: F.display, lineHeight: 30, textAlign: 'center' },
   seg: { flexDirection: 'row', flexWrap: 'wrap', gap: 8 },
   segBtn: { minHeight: 44, paddingHorizontal: 14, borderRadius: 16, borderWidth: 3, borderColor: C.ink, backgroundColor: C.white, alignItems: 'center', justifyContent: 'center' },
   segOn: { backgroundColor: C.gold },
