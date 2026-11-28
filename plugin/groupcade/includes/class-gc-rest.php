@@ -85,7 +85,7 @@ class GC_Rest {
 		if ( ! is_array( $params ) ) {
 			$params = $req->get_params();
 		}
-		$res = GC_Room::create( (string) $req->get_param( 'game' ), $params );
+		$res = GC_Room::create( (string) $req->get_param( 'game' ), $params, GC_Accounts::current_id() );
 		if ( is_wp_error( $res ) ) {
 			return $res;
 		}

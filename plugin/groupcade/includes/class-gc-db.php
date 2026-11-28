@@ -81,6 +81,7 @@ class GC_DB {
 			code char(4) NOT NULL,
 			game varchar(32) NOT NULL DEFAULT '',
 			host_hash char(64) NOT NULL,
+			owner_id bigint(20) unsigned NOT NULL DEFAULT 0,
 			ip_hash char(16) NOT NULL DEFAULT '',
 			ver int(10) unsigned NOT NULL DEFAULT 0,
 			state longtext NOT NULL,
@@ -132,6 +133,7 @@ class GC_DB {
 			game varchar(32) NOT NULL DEFAULT '',
 			room_code char(4) NOT NULL DEFAULT '',
 			ip_hash char(16) NOT NULL DEFAULT '',
+			owner_id bigint(20) unsigned NOT NULL DEFAULT 0,
 			started int(10) unsigned NOT NULL DEFAULT 0,
 			ended int(10) unsigned NOT NULL DEFAULT 0,
 			players smallint(5) unsigned NOT NULL DEFAULT 0,
@@ -142,9 +144,11 @@ class GC_DB {
 			winner_names varchar(120) NOT NULL DEFAULT '',
 			status tinyint(3) unsigned NOT NULL DEFAULT 0,
 			mode varchar(16) NOT NULL DEFAULT '',
+			standings text NULL,
 			PRIMARY KEY  (id),
 			KEY started (started),
-			KEY game (game)
+			KEY game (game),
+			KEY owner_id (owner_id)
 			) $c;"
 		);
 		dbDelta(
@@ -160,6 +164,9 @@ class GC_DB {
 			KEY created (created)
 			) $c;"
 		);
+		// Host accounts and their question packs.
+		GC_Accounts::install( $c );
+		GC_Packs::install( $c );
 		update_option( 'gc_db_version', GC_DB_VERSION . ':' . implode( ',', array_keys( GC_Games::all() ) ), false );
 	}
 
@@ -169,6 +176,7 @@ class GC_DB {
 		$r   = self::rooms();
 		$cut = time() - self::IDLE_SECONDS;
 		$ids = $wpdb->get_col( $wpdb->prepare( "SELECT id FROM $r WHERE updated < %d LIMIT 500", $cut ) ); // phpcs:ignore
+		GC_Accounts::cleanup();
 		if ( ! $ids ) {
 			return 0;
 		}
@@ -196,6 +204,7 @@ class GC_DB {
 				'game'       => (string) $room['game'],
 				'room_code'  => (string) $room['code'],
 				'ip_hash'    => (string) $room['ip_hash'],
+				'owner_id'   => (int) ( $room['owner_id'] ?? 0 ),
 				'started'    => time(),
 				'players'    => (int) ( $extra['players'] ?? 0 ),
 				'rounds_set' => (int) ( $extra['rounds_set'] ?? 0 ),
@@ -209,8 +218,14 @@ class GC_DB {
 		}
 	}
 
-	/** Close a game's stats row. Status 1 = played to the end, 2 = host ended it. */
-	public static function match_end( $s, $status, $rounds_played, $winners ) {
+	/**
+	 * Close a game's stats row. Status 1 = played to the end, 2 = host ended it.
+	 *
+	 * @param array $standings Final places for the host's game history: [ [ 'n' => name, 's' => score or
+	 *                         rounds survived, 'w' => 1 for a winner ], ... ], best first. Only kept
+	 *                         when the room has a signed-in host.
+	 */
+	public static function match_end( $s, $status, $rounds_played, $winners, $standings = array() ) {
 		global $wpdb;
 		if ( empty( $s['gid'] ) ) {
 			return;
@@ -224,6 +239,7 @@ class GC_DB {
 				'winners'       => count( $w ),
 				'winner_names'  => mb_substr( implode( ', ', $w ), 0, 120 ),
 				'status'        => (int) $status,
+				'standings'     => $standings ? wp_json_encode( array_slice( (array) $standings, 0, 50 ) ) : null,
 			),
 			array( 'id' => (int) $s['gid'] )
 		);

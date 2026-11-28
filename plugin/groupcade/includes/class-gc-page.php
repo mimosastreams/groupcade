@@ -45,8 +45,8 @@ class GC_Page {
 
 	public static function maybe_render() {
 		$page = (string) get_query_var( 'gc_page' );
-		if ( '' === $page ) {
-			return;
+		if ( '' === $page || 'account' === $page ) {
+			return; // The account page is GC_Account_Page's.
 		}
 		$code = GC_Room::norm_code( (string) get_query_var( 'gc_code' ) );
 		if ( 'join' === $page ) {

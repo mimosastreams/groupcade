@@ -29,8 +29,15 @@ export class ApiError extends Error {
 
 type Headers = Record<string, string>;
 
+/** The signed-in host's session (see lib/account.ts). Sent on every call so rooms know their owner. */
+let session: string | null = null;
+export const setSession = (s: string | null) => {
+  session = s;
+};
+
 async function call<T>(method: 'GET' | 'POST', path: string, body?: object, headers: Headers = {}): Promise<T> {
   const h: Headers = { 'X-Groupcade': '1', Accept: 'application/json', ...headers };
+  if (session) h['X-Groupcade-Session'] = session;
   if (body) h['Content-Type'] = 'application/json';
   const url = NS + path + (method === 'GET' ? (path.includes('?') ? '&' : '?') + '_=' + Date.now() : '');
   let res: Response;
@@ -116,11 +123,77 @@ export type RoomState = {
   };
   winners?: string[];
   stopped?: boolean;
+  /** The host's own question pack in play, if any. */
+  pack?: { id: number; name: string } | null;
+  /** The room belongs to a signed-in host, so its games are saved to their history. */
+  owned?: boolean;
   /** The caller's own player, when the request carried their player token. ans: 1-4 locked in, 0 = not yet. */
   me?: { name: string; alive: boolean; ans: number; score: number; gain: number };
 };
 
 // ------------------------------------------------------------------ calls
+
+// ------------------------------------------------------------------ accounts
+
+export type User = {
+  id: number;
+  name: string;
+  email: string;
+  relay: boolean;
+  news: boolean;
+  via: string[];
+  plan: string;
+  founding: boolean;
+  since: number;
+};
+
+export type AuthConfig = {
+  apple: { web: string; bundle: string };
+  google: { web: string; ios: string };
+  email: boolean;
+};
+
+export type HistoryGame = {
+  id: number;
+  game: string;
+  name: string;
+  mode: string;
+  at: number;
+  mins: number;
+  players: number;
+  rounds: number;
+  winners: string[];
+  stopped: boolean;
+  top: { n: string; s: number; w: number }[];
+};
+export type History = { games: HistoryGame[]; total: number; board: { name: string; wins: number; games: number }[] };
+
+export type PackSummary = { id: number; game: string; name: string; count: number; updated: number };
+export type PackQuestion = { level: 'easy' | 'medium' | 'hard'; cat: string; q: string; right: string; wrong: string[] };
+export type Pack = { id: number; game: string; name: string; count: number; max: number; questions: PackQuestion[] };
+
+type SignedIn = { session: string; user: User };
+
+export const accountApi = {
+  config: () => call<AuthConfig>('GET', '/auth/config'),
+  apple: (body: { id_token: string; code?: string | null; name?: string; device?: string }) => call<SignedIn>('POST', '/auth/apple', body),
+  google: (body: { id_token: string; device?: string }) => call<SignedIn>('POST', '/auth/google', body),
+  emailStart: (email: string) => call<{ ok: boolean; minutes: number }>('POST', '/auth/email/start', { email }),
+  emailVerify: (email: string, code: string, device?: string) => call<SignedIn>('POST', '/auth/email/verify', { email, code, device }),
+  logout: (all = false) => call<{ ok: boolean }>('POST', '/auth/logout', { all }),
+  me: () => call<{ user: User | null }>('GET', '/me'),
+  update: (p: { name?: string; news?: boolean }) => call<{ user: User }>('POST', '/me', p),
+  remove: () => call<{ ok: boolean }>('POST', '/me/delete', {}),
+  prefs: <T>(game: string) => call<{ settings: T | null }>('GET', `/me/prefs?game=${encodeURIComponent(game)}`),
+  savePrefs: (game: string, settings: object) => call<{ settings: object }>('POST', '/me/prefs', { game, settings }),
+  history: () => call<History>('GET', '/me/history'),
+  packs: () => call<{ packs: PackSummary[]; max: number; maxQuestions: number }>('GET', '/me/packs'),
+  pack: (id: number) => call<{ pack: Pack }>('GET', `/me/packs/${id}`),
+  newPack: (name: string) => call<{ pack: Pack }>('POST', '/me/packs', { name }),
+  savePack: (id: number, p: { name?: string; questions?: PackQuestion[] }) => call<{ pack: Pack }>('POST', `/me/packs/${id}`, p),
+  deletePack: (id: number) => call<{ ok: boolean }>('POST', `/me/packs/${id}/delete`, {}),
+  claim: (code: string, host: string) => call<{ ok: boolean; games: number }>('POST', `/rooms/${code}/claim`, {}, { 'X-Party-Host': host }),
+};
 
 export const api = {
   games: () => call<{ games: GameInfo[]; tv: string }>('GET', '/games'),

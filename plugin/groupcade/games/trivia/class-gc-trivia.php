@@ -99,7 +99,24 @@ class GC_Trivia extends GC_Game {
 				$s['only'] = $pick;
 			}
 		}
+		if ( ! empty( $params['pack'] ) ) {
+			self::set_pack( $s, (int) ( $params['_owner'] ?? 0 ), (int) $params['pack'] );
+		}
 		return $s;
+	}
+
+	/**
+	 * Play a host's own question pack: its questions come first, then regular questions from the
+	 * picked categories fill any rounds left. Only the pack's owner can pick it.
+	 */
+	private static function set_pack( &$s, $owner, $pack_id ) {
+		$s['pack']     = 0;
+		$s['packName'] = '';
+		$p             = ( $owner && $pack_id ) ? GC_Packs::owned( $owner, $pack_id ) : null;
+		if ( $p && (int) $p['count'] > 0 ) {
+			$s['pack']     = (int) $p['id'];
+			$s['packName'] = (string) $p['name'];
+		}
 	}
 
 	// ------------------------------------------------------------------ game flow
@@ -127,7 +144,7 @@ class GC_Trivia extends GC_Game {
 				$s['phase'] = 'end';
 				$s['t0']    = GC_Room::now_ms();
 				$s['t1']    = 0;
-				GC_DB::match_end( $s, 1, (int) $s['round'], $s['winners'] ?? array() );
+				$this->finish( $room, 1 );
 			} else {
 				$this->next_round( $room, (int) $s['t1'] );
 			}
@@ -179,7 +196,11 @@ class GC_Trivia extends GC_Game {
 			'rights'      => isset( $s['rights'] ) ? (array) $s['rights'] : array(),
 			'shown'       => isset( $s['shown'] ) ? (array) $s['shown'] : array(),
 		);
-		$qid        = GC_Trivia_Bank::pick( $level, $ctx );
+		$qid        = ! empty( $s['pack'] ) ? self::pick_pack( $s, $level ) : 0;
+		$q          = $qid ? self::$pack_qs[ $qid ] : null;
+		if ( ! $qid ) {
+			$qid = GC_Trivia_Bank::pick( $level, $ctx );
+		}
 		if ( ! $qid ) {
 			// Bank used up (very long session): forget what was used and go again.
 			$s['used'] = array();
@@ -188,7 +209,9 @@ class GC_Trivia extends GC_Game {
 		if ( ! $qid ) {
 			$qid = GC_Trivia_Bank::pick( $level );
 		}
-		$q     = GC_Trivia_Bank::get( $qid );
+		if ( ! $q ) {
+			$q = GC_Trivia_Bank::get( $qid );
+		}
 		$order = array( 0, 1, 2, 3 );
 		shuffle( $order );
 		$s['qid']    = $qid;
@@ -211,6 +234,63 @@ class GC_Trivia extends GC_Game {
 		$s['phase']  = 'cat';
 		$s['t0']     = $at;
 		$s['t1']     = $at + self::CAT_MS;
+	}
+
+	/** @var array Questions of the pack in play, loaded once per request. */
+	private static $pack_qs = array();
+
+	/** A question from the room's pack that hasn't been asked yet, nearest the round's level. 0 when used up. */
+	private static function pick_pack( $s, $level ) {
+		self::$pack_qs = GC_Packs::for_game( (int) $s['pack'], (string) ( $s['packName'] ?? '' ) );
+		$used          = array_flip( array_map( 'intval', (array) $s['used'] ) );
+		$order         = array(
+			'easy'   => array( 'easy', 'medium', 'hard' ),
+			'medium' => array( 'medium', 'easy', 'hard' ),
+			'hard'   => array( 'hard', 'medium', 'easy' ),
+		);
+		foreach ( $order[ $level ] as $lvl ) {
+			$ids = array();
+			foreach ( self::$pack_qs as $id => $q ) {
+				if ( $q[0] === $lvl && ! isset( $used[ $id ] ) ) {
+					$ids[] = $id;
+				}
+			}
+			if ( $ids ) {
+				return $ids[ random_int( 0, count( $ids ) - 1 ) ];
+			}
+		}
+		return 0;
+	}
+
+	/** Final places, best first, for a signed-in host's game history. */
+	public function standings( $room ) {
+		$rows = GC_Room::players( $room );
+		$pts  = self::points( $room['s'] );
+		usort(
+			$rows,
+			function ( $a, $b ) use ( $pts ) {
+				if ( $pts ) {
+					return (int) $b['score'] <=> (int) $a['score'];
+				}
+				return ( (int) $b['alive'] <=> (int) $a['alive'] ) ?: ( (int) $b['best'] <=> (int) $a['best'] );
+			}
+		);
+		$win = array_flip( array_map( 'mb_strtolower', (array) ( $room['s']['winners'] ?? array() ) ) );
+		$out = array();
+		foreach ( array_slice( $rows, 0, 50 ) as $r ) {
+			$out[] = array(
+				'n' => (string) $r['name'],
+				's' => $pts ? (int) $r['score'] : (int) $r['best'],
+				'w' => isset( $win[ mb_strtolower( (string) $r['name'] ) ] ) ? 1 : 0,
+			);
+		}
+		return $out;
+	}
+
+	/** Close the game's stats row, with final places when a signed-in host owns the room. */
+	private function finish( $room, $status ) {
+		$s = $room['s'];
+		GC_DB::match_end( $s, $status, (int) $s['round'], $s['winners'] ?? array(), ! empty( $room['owner_id'] ) ? $this->standings( $room ) : array() );
 	}
 
 	private function resolve( &$room ) {
@@ -440,6 +520,9 @@ class GC_Trivia extends GC_Game {
 					}
 					$s['only'] = $pick;
 				}
+				if ( isset( $args['pack'] ) ) {
+					self::set_pack( $s, (int) ( $room['owner_id'] ?? 0 ), (int) $args['pack'] );
+				}
 				GC_Room::save( $room );
 				return true;
 			case 'next':
@@ -459,7 +542,7 @@ class GC_Trivia extends GC_Game {
 				$s['t1']      = 0;
 				$s['winners'] = self::points( $s ) ? self::points_leaders( (int) $room['id'] ) : $this->standing_names( (int) $room['id'] );
 				$s['stopped'] = true;
-				GC_DB::match_end( $s, 2, (int) $s['round'], $s['winners'] );
+				$this->finish( $room, 2 );
 				GC_Room::save( $room );
 				return true;
 			case 'again':
@@ -519,6 +602,8 @@ class GC_Trivia extends GC_Game {
 			'locked'  => $locked,
 			'mode'    => self::points( $s ) ? 'points' : 'survive',
 			'only'    => isset( $s['only'] ) ? array_values( (array) $s['only'] ) : array(),
+			'pack'    => ! empty( $s['pack'] ) ? array( 'id' => (int) $s['pack'], 'name' => (string) ( $s['packName'] ?? '' ) ) : null,
+			'owned'   => ! empty( $room['owner_id'] ),
 		);
 		if ( $host && in_array( $s['phase'], array( 'lobby', 'end' ), true ) ) {
 			$out['allCats']  = GC_Trivia_Bank::categories();

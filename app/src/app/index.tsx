@@ -7,6 +7,7 @@ import Svg, { Path } from 'react-native-svg';
 import { setTvRoomUrl } from '../../modules/groupcade-tv';
 import { NATIVE_GAMES, type AppGame } from '../games';
 import { api } from '../lib/api';
+import { useAccount } from '../lib/account';
 import { closeRoom } from '../lib/closeRoom';
 import { store, type SavedRoom } from '../lib/store';
 import { Buddy } from '../ui/Buddy';
@@ -21,6 +22,7 @@ export default function Home() {
   const [open, setOpen] = useState<Open | null>(null);
   const [code, setCode] = useState('');
   const [closing, setClosing] = useState(false);
+  const { user } = useAccount();
 
   useEffect(() => {
     api
@@ -99,8 +101,9 @@ export default function Home() {
   return (
     <Screen
       top={
-        <View style={{ paddingHorizontal: 20, paddingTop: 10, paddingBottom: 4 }}>
+        <View style={{ paddingHorizontal: 20, paddingTop: 10, paddingBottom: 4, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
           <LogoWide height={40} />
+          <AccountButton signedIn={!!user} />
         </View>
       }
     >
@@ -185,5 +188,25 @@ export default function Home() {
         </P>
       </View>
     </Screen>
+  );
+}
+
+/** Top-right: the host's account (optional). */
+function AccountButton({ signedIn }: { signedIn: boolean }) {
+  return (
+    <Pressable
+      onPress={() => router.push('/account')}
+      accessibilityRole="button"
+      accessibilityLabel={signedIn ? 'Your account' : 'Sign in to save your games'}
+      hitSlop={8}
+      style={({ pressed }) => [
+        { height: 44, borderRadius: 22, borderWidth: 3, borderColor: C.ink, backgroundColor: signedIn ? C.gold : C.white, flexDirection: 'row', alignItems: 'center', gap: 6, paddingHorizontal: signedIn ? 10 : 14, opacity: pressed ? 0.7 : 1 },
+      ]}
+    >
+      <Svg width={20} height={20} viewBox="0 0 24 24" fill="none" stroke={C.ink} strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round">
+        <Path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM4 21c0-4 4-6 8-6s8 2 8 6" />
+      </Svg>
+      {signedIn ? null : <Text style={{ fontFamily: F.heavy, fontSize: 15, color: C.ink }}>Sign in</Text>}
+    </Pressable>
   );
 }

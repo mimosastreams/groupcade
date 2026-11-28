@@ -5,6 +5,7 @@ import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
+import { initAccount } from '../lib/account';
 import { DialogHost } from '../ui/Dialog';
 import { C } from '../ui/kit';
 
@@ -16,6 +17,9 @@ export default function RootLayout() {
   useEffect(() => {
     if (ready) SplashScreen.hideAsync().catch(() => {});
   }, [ready]);
+  useEffect(() => {
+    initAccount(); // The optional host account, if this phone is signed in.
+  }, []);
   if (!ready) return null;
 
   return (
@@ -27,6 +31,9 @@ export default function RootLayout() {
         <Stack.Screen name="trivia/new" />
         <Stack.Screen name="room/[code]" options={{ gestureEnabled: false }} />
         <Stack.Screen name="play/[code]" />
+        <Stack.Screen name="account/index" />
+        <Stack.Screen name="account/email" />
+        <Stack.Screen name="account/pack/[id]" />
       </Stack>
       <DialogHost />
     </>

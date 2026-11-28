@@ -3,7 +3,7 @@
  * Plugin Name: Groupcade
  * Plugin URI:  https://groupcade.com/
  * Description: Party games for the big screen. A host makes a room and gets a code, link and QR; players join on their phones and play there, and the TV shows the big screen. Game one: Trivia (/trivia/). TV view: /tv/. Also serves the site's home page.
- * Version:     1.4.1
+ * Version:     1.5.0
  * Author:      Groupcade
  * Requires PHP: 7.4
  * Text Domain: groupcade
@@ -13,8 +13,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'GC_VERSION', '1.4.1' );
-define( 'GC_DB_VERSION', '2' ); // Bump to re-run dbDelta and re-flush rewrite rules.
+define( 'GC_VERSION', '1.5.0' );
+define( 'GC_DB_VERSION', '3' ); // Bump to re-run dbDelta and re-flush rewrite rules.
 define( 'GC_DIR', plugin_dir_path( __FILE__ ) );
 define( 'GC_FILE', __FILE__ );
 
@@ -27,6 +27,12 @@ require_once GC_DIR . 'includes/class-gc-room.php';
 require_once GC_DIR . 'includes/class-gc-chat.php';
 require_once GC_DIR . 'includes/class-gc-rest.php';
 require_once GC_DIR . 'includes/class-gc-fast.php';
+require_once GC_DIR . 'includes/class-gc-jwt.php';
+require_once GC_DIR . 'includes/class-gc-accounts.php';
+require_once GC_DIR . 'includes/class-gc-auth.php';
+require_once GC_DIR . 'includes/class-gc-packs.php';
+require_once GC_DIR . 'includes/class-gc-account-rest.php';
+require_once GC_DIR . 'includes/class-gc-account-page.php';
 require_once GC_DIR . 'includes/class-gc-page.php';
 require_once GC_DIR . 'includes/class-gc-home.php';
 require_once GC_DIR . 'includes/class-gc-home-fields.php';
@@ -53,8 +59,10 @@ add_action(
 
 add_action( 'init', array( 'GC_DB', 'maybe_upgrade' ), 20 ); // After rewrite rules are registered.
 add_action( 'rest_api_init', array( 'GC_Rest', 'routes' ) );
+add_action( 'rest_api_init', array( 'GC_Account_Rest', 'routes' ) );
 add_action( 'gc_cleanup', array( 'GC_DB', 'cleanup' ) );
 GC_Page::init();
+GC_Account_Page::init();
 GC_Home::init();
 GC_Home_Fields::init();
 
