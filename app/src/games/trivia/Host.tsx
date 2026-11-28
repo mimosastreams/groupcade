@@ -6,6 +6,7 @@ import { Pressable, Share, Text, View } from 'react-native';
 import QRCode from 'react-native-qrcode-svg';
 import Svg, { Path } from 'react-native-svg';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { router } from 'expo-router';
 import { api, links, type Player, type RoomState } from '../../lib/api';
 import { Buddy } from '../../ui/Buddy';
 import { dialog } from '../../ui/Dialog';
@@ -155,6 +156,7 @@ export function TriviaHost(p: Props) {
           }
         >
           {banners}
+          <SaveGames st={st} />
           <H2>Standings</H2>
           <Standings st={st} myName={p.myName} buddyOf={buddyOf} />
           <TvCard code={st.code} compact />
@@ -578,5 +580,23 @@ function Standings({ st, myName, buddyOf, max = MAX_PLAYERS }: { st: RoomState; 
         );
       })}
     </View>
+  );
+}
+
+/** After a game: a signed-out host can save it to an account; a signed-in host's games are saved. */
+function SaveGames({ st }: { st: RoomState }) {
+  if (st.owned) {
+    return (
+      <P small muted center>
+        Saved to your game history.
+      </P>
+    );
+  }
+  return (
+    <Card tint={C.mintTint} style={{ gap: 8 }}>
+      <H2 style={{ fontSize: 22 }}>Keep this game?</H2>
+      <P small>Sign in to save who won, keep your setup for next time and write your own questions. It's optional.</P>
+      <Button small kind="dark" title="Save my games" onPress={() => router.push({ pathname: '/account', params: { claim: st.code } })} />
+    </Card>
   );
 }

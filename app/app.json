@@ -39,6 +39,7 @@
     ],
     "extra": {
       "apiBase": "https://groupcade.com",
+      "googleIosClientId": "",
       "eas": {
         "projectId": "154b6f6f-1f7a-4862-824e-7e8f81b6093c"
       }

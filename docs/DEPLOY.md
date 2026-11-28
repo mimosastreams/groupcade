@@ -54,6 +54,11 @@ Home page and setting it as the front page if there isn't one), keeps a copy in 
 `gc_home_content_backup` option, and copies the trivia questions into Groupcade > Questions a few
 hundred at a time. Games use the built-in question file until that copy finishes.
 
+## Host accounts
+
+From 1.5.0 hosts can sign in (optional) at `/account/`. Email codes work right away once the site
+can send mail; Apple and Google need IDs in Groupcade > Settings. Steps: `docs/ACCOUNTS.md`.
+
 ## Redirecting gametogethr.com and game2night.com
 
 Nothing in this repo can do this; it's hosting and DNS. What's needed:
