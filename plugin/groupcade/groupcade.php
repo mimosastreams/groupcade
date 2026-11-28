@@ -3,7 +3,7 @@
  * Plugin Name: Groupcade
  * Plugin URI:  https://groupcade.com/
  * Description: Party games for the big screen. A host makes a room and gets a code, link and QR; players join on their phones and play there, and the TV shows the big screen. Games: Trivia (/trivia/), Phony Baloney (/baloney/) and Scribble Squad (/scribble/). TV view: /tv/. Also serves the site's home page.
- * Version:     1.6.0
+ * Version:     1.6.1
  * Author:      Groupcade
  * Requires PHP: 7.4
  * Text Domain: groupcade
@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'GC_VERSION', '1.6.0' );
+define( 'GC_VERSION', '1.6.1' );
 define( 'GC_DB_VERSION', '4' ); // Bump to re-run dbDelta and re-flush rewrite rules.
 define( 'GC_DIR', plugin_dir_path( __FILE__ ) );
 define( 'GC_FILE', __FILE__ );

@@ -160,7 +160,7 @@ export function BaloneyHost(p: Props) {
     >
       {st.p ? <PromptCard p={st.p} mult={st.mult} /> : null}
       {st.phase === 'cat' ? <P muted>Get ready… everyone writes a fake answer that sounds real.</P> : null}
-      {st.phase === 'write' ? <WriteBox st={st} me={me} busy={sending === 'fake'} onSend={(text) => send('fake', { text })} /> : null}
+      {st.phase === 'write' ? <WriteBox st={st} me={me} maxLen={cfg?.maxLen || 120} busy={sending === 'fake'} onSend={(text) => send('fake', { text })} /> : null}
       {st.phase === 'vote' ? <VoteList st={st} me={me} busy={!!sending} onVote={(c) => send('vote', { choice: c })} /> : null}
       {st.phase === 'rev' || st.phase === 'board' ? <Reveal st={st} now={p.now} me={me} busy={!!sending} onLol={(i) => send('lol', { choice: i })} /> : null}
       <View style={{ gap: 10 }}>
@@ -193,7 +193,7 @@ function PromptCard({ p, mult }: { p: NonNullable<BaloneyState['p']>; mult: numb
   );
 }
 
-function WriteBox({ st, me, busy, onSend }: { st: BaloneyState; me: BaloneyState['me'] | null; busy: boolean; onSend: (text: string) => Promise<boolean> }) {
+function WriteBox({ st, me, maxLen, busy, onSend }: { st: BaloneyState; me: BaloneyState['me'] | null; maxLen: number; busy: boolean; onSend: (text: string) => Promise<boolean> }) {
   const [text, setText] = useState('');
   const [editing, setEditing] = useState(false);
   useEffect(() => {
@@ -205,7 +205,7 @@ function WriteBox({ st, me, busy, onSend }: { st: BaloneyState; me: BaloneyState
     return (
       <Card tint={C.mintTint} style={{ gap: 6 }}>
         <Text style={{ fontFamily: F.heavy, fontSize: 15, color: C.ink }}>Your fake is in</Text>
-        <Text style={{ fontFamily: F.display, fontSize: 22, lineHeight: 28, color: C.ink }}>“{me.fake}”</Text>
+        <Text style={{ fontFamily: F.display, fontSize: me.fake.length > 60 ? 18 : 22, lineHeight: me.fake.length > 60 ? 24 : 28, color: C.ink }}>“{me.fake}”</Text>
         <Button small title="Change it" onPress={() => (setText(me.fake), setEditing(true))} />
       </Card>
     );
@@ -217,7 +217,19 @@ function WriteBox({ st, me, busy, onSend }: { st: BaloneyState; me: BaloneyState
   };
   return (
     <Card style={{ gap: 10 }}>
-      <Field label="Your fake answer" hint="Make it sound real" value={text} onChangeText={setText} maxLength={60} autoCapitalize="sentences" returnKeyType="send" onSubmitEditing={submit} placeholder="Something believable…" />
+      <Field
+        label="Your fake answer"
+        hint={`${maxLen - text.length} left`}
+        value={text}
+        onChangeText={(t) => setText(t.replace(/\n/g, ' '))}
+        maxLength={maxLen}
+        multiline
+        submitBehavior="blurAndSubmit"
+        autoCapitalize="sentences"
+        returnKeyType="send"
+        onSubmitEditing={submit}
+        placeholder="Something believable…"
+      />
       <Button kind="go" title="Lock it in" busy={busy} disabled={!text.trim()} onPress={submit} />
     </Card>
   );

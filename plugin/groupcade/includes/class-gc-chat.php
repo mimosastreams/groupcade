@@ -24,12 +24,12 @@ class GC_Chat {
 		return array( 'motherfucker', 'fucking', 'fucker', 'fuck', 'shit', 'bitch', 'bastard', 'pussy', 'whore', 'slut', 'twat', 'wanker', 'asshole' );
 	}
 
-	/** Returns the cleaned message, or '' when it is empty or blocked. */
-	public static function clean( $raw ) {
+	/** Returns the cleaned message, or '' when it is empty or blocked. $max: longest it may be (chat: 80). */
+	public static function clean( $raw, $max = self::MAX_LEN ) {
 		$m = wp_strip_all_tags( (string) $raw );
 		$m = preg_replace( '/[\x{0000}-\x{001F}\x{007F}\x{200B}-\x{200F}\x{202A}-\x{202E}\x{2066}-\x{2069}]/u', '', $m );
 		$m = trim( preg_replace( '/\s+/u', ' ', (string) $m ) );
-		$m = function_exists( 'mb_substr' ) ? mb_substr( $m, 0, self::MAX_LEN ) : substr( $m, 0, self::MAX_LEN );
+		$m = function_exists( 'mb_substr' ) ? mb_substr( $m, 0, (int) $max ) : substr( $m, 0, (int) $max );
 		$m = trim( $m );
 		if ( '' === $m ) {
 			return '';

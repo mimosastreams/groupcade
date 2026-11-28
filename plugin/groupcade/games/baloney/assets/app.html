@@ -347,11 +347,16 @@ textarea.field:focus{box-shadow:0 0 0 3px var(--gold)}
 .tvopts{display:grid;grid-template-columns:repeat(var(--oc,2),minmax(0,1fr));gap:2.2vh}
 .tvopts .tva{min-height:10.5vh}
 .tvopts .tva .t{font-size:var(--of,4.4vh)}
+.tvopts.vlong .tva{min-height:8vh;padding:1vh 1.8vh;gap:2vh}
+.tvopts.vlong .tva .k{width:7vh;height:7vh;font-size:4vh;border-radius:2vh}
+.tvopts.vlong .tva .t{line-height:1.15}
 .tvopts .tva .k{width:7.4vh;height:7.4vh;font-size:4.4vh}
 body.tv .rcard{background:#fff;border-color:#fff;border-width:.55vh;border-radius:3.6vh;padding:2.6vh 3.4vh;gap:1.8vh}
 body.tv .rcard.truth{background:var(--mint-t)}
 body.tv .rcard.cur{box-shadow:1.1vh 1.1vh 0 var(--accent)}
 body.tv .rcard .rt{font-size:6.4vh}
+body.tv .rcard .rt.long{font-size:4.4vh;line-height:1.15}
+.rcard .rt.long{font-size:19px;line-height:1.2}
 body.tv .voters{gap:1.2vh}
 body.tv .voters .chip{font-size:3vh;padding:.4vh 1.8vh;border-width:.4vh}
 body.tv .voters .chip .bd{width:4.4vh;height:4.8vh}
@@ -822,7 +827,7 @@ function drawQr(){
 var CATS = CFG.cats || [];            // [{id, name}]
 var ROUNDS = CFG.rounds || [5, 7, 10];
 var SECS = CFG.secs || [45, 60, 90];
-var MAXLEN = CFG.maxLen || 60;
+var MAXLEN = CFG.maxLen || 120;
 var LET = 'ABCDEFGHIJ';
 var COLS = ['var(--coral)', 'var(--gold)', 'var(--mint)', 'var(--blue)', '#FF7FB6', '#8C7CFF'];
 var JOINMID = 'This game already started. Join now and you\'ll play from the next round.';
@@ -1153,9 +1158,11 @@ function vTv(st){
     return bar + tvPrompt(st) + '<div class="tvhint">' + esc(HINT[st.p.cat] || 'Write a fake answer that sounds real.') + '</div>' + tvHeads(st, 'fakes in');
   }
   if (st.phase === 'vote') {
-    var n = (st.opts || []).length, long = (st.opts || []).some(function(t){ return t.length > 38; });
-    var oc = n <= 4 ? 2 : (long ? 2 : 3), of = n > 6 ? (long ? '3.2vh' : '3.8vh') : (long ? '3.6vh' : '4.4vh');
-    return bar + tvPrompt(st, true) + '<div class="tvopts" style="--oc:' + oc + ';--of:' + of + '">' + st.opts.map(function(t, i){
+    // Longer fakes get two columns and smaller type so a full table of 9 still fits.
+    var n = (st.opts || []).length, most = Math.max.apply(null, (st.opts || []).map(function(t){ return t.length; }).concat([0]));
+    var long = most > 38, vlong = most > 70;
+    var oc = n > 6 ? 3 : n <= 4 || long ? 2 : 3, of = vlong ? (n > 6 ? '2.5vh' : n > 4 ? '3vh' : '3.4vh') : n > 6 ? (long ? '3vh' : '3.8vh') : (long ? '3.6vh' : '4.4vh');
+    return bar + tvPrompt(st, true) + '<div class="tvopts' + (vlong ? ' vlong' : '') + '" style="--oc:' + oc + ';--of:' + of + '">' + st.opts.map(function(t, i){
       return '<div class="tva" style="--col:' + COLS[i % COLS.length] + '"><span class="k">' + LET[i] + '</span><span class="t">' + esc(t) + '</span></div>';
     }).join('') + '</div>' + tvHeads(st, 'voted');
   }
@@ -1195,7 +1202,7 @@ function vPlay(st){
     var editing = !sent || S.editFake === st.round;
     var val = (S.draft !== null && S.draft !== undefined && S.draftRound === st.round) ? S.draft : sent;
     var form = editing
-      ? '<form id="fakef" class="card"><label for="fk">Your fake answer</label><textarea id="fk" class="field" maxlength="' + MAXLEN + '" rows="2" placeholder="Something that sounds true…" autocomplete="off" autocapitalize="sentences" enterkeyhint="send">' + esc(val) + '</textarea>' +
+      ? '<form id="fakef" class="card"><label for="fk">Your fake answer</label><textarea id="fk" class="field" maxlength="' + MAXLEN + '" rows="3" placeholder="Something that sounds true…" autocomplete="off" autocapitalize="sentences" enterkeyhint="send">' + esc(val) + '</textarea>' +
         '<div class="err" role="alert" style="margin-top:8px">' + esc(S.fakeErr || '') + '</div>' +
         '<div class="row" style="justify-content:space-between"><span class="muted small" id="fkn"></span><button class="btn go sm" ' + (S.busy ? 'disabled' : '') + '>' + (sent ? 'Update my fake' : 'Lock in my fake') + '</button></div></form>'
       : '<div class="banner good pop">Your fake: “' + esc(sent) + '”<small>Nice. You can change it until the clock runs out.</small></div><button class="btn wide sm" data-act="editfake">Change my fake</button>';
