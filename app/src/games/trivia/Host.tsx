@@ -2,7 +2,8 @@
 // game as it runs (the TV shows the big version); then winners. All native, no web view.
 import * as Haptics from 'expo-haptics';
 import { useEffect, useState, type ReactNode } from 'react';
-import { Pressable, Share, Text, View } from 'react-native';
+import * as Clipboard from 'expo-clipboard';
+import { Pressable, Text, View } from 'react-native';
 import QRCode from 'react-native-qrcode-svg';
 import Svg, { Path } from 'react-native-svg';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -329,6 +330,13 @@ function Check() {
 function JoinCard({ code, path }: { code: string; path: string }) {
   const url = links.game(path, code);
   const [qr, setQr] = useState(false);
+  const [copied, setCopied] = useState(false);
+  // Copy rather than the share sheet: with the TV on, iOS can try to show the sheet on the TV.
+  const copy = () => {
+    Clipboard.setStringAsync(url).catch(() => {});
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
   return (
     <View style={[{ backgroundColor: C.accent, borderWidth: 3, borderColor: C.ink, borderRadius: 26, padding: 16, paddingHorizontal: 18, gap: 12 }, shadow(5)]}>
       <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 10 }}>
@@ -340,7 +348,7 @@ function JoinCard({ code, path }: { code: string; path: string }) {
           </Text>
         </View>
         <View style={{ gap: 8 }}>
-          <Button small title="Share link" onPress={() => Share.share({ message: `Join my Groupcade game! Code ${code}: ${url}` })} />
+          <Button small title={copied ? 'Copied!' : 'Copy link'} onPress={copy} />
           <Button small title={qr ? 'Hide QR' : 'Show QR'} onPress={() => setQr(!qr)} />
         </View>
       </View>

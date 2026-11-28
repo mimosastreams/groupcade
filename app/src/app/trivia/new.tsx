@@ -16,7 +16,8 @@ export default function NewTrivia() {
   const [err, setErr] = useState('');
 
   useEffect(() => {
-    store.settings<TriviaSettings>('trivia').then((s) => s && setSettings({ ...DEFAULT_SETTINGS, ...s }));
+    // v2: new defaults (Survival until one is left, 30 seconds), so older saved picks start fresh once.
+    store.settings<TriviaSettings>('trivia-v2').then((s) => s && setSettings({ ...DEFAULT_SETTINGS, ...s }));
     api
       .games()
       .then((r) => {
@@ -29,7 +30,7 @@ export default function NewTrivia() {
   const change = (p: Partial<TriviaSettings>) => {
     const next = { ...settings, ...p };
     setSettings(next);
-    store.saveSettings('trivia', next);
+    store.saveSettings('trivia-v2', next);
   };
 
   const make = async () => {
