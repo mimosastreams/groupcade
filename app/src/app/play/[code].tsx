@@ -2,9 +2,9 @@
 // the tokens the app holds), when joining someone else's game, and for games without native host
 // screens yet. The page talks back through window.ReactNativeWebView (see the app bridge in
 // plugin/groupcade/games/trivia/assets/app.html).
-import { router, useLocalSearchParams } from 'expo-router';
-import { useEffect, useRef, useState } from 'react';
-import { ActivityIndicator, Platform, View } from 'react-native';
+import { router, useFocusEffect, useLocalSearchParams } from 'expo-router';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { ActivityIndicator, BackHandler, Platform, View } from 'react-native';
 import { WebView, type WebViewMessageEvent } from 'react-native-webview';
 import { API_BASE, links } from '../../lib/api';
 import { store } from '../../lib/store';
@@ -12,6 +12,7 @@ import { useCast } from '../../lib/cast';
 import { useTv } from '../../lib/useTv';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { C, TopBar } from '../../ui/kit';
+import { dialog } from '../../ui/Dialog';
 
 type Boot = { uri: string; inject: string } | null;
 
@@ -62,6 +63,25 @@ export default function Play() {
     if (hosting) web.current?.injectJavaScript(`window.groupcadeTv && window.groupcadeTv(${tv.connected}); true;`);
   }, [tv.connected, hosting]);
 
+  // Leaving a game you joined asks first, so a stray tap or Android back swipe mid-drawing doesn't
+  // throw you out. The host just goes back to their host screen.
+  const leave = useCallback(() => {
+    if (hosting || code === 'new') return router.back();
+    dialog.alert('Leave this game?', 'You can rejoin with the same code while the room is open.', [
+      { text: 'Stay', style: 'cancel' },
+      { text: 'Leave', onPress: () => router.back() },
+    ]);
+  }, [hosting, code]);
+  useFocusEffect(
+    useCallback(() => {
+      const sub = BackHandler.addEventListener('hardwareBackPress', () => {
+        leave();
+        return true;
+      });
+      return () => sub.remove();
+    }, [leave])
+  );
+
   const onMessage = (e: WebViewMessageEvent) => {
     let m: { groupcade?: number; type?: string; code?: string };
     try {
@@ -76,7 +96,7 @@ export default function Play() {
   return (
     <View style={{ flex: 1, backgroundColor: C.bg }}>
       <View style={{ paddingTop: insets.top, backgroundColor: C.bg, borderBottomWidth: 3, borderBottomColor: C.ink }}>
-        <TopBar onBack={() => router.back()} backLabel={hosting ? 'Back to host screen' : 'Back'} title={hosting ? 'Playing' : code === 'new' ? 'Groupcade' : `Room ${code}`} />
+        <TopBar onBack={leave} backLabel={hosting ? 'Back to host screen' : 'Back'} title={hosting ? 'Playing' : code === 'new' ? 'Groupcade' : `Room ${code}`} />
       </View>
       {boot ? (
         <Web

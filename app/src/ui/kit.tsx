@@ -2,7 +2,7 @@
 // shadows, chunky Baloo 2 headings over Nunito. Matches the mockups and brand/README.md.
 import * as Haptics from 'expo-haptics';
 import { router } from 'expo-router';
-import type { ReactNode } from 'react';
+import { createContext, useContext, useState, type ReactNode } from 'react';
 import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, View, type StyleProp, type TextStyle, type ViewStyle } from 'react-native';
 import Svg, { Path } from 'react-native-svg';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -61,14 +61,21 @@ export const shadow = (n = 5): ViewStyle => ({
   elevation: 0,
 });
 
+/** Lets a drawing pad freeze the screen's scrolling while a finger is down on it. */
+const ScrollLock = createContext<(locked: boolean) => void>(() => {});
+export const useScrollLock = () => useContext(ScrollLock);
+
 export function Screen({ children, footer, bg = C.bg, top }: { children: ReactNode; footer?: ReactNode; bg?: string; top?: ReactNode }) {
   const insets = useSafeAreaInsets();
+  const [locked, setLocked] = useState(false);
   return (
     <View style={{ flex: 1, backgroundColor: bg }}>
       <View style={{ paddingTop: insets.top }}>{top}</View>
-      <ScrollView contentContainerStyle={{ padding: 20, paddingTop: top ? 8 : 16, gap: 16, paddingBottom: footer ? 20 : insets.bottom + 28 }} keyboardShouldPersistTaps="handled" automaticallyAdjustKeyboardInsets>
+      <ScrollLock.Provider value={setLocked}>
+      <ScrollView scrollEnabled={!locked} contentContainerStyle={{ padding: 20, paddingTop: top ? 8 : 16, gap: 16, paddingBottom: footer ? 20 : insets.bottom + 28 }} keyboardShouldPersistTaps="handled" automaticallyAdjustKeyboardInsets>
         {children}
       </ScrollView>
+      </ScrollLock.Provider>
       {footer ? <View style={{ paddingHorizontal: 20, paddingTop: 14, paddingBottom: insets.bottom + 14, gap: 8 }}>{footer}</View> : null}
     </View>
   );

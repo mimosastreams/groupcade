@@ -5,7 +5,7 @@ import { useMemo, useRef, useState } from 'react';
 import { PanResponder, Pressable, Text, View, type LayoutChangeEvent } from 'react-native';
 import Svg, { Path, Rect } from 'react-native-svg';
 import type { Stroke } from '../lib/api';
-import { C, F } from './kit';
+import { C, F, useScrollLock } from './kit';
 
 export const GRID_W = 1000;
 export const GRID_H = 750;
@@ -46,8 +46,9 @@ export function DrawPad({ colors, widths, maxPoints, strokes, onChange, disabled
   const box = useRef({ w: 1, h: 1 });
   const cur = useRef<Live | null>(null);
   const [, redraw] = useState(0);
-  const state = useRef({ strokes, onChange, color, width, disabled, maxPoints });
-  state.current = { strokes, onChange, color, width, disabled, maxPoints };
+  const lockScroll = useScrollLock();
+  const state = useRef({ strokes, onChange, color, width, disabled, maxPoints, lockScroll });
+  state.current = { strokes, onChange, color, width, disabled, maxPoints, lockScroll };
 
   const count = (list: Live[]) => list.reduce((n, s) => n + s.p.length / 2, 0);
 
@@ -61,6 +62,7 @@ export function DrawPad({ colors, widths, maxPoints, strokes, onChange, disabled
         onPanResponderTerminationRequest: () => false,
         onShouldBlockNativeResponder: () => true,
         onPanResponderGrant: (e) => {
+          state.current.lockScroll(true); // A fast downstroke must not scroll the page instead.
           const { locationX, locationY } = e.nativeEvent;
           const x = Math.round((locationX / box.current.w) * GRID_W);
           const y = Math.round((locationY / box.current.h) * GRID_H);
@@ -87,6 +89,7 @@ export function DrawPad({ colors, widths, maxPoints, strokes, onChange, disabled
   );
 
   function finish() {
+    state.current.lockScroll(false);
     const s = cur.current;
     cur.current = null;
     if (s && s.p.length >= 2) state.current.onChange([...state.current.strokes, s]);
