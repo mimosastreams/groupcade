@@ -51,5 +51,17 @@
   (`GC_Home::fields()` lists them; `GC_Home_Fields` builds the ACF field group from that list).
 - **Admin (plugin 1.3.0):** a top-level Groupcade menu: Questions (post type `gc_question`,
   categories `gc_question_cat`), Analytics and Settings. Trivia reads questions from there.
+- **Games two and three (plugin 1.6.0, 2026-11-28):** Phony Baloney (`games/baloney/`, page
+  `/baloney/`) and Scribble Squad (`games/scribble/`, page `/scribble/`), from the mockups Dylan
+  approved. Both work with the same room codes, `/tv/`, Chromecast and AirPlay mirroring as Trivia.
+  - Phony Baloney: six categories (Fill the Blank, Weird Word, Stands For, Who's That?, Movie Plot,
+    Strange Law). Prompts are the post type `gc_baloney` under Groupcade > Fake answer prompts; the
+    featured image is the picture (photos and posters must be public domain or licensed). Built-in
+    prompts in `games/baloney/data/prompts.txt` are imported once.
+  - Scribble Squad: prompts are one list under Groupcade > Drawing prompts (option
+    `gc_scribble_prompts`, built-in list in `games/scribble/data/prompts.txt`). Sketches are kept in
+    transients (`gc_sk_<room>_<round>_<player>`, 3 hours), not in the room state.
+  - The iPhone app's native host screens are Trivia only; for the new games the app opens the web
+    host screen. Tests: `plugin/tests/baloney-smoke.mjs` and `scribble-smoke.mjs`.
 - **Still open:** free or a one-time unlock; an Apple TV or AirPlay TV to test on; which Apple
   developer account.

@@ -1,0 +1,1357 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#FFFDF7">
+<title>Phony Baloney · Groupcade</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@800&family=Nunito:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Groupcade "Sticker Book": cream paper, navy ink outlines, hard offset shadows. TV pages flip to navy. */
+  --paper:#FFFDF7;--card:#fff;--text:#1B1F3B;--ink:#1B1F3B;--mist:#3A4366;--faint:#8A93AE;--soft:#C4C9DA;--white:#fff;
+  --accent:#4A3AFF;--coral:#FF6B4A;--gold:#FFC93C;--mint:#3DD68C;--blue:#5BB8F5;--sky:#CFEBFF;
+  --coral-t:#FFE3DA;--gold-t:#FFF4CF;--mint-t:#DDF8EA;--pink-t:#FFE0EE;
+  --right:#12784A;--out:#B83A1E;
+  --slate:var(--paper);--slate-2:var(--card);--slate-3:var(--gold-t);
+  --a:#FF6B4A;--b:#FFC93C;--c:#3DD68C;--d:#5BB8F5;
+  --line:#1B1F3B;--bw:3px;--sh:#1B1F3B;
+  --display:"Baloo 2","Nunito",system-ui,sans-serif;
+  --body:"Nunito",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"Baloo 2","Nunito",system-ui,sans-serif;
+}
+body.tv{--paper:#1B1F3B;--text:#fff;--mist:#CBD3F0;--card:#262B52;--line:#fff;--sh:#4A3AFF;--right:#3DD68C;--out:#FF8A70;--slate-3:#262B52}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--paper);color:var(--text);font-family:var(--body);font-weight:500;-webkit-text-size-adjust:100%}
+body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
+button,input{font:inherit;color:inherit}
+button{cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+a{color:var(--accent)}
+.top{display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:var(--bw) solid var(--ink);background:#fff}
+body.tv .top{background:var(--paper);border-bottom-color:transparent}
+.top .logo{width:44px;height:auto;flex:none;display:block}
+.top .logo svg{width:100%;height:auto;display:block}
+.brand{line-height:1}
+.brand b{font-family:var(--display);font-weight:800;font-size:22px;display:block;color:var(--text)}
+.brand span{font-size:12px;font-weight:800;letter-spacing:.14em;color:var(--accent);text-transform:uppercase}
+body.tv .brand span{color:var(--gold)}
+.top .sp{flex:1}
+.pill{display:inline-flex;align-items:center;gap:6px;border:var(--bw) solid var(--ink);border-radius:999px;padding:3px 12px;font-size:14px;font-weight:800;color:var(--ink);background:var(--gold-t);white-space:nowrap}
+.pill b{font-family:var(--display);letter-spacing:.12em;font-size:16px}
+.pill.warn{background:var(--coral-t)}
+main{flex:1;width:100%;max-width:560px;margin:0 auto;padding:18px 18px 28px;display:flex;flex-direction:column;gap:16px}
+body.hostview main{max-width:1280px}
+.card{background:var(--card);border:var(--bw) solid var(--line);border-radius:22px;padding:18px}
+h1,h2,h3{margin:0;font-family:var(--display);font-weight:800;line-height:1.05}
+h1{font-size:clamp(30px,8vw,46px)}
+h2{font-size:24px}
+.muted{color:var(--mist)}
+.small{font-size:14px}
+.center{text-align:center}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:0 20px;border-radius:999px;border:var(--bw) solid var(--ink);background:#fff;color:var(--ink);font-weight:800;font-size:17px;text-decoration:none}
+a.btn{color:var(--ink)}
+.btn.go{background:var(--coral);color:var(--ink);font-family:var(--display);font-size:22px;box-shadow:4px 4px 0 var(--ink)}
+.btn.go:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--ink)}
+.btn.go:disabled,.btn:disabled{opacity:.45;cursor:not-allowed;box-shadow:none}
+.btn.wide{width:100%}
+.btn.ghost{background:transparent;border-color:transparent;color:var(--accent)}
+body.tv .btn.ghost{color:var(--gold)}
+.btn.sm{min-height:44px;padding:0 16px;font-size:15px}
+.btn.go.sm{font-size:17px;box-shadow:3px 3px 0 var(--ink)}
+label{display:block;font-size:15px;font-weight:800;color:var(--text);margin:0 0 6px}
+input.field{width:100%;height:56px;border-radius:18px;border:var(--bw) solid var(--ink);background:#fff;color:var(--ink);padding:0 16px;font-size:19px;font-weight:800;outline:none}
+input.field:focus{box-shadow:0 0 0 3px var(--gold)}
+input.code{font-family:var(--display);letter-spacing:.3em;text-transform:uppercase;text-align:center;font-size:32px;height:66px}
+.err{color:var(--out);font-weight:800;font-size:15px;min-height:1em}
+.seg{display:flex;gap:8px;flex-wrap:wrap}
+.seg button{min-height:44px;padding:6px 14px;border-radius:999px;border:var(--bw) solid var(--soft);background:#fff;font-weight:700;font-size:15px;color:var(--mist)}
+.seg button.on{border-color:var(--ink);color:var(--ink);background:var(--mint-t);font-weight:800}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;gap:6px;border:var(--bw) solid var(--ink);background:#fff;color:var(--ink);border-radius:999px;padding:4px 12px;font-weight:800;font-size:15px}
+.chip.out{opacity:.45;text-decoration:line-through}
+.chip.in{background:var(--mint-t)}
+.chip .x{border:0;background:none;color:var(--mist);padding:0 0 0 2px;font-size:18px;line-height:1}
+.chip.me{background:var(--gold-t)}
+.chip .bd{width:26px;height:28px;margin:-2px 0 -2px -6px;flex:none}
+.tag{display:inline-block;font-size:13px;font-weight:800;padding:2px 10px;border-radius:999px;border:var(--bw) solid var(--ink);background:#fff;color:var(--ink);text-transform:capitalize}
+.tag.easy{background:var(--mint-t)}
+.tag.medium{background:var(--gold-t)}
+.tag.hard{background:var(--coral-t)}
+.meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-weight:800;font-size:15px;color:var(--mist)}
+.meta .sp{flex:1}
+.cat{display:inline-block;font-family:var(--body);font-weight:800;color:var(--ink);background:var(--mint);border:var(--bw) solid var(--ink);border-radius:999px;padding:2px 12px;font-size:14px}
+.q{font-family:var(--display);font-weight:800;font-size:clamp(24px,6.4vw,32px);line-height:1.1;color:var(--ink)}
+.card.qcard{box-shadow:5px 5px 0 var(--sh);transform:rotate(-.8deg);background:#fff;border-color:var(--ink)}
+body.tv .card.qcard{border-color:var(--text);box-shadow:8px 8px 0 var(--accent)}
+.timer{height:14px;border-radius:999px;background:#fff;overflow:hidden;border:var(--bw) solid var(--ink)}
+.timer i{display:block;height:100%;background:var(--gold);width:100%;transform-origin:left;transition:background .3s}
+.timer.low i{background:var(--coral)}
+.secs{font-family:var(--display);font-weight:800;font-size:20px;color:var(--ink);min-width:2.4em;text-align:right}
+.answers{display:grid;gap:10px}
+.ans.press{background:var(--gold)!important;box-shadow:3px 3px 0 var(--ink)}
+button.ans{touch-action:pan-y;transition:transform .18s ease;background:linear-gradient(90deg,rgba(255,201,60,calc(var(--p,0)*1)),rgba(255,201,60,calc(var(--p,0)*.5))),#fff}
+html.coarse button.ans:not(:disabled)::after{content:"Slide right \203A";font-size:16px;white-space:nowrap;padding-left:8px;opacity:calc(.6 + var(--p,0)*.4)}
+button.ans:not(:disabled)::after{content:"\203A";margin-left:auto;font-family:var(--display);font-size:28px;line-height:1;color:var(--ink);opacity:calc(.35 + var(--p,0)*.65)}
+button.ans.nudge{animation:nudge .5s ease}
+@keyframes nudge{30%{transform:translateX(22px)}60%{transform:translateX(-4px)}100%{transform:none}}
+.readbar{text-align:center;font-weight:800;color:var(--accent);font-size:16px}
+body.tv .readbar{color:var(--gold)}
+.readbar b{font-family:var(--display);font-size:20px}
+.hostview .readbar{font-size:clamp(18px,2vw,30px)}
+.answers.wait .ans{opacity:.55}
+.answers.wait button.ans::after,html.coarse .answers.wait button.ans::after{content:none}
+.swipehint{text-align:left;font-size:14px;font-weight:800;color:var(--mist);margin:-4px 0 0}
+#talkbtn{position:fixed;right:14px;bottom:calc(var(--bb,0px) + 14px);z-index:11;width:56px;height:56px;border-radius:50%;border:var(--bw) solid var(--ink);background:var(--gold);color:var(--ink);font-size:24px;display:none;align-items:center;justify-content:center;box-shadow:3px 3px 0 var(--ink)}
+#talkbtn .ub{position:absolute;top:-6px;right:-6px;min-width:22px;height:22px;border-radius:11px;background:var(--coral);border:2px solid var(--ink);color:var(--ink);font:800 12px/18px var(--body);padding:0 5px;display:none}
+#bubbles{position:fixed;left:12px;right:80px;bottom:calc(var(--bb,0px) + 14px);z-index:8;display:flex;flex-direction:column;align-items:flex-start;gap:6px;pointer-events:none}
+.bub{max-width:100%;background:#fff;color:var(--ink);border:var(--bw) solid var(--ink);border-radius:16px;padding:7px 12px;font-size:15px;font-weight:700;line-height:1.3;animation:bubin .25s ease;transition:opacity .4s;box-shadow:3px 3px 0 var(--ink)}
+.bub b{color:var(--accent);margin-right:6px}
+.bub.out{opacity:0}
+@keyframes bubin{from{transform:translateY(10px);opacity:0}to{transform:none;opacity:1}}
+.hostview #bubbles{left:auto;right:20px;width:min(420px,40vw);align-items:flex-end}
+.hostview .bub{font-size:clamp(16px,1.6vw,24px);padding:10px 16px}
+#talksheet{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--paper);color:var(--text);border-top:var(--bw) solid var(--ink);border-radius:24px 24px 0 0;padding:14px 14px max(14px,env(safe-area-inset-bottom));display:none;flex-direction:column;gap:10px;max-height:78vh}
+#talksheet.on{display:flex}
+#talksheet .hd{display:flex;align-items:center;gap:8px;font-family:var(--display);font-weight:800;font-size:20px}
+#talksheet .log{overflow-y:auto;min-height:60px;max-height:28vh;display:flex;flex-direction:column;gap:6px;font-size:15px}
+#talksheet .log div b{color:var(--accent);margin-right:6px}
+#talksheet .qp{display:flex;flex-wrap:wrap;gap:6px;max-height:30vh;overflow-y:auto}
+#talksheet .qp button{border:2px solid var(--ink);background:#fff;color:var(--ink);border-radius:999px;padding:7px 12px;font-size:14px;font-weight:700}
+#talksheet form{display:flex;gap:8px}
+#talksheet input{flex:1;min-width:0;border-radius:16px;border:var(--bw) solid var(--ink);background:#fff;color:var(--ink);padding:10px 12px;font-size:16px}
+.hostview .answers{margin:0}
+.ans{position:relative;display:flex;align-items:center;gap:12px;min-height:64px;width:100%;text-align:left;border-radius:20px;border:var(--bw) solid var(--ink);background:#fff;color:var(--ink);padding:8px 14px 8px 8px;font-weight:800;font-size:18px;line-height:1.2}
+.ans .L{flex:none;width:42px;height:42px;border-radius:14px;border:var(--bw) solid var(--ink);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:800;font-size:20px;color:var(--ink)}
+.ans[data-l="0"] .L{background:var(--a)}
+.ans[data-l="1"] .L{background:var(--b)}
+.ans[data-l="2"] .L{background:var(--c)}
+.ans[data-l="3"] .L{background:var(--d)}
+.ans .n{margin-left:auto;font-family:var(--display);font-weight:800;color:var(--ink);font-size:20px}
+.ans:disabled{cursor:default}
+.ans.pick{background:var(--gold-t)}
+.ans.dim{opacity:.5}
+.ans.good{background:var(--mint-t);opacity:1;box-shadow:4px 4px 0 var(--ink)}
+.ans.bad{background:var(--coral-t);opacity:1}
+.banner{border-radius:20px;padding:14px 16px;font-weight:800;font-size:18px;border:var(--bw) solid var(--ink);background:var(--gold-t);color:var(--ink)}
+.banner.good{background:var(--mint-t)}
+.banner.bad{background:var(--coral-t)}
+.banner.info{background:var(--gold-t)}
+.banner small{display:block;font-weight:700;color:var(--mist);font-size:15px;margin-top:4px}
+body.tv .banner small{color:#3A4366}
+.big-code{font-family:var(--display);font-weight:800;letter-spacing:.12em;font-size:clamp(48px,9vw,120px);line-height:1;color:var(--text)}
+.qr{background:#fff;border-radius:18px;border:var(--bw) solid var(--ink);padding:10px;display:inline-block;line-height:0}
+.qr img,.qr canvas{width:100%;height:auto;image-rendering:pixelated}
+.reel{font-family:var(--display);font-weight:800;font-size:clamp(32px,8vw,64px);color:var(--accent);min-height:1.2em}
+body.tv .reel{color:var(--gold)}
+.win{font-family:var(--display);font-weight:800;font-size:clamp(36px,9vw,84px);color:var(--text);line-height:1.02;word-break:break-word}
+.stand{display:grid;gap:8px;margin:0;padding:0;list-style:none}
+.stand li{display:flex;align-items:center;gap:10px;background:#fff;color:var(--ink);border:var(--bw) solid var(--ink);border-radius:18px;padding:6px 14px 6px 8px;font-weight:800}
+.stand .r{font-family:var(--display);width:1.6em;text-align:center;font-size:20px}
+.stand .bd{width:34px;height:36px;flex:none}
+.stand li.w{background:var(--mint-t)}
+.stand .s{margin-left:auto;color:#3A4366;font-size:14px;font-weight:700}
+.stand li b,.stand li span{color:var(--ink)}
+.stand .s,.stand .s span{color:#3A4366}
+.hoststrip{position:fixed;left:0;right:0;bottom:0;z-index:10;display:flex;gap:6px;justify-content:center;padding:10px;padding-bottom:max(10px,env(safe-area-inset-bottom));background:var(--ink);border-radius:24px 24px 0 0;flex-wrap:nowrap;overflow-x:auto}
+.hoststrip .btn{white-space:nowrap;flex:none;padding:0 12px;font-size:14px;min-height:40px;background:transparent;color:#ffffff;border-color:#ffffff}
+.hoststrip .btn.go{background:var(--accent);color:#ffffff;font-family:var(--body);font-size:14px;box-shadow:none}
+.hoststrip .pill{background:transparent;color:#ffffff;border-color:#ffffff}
+@media (max-width:420px){.hoststrip .pill{display:none}}
+.hoststrip.mini{top:6px;bottom:auto!important;right:6px;left:auto;background:none;padding:0;border-radius:0}
+.hoststrip.mini .btn{min-height:32px;font-size:12px;opacity:.85}
+.still{position:fixed;left:0;right:0;bottom:0;z-index:9;display:flex;align-items:center;gap:8px;padding:8px 12px;padding-bottom:max(8px,env(safe-area-inset-bottom));background:var(--sky);border-top:var(--bw) solid var(--ink);overflow-x:auto;white-space:nowrap;scrollbar-width:none}
+.still::-webkit-scrollbar{display:none}
+.still .lbl{flex:none;font-size:14px;font-weight:800;color:var(--ink)}
+.still .chip{flex:none;padding:2px 10px;font-size:14px}
+.hostview .still{padding:10px 16px}
+.hostview .still .chip{font-size:16px;padding:4px 14px}
+.foot{padding:14px 16px;text-align:center;font-size:13px;color:var(--mist);border-top:var(--bw) solid var(--ink)}
+.foot a{color:var(--mist)}
+.or{display:flex;align-items:center;gap:10px;color:var(--mist);font-weight:800;font-size:14px}
+.or:before,.or:after{content:"";flex:1;height:3px;border-radius:2px;background:var(--soft)}
+.rules{margin:0;padding-left:20px;color:var(--mist);font-size:15px;line-height:1.55}
+.verdict{font-weight:800;font-size:19px;color:var(--ink)}
+.verdict .ko{color:var(--out)}
+.verdict .ok{color:var(--right)}
+.card .verdict .muted,.card .stand + *{color:var(--mist)}
+/* Host screen on a laptop: the web version of the host controls */
+.hgrid{display:grid;grid-template-columns:minmax(280px,420px) 1fr;gap:16px;align-items:start}
+.hostview .q{font-size:clamp(26px,3.2vw,48px)}
+.hostview .answers{grid-template-columns:1fr 1fr}
+.hostview .ans{min-height:84px;font-size:clamp(18px,1.9vw,28px)}
+.hostview .ans .L{width:52px;height:52px;font-size:24px}
+.hostview .timer{height:16px}
+.hostview .secs{font-size:24px}
+.stat{font-family:var(--display);font-weight:800}
+@media (max-width:820px){.hgrid{grid-template-columns:1fr}.hostview .answers{grid-template-columns:1fr}}
+body.tv .foot{display:none}
+body.tv main{max-width:none;padding:3.4vh 4.4vw 4vh;gap:3vh}
+/* ---------- The TV screen (AirPlay, Chromecast, TV browser): full screen, sized to the screen ---------- */
+body.tv{font-size:1.9vh}
+body.tv .top{display:none}
+.tvl{display:flex;gap:3.8vw;flex:1;min-height:0}
+.tvl .left{width:39vw;flex:none;display:flex;flex-direction:column;gap:3vh}
+.tvl .right{flex:1;min-width:0;display:flex;flex-direction:column;gap:2.5vh}
+.tvlogo{height:9vh;width:auto;align-self:flex-start;display:block}
+.tvlogo svg{height:100%;width:auto;display:block}
+.joincard{background:var(--sky);color:var(--ink);border:.55vh solid #fff;border-radius:4.7vh;box-shadow:1.1vh 1.1vh 0 var(--accent);padding:3.6vh 3.9vh;transform:rotate(-1.5deg);display:flex;flex-direction:column;gap:.8vh}
+.joincard .l1{font-weight:800;font-size:3.3vh}
+.joincard .url{font-family:var(--display);font-weight:800;font-size:5.6vh;line-height:1.05;overflow-wrap:anywhere}
+.joincard .l2{font-weight:800;font-size:3vh;margin-top:1.4vh}
+.tiles{display:flex;gap:1.7vh}
+.tiles span{width:12vh;height:13.6vh;border:.55vh solid var(--ink);border-radius:2.8vh;box-shadow:.55vh .55vh 0 var(--ink);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:800;font-size:9.4vh;line-height:1}
+.tiles span:nth-child(1){background:var(--coral)}.tiles span:nth-child(2){background:var(--gold)}.tiles span:nth-child(3){background:var(--mint)}.tiles span:nth-child(4){background:#fff}
+.qrrow{display:flex;align-items:center;gap:2.5vh;margin-top:auto}
+.qrrow .qr{width:16.4vh;height:16.4vh;padding:1.4vh;border:0;border-radius:2.5vh}
+.qrrow p{margin:0;font-size:3vh;font-weight:700;color:var(--mist);line-height:1.3}
+.tvh{display:flex;align-items:baseline;justify-content:space-between;padding-top:1.4vh}
+.tvh h1{font-size:7vh}
+.count{background:var(--mint);color:var(--ink);border-radius:999px;padding:.8vh 2.5vh;font-weight:800;font-size:3vh}
+.pgrid{display:grid;grid-template-columns:repeat(var(--cols,3),minmax(0,1fr));gap:2.5vh;align-content:start}
+.pcard{color:var(--ink);border:.55vh solid #fff;border-radius:3.6vh;padding:1.9vh 1.4vh 1.7vh;display:flex;flex-direction:column;align-items:center;gap:.6vh;min-width:0}
+.pcard .bd{height:var(--bh,12.8vh);width:auto}
+.pcard b{font-family:var(--display);font-weight:800;font-size:var(--nf,4.2vh);line-height:1;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pcard.more{border-style:dashed;border-color:#5A6290;color:var(--mist);justify-content:center;text-align:center;font-size:3vh;font-weight:700}
+.tvfoot{margin-top:auto;display:flex;align-items:center;gap:2vh;font-size:3.3vh;font-weight:700;color:var(--mist)}
+.tvfoot .m{height:7.5vh;width:auto}
+.tvbar{display:flex;align-items:center;gap:2.5vh}
+.tvbar .m{height:8vh;display:block}
+.tvbar .m svg,.tvlogo svg,.disc .m svg{height:100%;width:auto;display:block}
+.tvbar .rd{font-weight:800;font-size:3.6vh}
+.tvbar .catp{background:var(--mint);color:var(--ink);border-radius:999px;padding:.6vh 2.2vh;font-weight:800;font-size:3vh}
+.tvbar .sp{flex:1}
+.tvbar .room{font-size:3vh;font-weight:700;color:var(--mist)}
+.clock{width:12.8vh;height:12.8vh;border-radius:50%;background:var(--gold);color:var(--ink);border:.55vh solid #fff;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:800;font-size:6.4vh;line-height:1}
+.clock.low{background:var(--coral)}
+.tvq{background:#fff;color:var(--ink);border:.55vh solid #fff;border-radius:5vh;box-shadow:1.1vh 1.1vh 0 var(--accent);padding:4.7vh 6vh;transform:rotate(-.6deg)}
+.tvq h1{font-size:clamp(4vh,8.3vh,8.3vh);line-height:1.05;color:var(--ink)}
+.tvq.long h1{font-size:6.2vh}
+.tvans{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2.8vh}
+.tva{min-height:14.4vh;background:#262B52;border:.55vh solid var(--col);border-radius:3.9vh;display:flex;align-items:center;gap:2.8vh;padding:1.2vh 2.2vh;transition:opacity .3s,transform .3s}
+.tva .k{width:9.7vh;height:9.7vh;flex:none;border-radius:2.8vh;background:var(--col);color:var(--ink);border:.55vh solid #fff;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:800;font-size:5.6vh}
+.tva .t{font-family:var(--display);font-weight:800;font-size:5.4vh;line-height:1.05;flex:1;min-width:0}
+.tva .n{font-family:var(--display);font-weight:800;font-size:5vh;color:var(--mist)}
+.tva.dim{opacity:.35}
+.tva.good{background:var(--mint);color:var(--ink);border-color:var(--text);box-shadow:1.1vh 1.1vh 0 var(--accent);transform:scale(1.03) rotate(-.6deg)}
+.tva.good .n{color:var(--ink)}
+.tvfoot2{margin-top:auto;display:flex;align-items:center;gap:3vh}
+.tvfoot2 .lk{font-size:3.3vh;font-weight:800;white-space:nowrap}
+.heads{display:flex;gap:1.4vh;flex-wrap:nowrap;overflow:hidden}
+.head{width:8.9vh;height:8.9vh;flex:none;border-radius:50%;border:.55vh solid #5A6290;display:flex;align-items:center;justify-content:center;opacity:.45}
+.head .bd{height:5.8vh;width:auto}
+.head.in{border-color:var(--mint);opacity:1}
+.prog{flex:1;height:2.5vh;border-radius:999px;background:#262B52;border:.4vh solid #5A6290;overflow:hidden}
+.prog i{display:block;height:100%;background:var(--gold);width:100%;transform-origin:left}
+.prog.low i{background:var(--coral)}
+.verdictbig{background:#fff;color:var(--ink);border-radius:3.6vh;padding:2.2vh 3.3vh;font-weight:800;font-size:3.9vh;display:flex;align-items:center;gap:2vh;flex-wrap:wrap}
+.verdictbig .ko{color:#B83A1E}.verdictbig .ok{color:#12784A}
+.verdictbig .muted{color:#3A4366}
+.verdictbig small{display:block;width:100%;font-size:2.8vh;color:#3A4366;font-weight:700}
+.tvcat{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3vh;text-align:center}
+.tvcat .lab{font-size:4vh;font-weight:800;color:var(--mist)}
+.tvcat .reel{font-size:14vh;line-height:1}
+.tvwin{flex:1;display:flex;gap:5vw;align-items:center}
+.tvwin .hero{width:44vw;flex:none;display:flex;flex-direction:column;align-items:center;gap:2vh;text-align:center}
+.tvwin .disc{width:34vh;height:34vh;border-radius:50%;background:var(--gold);border:.7vh solid #fff;box-shadow:1.4vh 1.4vh 0 var(--accent);display:flex;align-items:center;justify-content:center;transform:rotate(-4deg)}
+.tvwin .disc .bd{height:24vh;width:auto}
+.tvwin .lab{font-size:3.6vh;font-weight:800;color:var(--gold)}
+.tvwin .win{font-size:11vh}
+.tvwin .sub{font-size:3.3vh;font-weight:700;color:var(--mist)}
+.tvwin .board{flex:1;min-width:0;display:flex;flex-direction:column;gap:1.6vh}
+.tvwin .board h2{font-size:5.6vh;margin-bottom:.6vh}
+.tvwin .stand{gap:1.4vh}
+.tvwin .stand li{border-color:var(--text);border-radius:2.8vh;padding:.8vh 2.4vh .8vh 1.4vh;font-size:3.6vh;gap:1.6vh}
+.tvwin .stand .r{font-size:4.2vh}
+.tvwin .stand .bd{height:6vh;width:auto}
+.tvwin .stand .s{font-size:2.8vh}
+.tvwait{font-size:3.3vh;font-weight:800;color:var(--mist)}
+body.tv .card{border-color:var(--text)}
+body.tv .tag{font-size:2.6vh;padding:.3vh 1.6vh}
+body.tv .waiting{color:var(--mist)}
+body.tv input.field{border-color:var(--text)}
+@media (orientation:portrait){
+  body.tv{font-size:1.6vw}
+  .tvl,.tvwin{flex-direction:column}
+  .tvl .left,.tvwin .hero{width:auto}
+  .tvans{grid-template-columns:1fr}
+}
+.sheet{position:fixed;inset:0;background:rgba(27,31,59,.6);display:flex;align-items:flex-end;justify-content:center;z-index:20;padding:16px}
+.sheet .card{width:100%;max-width:520px;display:flex;flex-direction:column;gap:12px;background:var(--paper);color:var(--text);box-shadow:6px 6px 0 var(--ink)}
+.sheet h2{font-size:24px}
+.opt{border:var(--bw) solid var(--ink);border-radius:18px;padding:12px 14px;background:#fff;color:var(--ink)}
+.opt b{display:block;margin-bottom:4px}
+.opt p{margin:0;color:#3A4366;font-size:15px;line-height:1.45}
+.castbtn{display:inline-flex;align-items:center;gap:8px}
+.castbtn svg{width:20px;height:20px}
+.waiting{font-weight:800;color:var(--mist);font-size:19px}
+@media (min-width:821px){.sheet{align-items:center}}
+@keyframes pop{0%{transform:scale(.9);opacity:0}100%{transform:scale(1);opacity:1}}
+.pop{animation:pop .25s ease-out}
+@media (prefers-reduced-motion:reduce){.pop,.tva,button.ans.nudge{animation:none;transition:none}}
+/* ---------- Phony Baloney ---------- */
+.blank{display:inline-block;min-width:3em;border-bottom:.13em solid currentColor;margin:0 .08em;transform:translateY(-.08em)}
+.pbody{display:flex;gap:14px;align-items:center}
+.ptext{flex:1;min-width:0}
+.pimg{width:36%;max-width:190px;border-radius:14px;border:var(--bw) solid var(--ink);flex:none;object-fit:cover;aspect-ratio:3/4;background:var(--gold-t)}
+.ptitle{font-family:var(--display);font-weight:800;font-size:clamp(30px,9vw,44px);line-height:1;color:var(--ink);overflow-wrap:anywhere}
+.psub{font-weight:800;color:#3A4366;font-size:15px;margin-top:4px;font-style:italic}
+.pq{font-family:var(--display);font-weight:800;font-size:clamp(21px,5.8vw,28px);line-height:1.15;color:var(--ink);margin-top:8px}
+.ptitle ~ .pq{font-size:clamp(18px,5vw,22px);color:#3A4366}
+.qcard.mini{padding:12px 14px}
+.qcard.mini .ptitle{font-size:26px}.qcard.mini .pq{font-size:17px}.qcard.mini .pimg{max-width:84px}
+textarea.field{display:block;width:100%;min-height:92px;border-radius:18px;border:var(--bw) solid var(--ink);background:#fff;color:var(--ink);padding:12px 16px;font:800 20px/1.3 var(--body);resize:none;outline:none}
+textarea.field:focus{box-shadow:0 0 0 3px var(--gold)}
+.ans.vopt::after,html.coarse .ans.vopt::after{content:none!important}
+.ans.vopt{background:#fff}
+.ans.vopt.pick{background:var(--gold-t);box-shadow:4px 4px 0 var(--ink)}
+.ans.own{opacity:.55;background:var(--paper)}
+.ans .n.small{font-size:14px;font-family:var(--body)}
+.rlist{display:grid;gap:12px}
+.rcard{background:#fff;color:var(--ink);border:var(--bw) solid var(--ink);border-radius:20px;padding:12px 14px;display:flex;flex-direction:column;gap:8px}
+.rcard.cur{box-shadow:5px 5px 0 var(--accent);transform:rotate(-.5deg)}
+.rcard.truth{background:var(--mint-t)}
+.rcard .rt{font-family:var(--display);font-weight:800;font-size:22px;line-height:1.1}
+.rcard .muted{color:#3A4366}
+.voters{display:flex;flex-wrap:wrap;gap:6px}
+.voters .chip{font-size:14px;padding:2px 10px}
+.rw{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-weight:800}
+.truthtag{background:var(--mint);border:var(--bw) solid var(--ink);border-radius:999px;padding:2px 12px;font-family:var(--display);font-size:18px;color:var(--ink)}
+.plus{color:#12784A;font-family:var(--display);font-size:20px}
+.lolbox{display:flex;flex-direction:column;gap:8px}
+.lolbtn{display:flex;align-items:center;gap:10px;width:100%;text-align:left;border:var(--bw) solid var(--ink);border-radius:18px;background:#fff;color:var(--ink);padding:10px 14px;font-weight:800;font-size:16px}
+.lolbtn .e{font-size:24px;flex:none}
+.lolbtn.on{background:var(--gold);box-shadow:3px 3px 0 var(--ink)}
+.stickers{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.sticker{background:var(--gold);border:var(--bw) solid var(--ink);border-radius:18px;padding:8px 14px;font-weight:800;transform:rotate(-3deg);box-shadow:3px 3px 0 var(--ink);color:var(--ink);text-align:center;font-size:14px}
+.sticker:nth-child(3n+2){background:var(--coral-t);transform:rotate(2deg)}
+.sticker:nth-child(3n){background:var(--mint-t);transform:rotate(-1deg)}
+.sticker b{display:block;font-family:var(--display);font-size:22px;line-height:1.1}
+.catcard{padding:36px 16px}
+.catcard .hint{font-weight:800;color:var(--mist);margin:12px 0 0}
+/* TV */
+.tvprompt{background:#fff;color:var(--ink);border:.55vh solid #fff;border-radius:5vh;box-shadow:1.1vh 1.1vh 0 var(--accent);padding:4.4vh 5vh;transform:rotate(-.5deg);display:flex;gap:4vh;align-items:center}
+.tvprompt .pimg{width:auto;height:40vh;max-width:none;border-width:.55vh;border-radius:3vh}
+.tvprompt .ptitle{font-size:11vh}
+.tvprompt .psub{font-size:3.4vh}
+.tvprompt .pq{font-size:6.8vh;margin-top:1.2vh}
+.tvprompt .ptitle ~ .pq{font-size:4.8vh}
+.tvprompt.mini{padding:2.4vh 3.6vh;gap:3vh}
+.tvprompt.mini .pimg{height:17vh;border-radius:2vh}
+.tvprompt.mini .ptitle{font-size:6vh}
+.tvprompt.mini .pq{font-size:4.2vh}
+.tvprompt.mini .ptitle ~ .pq{font-size:3.3vh}
+.tvopts{display:grid;grid-template-columns:repeat(var(--oc,2),minmax(0,1fr));gap:2.2vh}
+.tvopts .tva{min-height:10.5vh}
+.tvopts .tva .t{font-size:var(--of,4.4vh)}
+.tvopts .tva .k{width:7.4vh;height:7.4vh;font-size:4.4vh}
+body.tv .rcard{background:#fff;border-color:#fff;border-width:.55vh;border-radius:3.6vh;padding:2.6vh 3.4vh;gap:1.8vh}
+body.tv .rcard.truth{background:var(--mint-t)}
+body.tv .rcard.cur{box-shadow:1.1vh 1.1vh 0 var(--accent)}
+body.tv .rcard .rt{font-size:6.4vh}
+body.tv .voters{gap:1.2vh}
+body.tv .voters .chip{font-size:3vh;padding:.4vh 1.8vh;border-width:.4vh}
+body.tv .voters .chip .bd{width:4.4vh;height:4.8vh}
+body.tv .rw{font-size:3.6vh}
+body.tv .rw .tag{font-size:3.4vh;padding:.4vh 2vh}
+body.tv .truthtag{font-size:4.6vh;padding:.4vh 2.6vh}
+body.tv .plus{font-size:5vh}
+body.tv .rcard .muted{font-size:3.2vh}
+.tvrev{display:flex;flex-direction:column;gap:2.4vh;flex:1}
+.tvrev .past{display:flex;flex-wrap:wrap;gap:1.4vh}
+.tvrev .past span{background:#262B52;border:.4vh solid #5A6290;border-radius:999px;padding:.6vh 2vh;font-size:2.8vh;font-weight:800;color:var(--mist)}
+.tvrev .past span.t{border-color:var(--mint);color:#fff}
+.tvrev .nob{font-size:3.2vh;font-weight:700;color:var(--mist)}
+.tvhint{font-family:var(--display);font-weight:800;font-size:5vh;text-align:center;color:var(--gold)}
+body.tv .stickers{justify-content:flex-start;gap:2vh}
+body.tv .sticker{font-size:2.6vh;border-width:.45vh;border-radius:2.4vh;padding:1.2vh 2.4vh;box-shadow:.6vh .6vh 0 var(--accent)}
+body.tv .sticker b{font-size:3.8vh}
+.tvboard{flex:1;display:flex;flex-direction:column;gap:2vh;max-width:110vh;width:100%;margin:0 auto}
+.tvboard h2{font-size:6vh}
+.tvboard .stand{gap:1.4vh}
+.tvboard .stand li{border-color:var(--text);border-radius:2.8vh;padding:.8vh 2.4vh .8vh 1.4vh;font-size:3.8vh;gap:1.6vh}
+.tvboard .stand .r{font-size:4.2vh}
+.tvboard .stand .bd{height:6vh;width:auto}
+.tvboard .stand .s{font-size:3vh}
+.rw .tag{text-transform:none}
+</style>
+</head>
+<body>
+<header class="top">
+  <a class="logo" href="#" id="home-link" aria-label="Groupcade Phony Baloney home">{{LOGO}}</a>
+  <div class="brand"><b>Groupcade</b><span>Phony Baloney</span></div>
+  <div class="sp"></div>
+  <div id="toppill"></div>
+</header>
+<main id="app" aria-live="polite"></main>
+<div id="strip"></div>
+<div id="still"></div>
+<template id="tvlogo">{{LOGOTV}}</template><template id="mascot">{{MASCOT}}</template>
+<footer class="foot"><a href="/" id="site-link">Groupcade</a> · Party games for the big screen.</footer>
+<script>{{QRLIB}}</script>
+<script>
+(function(){
+"use strict";
+var CFG = {{CONFIG}};
+var app = document.getElementById('app');
+var topPill = document.getElementById('toppill');
+var strip = document.getElementById('strip');
+var stillEl = document.getElementById('still');
+var coarse = !!(window.matchMedia && matchMedia('(pointer: coarse)').matches);
+if (coarse) document.documentElement.classList.add('coarse');
+
+// ---------------------------------------------------------------- storage (per device)
+function sget(k){ try { return localStorage.getItem(k); } catch(e){ return null; } }
+function sset(k,v){ try { if (v === null) localStorage.removeItem(k); else localStorage.setItem(k,v); } catch(e){} }
+
+var S = {
+  mode: 'home',   // home | join | host | play
+  code: (CFG.code || '').toUpperCase(),
+  token: null, host: null, name: sget('gc_name') || '',
+  tv: !!CFG.tv, st: null, offset: 0, sig: '', timer: null, err: '', busy: false, net: true, pendingAns: 0
+};
+
+function esc(s){ return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+function nowS(){ return Date.now() + S.offset; }
+function link(code){ return CFG.party + code; }
+function shortLink(){ return CFG.party.replace(/^https?:\/\//,'').replace(/\/$/,''); }
+function pathOf(u){ return u.replace(/^https?:\/\/[^\/]+/, ''); }
+function onPath(u){ return location.pathname.indexOf(pathOf(u)) === 0; } // false on the REST fallback page
+
+// ---------------------------------------------------------------- API
+function api(method, path, body){
+  var h = { 'X-Groupcade': '1' };
+  if (S.token) h['X-Party-Token'] = S.token;
+  if (S.host) h['X-Party-Host'] = S.host;
+  var o = { method: method, headers: h, cache: 'no-store', credentials: 'same-origin' }; // Sends the host's account cookie, if any.
+  if (body) { h['Content-Type'] = 'application/json'; o.body = JSON.stringify(body); }
+  var url = CFG.api + path + (method === 'GET' ? (path.indexOf('?') < 0 ? '?' : '&') + '_=' + Date.now() : '');
+  return fetch(url, o).then(function(r){
+    return r.json().catch(function(){ return {}; }).then(function(j){
+      if (!r.ok) { var e = new Error(j.message || ('Error ' + r.status)); e.status = r.status; e.code = j.code; throw e; }
+      return j;
+    });
+  });
+}
+
+// ---------------------------------------------------------------- navigation
+function setUrl(code){
+  if (!onPath(CFG.party)) return; // REST fallback page or TV page: leave the URL alone
+  var p = code ? pathOf(CFG.party) + code + '/' : pathOf(CFG.party);
+  try { history.replaceState(null, '', p); } catch(e){}
+}
+
+function goHome(){
+  stopPoll(); S.mode = 'home'; S.code = ''; S.st = null; S.token = null; S.host = null; S.err = '';
+  if (CFG.tv || CFG.cast) { S.mode = 'tv'; if (onPath(CFG.tvLink)) { try { history.replaceState(null, '', pathOf(CFG.tvLink)); } catch(e){} } render(true); return; }
+  document.body.classList.remove('hostview'); setUrl(''); render(true);
+}
+document.getElementById('site-link').href = CFG.site;
+document.getElementById('home-link').addEventListener('click', function(e){ e.preventDefault(); goHome(); });
+
+function enterRoom(code, asHost){
+  S.code = code;
+  S.host = sget('gc_host_' + code);
+  S.token = sget('gc_tok_' + code);
+  S.mode = (asHost && S.host) ? 'host' : (S.token ? 'play' : 'join');
+  if (!asHost && !S.token) { S.mode = 'join'; }
+  document.body.classList.toggle('hostview', S.mode === 'host');
+  setUrl(code); S.st = null; S.sig = ''; render(true);
+  if (S.mode !== 'join') poll(); else peek();
+  if (S.mode === 'host') wake();
+  if (Cast.on) Cast.send();
+}
+
+// TV view: watch only, no controls, no player token. The host runs the game from their phone.
+function enterTv(code){
+  stopPoll();
+  S.mode = 'tv'; S.code = code; S.token = null; S.host = null; S.st = null; S.sig = ''; S.err = '';
+  document.body.classList.add('hostview', 'tv');
+  if (onPath(CFG.tvLink)) { try { history.replaceState(null, '', pathOf(CFG.tvLink) + code + '/'); } catch(e){} }
+  render(true); poll(); wake();
+}
+var wl = null;
+function wake(){
+  if (!('wakeLock' in navigator) || wl) return;
+  navigator.wakeLock.request('screen').then(function(l){ wl = l; l.addEventListener('release', function(){ wl = null; }); }).catch(function(){});
+}
+
+// Before joining, check the code is real (and show who's in).
+function peek(){
+  var token = S.token; S.token = null;
+  api('GET', '/rooms/' + S.code).then(function(st){ S.st = st; S.err = ''; render(true); })
+    .catch(function(e){ S.err = e.message; render(true); });
+  S.token = token;
+}
+
+// ---------------------------------------------------------------- polling
+function stopPoll(){ if (S.timer) { clearTimeout(S.timer); S.timer = null; } }
+// One poll chain at a time. Answers and host actions call poll() while another request may still be
+// in flight; an older response arriving late must never overwrite a newer one (that made picks flicker).
+var pollSeq = 0, pollApplied = 0;
+function poll(){
+  stopPoll();
+  var my = ++pollSeq;
+  var known = (S.st && S.st.h && S.st.code === S.code && !S.st.gone) ? S.st.h : '';
+  api('GET', '/rooms/' + S.code + '?chat=' + talkSince() + (known ? '&h=' + known : '')).then(function(st){
+    if (my < pollApplied) return;
+    // Nothing changed since our last copy: the server sends only the clock and new chat.
+    if (st.same) {
+      // Our copy changed while this was in flight (a host action, say): ask again for the whole room.
+      if (!S.st || S.st.h !== st.h) { if (S.st) S.st.h = ''; if (my === pollSeq) S.timer = setTimeout(poll, 0); return; }
+      var keep = S.st; keep.now = st.now; keep.chat = st.chat; st = keep;
+    }
+    chatFeed(st.chat, st.me ? st.me.name : '');
+    pollApplied = my;
+    S.net = true;
+    S.offset = st.now - Date.now();
+    // The room belongs to another game: load that game's page (the server picks it from the code).
+    if (st.game && st.game !== CFG.game) { location.replace(S.mode === 'tv' ? CFG.tvLink + S.code + '/' : CFG.site + 'join/' + S.code + '/'); return; }
+    if (st.gone && S.mode === 'play') {
+      sset('gc_tok_' + S.code, null); S.token = null; S.mode = 'join';
+      S.err = 'You were removed from this game. You can join again with a new name.'; S.st = st; render(true); return;
+    }
+    fixPend(st);
+    S.st = st; render(false);
+    if (my === pollSeq) S.timer = setTimeout(poll, delay());
+  }).catch(function(e){
+    if (my < pollApplied) return;
+    if (e.status === 404) { S.err = e.message; S.st = null; stopPoll(); if (S.mode === 'tv') { S.code = ''; } render(true); return; }
+    S.net = false; render(false);
+    if (my === pollSeq) S.timer = setTimeout(poll, 3000);
+  });
+}
+document.addEventListener('visibilitychange', function(){ if (!document.hidden && S.code && S.mode !== 'home' && S.mode !== 'join') { poll(); if (S.mode === 'tv' || S.mode === 'host') wake(); } });
+
+function accountLink(extra){ return CFG.site + 'account/' + (extra || ''); }
+function saveCard(st){
+  if (st.owned) return '<p class="muted small center" style="margin:0">Saved to <a href="' + esc(accountLink()) + '" style="color:var(--text)">your game history</a>.</p>';
+  var to = accountLink('?claim=' + st.code + '&next=' + encodeURIComponent(pathOf(link(st.code)) + '/'));
+  return '<div class="card center" style="background:var(--mint-t)"><h2 style="font-size:20px">Keep this game?</h2><p class="muted small" style="margin:6px 0 12px">Sign in to save who won, keep your setup for next time and write your own questions. It\'s optional and takes a few seconds.</p><a class="btn" href="' + esc(to) + '">Save my games</a></div>';
+}
+
+function joinRoom(code, name){
+  code = (code || '').toUpperCase().replace(/[^A-Z]/g,'').slice(0,4);
+  name = (name || '').trim();
+  if (code.length !== 4) { S.err = 'The code is 4 letters.'; render(true); return; }
+  if (!name) { S.err = 'Type a name so people know who you are.'; render(true); return; }
+  S.busy = true; S.err = ''; S.code = code; render(true);
+  sset('gc_name', name); S.name = name;
+  S.token = sget('gc_tok_' + code);
+  api('POST', '/rooms/' + code + '/join', { name: name }).then(function(r){
+    sset('gc_tok_' + code, r.token); S.token = r.token; S.busy = false;
+    S.host = sget('gc_host_' + code);
+    S.mode = 'play'; document.body.classList.remove('hostview'); setUrl(code); S.sig=''; poll();
+  }).catch(function(e){ S.busy = false; S.err = e.message; render(true); });
+}
+function hostDo(action, extra){
+  var b = extra || {}; b.action = action;
+  return api('POST', '/rooms/' + S.code + '/host', b).then(function(st){ S.offset = st.now - Date.now(); if (S.mode === 'host') { S.st = st; render(true); } poll(); })
+    .catch(function(e){ alertMsg(e.message); });
+}
+// ---------------------------------------------------------------- trash talk
+var QUICK = ['Too easy 🥱','Who let you in here? 🚪','Lucky guess 🍀','Pour one out for them 🫗','You\'re toast 🍞','Speedrunning that loss 🏃','Google can\'t save you now 🔎','I\'m built different 😤','Brain buffering… ⏳','That\'s a lot of confidence for a wrong answer 💀','Sit down, I\'ve got this 🪑','GG, go next 👋'];
+var talk = { code: '', id: 0, log: [], unread: 0, ready: false, open: false };
+function talkSince(){ if (talk.code !== S.code) { talk = { code: S.code, id: 0, log: [], unread: 0, ready: false, open: false }; drawLog(); } return talk.id; }
+function el(id, tag, html){ var e = document.getElementById(id); if (!e) { e = document.createElement(tag || 'div'); e.id = id; if (html) e.innerHTML = html; document.body.appendChild(e); } return e; }
+function chatFeed(list, myName){
+  var first = !talk.ready; talk.ready = true;
+  (list || []).forEach(function(m){
+    if (m.id <= talk.id) return;
+    talk.id = m.id; talk.log.push(m);
+    if (!first) { bubble(m); if (!talk.open && m.name !== myName) talk.unread++; }
+  });
+  talk.log = talk.log.slice(-60); drawLog(); talkBtn();
+}
+function bubble(m){
+  var box = el('bubbles');
+  var d = document.createElement('div'); d.className = 'bub'; d.innerHTML = '<b>' + esc(m.name) + '</b>' + esc(m.msg);
+  box.appendChild(d);
+  while (box.children.length > 4) box.removeChild(box.firstChild);
+  setTimeout(function(){ d.classList.add('out'); setTimeout(function(){ if (d.parentNode) d.parentNode.removeChild(d); }, 450); }, 5500);
+}
+function talkBtn(){
+  var b = el('talkbtn', 'button', '💬<span class="ub"></span>');
+  if (!b.dataset.w) { b.dataset.w = 1; b.setAttribute('aria-label', 'Trash talk'); b.addEventListener('click', function(){ openTalk(true); }); }
+  var on = S.mode === 'play' && !S.mirror && !!S.token && !!S.st && !talk.open;
+  b.style.display = on ? 'flex' : 'none';
+  var ub = b.querySelector('.ub'); ub.textContent = talk.unread > 9 ? '9+' : talk.unread; ub.style.display = talk.unread ? 'block' : 'none';
+}
+function drawLog(){
+  var lg = document.querySelector('#talksheet .log'); if (!lg) return;
+  lg.innerHTML = talk.log.length ? talk.log.map(function(m){ return '<div><b>' + esc(m.name) + '</b>' + esc(m.msg) + '</div>'; }).join('') : '<div class="muted">No trash talk yet. Start something.</div>';
+  lg.scrollTop = lg.scrollHeight;
+}
+function openTalk(on){
+  var sh = el('talksheet');
+  if (!sh.dataset.w) {
+    sh.dataset.w = 1;
+    sh.innerHTML = '<div class="hd">Trash talk<span class="sp" style="flex:1"></span><button class="btn sm ghost" data-x>Close</button></div><div class="log"></div><div class="qp">' +
+      QUICK.map(function(q, i){ return '<button type="button" data-q="' + i + '">' + esc(q) + '</button>'; }).join('') +
+      '</div><form><input maxlength="80" placeholder="Say something…" autocomplete="off" enterkeyhint="send"><button class="btn sm" type="submit">Send</button></form>';
+    sh.querySelector('[data-x]').addEventListener('click', function(){ openTalk(false); });
+    sh.querySelectorAll('[data-q]').forEach(function(q){ q.addEventListener('click', function(){ sendTalk(QUICK[+q.getAttribute('data-q')]); openTalk(false); }); });
+    sh.querySelector('form').addEventListener('submit', function(e){ e.preventDefault(); var i = sh.querySelector('input'); var v = i.value.trim(); if (!v) return; sendTalk(v, function(){ i.value = ''; }); });
+  }
+  talk.open = on; sh.classList.toggle('on', on);
+  if (on) { talk.unread = 0; drawLog(); }
+  talkBtn();
+}
+function sendTalk(msg, ok){
+  api('POST', '/rooms/' + S.code + '/chat', { msg: msg }).then(function(){ if (ok) ok(); poll(); }).catch(function(e){ alertMsg(e.message); });
+}
+
+var toastT = null;
+function alertMsg(m){
+  var el = document.getElementById('toast');
+  if (!el) { el = document.createElement('div'); el.id = 'toast'; el.style.cssText = 'position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#0E0C1F;border:1px solid rgba(255,77,94,.6);color:var(--text);padding:10px 16px;border-radius:10px;font-weight:700;z-index:9;max-width:90vw;text-align:center'; document.body.appendChild(el); }
+  el.textContent = m; el.style.display = 'block';
+  clearTimeout(toastT); toastT = setTimeout(function(){ el.style.display = 'none'; }, 3500);
+}
+
+// ---------------------------------------------------------------- views
+function render(force){
+  var st = S.st;
+  // Top pill
+  var pill = '';
+  if (S.code && S.mode !== 'home') pill = '<span class="pill">Code <b>' + esc(S.code) + '</b></span>';
+  if (!S.net) pill = '<span class="pill warn">Reconnecting…</span>';
+  if (topPill.innerHTML !== pill) topPill.innerHTML = pill;
+
+  var sig = S.mode + (S.mirror ? 'M' : '') + '|' + S.err + '|' + S.busy + '|' + (st ? gameSig(st) : '-');
+  if (!force && (S.drag || holdRender(st))) { tickTimer(); return; }
+  if (!force && sig === S.sig) { tickTimer(); return; }
+  S.sig = sig;
+  var h = '';
+  if (S.mirror && st && S.code) h = vHost(st, true);
+  else if (S.mode === 'home') h = vHome();
+  else if (S.mode === 'join') h = vJoin();
+  else if (S.mode === 'host') h = st ? vHost(st) : vLoading();
+  else if (S.mode === 'tv') h = (st && S.code) ? vHost(st, true) : (S.code && !S.err ? vLoading() : vTvHome());
+  else if (S.mode === 'cast') h = vCastWait();
+  else h = st ? vPlay(st) : vLoading();
+  app.innerHTML = h;
+  strip.innerHTML = (S.mirror && st) ? vStrip(st, true) : ((S.mode === 'play' && S.host && st) ? vStrip(st) : '');
+  var sh = (st && (S.mode === 'host' || S.mode === 'tv' || S.mode === 'play')) ? stillHtml(st) : '';
+  stillEl.innerHTML = sh;
+  var bar = stillEl.firstChild;
+  var sH = strip.firstChild && !strip.firstChild.classList.contains('mini') ? strip.firstChild.offsetHeight : 0;
+  if (bar) bar.style.bottom = sH + 'px';
+  document.body.style.paddingBottom = (sH + (bar ? bar.offsetHeight : 0)) + 'px';
+  document.documentElement.style.setProperty('--bb', document.body.style.paddingBottom);
+  talkBtn();
+  wire();
+  appTell();
+  tickTimer();
+  if ((S.mode === 'host' || S.mode === 'tv') && st && st.phase === 'lobby') drawQr();
+  afterRender(st);
+}
+
+function vLoading(){
+  if (S.err) return '<div class="card center"><h2>Hmm.</h2><p class="muted">' + esc(S.err) + '</p><button class="btn go" data-act="home">Back</button></div>';
+  return '<div class="card center muted">Loading…</div>';
+}
+
+function vJoin(){
+  var st = S.st, who = '';
+  if (st && st.players && st.players.length) who = '<p class="muted small" style="margin:10px 0 0">' + st.players.length + ' in: ' + st.players.slice(0, 12).map(function(p){ return esc(p.name); }).join(', ') + (st.players.length > 12 ? '…' : '') + '</p>';
+  var playing = st && st.phase !== 'lobby' && st.phase !== 'end' ? '<div class="banner info">' + JOINMID + '</div>' : '';
+  return '<div class="card"><h1>Join game</h1><p class="muted" style="margin:6px 0 14px">Room <b class="stat" style="color:var(--text);letter-spacing:.12em">' + esc(S.code) + '</b></p>' +
+    '<form id="joinf"><input type="hidden" id="jc" value="' + esc(S.code) + '"><label for="jn">Your name</label><input id="jn" class="field" maxlength="16" autocomplete="nickname" placeholder="Name" value="' + esc(S.name) + '" autofocus>' +
+    '<div style="height:12px"></div><button class="btn go wide" ' + (S.busy || (S.err && !st) ? 'disabled' : '') + '>Join</button></form>' + who + '</div>' + playing +
+    '<div class="err" role="alert">' + esc(S.err) + '</div>' +
+    (S.err && !st ? '<button class="btn wide" data-act="home">Try another code</button>' : '');
+}
+
+function timerHtml(st){
+  return '<div class="row" style="flex-wrap:nowrap"><div class="timer" style="flex:1" id="tbar"><i></i></div><span class="secs" id="tsec"></span></div>';
+}
+(function raf(){ tickTimer(); requestAnimationFrame(raf); })();
+
+function num(n){ return (+n || 0).toLocaleString('en-US'); }
+function rankOf(st, name){
+  var me = null; st.players.forEach(function(p){ if (p.name === name) me = p; });
+  if (!me) return 0; var r = 1; st.players.forEach(function(p){ if (p.score > me.score) r++; }); return r;
+}
+function ord(n){ var s = ['th','st','nd','rd'], v = n % 100; return n + (s[(v - 20) % 10] || s[v] || s[0]); }
+function winnersTxt(st){
+  var w = st.winners || [];
+  if (!w.length) return st.stopped ? 'Game ended' : 'No winner';
+  if (w.length === 1) return esc(w[0]);
+  return w.slice(0, 6).map(esc).join(' · ') + (w.length > 6 ? ' +' + (w.length - 6) : '');
+}
+
+// ---------------- Phone buddies: each player gets one of the TV mascot's phone friends, in join order.
+var BUDDY = [['#FF6B4A','#FFE3DA'],['#FFC93C','#FFF4CF'],['#3DD68C','#DDF8EA'],['#5BB8F5','#E4F4FF'],['#FF7FB6','#FFE0EE'],['#8C7CFF','#ECE9FF']];
+var CARD = ['#FFE3DA','#FFF4CF','#DDF8EA','#CFEBFF','#FFE0EE','#ECE9FF'];
+function idxOf(st, name){ for (var i = 0; i < st.players.length; i++) if (st.players[i].name === name) return i; return 0; }
+function buddySvg(i, cheer){
+  var b = BUDDY[i % BUDDY.length], k = '#1B1F3B', ck = b[0] === '#FFC93C' ? '#FF6B4A' : '#FFC93C';
+  var aL = cheer ? 'M-18 -2L-31 -22' : 'M-19 4L-32 14', aR = cheer ? 'M18 -2L31 -22' : 'M19 4L32 14';
+  var hL = cheer ? '-32" cy="-24' : '-33" cy="16', hR = cheer ? '32" cy="-24' : '33" cy="16';
+  function limb(d){ return '<path d="' + d + '" stroke="' + k + '" stroke-width="14" stroke-linecap="round"/><path d="' + d + '" stroke="' + b[0] + '" stroke-width="7" stroke-linecap="round"/>'; }
+  return '<svg class="bd" viewBox="-40 -40 80 88" aria-hidden="true">' + limb('M-8 28L-11 44') + limb('M8 28L11 44') + limb(aL) + limb(aR) +
+    '<circle cx="' + hL + '" r="5.5" fill="' + b[0] + '" stroke="' + k + '" stroke-width="3.5"/><circle cx="' + hR + '" r="5.5" fill="' + b[0] + '" stroke="' + k + '" stroke-width="3.5"/>' +
+    '<rect x="-20" y="-31" width="40" height="62" rx="9" fill="' + b[0] + '" stroke="' + k + '" stroke-width="4"/><rect x="-14" y="-24" width="28" height="40" rx="5" fill="' + b[1] + '"/>' +
+    '<g transform="translate(0 -6)"><path d="M-10 -3q3.5 -5 7 0M3 -3q3.5 -5 7 0" fill="none" stroke="' + k + '" stroke-width="3" stroke-linecap="round"/><path d="M-6 3h12a6 6 0 0 1 -12 0z" fill="' + k + '"/>' +
+    '<circle cx="-10" cy="5" r="2.6" fill="' + ck + '"/><circle cx="10" cy="5" r="2.6" fill="' + ck + '"/></g><path d="M-5 23h10" stroke="' + k + '" stroke-width="3" stroke-linecap="round" opacity=".5"/></svg>';
+}
+function art(id){ var t = document.getElementById(id); return t && t.innerHTML.indexOf('{{') < 0 ? t.innerHTML : ''; }
+function logoHtml(){ return art('tvlogo') || art('mascot'); }
+function mascotHtml(){ var m = art('mascot'); if (m) return m; var l = document.querySelector('.top .logo'); return l ? l.innerHTML : ''; }
+
+// ---------------- TV
+function vTvHome(){
+  return '<div class="card center" style="max-width:640px;margin:4vh auto 0;width:100%"><h1>Show a game on this screen</h1><p class="muted" style="margin:10px 0 18px">On your phone, make a room at ' + esc(shortLink()) + '. Then type its code here.</p>' +
+    '<form id="tvf"><input id="tc" class="field code" style="height:76px;font-size:44px" maxlength="4" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="ABCD" value="' + esc(S.code) + '" autofocus>' +
+    '<div style="height:14px"></div><button class="btn go wide" style="height:60px;font-size:20px">Show game</button></form>' +
+    '<div class="err" role="alert" style="margin-top:10px">' + esc(S.err) + '</div></div>';
+}
+function vCastWait(){
+  return '<div class="card center" style="max-width:720px;margin:12vh auto 0;width:100%;padding:40px 20px"><h1>Groupcade</h1><p class="waiting" style="margin:14px 0 0">Connecting to your game…</p></div>';
+}
+function castIcon(){
+  return '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" style="flex:none"><path fill="currentColor" d="M21 3H3a2 2 0 0 0-2 2v3h2V5h18v14h-7v2h7a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zM1 18v3h3a3 3 0 0 0-3-3zm0-4v2a5 5 0 0 1 5 5h2a7 7 0 0 0-7-7zm0-4v2a9 9 0 0 1 9 9h2A11 11 0 0 0 1 10z"/></svg>';
+}
+/* Inside the Groupcade iPhone app: tell it which room we're in, so it can put that room's TV screen on an
+   AirPlay TV while this phone stays the controller. window.GROUPCADE_APP is set by the app before the page loads:
+   { tv: true if the app can drive a TV, tvOn: true while a TV is connected }. */
+var APP = window.GROUPCADE_APP || null, appSent = null;
+function appPost(msg){ if (APP && window.ReactNativeWebView) { msg.groupcade = 1; window.ReactNativeWebView.postMessage(JSON.stringify(msg)); } }
+function appTell(){
+  if (!APP || !window.ReactNativeWebView) return;
+  var code = (S.mode === 'play' || S.mode === 'host') && S.code && S.st ? S.code : '';
+  var key = code + '|' + S.mode;
+  if (key === appSent) return;
+  appSent = key;
+  appPost({ type: 'room', game: CFG.game, code: code, role: S.mode });
+}
+window.groupcadeTv = function(on){
+  if (!APP) return;
+  var was = !!APP.tvOn; APP.tvOn = !!on;
+  if (on && !was) alertMsg('TV connected. It shows the big game screen, and this phone stays yours to play.');
+};
+var isApple = /iPhone|iPad|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+function tvSheet(){
+  closeSheet();
+  var tvUrl = CFG.tvLink + S.code;
+  var h = '<div class="card"><div class="row"><h2>Show on TV</h2><span class="sp" style="flex:1"></span><button class="btn sm ghost" data-sheet="close" aria-label="Close">✕</button></div>';
+  if (Cast.ready) h += '<button class="btn go wide" data-sheet="cast">' + castIcon() + (Cast.on ? 'Casting · tap to stop' : 'Cast to a Chromecast or Google TV') + '</button>';
+  h += '<div class="opt"><b>TV browser or laptop</b><p>On the TV (Fire TV Silk, a smart TV browser, or a laptop on HDMI), go to <b style="display:inline;color:var(--text)">' + esc(CFG.tvLink.replace(/^https?:\/\//,'')) + '</b> and type <b style="display:inline;color:var(--text);letter-spacing:.12em">' + esc(S.code) + '</b>. You keep running the game from this phone.</p></div>';
+  if (APP && APP.tv && APP.os === 'android') h += '<div class="opt"><b>From the Groupcade app' + (APP.tvOn ? ' · TV connected' : '') + '</b><p>Tap Host screen, then Cast to Chromecast or Google TV, or plug into the TV with a USB-C to HDMI cable. The TV gets the big game screen and this phone stays your controller, so you can play too.</p></div>';
+  else if (APP && APP.tv) h += '<div class="opt"><b>AirPlay from the Groupcade app' + (APP.tvOn ? ' · TV connected' : '') + '</b><p>Open Control Center, tap Screen Mirroring and pick your Apple TV or AirPlay TV. The TV gets the big game screen and this phone stays your controller, so you can play too.</p></div>';
+  else h += '<div class="opt"><b>' + (isApple ? 'AirPlay (Apple TV or AirPlay TV)' : 'Mirror your screen') + '</b><p>' + (isApple ? 'Open Control Center and tap Screen Mirroring.' : 'Use Cast screen or Smart View from your quick settings.') + ' Everyone sees your whole screen, so it works best if you are only hosting, not playing.</p></div>';
+  if (!Cast.ready && CFG.castApp && !isApple) h += '<p class="muted small" style="margin:0">No Cast button? Casting needs Chrome on Android or a computer, on the same Wi-Fi as the Chromecast.</p>';
+  h += '<button class="btn wide" data-sheet="copytv">Copy TV link</button></div>';
+  var d = document.createElement('div'); d.className = 'sheet'; d.id = 'sheet'; d.innerHTML = h;
+  d.addEventListener('click', function(e){
+    var t = e.target.closest('[data-sheet]');
+    if (e.target === d) return closeSheet();
+    if (!t) return;
+    var a = t.getAttribute('data-sheet');
+    if (a === 'close') closeSheet();
+    else if (a === 'copytv') copy(tvUrl, t);
+    else if (a === 'mirror') { closeSheet(); mirror(true); }
+    else if (a === 'cast') { if (Cast.on) Cast.stop(); else Cast.start(); closeSheet(); }
+  });
+  document.body.appendChild(d);
+}
+function mirror(on){
+  S.mirror = on; S.sig = '';
+  if (on) { document.body.classList.add('hostview', 'tv'); wake(); alertMsg(isApple ? 'Now open Control Center and tap Screen Mirroring.' : 'Now mirror your screen to the TV.'); }
+  else { document.body.classList.remove('tv'); if (S.mode !== 'host') document.body.classList.remove('hostview'); }
+  render(true);
+}
+function closeSheet(){ var d = document.getElementById('sheet'); if (d) d.remove(); }
+
+// ---------------- Google Cast (Chrome on Android and computers). Needs a Cast app id set in WP.
+var CAST_NS = 'urn:x-cast:com.groupcade';
+var Cast = { ready: false, on: false,
+  start: function(){ try { cast.framework.CastContext.getInstance().requestSession().then(function(){ Cast.send(); }, function(){}); } catch(e){} },
+  stop: function(){ try { cast.framework.CastContext.getInstance().endCurrentSession(true); } catch(e){} },
+  send: function(){
+    try { var s = cast.framework.CastContext.getInstance().getCurrentSession(); if (s && S.code) s.sendMessage(CAST_NS, { code: S.code }); } catch(e){}
+  }
+};
+if (CFG.castApp && !isApple && !CFG.cast && !CFG.tv) {
+  window.__onGCastApiAvailable = function(ok){
+    if (!ok) return;
+    var ctx = cast.framework.CastContext.getInstance();
+    ctx.setOptions({ receiverApplicationId: CFG.castApp, autoJoinPolicy: chrome.cast.AutoJoinPolicy.ORIGIN_SCOPED });
+    ctx.addEventListener(cast.framework.CastContextEventType.CAST_STATE_CHANGED, function(e){
+      Cast.ready = e.castState !== 'NO_DEVICES_AVAILABLE';
+      Cast.on = e.castState === 'CONNECTED';
+      if (Cast.on) Cast.send();
+    });
+  };
+  var cs = document.createElement('script'); cs.src = 'https://www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1'; cs.async = true; document.head.appendChild(cs);
+}
+// Cast receiver: this page runs on the Chromecast and shows the TV view for the code the phone sends.
+function startReceiver(){
+  S.mode = 'cast'; document.body.classList.add('hostview', 'tv'); render(true);
+  var rs = document.createElement('script'); rs.src = 'https://www.gstatic.com/cast/sdk/libs/caf_receiver/v3/cast_receiver_framework.js';
+  rs.onload = function(){
+    var ctx = cast.framework.CastReceiverContext.getInstance();
+    ctx.addCustomMessageListener(CAST_NS, function(ev){
+      var d = ev.data || {}; var c = String(d.code || '').toUpperCase().replace(/[^A-Z]/g, '').slice(0, 4);
+      if (c.length === 4 && c !== S.code) enterTv(c);
+    });
+    var o = new cast.framework.CastReceiverOptions(); o.disableIdleTimeout = true; o.customNamespaces = {}; o.customNamespaces[CAST_NS] = cast.framework.system.MessageType.JSON;
+    ctx.start(o);
+  };
+  document.head.appendChild(rs);
+}
+
+// ---------------------------------------------------------------- QR
+var qrFor = '';
+function drawQr(){
+  var el = document.getElementById('qr'); if (!el || typeof qrcode !== 'function') return;
+  var url = link(S.code);
+  if (qrFor === url && el.firstChild) return;
+  try {
+    var q = qrcode(0, 'M'); q.addData(url); q.make();
+    el.innerHTML = q.createImgTag(8, 0, 'QR code to join');
+    qrFor = url;
+  } catch(e){ el.style.display = 'none'; }
+}
+
+// ================================================================ Phony Baloney
+var CATS = CFG.cats || [];            // [{id, name}]
+var ROUNDS = CFG.rounds || [5, 7, 10];
+var SECS = CFG.secs || [45, 60, 90];
+var MAXLEN = CFG.maxLen || 60;
+var LET = 'ABCDEFGHIJ';
+var COLS = ['var(--coral)', 'var(--gold)', 'var(--mint)', 'var(--blue)', '#FF7FB6', '#8C7CFF'];
+var JOINMID = 'This game already started. Join now and you\'ll play from the next round.';
+var HINT = {
+  blank: 'Fill in the blank with something believable.',
+  word: 'Make up what this word means.',
+  acronym: 'Make up what the letters stand for.',
+  person: 'Make up why this person is famous.',
+  movie: 'Make up what the movie is about.',
+  law: 'Make up the rule.'
+};
+var STEP_MS = 2600, STEP0 = 1200;
+
+function key(k){ return 'gc_' + CFG.game + '_' + k; }
+function catIds(){ return CATS.map(function(c){ return c.id; }); }
+function catName(id){ for (var i = 0; i < CATS.length; i++) if (CATS[i].id === id) return CATS[i].name; return id; }
+
+// ---------------------------------------------------------------- polling hooks
+function delay(){
+  var st = S.st; if (!st) return 2000;
+  if (document.hidden) return 6000;
+  var left = st.t1 ? st.t1 - nowS() : 99999;
+  var base = { lobby: 2000, cat: 1000, write: 1500, vote: 1000, rev: 1500, board: 1500, end: 3000 }[st.phase] || 2000;
+  if (st.phase === 'write' || st.phase === 'vote') left += st.grace;
+  if (left > 0 && left < base) return Math.max(150, left + 150);
+  return base;
+}
+// Keep the player's vote on screen while a slower response catches up.
+function fixPend(st){
+  if (S.pend && st.phase === 'vote' && st.round === S.pend.round && st.me) {
+    if (st.me.vote === S.pend.vote) S.pend = null; else st.me.vote = S.pend.vote;
+  } else S.pend = null;
+}
+function gameSig(st){
+  var me = st.me || {};
+  return [st.ver, st.phase, st.round, st.locked, st.alive, st.players.length, me.vote, me.fake, me.lol, me.score, me.gain, (st.only || []).join(','), st.rounds, st.secs, S.editFake, S.fakeErr].join(':');
+}
+// Don't redraw the page under someone who is typing their fake.
+function holdRender(st){ return !!(S.typing && st && st.phase === 'write' && st.round === S.typing); }
+function afterRender(st){
+  if (st && st.phase === 'cat') spinReel(st);
+  var fk = document.getElementById('fk');
+  if (fk) countFake(fk);
+}
+function stillHtml(){ return ''; }
+
+// ---------------------------------------------------------------- settings and account
+function homeSet(){
+  var r = +(sget(key('rounds')) || 5), s = +(sget(key('secs')) || 60);
+  if (ROUNDS.indexOf(r) < 0) r = 5;
+  if (SECS.indexOf(s) < 0) s = 60;
+  return { rounds: r, secs: s, cats: homeSel() };
+}
+function homeSel(){
+  var all = catIds(), sv = null;
+  try { sv = JSON.parse(sget(key('cats')) || 'null'); } catch(e){}
+  var on = Array.isArray(sv) ? sv.filter(function(c){ return all.indexOf(c) >= 0; }) : [];
+  return on.length ? on : all.slice();
+}
+function createRoom(){
+  var o = homeSet();
+  S.busy = true; S.err = ''; render(true);
+  api('POST', '/rooms', { game: CFG.game, rounds: o.rounds, secs: o.secs, cats: o.cats }).then(function(r){
+    if (S.user) savePrefs(o);
+    sset('gc_host_' + r.code, r.host); S.busy = false; enterRoom(r.code, true);
+  }).catch(function(e){ S.busy = false; S.err = e.message; render(true); });
+}
+function savePrefs(o){
+  api('POST', '/me/prefs', { game: CFG.game, settings: { rounds: o.rounds, secs: o.secs, cats: o.cats.length === CATS.length ? [] : o.cats } }).catch(function(){});
+}
+function loadAccount(){
+  if (CFG.tv || CFG.cast) return;
+  api('GET', '/me').then(function(r){
+    S.user = r.user; if (!S.user) return;
+    return api('GET', '/me/prefs?game=' + CFG.game).then(function(p){
+      var v = p.settings; if (!v) return;
+      if (v.rounds) sset(key('rounds'), +v.rounds);
+      if (v.secs) sset(key('secs'), +v.secs);
+      if (Array.isArray(v.cats)) sset(key('cats'), v.cats.length ? JSON.stringify(v.cats) : null);
+      if (S.mode === 'home') { S.sig = ''; render(true); }
+    }).catch(function(){});
+  }).catch(function(){});
+}
+function signInNote(){
+  if (S.user) return '<p class="muted small" style="margin:12px 0 0">Signed in as <b>' + esc(S.user.name) + '</b>. Your setup and games are saved.</p>';
+  return '<p class="muted small" style="margin:12px 0 0"><a href="' + esc(accountLink('?next=' + encodeURIComponent(pathOf(CFG.party)))) + '" style="color:var(--text);font-weight:800">Sign in</a> to save your setup and keep your game history. Optional.</p>';
+}
+
+// ---------------------------------------------------------------- player actions
+function sendFake(text){
+  var st = S.st; text = (text || '').replace(/\s+/g, ' ').trim();
+  if (!st || st.phase !== 'write') return;
+  if (!text) { S.fakeErr = 'Type a fake answer first.'; render(true); return; }
+  S.busy = true; S.fakeErr = '';
+  var round = st.round;
+  api('POST', '/rooms/' + S.code + '/action', { type: 'fake', round: round, text: text }).then(function(){
+    S.busy = false; S.fakeSent = { round: round, text: text }; S.editFake = 0; S.draft = null; S.typing = 0;
+    if (document.activeElement && document.activeElement.blur) document.activeElement.blur();
+    if (S.st && S.st.me && S.st.round === round) S.st.me.fake = text;
+    render(true); poll();
+  }).catch(function(e){
+    S.busy = false; S.typing = 0; S.fakeErr = e.message; render(true);
+    var fk = document.getElementById('fk'); if (fk && e.code === 'tootrue') { fk.select(); }
+  });
+}
+function vote(c){
+  var st = S.st; if (!st || st.phase !== 'vote' || !st.me) return;
+  if ((st.me.own || []).indexOf(c) >= 0) return;
+  S.pend = { round: st.round, vote: c }; st.me.vote = c; render(true);
+  api('POST', '/rooms/' + S.code + '/action', { type: 'vote', round: st.round, choice: c }).then(function(){ poll(); })
+    .catch(function(e){ S.pend = null; alertMsg(e.message); poll(); });
+}
+function giveLol(i){
+  var st = S.st; if (!st || !st.me || st.me.lol >= 0) return;
+  st.me.lol = i; render(true);
+  api('POST', '/rooms/' + S.code + '/action', { type: 'lol', round: st.round, choice: i }).then(function(){ poll(); })
+    .catch(function(e){ if (S.st && S.st.me) S.st.me.lol = -1; alertMsg(e.message); poll(); });
+}
+
+// ---------------------------------------------------------------- shared pieces
+function roundTxt(st){ return 'Round ' + st.round + ' of ' + st.rounds; }
+function blankify(q){ return esc(q).replace(/_{3,}/g, '<span class="blank">&nbsp;</span>'); }
+function promptInner(p){
+  var img = p.img ? '<img class="pimg" src="' + esc(p.img) + '" alt="' + esc(p.title || p.catN) + '">' : '';
+  var title = p.title ? '<div class="ptitle">' + esc(p.title) + '</div>' + (p.sub ? '<div class="psub">' + esc(p.sub) + '</div>' : '') : (p.sub ? '<div class="psub">' + esc(p.sub) + '</div>' : '');
+  return '<div class="pbody">' + img + '<div class="ptext">' + title + '<div class="pq">' + blankify(p.q) + '</div></div></div>';
+}
+function promptHtml(st, mini){
+  if (!st.p) return '';
+  return '<div class="card qcard' + (mini ? ' mini' : '') + '"><div class="cat">' + esc(st.p.catN) + '</div><div style="height:10px"></div>' + promptInner(st.p) + (mini ? '' : '<div style="height:14px"></div>' + timerHtml(st)) + '</div>';
+}
+function tvPrompt(st, mini){ return st.p ? '<div class="tvprompt' + (mini ? ' mini' : '') + '">' + promptInner(st.p) + '</div>' : ''; }
+function doubleTag(st){ return st.mult > 1 && st.phase !== 'end' ? '<span class="tag" style="background:var(--gold)">Double points</span>' : ''; }
+
+function scoreboard(st, n, meName){
+  var ps = st.players.slice().sort(function(a, b){ return (b.score - a.score) || a.name.localeCompare(b.name); });
+  var showGain = st.phase === 'rev' || st.phase === 'board';
+  return '<ol class="stand">' + ps.slice(0, n).map(function(p){
+    var r = 1; ps.forEach(function(q){ if (q.score > p.score) r++; });
+    return '<li class="' + (r === 1 && p.score > 0 ? 'w' : '') + '"><span class="r">' + r + '</span>' + buddySvg(idxOf(st, p.name)) + '<span' + (p.name === meName ? ' style="color:var(--accent)"' : '') + '>' + esc(p.name) + '</span><span class="s">' + (p.gain && showGain ? '<span style="color:#12784A">+' + num(p.gain) + '</span> · ' : '') + '<b style="color:var(--ink)">' + num(p.score) + '</b></span></li>';
+  }).join('') + '</ol>';
+}
+
+// The reveal: one choice at a time (the ones somebody picked, the truth last), on a clock shared by every screen.
+function revShown(st){ return st.res ? st.res.rev.filter(function(o){ return o.truth || o.votes.length; }) : []; }
+function revStep(st){
+  var n = revShown(st).length;
+  if (st.phase !== 'rev') return n - 1;
+  return Math.min(n - 1, Math.floor((nowS() - st.t0 - STEP0) / STEP_MS));
+}
+function revDone(st){ return revStep(st) >= revShown(st).length - 1; }
+function whoTag(o){
+  if (o.truth) return '<span class="truthtag">The truth!</span>';
+  if (o.house) return '<span class="tag">House fake</span>';
+  return '<span class="tag">Fake by ' + o.by.map(esc).join(' &amp; ') + '</span>' + (o.pts ? '<b class="plus">+' + num(o.pts) + '</b>' : '');
+}
+function revCard(st, o, cur){
+  var v = o.votes.length ? '<div class="voters">' + o.votes.map(function(n){ return '<span class="chip">' + buddySvg(idxOf(st, n)) + esc(n) + '</span>'; }).join('') + '</div>'
+    : '<div class="muted small">Nobody picked it</div>';
+  var lab = o.votes.length ? '<div class="muted small" style="font-weight:800">' + (o.truth ? 'Found it' : 'Fell for it') + '</div>' : '';
+  return '<div class="rcard' + (o.truth ? ' truth' : '') + (cur ? ' cur pop' : '') + '"><div class="rt">“' + esc(o.t) + '”</div>' + lab + v + '<div class="rw">' + whoTag(o) + '</div></div>';
+}
+function unpicked(st){
+  var u = st.res ? st.res.rev.filter(function(o){ return !o.truth && !o.votes.length; }) : [];
+  if (!u.length) return '';
+  return '<p class="muted small nob" style="margin:0">Nobody fell for ' + u.map(function(o){ return '“' + esc(o.t) + '”' + (o.house ? ' (house)' : ' (' + o.by.map(esc).join(' &amp; ') + ')'); }).join(', ') + '.</p>';
+}
+function revList(st){
+  var shown = revShown(st), k = revStep(st);
+  S.revStep = k;
+  if (k < 0) return '<div class="card center"><div class="waiting">Let\'s see who fell for what…</div></div>';
+  return '<div class="rlist">' + shown.slice(0, k + 1).reverse().map(function(o, j){ return revCard(st, o, j === 0 && st.phase === 'rev'); }).join('') + '</div>' + (k >= shown.length - 1 ? unpicked(st) : '');
+}
+function stickersHtml(st, me){
+  var a = [];
+  (st.awards || []).forEach(function(x){
+    if (x.k === 'lol') a.push('<div class="sticker">😂 Funniest<b>' + esc(x.name) + '</b>' + x.n + ' LOL' + (x.n === 1 ? '' : 's') + '</div>');
+    if (x.k === 'fool') a.push('<div class="sticker">🦊 Sneakiest fake<b>' + esc(x.name) + '</b>fooled ' + x.n + '</div>');
+    if (x.k === 'truth') a.push('<div class="sticker">🔎 Truth hound<b>' + esc(x.name) + '</b>found it ' + x.n + '×</div>');
+  });
+  return a.length ? '<div class="stickers">' + a.join('') + '</div>' : '';
+}
+
+// ---------------------------------------------------------------- timer and reel
+function tickTimer(){
+  var st = S.st;
+  if (st && st.phase === 'rev' && S.revStep !== undefined && revStep(st) !== S.revStep && !S.typing) { render(true); return; }
+  var bar = document.getElementById('tbar'), sec = document.getElementById('tsec');
+  if (!st || !bar || (st.phase !== 'write' && st.phase !== 'vote')) { if (sec && st && st.phase !== 'write' && st.phase !== 'vote') sec.textContent = ''; return; }
+  var total = st.t1 - st.t0, left = Math.max(0, st.t1 - nowS());
+  var f = total > 0 ? left / total : 0;
+  bar.firstChild.style.transform = 'scaleX(' + f.toFixed(4) + ')';
+  bar.classList.toggle('low', left < 8000);
+  if (sec) sec.textContent = Math.ceil(left / 1000) + (sec.getAttribute('data-bare') ? '' : 's');
+  if (sec && sec.classList.contains('clock')) sec.classList.toggle('low', left < 8000);
+}
+var reelT = null;
+function spinReel(st){
+  var el = document.getElementById('reel'); if (!el || !st.p) return;
+  clearInterval(reelT);
+  var names = CATS.map(function(c){ return c.name; }).filter(function(c){ return c !== st.p.catN; });
+  var stopAt = st.t0 + Math.min(2200, (st.t1 - st.t0) * 0.6), i = 0;
+  var done = function(){ el.textContent = st.p.catN; var h = document.getElementById('cathint'); if (h) h.style.visibility = 'visible'; };
+  if (nowS() >= stopAt || !names.length) { done(); return; }
+  reelT = setInterval(function(){
+    if (nowS() >= stopAt) { clearInterval(reelT); done(); el.classList.add('pop'); return; }
+    el.textContent = names[i++ % names.length];
+  }, 90);
+}
+function countFake(fk){
+  var n = document.getElementById('fkn'); if (n) n.textContent = (MAXLEN - fk.value.length) + ' left';
+}
+
+// ---------------------------------------------------------------- home
+function vHome(){
+  var o = homeSet();
+  return '' +
+  '<div class="card"><h1>Phony Baloney</h1><p class="muted" style="margin:8px 0 0">Weird words, strange laws, odd facts and real people. Everyone writes a fake answer that sounds real, then the room hunts for the truth.</p></div>' +
+  '<div class="card"><h2>Join a game</h2><p class="muted small" style="margin:4px 0 12px">Got a code from the host? Type it here.</p>' +
+    '<form id="joinf"><label for="jc">Room code</label><input id="jc" class="field code" maxlength="4" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="ABCD" value="' + esc(S.code) + '">' +
+    '<div style="height:10px"></div><label for="jn">Your name</label><input id="jn" class="field" maxlength="16" autocomplete="nickname" placeholder="Name" value="' + esc(S.name) + '">' +
+    '<div style="height:12px"></div><button class="btn go wide" ' + (S.busy ? 'disabled' : '') + '>Join</button></form></div>' +
+  '<div class="or">or</div>' +
+  '<div class="card"><h2>Host a game</h2><p class="muted small" style="margin:4px 0 12px">Put this screen on a TV or laptop. Everyone plays on their phone. Best with 3 or more players.</p>' +
+    settingsHtml(o, 'home') + signInNote() +
+    '<div style="height:14px"></div><button class="btn wide" data-act="create" ' + (S.busy ? 'disabled' : '') + '>Make a room</button></div>' +
+  '<div class="err" role="alert">' + esc(S.err) + '</div>' +
+  '<div class="card"><h2 style="font-size:17px">How it works</h2>' + rulesHtml() + '</div>';
+}
+function rulesHtml(){
+  return '<ul class="rules"><li>Each round shows something weird but true: a fact with a blank, an odd word, an acronym, a real person, a movie or a strange law.</li><li>Write a fake answer that sounds real.</li><li>Then everyone votes for the one they think is the truth.</li><li>+1000 for finding the truth. +500 for every player your fake fools.</li><li>Give your favorite fake a LOL sticker for +125. The last round counts double.</li></ul>';
+}
+// The same settings on the home page (saved on this device) and in the lobby (saved to the room).
+function settingsHtml(o, where){
+  var pre = where === 'home' ? 'data-hs' : 'data-rs';
+  var on = (o.cats && o.cats.length) ? o.cats : catIds();
+  return '<label>Rounds</label><div class="seg">' + ROUNDS.map(function(n){ return '<button type="button" ' + pre + '="rounds" data-v="' + n + '" class="' + (n === o.rounds ? 'on' : '') + '">' + n + '</button>'; }).join('') + '</div>' +
+    '<div style="height:12px"></div><label>Seconds to write</label><div class="seg">' + SECS.map(function(n){ return '<button type="button" ' + pre + '="secs" data-v="' + n + '" class="' + (n === o.secs ? 'on' : '') + '">' + n + 's</button>'; }).join('') + '</div>' +
+    '<div style="height:12px"></div><label>Categories <span style="font-weight:600">(' + on.length + ' of ' + CATS.length + ')</span></label><div class="seg">' +
+    CATS.map(function(c){ return '<button type="button" ' + pre + '="cat" data-v="' + esc(c.id) + '" class="' + (on.indexOf(c.id) >= 0 ? 'on' : '') + '">' + esc(c.name) + '</button>'; }).join('') + '</div>' +
+    '<p class="muted small" style="margin:6px 0 0" id="catnote-' + where + '"></p>';
+}
+
+// ---------------------------------------------------------------- host screen
+function hostJoin(st){
+  return '<div class="card center"><p class="muted" style="margin:0 0 4px;font-weight:700">Join on your phone at</p><p style="margin:0 0 10px;font-weight:800;font-size:20px">' + esc(shortLink()) + '</p>' +
+    '<div class="big-code">' + esc(st.code) + '</div>' +
+    '<div style="height:14px"></div><div class="qr" id="qr" style="width:min(240px,70%)"></div>' +
+    '<p class="muted small" style="margin:10px 0 0">Scan to join, or share <a href="' + esc(link(st.code)) + '" style="color:var(--text)">' + esc(link(st.code).replace(/^https?:\/\//,'')) + '</a></p>' +
+    '<div class="row" style="justify-content:center;margin-top:10px"><button class="btn sm" data-act="copy">Copy link</button>' + (navigator.share ? '<button class="btn sm" data-act="share">Share</button>' : '') + '<button class="btn sm" data-act="tvsheet">' + castIcon() + 'Show on TV</button><button class="btn sm ghost" data-act="playhere">Play on this device too</button></div></div>';
+}
+function vHost(st, tv){
+  if (tv) return vTv(st);
+  var ps = st.players;
+  if (st.phase === 'lobby') {
+    return '<div class="hgrid">' + hostJoin(st) + '<div style="display:flex;flex-direction:column;gap:14px">' +
+      '<div class="card"><div class="meta"><h2>Players</h2><span class="sp"></span><span class="stat" style="color:var(--text)">' + ps.length + '</span><span>/ ' + (CFG.maxPlayers || 50) + '</span></div><div style="height:12px"></div>' +
+        (ps.length ? '<div class="chips">' + ps.map(function(p, i){ return '<span class="chip pop">' + buddySvg(i) + esc(p.name) + '<button class="x" data-kick="' + p.id + '" title="Remove ' + esc(p.name) + '" aria-label="Remove ' + esc(p.name) + '">×</button></span>'; }).join('') + '</div>' : '<p class="muted" style="margin:0">Waiting for players to join…</p>') + '</div>' +
+      '<div class="card">' + settingsHtml({ rounds: st.rounds, secs: st.secs, cats: st.only }, 'room') +
+        '<div style="height:16px"></div><button class="btn go wide" data-act="start" ' + (ps.length ? '' : 'disabled') + '>' + (ps.length ? 'Start game · ' + ps.length + ' player' + (ps.length === 1 ? '' : 's') : 'Waiting for players') + '</button>' +
+        (ps.length && ps.length < 3 ? '<p class="muted small" style="margin:8px 0 0">Best with 3 or more. With fewer, the game adds a few fakes of its own.</p>' : '') + '</div></div></div>';
+  }
+  var head = '<div class="meta"><span>' + roundTxt(st) + '</span>' + doubleTag(st) + '<span class="sp"></span><span><span class="stat" style="color:var(--text)">' + st.alive + '</span> playing</span>' +
+    (st.phase !== 'end' ? '<button class="btn sm ghost" data-act="tvsheet" aria-label="Show on TV">' + castIcon() + '</button><button class="btn sm ghost" data-act="end">End game</button>' : '') + '</div>';
+  if (st.phase === 'cat') return head + catCard(st);
+  if (st.phase === 'write') {
+    return head + promptHtml(st) + '<div class="card"><div class="meta"><span><span class="stat" style="color:var(--text)">' + st.locked + '</span> of ' + st.alive + ' fakes in</span><span class="sp"></span><button class="btn sm" data-act="next">Stop writing</button></div><div style="height:10px"></div>' +
+      '<div class="chips">' + ps.map(function(p, i){ return '<span class="chip' + (p.in ? ' in' : '') + '">' + buddySvg(i) + esc(p.name) + '</span>'; }).join('') + '</div></div>';
+  }
+  if (st.phase === 'vote') {
+    return head + promptHtml(st) + '<div class="answers">' + (st.opts || []).map(function(t, i){
+      return '<div class="ans vopt"><span class="L" style="background:' + COLS[i % COLS.length] + '">' + LET[i] + '</span><span>' + esc(t) + '</span></div>';
+    }).join('') + '</div><div class="meta"><span><span class="stat" style="color:var(--text)">' + st.locked + '</span> of ' + st.alive + ' voted</span><span class="sp"></span><button class="btn sm" data-act="next">Stop voting</button></div>';
+  }
+  if (st.phase === 'rev') {
+    return head + promptHtml(st, true) + revList(st) + (revDone(st) ? '<div class="card"><h2 style="font-size:17px;margin-bottom:10px">Scores</h2>' + scoreboard(st, 8) + '</div>' : '') +
+      '<div class="row" style="justify-content:flex-end"><button class="btn sm" data-act="next">' + (st.round >= st.rounds ? 'See the winner' : 'Scores') + ' →</button></div>';
+  }
+  if (st.phase === 'board') {
+    return head + '<div class="card"><h2 style="margin-bottom:12px">Scores after round ' + st.round + '</h2>' + scoreboard(st, 30) + '</div>' +
+      '<div class="row" style="justify-content:flex-end"><button class="btn sm" data-act="next">Next round →</button></div>';
+  }
+  return endHost(st);
+}
+function endHost(st){
+  var w = st.winners || [];
+  return '<div class="card center pop" style="padding:32px 18px"><p class="muted" style="margin:0 0 8px;font-weight:800;letter-spacing:.14em;text-transform:uppercase">' + (w.length > 1 ? 'Winners' : (w.length ? 'Winner' : '')) + '</p><div class="win">' + winnersTxt(st) + '</div>' +
+    '<p class="muted" style="margin:12px 0 0">' + (st.round ? 'After ' + st.round + ' round' + (st.round === 1 ? '' : 's') : '') + '</p></div>' + stickersHtml(st) +
+    '<div class="row" style="justify-content:center"><button class="btn go" data-act="again">Play again, same players</button><button class="btn" data-act="newroom">New room</button></div>' + saveCard(st) +
+    '<div class="card"><h2 style="font-size:17px;margin-bottom:10px">Final scores</h2>' + scoreboard(st, 50) + '</div>';
+}
+function catCard(st){
+  return '<div class="card center catcard"><p class="muted" style="margin:0 0 10px;font-weight:700">Category</p><div class="reel" id="reel"></div><p class="hint" id="cathint" style="visibility:hidden">' + esc(HINT[st.p ? st.p.cat : ''] || '') + '</p></div>';
+}
+
+// ---------------------------------------------------------------- TV
+function tvLobby(st, setup){
+  var ps = st.players, n = ps.length, max = CFG.maxPlayers || 50;
+  var cols = n <= 6 ? 3 : n <= 12 ? 4 : n <= 20 ? 5 : n <= 30 ? 6 : 8;
+  var size = n <= 6 ? '' : n <= 12 ? '--bh:9vh;--nf:3.2vh' : n <= 20 ? '--bh:7vh;--nf:2.6vh' : '--bh:5vh;--nf:2.1vh';
+  var shown = ps.slice(0, cols * (n <= 30 ? 5 : 7) - 1);
+  var tilt = ['-2deg','1.5deg','-1deg','2deg','-1.5deg','1deg'];
+  return '<div class="tvl"><div class="left"><div class="tvlogo">' + logoHtml() + '</div>' +
+    '<div class="joincard"><div class="l1">Grab your phone and go to</div><div class="url">' + esc(shortLink()) + '</div><div class="l2">Room code</div>' +
+    '<div class="tiles" aria-label="Room code ' + esc(st.code.split('').join(' ')) + '">' + st.code.split('').map(function(c){ return '<span>' + esc(c) + '</span>'; }).join('') + '</div></div>' +
+    '<div class="qrrow"><div class="qr" id="qr"></div><p>Or point your camera here<br>to jump right in.</p></div></div>' +
+    '<div class="right"><div class="tvh"><h1>Who\'s playing</h1><span class="count">' + n + ' in</span></div>' +
+    '<div class="pgrid" style="--cols:' + cols + ';' + size + '">' + shown.map(function(p, i){
+      return '<div class="pcard pop" style="background:' + CARD[i % CARD.length] + ';transform:rotate(' + tilt[i % tilt.length] + ')">' + buddySvg(i) + '<b>' + esc(p.name) + '</b></div>';
+    }).join('') + (n < max ? '<div class="pcard more">' + (n ? 'Room for ' + (max - n) + ' more' : 'Waiting for players…') + '</div>' : '') + '</div>' +
+    '<div class="tvfoot">' + setup + '. The host starts the game from their phone.</div></div></div>';
+}
+function tvHeads(st, label){
+  return '<div class="tvfoot2"><span class="lk">' + st.locked + ' of ' + st.alive + ' ' + label + '</span><div class="heads">' + st.players.slice(0, 14).map(function(p, i){
+    return '<div class="head' + (p.in ? ' in' : '') + '" style="background:' + CARD[i % CARD.length] + '" title="' + esc(p.name) + '">' + buddySvg(i) + '</div>';
+  }).join('') + '</div><div class="prog" id="tbar"><i></i></div></div>';
+}
+function vTv(st){
+  if (st.phase === 'lobby') return tvLobby(st, 'Phony Baloney · ' + st.rounds + ' rounds · ' + st.secs + ' seconds to write');
+  var timed = st.phase === 'write' || st.phase === 'vote';
+  var bar = '<div class="tvbar"><span class="m">' + mascotHtml() + '</span><span class="rd">' + roundTxt(st) + '</span>' + (st.p && st.phase !== 'cat' && st.phase !== 'end' ? '<span class="catp">' + esc(st.p.catN) + '</span>' : '') +
+    (st.mult > 1 && st.phase !== 'end' ? '<span class="catp" style="background:var(--gold)">Double points</span>' : '') +
+    '<span class="sp"></span><span class="room">Room ' + esc(st.code) + '</span>' + (timed ? '<div class="clock" id="tsec" data-bare="1" aria-label="Seconds left"></div>' : '') + '</div>';
+  if (st.phase === 'cat') {
+    return bar + '<div class="tvcat"><div class="lab">Next category</div><div class="reel" id="reel"></div><div class="tvwait" id="cathint" style="visibility:hidden">' + esc(HINT[st.p ? st.p.cat : ''] || '') + '</div></div>';
+  }
+  if (st.phase === 'write') {
+    return bar + tvPrompt(st) + '<div class="tvhint">' + esc(HINT[st.p.cat] || 'Write a fake answer that sounds real.') + '</div>' + tvHeads(st, 'fakes in');
+  }
+  if (st.phase === 'vote') {
+    var n = (st.opts || []).length, long = (st.opts || []).some(function(t){ return t.length > 38; });
+    var oc = n <= 4 ? 2 : (long ? 2 : 3), of = n > 6 ? (long ? '3.2vh' : '3.8vh') : (long ? '3.6vh' : '4.4vh');
+    return bar + tvPrompt(st, true) + '<div class="tvopts" style="--oc:' + oc + ';--of:' + of + '">' + st.opts.map(function(t, i){
+      return '<div class="tva" style="--col:' + COLS[i % COLS.length] + '"><span class="k">' + LET[i] + '</span><span class="t">' + esc(t) + '</span></div>';
+    }).join('') + '</div>' + tvHeads(st, 'voted');
+  }
+  if (st.phase === 'rev') {
+    var shown = revShown(st), k = revStep(st);
+    S.revStep = k;
+    var body;
+    if (k < 0) body = '<div class="tvcat"><div class="lab">Votes are in.</div><div class="reel" style="font-size:9vh">Let\'s see who fell for what…</div></div>';
+    else body = '<div class="tvrev">' + (k > 0 ? '<div class="past">' + shown.slice(0, k).map(function(o){ return '<span' + (o.truth ? ' class="t"' : '') + '>“' + esc(o.t.length > 34 ? o.t.slice(0, 32) + '…' : o.t) + '” · ' + (o.truth ? 'truth' : o.house ? 'house fake' : esc(o.by.join(' & '))) + '</span>'; }).join('') + '</div>' : '') +
+      revCard(st, shown[k], true) + (k >= shown.length - 1 ? unpicked(st) + '<div class="tvwait">Phones: give the funniest fake a 😂 LOL sticker.</div>' : '') + '</div>';
+    return bar + tvPrompt(st, true) + body;
+  }
+  if (st.phase === 'board') {
+    return bar + '<div class="tvboard"><h2>Scores after round ' + st.round + '</h2>' + scoreboard(st, 8) + (st.round + 1 === st.rounds && st.rounds >= 3 ? '<div class="tvhint">Last round: double points!</div>' : '') + '</div>';
+  }
+  var w = st.winners || [], wi = w.length ? idxOf(st, w[0]) : 0;
+  return '<div class="tvwin"><div class="hero"><div class="lab">' + (w.length > 1 ? 'Winners' : w.length ? 'Winner' : (st.stopped ? 'Game over' : 'No winner')) + '</div>' +
+    '<div class="disc pop">' + (w.length ? buddySvg(wi, true) : '<span class="m" style="height:24vh;display:block">' + mascotHtml() + '</span>') + '</div>' +
+    '<div class="win">' + (w.length === 1 ? esc(w[0]) + ' wins!' : winnersTxt(st)) + '</div>' +
+    '<div class="sub">' + (st.round ? 'Most points after ' + st.round + ' round' + (st.round === 1 ? '' : 's') : '') + '</div></div>' +
+    '<div class="board">' + stickersHtml(st) + '<h2>Final scores</h2>' + scoreboard(st, 6) + '<p class="tvwait" style="margin:1vh 0 0">Waiting for the host to start the next game…</p></div></div>';
+}
+
+// ---------------------------------------------------------------- phone
+function vPlay(st){
+  var me = st.me || { name: S.name, score: 0, gain: 0, fake: '', vote: 0, lol: -1, own: [] };
+  if (st.phase === 'lobby') {
+    return '<div class="card center pop"><p class="muted" style="margin:0 0 6px;font-weight:700">You\'re in</p><h1>' + esc(me.name) + '</h1><p class="muted" style="margin:10px 0 0">Waiting for the host to start…</p></div>' +
+      '<div class="card"><div class="meta"><span>Players</span><span class="sp"></span><span class="stat" style="color:var(--text)">' + st.players.length + '</span></div><div style="height:10px"></div><div class="chips">' +
+      st.players.map(function(p, i){ return '<span class="chip' + (p.name === me.name ? ' me' : '') + '">' + buddySvg(i) + esc(p.name) + '</span>'; }).join('') + '</div></div>' +
+      '<div class="card">' + rulesHtml() + '</div><button class="btn ghost wide sm" data-act="leave">Leave room</button>';
+  }
+  var head = '<div class="meta"><span>' + roundTxt(st) + '</span>' + doubleTag(st) + '<span class="sp"></span><span><span class="stat" style="color:var(--text)">' + num(me.score) + '</span> pts · ' + ord(rankOf(st, me.name) || 1) + '</span></div>';
+  if (st.phase === 'cat') return head + catCard(st);
+  if (st.phase === 'write') {
+    var sent = me.fake || (S.fakeSent && S.fakeSent.round === st.round ? S.fakeSent.text : '');
+    var editing = !sent || S.editFake === st.round;
+    var val = (S.draft !== null && S.draft !== undefined && S.draftRound === st.round) ? S.draft : sent;
+    var form = editing
+      ? '<form id="fakef" class="card"><label for="fk">Your fake answer</label><textarea id="fk" class="field" maxlength="' + MAXLEN + '" rows="2" placeholder="Something that sounds true…" autocomplete="off" autocapitalize="sentences" enterkeyhint="send">' + esc(val) + '</textarea>' +
+        '<div class="err" role="alert" style="margin-top:8px">' + esc(S.fakeErr || '') + '</div>' +
+        '<div class="row" style="justify-content:space-between"><span class="muted small" id="fkn"></span><button class="btn go sm" ' + (S.busy ? 'disabled' : '') + '>' + (sent ? 'Update my fake' : 'Lock in my fake') + '</button></div></form>'
+      : '<div class="banner good pop">Your fake: “' + esc(sent) + '”<small>Nice. You can change it until the clock runs out.</small></div><button class="btn wide sm" data-act="editfake">Change my fake</button>';
+    return head + promptHtml(st) + form + '<p class="muted small center" style="margin:0">' + st.locked + ' of ' + st.alive + ' fakes in</p>';
+  }
+  if (st.phase === 'vote') {
+    var own = me.own || [];
+    return head + promptHtml(st) + '<p class="swipehint">' + (me.vote ? 'Tap another one to change your vote.' : 'Which one is real? Tap it.') + '</p><div class="answers">' + (st.opts || []).map(function(t, i){
+      var c = i + 1, mine = own.indexOf(c) >= 0, pick = me.vote === c;
+      return '<button class="ans vopt' + (pick ? ' pick' : '') + (mine ? ' own' : '') + '" data-vote="' + c + '"' + (mine ? ' disabled' : '') + '><span class="L" style="background:' + COLS[i % COLS.length] + '">' + LET[i] + '</span><span>' + esc(t) + '</span>' +
+        (mine ? '<span class="n small">Yours</span>' : (pick ? '<span class="n small" style="color:var(--accent)">Your vote</span>' : '')) + '</button>';
+    }).join('') + '</div><p class="muted small center" style="margin:0">' + st.locked + ' of ' + st.alive + ' voted</p>';
+  }
+  if (st.phase === 'rev' || st.phase === 'board') {
+    var res = st.res || { rev: [] }, done = st.phase === 'board' || revDone(st);
+    S.revStep = revStep(st);
+    var lol = lolHtml(st, me);
+    if (!done) return head + '<div class="card center"><h2>Eyes on the big screen!</h2><p class="muted" style="margin:8px 0 0">The truth is coming…</p></div>' + lol;
+    var truth = res.rev.filter(function(o){ return o.truth; })[0] || { t: '' };
+    var found = truth.votes && truth.votes.indexOf(me.name) >= 0;
+    var fell = res.rev.filter(function(o){ return !o.truth && o.votes.indexOf(me.name) >= 0; })[0];
+    var mine = res.rev.filter(function(o){ return o.by.indexOf(me.name) >= 0; })[0];
+    var ban = found ? '<div class="banner good pop">You found the truth! +' + num(1000 * (res.mult || 1)) + '</div>'
+      : fell ? '<div class="banner bad pop">You fell for “' + esc(fell.t) + '”<small>' + (fell.house ? 'That was a house fake.' : 'Written by ' + fell.by.map(esc).join(' &amp; ') + '.') + '</small></div>'
+      : '<div class="banner bad pop">No vote this round.</div>';
+    var fool = mine ? '<div class="banner ' + (mine.votes.length ? 'good' : 'info') + '">' + (mine.votes.length ? 'Your fake fooled ' + mine.votes.length + '! +' + num(mine.pts) : 'Your fake didn\'t fool anyone this time.') + '<small>“' + esc(mine.t) + '”</small></div>' : '';
+    return head + ban + fool + '<div class="card"><p class="muted small" style="margin:0 0 4px;font-weight:800">The truth</p><div class="q" style="font-size:22px">' + esc(truth.t) + '</div></div>' +
+      '<div class="card center"><span class="stat" style="font-size:28px;color:var(--ink)">+' + num(me.gain) + '</span> <span class="muted">this round · ' + num(me.score) + ' total · ' + ord(rankOf(st, me.name) || 1) + '</span></div>' + lol +
+      (st.phase === 'board' ? '<div class="card">' + scoreboard(st, 8, me.name) + '</div>' : '');
+  }
+  // end
+  var won = (st.winners || []).indexOf(me.name) >= 0;
+  var mineSt = '<div class="stickers">' + (me.lols ? '<div class="sticker">😂 LOL ×' + me.lols + '</div>' : '') + '<div class="sticker">🦊 Fooled<b>' + me.fooled + '</b></div><div class="sticker">🔎 Found the truth<b>' + me.truths + '×</b></div></div>';
+  return '<div class="card center pop" style="padding:28px 16px">' + (won ? '<p style="margin:0 0 6px;font-weight:800;color:var(--accent);letter-spacing:.14em;text-transform:uppercase">You won!</p>' : '<p class="muted" style="margin:0 0 6px;font-weight:800;letter-spacing:.14em;text-transform:uppercase">' + ((st.winners || []).length > 1 ? 'Winners' : ((st.winners || []).length ? 'Winner' : '')) + '</p>') +
+    '<div class="win" style="font-size:clamp(30px,9vw,48px)">' + winnersTxt(st) + '</div>' +
+    '<p class="muted" style="margin:12px 0 0">You finished ' + ord(rankOf(st, me.name) || 1) + ' with ' + num(me.score) + ' points.</p></div>' + mineSt + stickersHtml(st) +
+    '<p class="muted center small" style="margin:0">Waiting for the host to start the next game…</p>' +
+    '<div class="card">' + scoreboard(st, 50, me.name) + '</div><button class="btn ghost wide sm" data-act="leave">Leave room</button>';
+}
+function lolHtml(st, me){
+  var res = st.res; if (!res) return '';
+  var list = res.rev.filter(function(o){ return !o.truth && !o.house && o.by.length && o.by.indexOf(me.name) < 0; });
+  if (!list.length) return '';
+  if (me.lol >= 0) {
+    var g = res.rev.filter(function(o){ return o.i === me.lol; })[0];
+    return '<div class="banner info">😂 You gave a LOL sticker' + (g ? ' to “' + esc(g.t) + '”' : '') + '.</div>';
+  }
+  return '<div class="card lolbox"><h2 style="font-size:18px">Funniest fake?</h2><p class="muted small" style="margin:0">Give it a LOL sticker. Its writer gets +125.</p>' + list.map(function(o){
+    return '<button type="button" class="lolbtn" data-lol="' + o.i + '"><span class="e">😂</span><span>“' + esc(o.t) + '”</span></button>';
+  }).join('') + '</div>';
+}
+
+// Host controls when the host plays on the same phone.
+function vStrip(st, mirror){
+  var b = '';
+  if (st.phase === 'lobby') b = '<button class="btn go sm" data-act="start"' + (st.players.length ? '' : ' disabled') + '>Start game · ' + st.players.length + '</button>';
+  else if (st.phase === 'rev' || st.phase === 'board') b = '<button class="btn sm" data-act="next">' + (st.phase === 'board' ? 'Next round' : (st.round >= st.rounds ? 'Winner' : 'Scores')) + '</button><button class="btn sm ghost" data-act="end">End game</button>';
+  else if (st.phase === 'end') b = '<button class="btn go sm" data-act="again">Play again</button>';
+  else if (st.phase === 'write' || st.phase === 'vote') b = '<button class="btn sm" data-act="next">' + (st.phase === 'write' ? 'Stop writing' : 'Stop voting') + '</button><button class="btn sm ghost" data-act="end">End game</button>';
+  else b = '<button class="btn sm ghost" data-act="end">End game</button>';
+  if (mirror) return '<div class="hoststrip mini">' + b + '<button class="btn sm ghost" data-act="mirroroff">Exit TV mode</button></div>';
+  return '<div class="hoststrip"><span class="pill">Host</span>' + b + '<button class="btn sm ghost" data-act="tvsheet" aria-label="Show on TV">' + castIcon() + '</button><button class="btn sm ghost" data-act="hostscreen">Host screen</button></div>';
+}
+
+// ---------------------------------------------------------------- wiring
+function wire(){
+  var f = document.getElementById('joinf');
+  if (f) f.addEventListener('submit', function(e){ e.preventDefault(); joinRoom(document.getElementById('jc').value, document.getElementById('jn').value); });
+  var tf = document.getElementById('tvf');
+  if (tf) {
+    var tc = document.getElementById('tc');
+    tc.addEventListener('input', function(){ tc.value = tc.value.toUpperCase().replace(/[^A-Z]/g,'').slice(0,4); });
+    tf.addEventListener('submit', function(e){ e.preventDefault(); var c = tc.value.toUpperCase().replace(/[^A-Z]/g,''); if (c.length !== 4) { S.err = 'The code is 4 letters.'; render(true); return; } S.err = ''; enterTv(c); });
+  }
+  var jc = document.getElementById('jc');
+  if (jc && jc.type !== 'hidden') jc.addEventListener('input', function(){ jc.value = jc.value.toUpperCase().replace(/[^A-Z]/g,'').slice(0,4); });
+
+  // Settings on the home page: saved on this device for the next room.
+  app.querySelectorAll('[data-hs]').forEach(function(b){
+    b.addEventListener('click', function(){
+      var k = b.getAttribute('data-hs'), v = b.getAttribute('data-v');
+      if (k === 'cat') {
+        var on = homeSel(), i = on.indexOf(v);
+        if (i >= 0) { if (on.length === 1) { var n = document.getElementById('catnote-home'); if (n) n.textContent = 'Keep at least one category on.'; return; } on.splice(i, 1); } else on.push(v);
+        sset(key('cats'), JSON.stringify(on));
+      } else sset(key(k), +v);
+      S.sig = ''; render(true);
+    });
+  });
+  // Settings in the lobby: saved to the room.
+  app.querySelectorAll('[data-rs]').forEach(function(b){
+    b.addEventListener('click', function(){
+      var k = b.getAttribute('data-rs'), v = b.getAttribute('data-v'), st = S.st;
+      if (k === 'cat') {
+        var on = (st.only && st.only.length) ? st.only.slice() : catIds(), i = on.indexOf(v);
+        if (i >= 0) { if (on.length === 1) { var n = document.getElementById('catnote-room'); if (n) n.textContent = 'Keep at least one category on.'; return; } on.splice(i, 1); } else on.push(v);
+        hostDo('settings', { cats: on });
+      } else { var o = {}; o[k] = +v; hostDo('settings', o); }
+    });
+  });
+  document.querySelectorAll('[data-act]').forEach(function(b){
+    b.addEventListener('click', function(){
+      var a = b.getAttribute('data-act');
+      if (a === 'create') createRoom();
+      else if (a === 'home' || a === 'newroom') goHome();
+      else if (a === 'start' || a === 'next' || a === 'again') { b.disabled = true; hostDo(a); }
+      else if (a === 'end') { if (confirmEnd(b)) hostDo('end'); }
+      else if (a === 'copy') copy(link(S.code), b);
+      else if (a === 'share') navigator.share({ title: 'Groupcade ' + CFG.gameName, text: 'Join my ' + CFG.gameName + ' game on Groupcade! Code ' + S.code, url: link(S.code) }).catch(function(){});
+      else if (a === 'leave') { api('POST', '/rooms/' + S.code + '/leave').catch(function(){}); sset('gc_tok_' + S.code, null); goHome(); }
+      else if (a === 'hostscreen') { if (APP && APP.nativeHost) appPost({ type: 'hostscreen', code: S.code }); else enterRoom(S.code, true); }
+      else if (a === 'tvsheet') tvSheet();
+      else if (a === 'mirroroff') mirror(false);
+      else if (a === 'editfake') { S.editFake = S.st ? S.st.round : 0; S.fakeErr = ''; render(true); var fk = document.getElementById('fk'); if (fk) { fk.focus(); fk.select(); } }
+      else if (a === 'playhere') {
+        if (window.innerWidth > 820) window.open(link(S.code) + '?play=1', '_blank', 'noopener');
+        else { stopPoll(); S.mode = 'join'; S.token = null; document.body.classList.remove('hostview'); S.sig = ''; render(true); }
+      }
+    });
+  });
+  app.querySelectorAll('[data-kick]').forEach(function(b){ b.addEventListener('click', function(){ hostDo('kick', { player: +b.getAttribute('data-kick') }); }); });
+  app.querySelectorAll('[data-vote]').forEach(function(b){ b.addEventListener('click', function(){ vote(+b.getAttribute('data-vote')); }); });
+  app.querySelectorAll('[data-lol]').forEach(function(b){ b.addEventListener('click', function(){ giveLol(+b.getAttribute('data-lol')); }); });
+  var ff = document.getElementById('fakef'), fk = document.getElementById('fk');
+  if (ff && fk) {
+    var round = S.st ? S.st.round : 0;
+    ff.addEventListener('submit', function(e){ e.preventDefault(); sendFake(fk.value); });
+    fk.addEventListener('input', function(){ if (fk.value.length > MAXLEN) fk.value = fk.value.slice(0, MAXLEN); S.draft = fk.value; S.draftRound = round; countFake(fk); });
+    fk.addEventListener('keydown', function(e){ if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendFake(fk.value); } });
+    fk.addEventListener('focus', function(){ S.typing = round; });
+    fk.addEventListener('blur', function(){ S.typing = 0; setTimeout(function(){ if (!S.typing) render(false); }, 250); });
+  }
+}
+
+// Two taps to end a game, no browser dialog.
+function confirmEnd(b){
+  if (b.getAttribute('data-sure')) return true;
+  b.setAttribute('data-sure', '1'); b.textContent = 'Tap again to end'; S.sig = 'x';
+  setTimeout(function(){ if (b.isConnected) { b.removeAttribute('data-sure'); b.textContent = 'End game'; } }, 3000);
+  return false;
+}
+function copy(t, b){
+  (navigator.clipboard ? navigator.clipboard.writeText(t) : Promise.reject()).then(function(){ b.textContent = 'Copied!'; }).catch(function(){ prompt('Copy this link', t); });
+}
+
+// ---------------------------------------------------------------- start
+var qs = new URLSearchParams(location.search);
+var startCode = (S.code || qs.get('code') || '').toUpperCase().replace(/[^A-Z]/g,'').slice(0,4);
+if (CFG.cast) { startReceiver(); }
+else if (CFG.tv) { S.mode = 'tv'; document.body.classList.add('hostview', 'tv'); if (startCode.length === 4) enterTv(startCode); else render(true); }
+else if (startCode.length === 4) {
+  // A host returning to their own room link gets the host screen, unless they came to play.
+  enterRoom(startCode, !!sget('gc_host_' + startCode) && !sget('gc_tok_' + startCode) && qs.get('play') !== '1');
+} else { render(true); }
+if (!APP) loadAccount();
+})();
+</script>
+</body>
+</html>

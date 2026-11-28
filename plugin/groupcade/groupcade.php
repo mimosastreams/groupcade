@@ -2,8 +2,8 @@
 /**
  * Plugin Name: Groupcade
  * Plugin URI:  https://groupcade.com/
- * Description: Party games for the big screen. A host makes a room and gets a code, link and QR; players join on their phones and play there, and the TV shows the big screen. Game one: Trivia (/trivia/). TV view: /tv/. Also serves the site's home page.
- * Version:     1.5.0
+ * Description: Party games for the big screen. A host makes a room and gets a code, link and QR; players join on their phones and play there, and the TV shows the big screen. Games: Trivia (/trivia/), Phony Baloney (/baloney/) and Scribble Squad (/scribble/). TV view: /tv/. Also serves the site's home page.
+ * Version:     1.6.0
  * Author:      Groupcade
  * Requires PHP: 7.4
  * Text Domain: groupcade
@@ -13,8 +13,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'GC_VERSION', '1.5.0' );
-define( 'GC_DB_VERSION', '3' ); // Bump to re-run dbDelta and re-flush rewrite rules.
+define( 'GC_VERSION', '1.6.0' );
+define( 'GC_DB_VERSION', '4' ); // Bump to re-run dbDelta and re-flush rewrite rules.
 define( 'GC_DIR', plugin_dir_path( __FILE__ ) );
 define( 'GC_FILE', __FILE__ );
 
@@ -39,6 +39,8 @@ require_once GC_DIR . 'includes/class-gc-home-fields.php';
 
 // Games. Each game lives in games/<slug>/ and registers itself. See docs/ADDING-A-GAME.md.
 require_once GC_DIR . 'games/trivia/trivia.php';
+require_once GC_DIR . 'games/baloney/baloney.php';
+require_once GC_DIR . 'games/scribble/scribble.php';
 
 // Phones' room checks: answer them now, before the theme and the rest of WordPress load.
 GC_Fast::maybe_serve();

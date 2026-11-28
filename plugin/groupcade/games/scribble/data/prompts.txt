@@ -1,0 +1,189 @@
+# Scribble Squad drawing prompts. One per line: prompt | other answers that also count (separated by ;)
+# Copied into Groupcade > Drawing prompts on first run, where they can be edited.
+a cat wearing a hat | cat in a hat
+a snowman | snow man
+a pirate ship | pirate boat
+a haunted house | spooky house;ghost house
+a robot dog | robo dog;dog robot
+a giraffe
+an octopus
+a hot air balloon | balloon
+a birthday cake | cake
+a volcano
+a lighthouse
+a dinosaur | dino;t rex;trex
+a pizza | pizza slice;slice of pizza
+an ice cream cone | ice cream
+a cactus
+a rocket ship | rocket;spaceship
+a unicorn
+a mermaid
+a dragon
+a castle
+a treasure map | map
+a shark
+a snail
+a penguin
+a flamingo
+a bee | bumblebee;honeybee
+a spider web | spiderweb;web
+a rainbow
+a tornado
+a palm tree | palm
+a campfire | fire;bonfire
+a tent
+a skateboard
+a bicycle | bike
+a roller coaster | rollercoaster
+a ferris wheel
+a crown
+a magic wand | wand
+a wizard
+a witch on a broom | witch
+a ghost
+a vampire
+a zombie
+an alien | ufo alien
+a flying saucer | ufo
+a telescope
+a microscope
+a light bulb | lightbulb;bulb
+a toothbrush
+a toilet
+a bathtub | bath
+an umbrella
+a sandwich
+a hamburger | burger;cheeseburger
+a hot dog | hotdog
+french fries | fries;chips
+a taco
+spaghetti | pasta;noodles
+a banana
+a pineapple
+a watermelon
+a carrot
+a mushroom
+a cupcake
+a donut | doughnut
+a teapot
+a coffee mug | mug;coffee cup
+a fishbowl | fish bowl;goldfish bowl
+a goldfish | fish
+a turtle | tortoise
+a frog
+a snake
+an owl
+a bat
+a kangaroo
+an elephant
+a lion
+a monkey
+a bunny | rabbit
+a hedgehog
+a jellyfish
+a crab
+a whale
+a dolphin
+a parrot
+a peacock
+a scarecrow
+a superhero
+a ninja
+a cowboy
+an astronaut
+a chef
+a clown
+a mummy
+a knight
+a king
+a queen
+a baby
+a grandma | granny
+a dentist
+a firefighter | fireman
+a police car | cop car
+a fire truck | firetruck
+a tractor
+a helicopter
+an airplane | plane;aeroplane
+a submarine
+a sailboat | sail boat
+a train
+a school bus | bus
+a traffic light | stop light;stoplight
+a stop sign
+a mailbox
+a doorbell
+a key
+a lock | padlock
+a clock
+an alarm clock | alarm
+a calendar
+a camera
+a guitar
+a drum | drums;drum set
+a piano
+a trumpet
+a microphone | mic
+headphones
+a video game controller | controller;game controller
+a television | tv
+a laptop | computer
+a cell phone | phone;smartphone
+a selfie
+a robot
+a trophy
+a medal
+a soccer ball | football;ball
+a basketball
+a bowling ball | bowling
+a tennis racket | racket
+a fishing rod | fishing pole
+a kite
+a yo-yo | yoyo
+a sandcastle | sand castle
+a beach ball
+sunglasses
+a sun hat | sunhat;hat
+a mustache | moustache
+a beard
+a wig
+a high heel | high heels;heels
+a sock
+a mitten | mittens;glove
+a scarf
+a backpack
+a suitcase
+a tooth fairy
+a sleepy dog | tired dog;dog sleeping
+a dog walking a person
+a cat playing piano | cat on piano
+a dancing banana
+a fish riding a bike | fish on a bike
+a pig flying | flying pig
+a cow jumping over the moon | cow over the moon
+a frog wearing a crown | frog prince;frog king
+a snowman at the beach | melting snowman
+a shark in a bathtub
+a giraffe in a scarf
+a penguin on vacation
+a dragon eating pizza
+a bear in a canoe
+a moose in a hot tub
+a chicken crossing the road | chicken crossing road
+a dog's birthday party
+a cat stuck in a tree | cat in a tree
+a picnic with ants | picnic
+a traffic jam
+a food fight
+a pillow fight
+a bad haircut
+a sneeze
+a nightmare | bad dream
+a dream vacation | vacation
+brain freeze
+a sunburn
+monday morning
+a group selfie
+breakfast in bed
+a lost sock

@@ -1,0 +1,74 @@
+# Phony Baloney prompts. Copied into Groupcade > Fake answer prompts on first run, then edited there.
+# category | big title | small line | question (___ marks the blank) | real answer | also accept (;) | house fakes (;)
+# Categories: blank, word, acronym, person, movie, law. Every prompt must be true.
+blank |  |  | The world's first webcam, at a Cambridge University computer lab, was set up so people could keep an eye on ___. | a coffee pot | coffee pot;the coffee pot;coffee maker;the coffee | a fish tank;the front door
+blank |  |  | In 1999 someone tried to sell their own ___ on eBay, and bids passed $5 million before eBay stopped it. | kidney | a kidney;their kidney;kidneys | soul;grandmother
+blank |  |  | Play-Doh was first sold in the 1950s as ___. | wallpaper cleaner | a wallpaper cleaner;cleaner for wallpaper | bread dough for pets;denture putty
+blank |  |  | The first product ever scanned with a barcode at a checkout, in 1974, was a pack of ___. | chewing gum | gum;wrigley's gum;juicy fruit gum;wrigleys gum | baseball cards;cigarettes
+blank |  |  | The official national animal of Scotland is the ___. | unicorn | a unicorn;the unicorn | loch ness monster;red squirrel
+blank |  |  | A group of flamingos is called a ___. | flamboyance | a flamboyance | pinkening;parade
+blank |  |  | Wombats are famous for making poop shaped like ___. | cubes | a cube;cube;squares;dice | stars;little hearts
+blank |  |  | Fredric Baur, who designed the Pringles can, asked to have some of his ashes buried in ___. | a Pringles can | pringles can;a pringles tube;pringles tube | a cookie jar;a salt shaker
+blank |  |  | In the 1830s, ketchup was sold in pill form as ___. | medicine | a medicine;a cure;indigestion medicine | a breath mint;a vitamin
+blank |  |  | The shortest war in history, between Britain and Zanzibar in 1896, lasted about ___. | 38 minutes | 40 minutes;45 minutes;thirty eight minutes;38 mins | 9 hours;3 days
+blank |  |  | An octopus has ___ hearts. | three | 3;three hearts | two;nine
+blank |  |  | Before alarm clocks, British workers paid a "knocker-upper" to wake them by ___. | tapping on their windows with a long stick | tapping on the window;knocking on the window;tapping on windows;shooting peas at the window | ringing a cowbell;singing outside the door
+word | snollygoster | noun |  | a clever person with no principles, especially a politician | a shrewd unprincipled person;a dishonest politician | a small marsh bird;a ghost that hides socks
+word | gobemouche | noun |  | a gullible person who believes everything they hear | someone who believes anything;a gullible person | a fly that only bites at night;a French cream puff
+word | borborygmus | noun |  | the rumbling sound your stomach makes | stomach rumbling;tummy rumbling;a stomach growl;stomach growling | a two-headed lizard;fear of tight shoes
+word | defenestration | noun |  | throwing someone out of a window | throwing someone out a window;the act of throwing someone out a window | removing a fence;taking down Christmas lights
+word | ultracrepidarian | noun |  | someone who gives opinions about things they know nothing about | a know it all;someone who comments on things they know nothing about | a person with very long toes;a fan of extremely thin crepes
+word | hobbledehoy | noun |  | a clumsy, awkward teenage boy | an awkward teenage boy;a clumsy teenager;an awkward youth | a horse that only walks backward;an old sea shanty
+word | quockerwodger | noun |  | a wooden puppet on strings, or a politician who is controlled by someone else | a puppet;a marionette;a puppet politician | a duck call;a broken umbrella
+word | cattywampus | adjective |  | crooked, or not lined up properly | askew;crooked;out of line;diagonal;sideways | covered in cat hair;wildly overexcited
+word | bumfuzzle | verb |  | to confuse someone | confuse;to confuse;to fluster;to bewilder | to tickle with a feather;to sneeze very quietly
+word | pandiculation | noun |  | stretching and yawning at the same time | stretching and yawning;a big stretch and yawn;yawning while stretching | a panda's afternoon nap;fear of pancakes
+word | widdershins | adverb |  | counterclockwise | anticlockwise;counter clockwise;the wrong way around | sneakily, on tiptoe;on the windy side of a hill
+word | groak | verb |  | to stare at people while they eat, hoping they'll share | to stare at someone's food;to watch people eat hoping for food;stare at people eating | to croak like a frog with a cold;to grumble before coffee
+word | lunting | verb |  | walking while smoking a pipe | walking and smoking a pipe;smoking a pipe while walking | eating lunch while standing;running in heavy boots
+acronym | TASER |  |  | Thomas A. Swift's Electric Rifle | thomas a swifts electric rifle;thomas swift electric rifle | Tactical Anti-Stun Electric Restraint;Total Arrest by Sudden Electrical Response
+acronym | SCUBA |  |  | Self-Contained Underwater Breathing Apparatus | self contained underwater breathing apparatus | Submerged Coastal Underwater Breathing Assistant;Standard Compressed Underwater Breathing Air
+acronym | LASER |  |  | Light Amplification by Stimulated Emission of Radiation | light amplification by stimulated emission of radiation | Lightwave Aimed by Stimulated Electric Rays;Long-Accuracy Strike Emission Ray
+acronym | RADAR |  |  | Radio Detection And Ranging | radio detection and ranging | Range And Direction Assessment Receiver;Radio Aircraft Detection And Recording
+acronym | JPEG |  |  | Joint Photographic Experts Group | joint photographic experts group | Joint Picture Encoding Guidelines;Japanese Photo Exchange Group
+acronym | GIF |  |  | Graphics Interchange Format | graphics interchange format;graphic interchange format | Graphic Image File;Generic Internet Format
+acronym | CAPTCHA |  |  | Completely Automated Public Turing test to tell Computers and Humans Apart | completely automated public turing test to tell computers and humans apart | Computer And People Test To Check Human Access;Check All People Trying To Commit Hacking Attacks
+acronym | ZIP (as in ZIP code) |  |  | Zone Improvement Plan | zone improvement plan | Zonal Index of Postal addresses;Zip-code Identification Program
+acronym | IKEA |  |  | Ingvar Kamprad Elmtaryd Agunnaryd (the founder's name, his family farm and his home village) | ingvar kamprad elmtaryd agunnaryd | Interior Kits for Every Apartment;Inexpensive Kitchens and Everything Assembled
+acronym | NASDAQ |  |  | National Association of Securities Dealers Automated Quotations | national association of securities dealers automated quotations | North American Stock and Dividend Quotes;National Automated Stock Dealing And Quoting
+acronym | GEICO |  |  | Government Employees Insurance Company | government employees insurance company | General Equity Insurance Company;Guaranteed Economical Insurance Coverage
+acronym | DEFCON |  |  | Defense Readiness Condition | defense readiness condition;defense condition | Defensive Code Of National emergency;Department of Emergency Federal Contingency Operations
+acronym | WD-40 |  |  | Water Displacement, 40th formula | water displacement 40th formula;water displacement 40th attempt;water displacement formula 40 | Wonder Degreaser, 40 ounces;Wheel and Door lubricant, 40 uses
+person | Annie Edson Taylor | 1838 to 1921 · schoolteacher from Michigan | At 63, she became the first person ever to ___. | go over Niagara Falls in a barrel | go over niagara falls in a barrel;ride over niagara falls in a barrel;go over niagara falls | swim across Lake Michigan;ride a bicycle across America
+person | Frank Epperson | 1894 to 1983 · from California | When he was 11, he accidentally invented the ___. | Popsicle | popsicle;the popsicle;ice pop;ice lolly | yo-yo;sock puppet
+person | Roy Sullivan | 1912 to 1983 · park ranger in Virginia | He holds the world record for ___. | being struck by lightning the most times (seven) | being struck by lightning;getting hit by lightning;most lightning strikes | most bee stings;longest time without blinking
+person | Charles Osborne | 1894 to 1991 · farmer from Iowa | He's in the record books for the longest-ever case of ___. | the hiccups (68 years) | hiccups;the hiccups;hiccuping | sneezing;sleepwalking
+person | Ruth Wakefield | 1903 to 1977 · ran the Toll House Inn | She's credited with inventing the ___. | chocolate chip cookie | chocolate chip cookies;the chocolate chip cookie;toll house cookie | brownie;ice cream sandwich
+person | Garrett Morgan | 1877 to 1963 · inventor from Ohio | Among his inventions was an early three-position ___. | traffic signal | traffic light;stop light;stoplight;traffic signals | car seat;garden hose nozzle
+person | Margaret Knight | 1838 to 1914 · inventor | She invented a machine that made ___. | flat-bottomed paper bags | paper bags;flat bottom paper bags;grocery bags | paper airplanes;cardboard boxes
+person | Hedy Lamarr | 1914 to 2000 · Hollywood movie star | Besides acting, she co-invented ___. | a frequency-hopping radio system, an idea later used in Wi-Fi and Bluetooth | frequency hopping;wifi;wi fi;bluetooth;spread spectrum | the first waterproof mascara;the rotating restaurant
+person | Violet Jessop | 1887 to 1971 · ship stewardess | She's famous for surviving ___. | the sinking of both the Titanic and its sister ship Britannic | the titanic;the titanic sinking;titanic and britannic | three shark attacks;a fall from a hot air balloon
+person | Percy Spencer | 1894 to 1970 · engineer | A candy bar melting in his pocket led him to invent the ___. | microwave oven | microwave;the microwave;microwave ovens | hair dryer;heated car seat
+person | Sylvan Goldman | 1898 to 1984 · grocery store owner in Oklahoma | In 1937 he invented the ___. | shopping cart | shopping trolley;grocery cart;the shopping cart | price tag;checkout conveyor belt
+person | Bette Nesmith Graham | 1924 to 1980 · secretary in Texas | She invented ___. | Liquid Paper correction fluid | liquid paper;correction fluid;white out;whiteout;wite out | the sticky note;the stapler
+movie | Santa Claus Conquers the Martians | 1964 | Why do the Martians kidnap Santa? | Martian kids are glum and need someone to bring them fun and toys | martian children are sad;the martian kids are unhappy;their kids need christmas;to make martian kids happy | Mars ran out of snow;they want his reindeer to pull their spaceships
+movie | Rubber | 2010 | Who is the killer in this horror movie? | a car tire with psychic powers | a tire;a car tire;a killer tire;a psychic tire | a haunted rubber duck;a gang of rubber bands
+movie | Gymkata | 1985 | What is the hero's special fighting style? | gymnastics mixed with martial arts | gymnastics and karate;gymnastics kung fu;gymnastics karate;gymnastic martial arts | ballroom dancing with nunchucks;yoga on horseback
+movie | Troll 2 | 1990 | The monsters in this movie aren't trolls. What are they? | vegetarian goblins who turn people into plants so they can eat them | goblins;vegetarian goblins | ghosts of angry chefs;tiny Vikings who live in the attic
+movie | House (Hausu) | 1977 | In this Japanese horror film, what attacks a group of schoolgirls? | the house they're staying in, including a piano that eats people | the house;a haunted house;a man eating piano;a piano | a swarm of paper cranes;a giant goldfish
+movie | The Happening | 2008 | What's making people act strangely in this thriller? | plants releasing a toxin into the air | plants;trees;the plants;toxic plants | a radio signal from space;the town's tap water
+movie | Over the Top | 1987 | Sylvester Stallone plays a truck driver who wins his son back by competing in ___. | arm wrestling | arm wrestling;an arm wrestling tournament;armwrestling | demolition derby;a pie-eating contest
+movie | Howard the Duck | 1986 | Howard is a duck from another planet who gets sucked through space and lands in ___. | Cleveland | cleveland ohio;cleveland | Las Vegas;a duck pond in Central Park
+movie | The Wizard | 1989 | Two brothers run away to California so the younger one can ___. | compete in a video game championship | play in a video game tournament;win a video game contest;compete in a video game tournament | become a stage magician;meet his favorite wrestler
+law | Switzerland |  | Animal welfare rules say it's against the law to own just one ___. | guinea pig | guinea pig;a guinea pig;guinea pigs | goldfish;parakeet
+law | Singapore |  | Since 1992, it has been illegal to sell ___. | chewing gum | gum;chewing gum | water guns;silly string
+law | Japan |  | Under the "metabo law," companies have to measure workers' ___ at their yearly checkups. | waistlines | waist;waists;waistline;waist size | shoe size;typing speed
+law | France |  | Since 2016, big supermarkets aren't allowed to throw away unsold food. They have to ___. | donate it to charities | donate it;give it to charity;give it to food banks | sell it for one cent;feed it to zoo animals
+law | Turin, Italy |  | A 2005 city law says dog owners must walk their dogs at least ___. | three times a day | 3 times a day;three times daily | once an hour;before breakfast and after dinner
+law | Vermont |  | A 2009 state law says homeowner groups can't ban ___. | clotheslines | clothes lines;drying laundry outside;clothesline | garden gnomes;front porch hammocks
+law | Denmark |  | Parents have to choose their baby's name from ___, or ask the government for approval. | an official list of approved names | a list of approved names;an approved list;a government list | the phone book;a lottery drawing
+law | United Kingdom |  | Under the Salmon Act of 1986, it's an offence to handle salmon ___. | in suspicious circumstances | suspiciously;under suspicious circumstances | without gloves;after midnight
+law | Germany |  | On the Autobahn, it's against the law to ___. | stop because you ran out of gas | run out of gas;run out of fuel;stop for no reason;run out of petrol | drive under 50 mph in the fast lane;honk at a cow
+law | Canada |  | Radio stations must make sure a big share of the music they play is ___. | Canadian | canadian music;canadian content;songs by canadians | sung in French;under three minutes long
+law | Venice, Italy |  | Since 2008, it has been illegal to ___ in St. Mark's Square. | feed the pigeons | feed pigeons;feed the birds | eat ice cream;whistle
+law | Barcelona, Spain |  | City rules say you can be fined for walking around the streets in ___. | swimwear | a swimsuit;a bathing suit;a bikini;swimsuits;swim trunks | flip-flops;a costume

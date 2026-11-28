@@ -68,8 +68,8 @@ class GC_Home {
 		}
 		$f['soon_badge'] = array( 'Games', 'Badge on coming-soon cards', 'text', 'Coming soon', '' );
 		$soon            = array(
-			1 => array( 'Drawing game', 'Sketch on your phone, everyone guesses on the TV.' ),
-			2 => array( 'Word game', 'Write the funniest answer, then vote for your favorite.' ),
+			1 => array( '', '' ), // Phony Baloney and Scribble Squad are live now; add the next teaser here.
+			2 => array( '', '' ),
 			3 => array( '', '' ),
 		);
 		foreach ( $soon as $i => $s ) {
