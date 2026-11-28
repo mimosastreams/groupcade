@@ -2,9 +2,9 @@
 // nudge and lights up the hint, so a stray touch never picks an answer.
 import * as Haptics from 'expo-haptics';
 import { useRef, useState, type ReactNode } from 'react';
-import { Animated, PanResponder, Pressable, View, type StyleProp, type ViewStyle } from 'react-native';
+import { Animated, PanResponder, Pressable, Text, View, type StyleProp, type ViewStyle } from 'react-native';
 import Svg, { Path } from 'react-native-svg';
-import { C, shadow } from './kit';
+import { C, F, shadow } from './kit';
 
 const LOCK_AT = 0.4; // Share of the row's width to slide before it locks in.
 
@@ -82,6 +82,9 @@ export function SwipeAnswer({
           style={[style, { flexDirection: 'row', alignItems: 'center' }, ready && [{ backgroundColor: C.gold }, shadow(3)]]}
         >
           {children}
+          {enabled ? (
+            <Text style={{ fontFamily: F.heavy, fontSize: 14, color: C.ink, opacity: ready ? 1 : 0.7, marginLeft: 8 }}>{ready ? 'Let go' : 'Slide right'}</Text>
+          ) : null}
           {enabled ? (
             <Svg width={22} height={22} viewBox="0 0 24 24" fill="none" stroke={C.ink} strokeWidth={3} strokeLinecap="round" strokeLinejoin="round" style={{ opacity: ready ? 1 : 0.4 }}>
               <Path d="M9 5l7 7-7 7" />
