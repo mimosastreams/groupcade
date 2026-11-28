@@ -39,9 +39,15 @@ Players always join in their phone browser with the code.
 
 - `src/app/index.tsx`: pick a game, resume your open room, or join someone else's game by code.
 - `src/app/trivia/new.tsx`: mode, rounds, seconds, categories. Makes the room.
+- `src/app/baloney/new.tsx` and `src/app/scribble/new.tsx`: rounds, seconds (and categories for
+  Phony Baloney), on the shared `src/games/shared/NewRoom.tsx`.
 - `src/app/room/[code].tsx` with `src/games/trivia/Host.tsx`: code, QR and share link, TV status,
   players (tap to remove), settings, start; then round, question, timer, locked-in count, reveal,
   still-in list or scores, next round, end game; then winners, standings, play again.
+  `src/games/baloney/Host.tsx` and `src/games/scribble/Host.tsx` do the same for the other games;
+  the room screen picks one by the room's game. The host can play too on the host screen (Trivia:
+  slide to answer; Phony Baloney: write a fake, vote, LOL stickers; Scribble Squad: a drawing pad
+  in `src/ui/Sketch.tsx`, guesses, Best in show).
 - `src/app/play/[code].tsx`: a web view of the player page, for when the host plays too (the app signs
   the page in with its tokens, and the page's "Host screen" button comes back to the native screen),
   or for joining someone else's game.

@@ -30,7 +30,7 @@ class GC_Baloney extends GC_Game {
 	const SECS_SET  = array( 45, 60, 90 );
 	const MAX_FAKES = 8;
 	const MIN_FAKES = 3;
-	const FAKE_LEN  = 60;
+	const FAKE_LEN  = 120; // Room for a whole made-up law or movie plot.
 	const TRUTH_PTS = 1000;
 	const FOOL_PTS  = 500;
 	const LOL_PTS   = 125;
@@ -533,7 +533,7 @@ class GC_Baloney extends GC_Game {
 				return new WP_Error( 'closed', 'Time is up for writing.', array( 'status' => 409 ) );
 			}
 			$raw  = mb_substr( (string) ( $params['text'] ?? '' ), 0, self::FAKE_LEN * 2 );
-			$text = GC_Chat::clean( $raw );
+			$text = GC_Chat::clean( $raw, self::FAKE_LEN );
 			$text = mb_substr( $text, 0, self::FAKE_LEN );
 			if ( '' === trim( $text ) ) {
 				return new WP_Error( 'blocked', 'Try a different fake.', array( 'status' => 400 ) );

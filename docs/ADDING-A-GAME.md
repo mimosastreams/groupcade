@@ -43,8 +43,18 @@ A folder `plugin/groupcade/games/<slug>/` with:
 ## The iPhone app
 
 The app reads `GET /wp-json/groupcade/v1/games`. A new game shows up in the app's picker on its own,
-but the app's native host screens are per game: add a settings screen for it in `app/` (Trivia's is
-`app/src/games/trivia/`). Until then the app can open the game's web host screen.
+but the app's native host screens are per game. Until you add them the app opens the game's web host
+screen. To add them:
+
+1. `app/src/games/<slug>/Settings.tsx` and `Host.tsx`. Build the host on `app/src/games/shared/`:
+   `LobbyFrame` (join card, TV, players, play too, settings), `GameFrame` (round, clock, host
+   controls), `ResultsHeader`, `PointsStandings`, `useHostRun`. Phony Baloney is the simplest example.
+2. `app/src/app/<slug>/new.tsx` on `NewRoomScreen`, and a `Stack.Screen` line in `app/_layout.tsx`.
+3. An entry in `NATIVE_GAMES` (`app/src/games/index.ts`) with `newRoute`, a branch in
+   `app/src/app/room/[code].tsx`, the view's type in `app/src/lib/api.ts`, and any new phases in the
+   poll speeds in `app/src/lib/useRoom.ts`.
+
+A new host screen needs a new App Store build.
 
 ## Testing
 

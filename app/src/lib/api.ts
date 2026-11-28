@@ -83,7 +83,8 @@ export type Player = {
   gain: number;
 };
 
-export type Phase = 'lobby' | 'cat' | 'q' | 'rev' | 'end';
+/** Every game's phases. Trivia: cat, q, rev. Phony Baloney: cat, write, vote, rev, board. Scribble Squad: draw, show, srev, board, best. */
+export type Phase = 'lobby' | 'cat' | 'q' | 'rev' | 'end' | 'write' | 'vote' | 'board' | 'draw' | 'show' | 'srev' | 'best';
 
 export type RoomState = {
   code: string;
@@ -129,6 +130,61 @@ export type RoomState = {
   owned?: boolean;
   /** The caller's own player, when the request carried their player token. ans: 1-4 locked in, 0 = not yet. */
   me?: { name: string; alive: boolean; ans: number; score: number; gain: number };
+};
+
+/** What every game's room view has, whatever the game. */
+export type BaseState = {
+  code: string;
+  game: string;
+  now: number;
+  host: boolean;
+  phase: Phase;
+  round: number;
+  rounds: number;
+  secs: number;
+  t0: number;
+  t1: number;
+  grace: number;
+  played: number;
+  alive: number;
+  locked: number;
+  owned?: boolean;
+  winners?: string[];
+  stopped?: boolean;
+};
+
+export type PointsPlayer = { id?: number; name: string; in: boolean; score: number; gain: number };
+
+export type BaloneyConfig = { cats: { id: string; name: string }[]; rounds: number[]; secs: number[]; maxLen: number };
+
+export type BaloneyReveal = { i: number; t: string; truth: boolean; house: boolean; by: string[]; votes: string[]; pts: number };
+
+export type BaloneyState = BaseState & {
+  players: PointsPlayer[];
+  only: string[];
+  mult: number;
+  /** The prompt: category, a title line (the word, the law's place…), the question, a picture. */
+  p?: { cat: string; catN: string; title: string; sub: string; q: string; img: string };
+  /** Voting: the choices, fakes and the truth mixed. */
+  opts?: string[];
+  res?: { answer: string; rev: BaloneyReveal[]; shown: number; mult: number; truthN?: number };
+  awards?: { k: 'lol' | 'fool' | 'truth'; name: string; n: number }[];
+  me?: { name: string; score: number; gain: number; fake: string; vote: number; lol: number; lols: number; fooled: number; truths: number; own?: number[] };
+};
+
+export type ScribbleConfig = { rounds: number[]; secs: number[]; colors: string[]; widths: number[]; maxPoints: number };
+
+/** A sketch: strokes on a 1000 × 750 grid, points as "x,y,x,y…". */
+export type Stroke = { c: string; w: number; p: string };
+
+export type ScribbleState = BaseState & {
+  players: PointsPlayer[];
+  drawers?: number;
+  cur?: { k: number; n: number; artist: string; sketch: Stroke[]; mask: string; got: { n: string; p: number }[]; word?: string };
+  feed?: ({ n: string; t: string } | { n: string; ok: 1 })[];
+  gallery?: { artist: string; word: string; sketch: Stroke[]; v: number }[];
+  awards?: { k: 'eye'; name: string; n: number }[];
+  me?: { name: string; score: number; gain: number; best: number; right: number; drew: number; word?: string; done?: boolean; artist?: boolean; got?: number; bv?: number; own?: number[] };
 };
 
 // ------------------------------------------------------------------ calls
@@ -213,6 +269,10 @@ export const api = {
 
   answer: (code: string, token: string, round: number, choice: number) =>
     call<{ ok: boolean }>('POST', `/rooms/${code}/action`, { type: 'answer', round, choice }, { 'X-Party-Token': token }),
+
+  /** Any other player action (Phony Baloney: fake, vote, lol. Scribble Squad: draw, guess, best). */
+  play: (code: string, token: string, type: string, payload: object) =>
+    call<{ ok: boolean }>('POST', `/rooms/${code}/action`, { type, ...payload }, { 'X-Party-Token': token }),
 
   join: (code: string, name: string) =>
     call<{ token: string; name: string; late?: boolean }>('POST', `/rooms/${code}/join`, { name }),

@@ -6,9 +6,12 @@ import { useCallback, useEffect, useState } from 'react';
 import { ActivityIndicator, View } from 'react-native';
 import { setTvRoomUrl } from '../../../modules/groupcade-tv';
 import { setCastRoom } from '../../lib/cast';
+import { BaloneyHost } from '../../games/baloney/Host';
+import { NATIVE_GAMES } from '../../games';
+import { ScribbleHost } from '../../games/scribble/Host';
 import { TriviaHost } from '../../games/trivia/Host';
 import { dialog } from '../../ui/Dialog';
-import { api, links } from '../../lib/api';
+import { api, links, type BaloneyState, type BaseState, type RoomState, type ScribbleState } from '../../lib/api';
 import { store, type SavedRoom } from '../../lib/store';
 import { useRoom } from '../../lib/useRoom';
 import { closeRoom } from '../../lib/closeRoom';
@@ -52,7 +55,7 @@ export default function Room() {
     }, [code])
   );
 
-  const { st, error, offline, act, now, refresh } = useRoom(code, saved ? saved.host : null, myTok);
+  const { st, error, offline, act, now, refresh } = useRoom<BaseState & { me?: unknown }>(code, saved ? saved.host : null, myTok);
 
   const leave = () =>
     dialog.alert('Leave this room?', 'The room stays open for 2 hours, and you can come back to it from the home screen.', [
@@ -73,7 +76,9 @@ export default function Room() {
       },
     ]);
   const closeAndHome = () => close(() => router.replace('/'), `Close room ${code}?`, 'Close room');
-  const newRoom = () => close(() => router.replace(saved?.game === 'trivia' || !saved ? '/trivia/new' : '/'), 'Close this room and make a new one?', 'New room');
+  // A new room for the same game, set up natively when the app knows the game.
+  const newRoute = NATIVE_GAMES[saved?.game || 'trivia']?.newRoute || '/';
+  const newRoom = () => close(() => router.replace(newRoute as never), 'Close this room and make a new one?', 'New room');
 
   const playToo = async () => {
     if (myName) return; // Already playing: answers go right on this screen.
@@ -124,13 +129,21 @@ export default function Room() {
     );
   }
 
+  const game = st.game || saved?.game;
+  const common = { act, now, offline, myName, myToken: myTok, onAnswered: refresh, onPlayToo: playToo, onLeave: leave, onClose: closeAndHome, onNewRoom: newRoom };
   return (
     <>
-      <TriviaHost st={st} act={act} now={now} offline={offline} myName={myName} myToken={myTok} onAnswered={refresh} onPlayToo={playToo} onLeave={leave} onClose={closeAndHome} onNewRoom={newRoom} />
+      {game === 'baloney' ? (
+        <BaloneyHost st={st as unknown as BaloneyState} {...common} />
+      ) : game === 'scribble' ? (
+        <ScribbleHost st={st as unknown as ScribbleState} {...common} />
+      ) : (
+        <TriviaHost st={st as unknown as RoomState} {...common} />
+      )}
       <NamePrompt
         open={askName !== null}
         title="Play too"
-        message="Your name on the scoreboard. You answer right here on the host screen, like everyone else."
+        message={game === 'scribble' ? 'Your name on the scoreboard. You draw and guess right here on the host screen, like everyone else.' : game === 'baloney' ? 'Your name on the scoreboard. You write fakes and vote right here on the host screen, like everyone else.' : 'Your name on the scoreboard. You answer right here on the host screen, like everyone else.'}
         initial={askName || ''}
         onCancel={() => setAskName(null)}
         onSubmit={joinAs}

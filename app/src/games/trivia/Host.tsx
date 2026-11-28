@@ -1,21 +1,19 @@
 // The host's controller for a Trivia room: lobby with code, players and settings; then the
 // game as it runs (the TV shows the big version); then winners. All native, no web view.
 import * as Haptics from 'expo-haptics';
-import { useEffect, useState, type ReactNode } from 'react';
-import * as Clipboard from 'expo-clipboard';
+import { useEffect, useState } from 'react';
 import { Pressable, Text, View } from 'react-native';
-import QRCode from 'react-native-qrcode-svg';
 import Svg, { Path } from 'react-native-svg';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { router } from 'expo-router';
-import { api, links, type Player, type RoomState } from '../../lib/api';
+import { api, type RoomState } from '../../lib/api';
 import { Buddy } from '../../ui/Buddy';
 import { dialog } from '../../ui/Dialog';
-import { Banner, Button, C, Card, F, H2, P, Row, Screen, TopBar, Tag, buddyFor, shadow } from '../../ui/kit';
+import { Banner, Button, C, Card, F, H2, P, Row, Screen, TopBar, Tag, shadow } from '../../ui/kit';
 import { Logo } from '../../ui/Logo';
 import { SwipeAnswer } from '../../ui/SwipeAnswer';
 import { TvCard } from '../../ui/TvCard';
 import { NO_CATS, noCats, TriviaSettingsForm, type TriviaSettings } from './Settings';
+import { Clock, DarkButton, HostControls, JoinCard, MAX_PLAYERS, NameTag, PlayersGrid, PlayToo, SaveGames, kick } from '../shared/HostParts';
 
 type Props = {
   st: RoomState;
@@ -32,7 +30,6 @@ type Props = {
 };
 
 const L = ['A', 'B', 'C', 'D'];
-const MAX_PLAYERS = 50;
 const modeName = (m: RoomState['mode']) => (m === 'points' ? 'Points' : 'Survival');
 
 export function TriviaHost(p: Props) {
@@ -278,48 +275,8 @@ export function TriviaHost(p: Props) {
   );
 }
 
-function kick(pl: Player, run: (a: string, x?: object) => Promise<void>) {
-  dialog.alert(`Remove ${pl.name}?`, 'They can join again with a new name.', [
-    { text: 'Cancel', style: 'cancel' },
-    { text: 'Remove', style: 'destructive', onPress: () => run('kick', { player: pl.id }) },
-  ]);
-}
 
-function HostControls({ children }: { children: ReactNode }) {
-  const insets = useSafeAreaInsets();
-  return (
-    <View style={{ backgroundColor: C.ink, borderTopLeftRadius: 28, borderTopRightRadius: 28, paddingHorizontal: 20, paddingTop: 14, paddingBottom: insets.bottom + 14, gap: 10 }}>{children}</View>
-  );
-}
 
-/** Buttons on the navy host-controls bar: white outlines instead of navy. */
-function DarkButton({ title, onPress, kind, busy, disabled }: { title: string; onPress: () => void; kind: 'go' | 'danger'; busy?: boolean; disabled?: boolean }) {
-  const go = kind === 'go';
-  return (
-    <Pressable
-      accessibilityRole="button"
-      accessibilityState={{ disabled: !!(disabled || busy), busy: !!busy }}
-      disabled={disabled || busy}
-      onPress={() => {
-        Haptics.selectionAsync().catch(() => {});
-        onPress();
-      }}
-      style={({ pressed }) => ({
-        height: 50,
-        paddingHorizontal: 16,
-        borderRadius: 999,
-        borderWidth: 3,
-        borderColor: go ? C.white : '#FFB3A3',
-        backgroundColor: go ? C.accent : 'transparent',
-        alignItems: 'center',
-        justifyContent: 'center',
-        opacity: disabled ? 0.4 : pressed ? 0.75 : 1,
-      })}
-    >
-      <Text style={{ fontFamily: F.heavy, fontSize: 16, color: go ? C.white : '#FFB3A3' }}>{busy ? '…' : title}</Text>
-    </Pressable>
-  );
-}
 
 function Check() {
   return (
@@ -329,117 +286,9 @@ function Check() {
   );
 }
 
-function JoinCard({ code, path }: { code: string; path: string }) {
-  const url = links.game(path, code);
-  const [qr, setQr] = useState(false);
-  const [copied, setCopied] = useState(false);
-  // Copy rather than the share sheet: with the TV on, iOS can try to show the sheet on the TV.
-  const copy = () => {
-    Clipboard.setStringAsync(url).catch(() => {});
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
-  return (
-    <View style={[{ backgroundColor: C.accent, borderWidth: 3, borderColor: C.ink, borderRadius: 26, padding: 16, paddingHorizontal: 18, gap: 12 }, shadow(5)]}>
-      <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 10 }}>
-        <View style={{ flexShrink: 1 }}>
-          <Text style={{ fontFamily: F.bold, fontSize: 14, color: '#DCD8FF' }}>Join on your phone at</Text>
-          <Text style={{ fontFamily: F.heavy, fontSize: 17, color: C.white }}>{links.short(path)}</Text>
-          <Text style={{ fontFamily: F.display, fontSize: 52, lineHeight: 58, letterSpacing: 4, color: C.white, marginTop: 2 }} accessibilityLabel={`Room code ${code.split('').join(' ')}`}>
-            {code}
-          </Text>
-        </View>
-        <View style={{ gap: 8 }}>
-          <Button small title={copied ? 'Copied!' : 'Copy link'} onPress={copy} />
-          <Button small title={qr ? 'Hide QR' : 'Show QR'} onPress={() => setQr(!qr)} />
-        </View>
-      </View>
-      {qr ? (
-        <View style={{ alignSelf: 'center', backgroundColor: C.white, padding: 12, borderRadius: 18, borderWidth: 3, borderColor: C.ink }}>
-          <QRCode value={url} size={180} backgroundColor="#ffffff" color={C.ink} />
-        </View>
-      ) : null}
-    </View>
-  );
-}
 
-function PlayersGrid({ st, myName, onKick }: { st: RoomState; myName: string | null; onKick: (p: Player) => void }) {
-  const n = st.players.length;
-  return (
-    <View style={{ gap: 10 }}>
-      <View style={{ flexDirection: 'row', alignItems: 'baseline', justifyContent: 'space-between' }}>
-        <H2>Players · {n}</H2>
-        <Text style={{ fontFamily: F.bold, fontSize: 13, color: C.mist }}>{n ? 'Tap a name to remove them.' : `Room for ${MAX_PLAYERS}`}</Text>
-      </View>
-      <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 10 }}>
-        {st.players.map((x, i) => (
-          <Pressable
-            key={x.id ?? x.name}
-            accessibilityRole="button"
-            accessibilityLabel={`${x.name}${x.name === myName ? ', you' : ''}. Remove`}
-            onPress={() => onKick(x)}
-            style={({ pressed }) => ({
-              width: '31%',
-              backgroundColor: buddyFor(i).card,
-              borderWidth: 3,
-              borderColor: C.ink,
-              borderRadius: 18,
-              paddingVertical: 8,
-              paddingHorizontal: 4,
-              alignItems: 'center',
-              gap: 2,
-              opacity: pressed ? 0.7 : 1,
-            })}
-          >
-            <Buddy index={i} size={50} />
-            <Text style={{ fontFamily: F.heavy, fontSize: 15, color: C.ink }} numberOfLines={1}>
-              {x.name === myName ? `${x.name} (you)` : x.name}
-            </Text>
-          </Pressable>
-        ))}
-        {n < MAX_PLAYERS ? (
-          <View style={{ width: '31%', minHeight: 86, borderWidth: 3, borderStyle: 'dashed', borderColor: C.faint, borderRadius: 18, alignItems: 'center', justifyContent: 'center', padding: 6 }}>
-            <Text style={{ fontFamily: F.bold, fontSize: 13, color: C.mist, textAlign: 'center' }}>{n ? 'Waiting for more…' : 'Waiting for players…'}</Text>
-          </View>
-        ) : null}
-      </View>
-    </View>
-  );
-}
 
-/** "Play too": the host joins as a player and answers on this phone. */
-function PlayToo({ on, name, onPress }: { on: boolean; name: string | null; onPress: () => void }) {
-  return (
-    <Pressable
-      accessibilityRole="checkbox"
-      accessibilityState={{ checked: on, disabled: on }}
-      disabled={on}
-      onPress={onPress}
-      style={{ flexDirection: 'row', alignItems: 'center', gap: 12, backgroundColor: C.goldTint, borderWidth: 3, borderColor: C.ink, borderRadius: 18, paddingVertical: 12, paddingHorizontal: 14 }}
-    >
-      <View style={{ width: 26, height: 26, borderRadius: 7, borderWidth: 3, borderColor: on ? C.accent : C.ink, backgroundColor: on ? C.accent : C.white, alignItems: 'center', justifyContent: 'center' }}>
-        {on ? (
-          <Svg width={14} height={14} viewBox="0 0 24 24" fill="none" stroke={C.white} strokeWidth={4} strokeLinecap="round" strokeLinejoin="round">
-            <Path d="M4 12l5 5L20 6" />
-          </Svg>
-        ) : null}
-      </View>
-      <Text style={{ fontFamily: F.heavy, fontSize: 15, color: C.ink, flex: 1 }}>{on ? `Playing too as ${name}` : 'Play too (answer on this phone)'}</Text>
-    </Pressable>
-  );
-}
 
-function NameTag({ name, index, locked, me }: { name: string; index: number; locked?: boolean; me?: boolean }) {
-  return (
-    <View
-      style={{ flexDirection: 'row', alignItems: 'center', gap: 4, backgroundColor: locked ? C.mintTint : me ? C.goldTint : C.white, borderWidth: 3, borderColor: C.ink, borderRadius: 999, paddingLeft: 4, paddingRight: 12, paddingVertical: 2 }}
-      accessibilityLabel={`${name}${locked ? ', locked in' : ''}`}
-    >
-      <Buddy index={index} size={30} />
-      <Text style={{ fontFamily: F.heavy, fontSize: 15, color: C.ink }}>{name}</Text>
-    </View>
-  );
-}
 
 function LobbySettings({ st, onChange }: { st: RoomState; onChange: (x: object) => void }) {
   const all = st.allCats || [];
@@ -470,26 +319,6 @@ function LobbySettings({ st, onChange }: { st: RoomState; onChange: (x: object) 
   );
 }
 
-/** The round timer: a yellow sticker with the seconds left. */
-function Clock({ st, now }: { st: RoomState; now: () => number }) {
-  const [, tick] = useState(0);
-  useEffect(() => {
-    const t = setInterval(() => tick((n) => n + 1), 250);
-    return () => clearInterval(t);
-  }, []);
-  const t = now();
-  const waiting = t < st.t0;
-  const left = waiting ? st.t1 - st.t0 : Math.max(0, st.t1 - t);
-  const secs = Math.ceil(left / 1000);
-  return (
-    <View
-      accessibilityLabel={`${secs} seconds left`}
-      style={{ width: 58, height: 58, borderRadius: 29, borderWidth: 3, borderColor: C.ink, backgroundColor: !waiting && left < 5000 ? C.coral : C.gold, alignItems: 'center', justifyContent: 'center' }}
-    >
-      <Text style={{ fontFamily: F.display, fontSize: 26, lineHeight: 32, color: C.ink }}>{secs}</Text>
-    </View>
-  );
-}
 
 /** The host's own line as a player: in or out, their score, and how their answer went. */
 function MyStatus({ st, me, myAns }: { st: RoomState; me: NonNullable<RoomState['me']>; myAns: number }) {
@@ -591,20 +420,3 @@ function Standings({ st, myName, buddyOf, max = MAX_PLAYERS }: { st: RoomState; 
   );
 }
 
-/** After a game: a signed-out host can save it to an account; a signed-in host's games are saved. */
-function SaveGames({ st }: { st: RoomState }) {
-  if (st.owned) {
-    return (
-      <P small muted center>
-        Saved to your game history.
-      </P>
-    );
-  }
-  return (
-    <Card tint={C.mintTint} style={{ gap: 8 }}>
-      <H2 style={{ fontSize: 22 }}>Keep this game?</H2>
-      <P small>Sign in to save who won, keep your setup for next time and write your own questions. It's optional.</P>
-      <Button small kind="dark" title="Save my games" onPress={() => router.push({ pathname: '/account', params: { claim: st.code } })} />
-    </Card>
-  );
-}

@@ -29,6 +29,8 @@ export default function RootLayout() {
       <Stack screenOptions={{ headerShown: false, contentStyle: { backgroundColor: C.bg } }}>
         <Stack.Screen name="index" />
         <Stack.Screen name="trivia/new" />
+        <Stack.Screen name="baloney/new" />
+        <Stack.Screen name="scribble/new" />
         <Stack.Screen name="room/[code]" options={{ gestureEnabled: false }} />
         <Stack.Screen name="play/[code]" />
         <Stack.Screen name="account/index" />
